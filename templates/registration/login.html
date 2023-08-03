@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+  {% if form.errors %}
+    <div class="container alinha-form">
+        <div class="col-lg-6 justify-content-center aviso">
+            <p>Usuário e senha inválidos. Por favor tente novamente.</p>
+        </div>
+    </div>
+
+  {% endif %}
+    <div class="container alinha-form">
+        <div class="col-lg-6 justify-content-center formulario">
+            <h1>Entrar no sistema</h1>
+            <form method="post" action="{% url 'login' %}">
+                {% csrf_token %}
+                
+                <div class="form-group">
+                    <label for="id_username">Usuário:</label>
+                    <input type="text" class="form-control" name="username" autofocus="" autocapitalize="none" autocomplete="off" maxlength="150" required="" id="id_username">
+                </div>
+                <div class="form-group">
+                    <label for="id_password">Senha:</label>
+                    <input type="password" class="form-control" name="password" autocomplete="current-password" required="" id="id_password">
+                </div>
+                <button class="btn btn-primary" type="submit">Logar</button>
+            </form>
+            <p><a href="{% url 'password_reset' %}">Alterar/esqueceu a senha</a></p>
+        </div>
+    </div>
+
+{% endblock %}
