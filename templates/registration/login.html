@@ -4,7 +4,7 @@
 {% block content %}
   
     <div class="login">
-        <h1 class="login-h1">Login</h1>
+        <h1>Login</h1>
         <p class="login-p">Para acessar a nossa intranet, faça o login com o seu endereço de e-mail e senha</p>
         <form method="post" action="{% url 'login' %}">
             {% csrf_token %}
@@ -24,7 +24,7 @@
             <button class="botao" type="submit">Login</button>
         </form>
         <p class="p-14">Sua conta está protegida por nossos <b class="b-14">Termos de Serviço e Política de Privacidade</b></p>
-        <div class="logo-div">
+        <div class="logo-login">
             <img class="logo" src="{% static 'registration/img/LOGO INNOVATORE 1.png' %}">
         </div>
     </div>
