@@ -2,33 +2,32 @@
 {% load static %}
 
 {% block content %}
-
-  {% if form.errors %}
-    <div class="container alinha-form">
-        <div class="col-lg-6 justify-content-center aviso">
-            <p>Usuário e senha inválidos. Por favor tente novamente.</p>
+  
+    <div class="login">
+        <h1 class="login-h1">Login</h1>
+        <p class="login-p">Para acessar a nossa intranet, faça o login com o seu endereço de e-mail e senha</p>
+        <form method="post" action="{% url 'login' %}">
+            {% csrf_token %}
+            
+            <div class="form-group">
+                <label for="id_username">E-mail:</label>
+                <input type="text" class="form-control" name="username" autofocus="" autocapitalize="none" autocomplete="off" maxlength="150" required="" id="id_username">
+            </div>
+            <div class="form-group">
+                <label for="id_password">Senha:</label>
+                <input type="password" class="form-control" name="password" autocomplete="current-password" required="" id="id_password">
+            </div>
+            <p class="redefinir-p"><a href="{% url 'password_reset' %}" class="redefinir">Redefinir Senha</a></p>
+            {% if form.errors %}
+                <p class="erro-login">Usuário ou senha inválidos. Por favor tente novamente.</p>
+            {% endif %}
+            <button class="botao" type="submit">Login</button>
+        </form>
+        <p class="p-14">Sua conta está protegida por nossos <b class="b-14">Termos de Serviço e Política de Privacidade</b></p>
+        <div class="logo-div">
+            <img class="logo" src="{% static 'registration/img/LOGO INNOVATORE 1.png' %}">
         </div>
     </div>
-
-  {% endif %}
-    <div class="container alinha-form">
-        <div class="col-lg-6 justify-content-center formulario">
-            <h1>Entrar no sistema</h1>
-            <form method="post" action="{% url 'login' %}">
-                {% csrf_token %}
-                
-                <div class="form-group">
-                    <label for="id_username">Usuário:</label>
-                    <input type="text" class="form-control" name="username" autofocus="" autocapitalize="none" autocomplete="off" maxlength="150" required="" id="id_username">
-                </div>
-                <div class="form-group">
-                    <label for="id_password">Senha:</label>
-                    <input type="password" class="form-control" name="password" autocomplete="current-password" required="" id="id_password">
-                </div>
-                <button class="btn btn-primary" type="submit">Logar</button>
-            </form>
-            <p><a href="{% url 'password_reset' %}">Alterar/esqueceu a senha</a></p>
-        </div>
-    </div>
+    
 
 {% endblock %}
