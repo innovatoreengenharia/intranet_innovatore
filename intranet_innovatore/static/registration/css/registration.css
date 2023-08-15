@@ -211,3 +211,19 @@ input{
     width: 38em;
     text-align: center;
 }
+
+/* Página 404 */
+
+.pag-404{
+    position: relative;
+    margin: 3em auto;
+}
+
+.botao-voltar{
+    width: 38.625em;
+    color: white;
+    background-color: #14355e;
+    height: 3.063em;
+    border-radius: 8px;
+    margin-top: 7em;
+}
