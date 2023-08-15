@@ -227,3 +227,20 @@ input{
     border-radius: 8px;
     margin-top: 7em;
 }
+
+/* login adiministração */
+
+.login-admin{
+    position: relative;
+    top: 13em;
+    margin:auto;
+    width: 38em;
+}
+
+.logo-adm{
+    position: relative;
+    top: 17em;
+    margin:auto;
+    width: 38em;
+    text-align: center;
+}
