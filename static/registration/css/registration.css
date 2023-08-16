@@ -142,12 +142,12 @@ input{
 }
 
 .erro-login{
-    color: #ff0000;
+    color: #ff4848;
     font-size: 0.875em;
     font-family: 'Open Sans', sans-serif;
     font-weight:400;
     position: relative;
-    top:  -3em;
+    top:  -2.7em;
 }
 /* Redefinir Senha */
 

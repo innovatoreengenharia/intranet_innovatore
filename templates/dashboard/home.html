@@ -357,5 +357,12 @@
 <h1>pagina home</h1>
 <p><a href="{% url 'logout' %}">Logout</a></p>
 
+<!-- Page level plugins -->
+<script src="{% static 'dashboard/js/Chart.min.js' %}"></script>
+
+<!-- Page level custom scripts -->
+<script src="{% static 'dashboard/js/chart-area-demo.js' %}"></script>
+
+<script src="{% static 'dashboard/js/chart-pie-demo.js' %}"></script>
 
 {% endblock %}

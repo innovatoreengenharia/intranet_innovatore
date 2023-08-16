@@ -2,6 +2,8 @@ from django.db import models
 from datetime import datetime
 
 class Qualidade(models.Model):
+    class Meta:
+        verbose_name_plural = "Qualidade"
     OPC_DOC = [
         ('PDF','pdf'),
         ('TXT','txt'),
