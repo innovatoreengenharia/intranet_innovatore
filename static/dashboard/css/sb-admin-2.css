@@ -1,15 +1,7 @@
-/*!
- * Start Bootstrap - SB Admin 2 v4.1.3 (https://startbootstrap.com/theme/sb-admin-2)
- * Copyright 2013-2021 Start Bootstrap
- * Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-sb-admin-2/blob/master/LICENSE)
- */
-
-/*!
- * Bootstrap v4.6.0 (https://getbootstrap.com/)
- * Copyright 2011-2021 The Bootstrap Authors
- * Copyright 2011-2021 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
- */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital@0;1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap');
 :root {
   --blue: #14355e;
   --indigo: #6610f2;
@@ -6424,13 +6416,13 @@ button.bg-primary:focus {
 }
 
 .bg-secondary {
-  background-color: #858796 !important;
+  background-color: #f9f9f9 !important;
 }
 
 a.bg-secondary:hover, a.bg-secondary:focus,
 button.bg-secondary:hover,
 button.bg-secondary:focus {
-  background-color: #6b6d7d !important;
+  background-color: #f9f9f9 !important;
 }
 
 .bg-success {
@@ -10514,7 +10506,7 @@ a:focus {
 @media (min-width: 768px) {
   
   .sidebar {
-    width: 14rem !important;
+    width: 20.438em !important;
   }
   .sidebar .nav-item .collapse {
     position: relative;
@@ -10696,23 +10688,23 @@ a:focus {
 }
 
 .sidebar-dark .nav-item .nav-link {
-  color: rgba(255, 255, 255, 0.8);
+  color: #a4a4a4;
 }
 
 .sidebar-dark .nav-item .nav-link i {
-  color: rgba(255, 255, 255, 0.3);
+  color: #a4a4a4;
 }
 
 .sidebar-dark .nav-item .nav-link:active, .sidebar-dark .nav-item .nav-link:focus, .sidebar-dark .nav-item .nav-link:hover {
-  color: #fff;
+  color: #a4a4a4;
 }
 
 .sidebar-dark .nav-item .nav-link:active i, .sidebar-dark .nav-item .nav-link:focus i, .sidebar-dark .nav-item .nav-link:hover i {
-  color: #fff;
+  color: #a4a4a4;
 }
 
 .sidebar-dark .nav-item .nav-link[data-toggle="collapse"]::after {
-  color: rgba(255, 255, 255, 0.5);
+  color: #a4a4a4;
 }
 
 .sidebar-dark .nav-item.active .nav-link {
