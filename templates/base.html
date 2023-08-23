@@ -10,7 +10,7 @@
     <title>Intranet Innovatore</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
-
+    
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
     
     <!-- Fontes dashboard-->
@@ -26,44 +26,66 @@
     <div id="wrapper">
 
         <!-- Sidebar -->
+        {% with request.resolver_match.url_name as url_name %}
         <ul class="navbar-nav bg-secondary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{% url 'home' %}">
-                <img class="logo-inn"src="{% static 'dashboard/img/LOGO INNOVATORE1.png' %}">
-            </a>
-
+            {% comment %} <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{% url 'home' %}">
+            </a> {% endcomment %}
+            
             <!-- Divider -->
-            <hr class="sidebar-divider my-0">
+            <img class="logo-inn"src="{% static 'dashboard/img/LOGO INNOVATORE1.png' %}">
+            <hr class="sidebar-divider d-none d-md-block">
 
             <!-- Nav Item - Dashboard -->
-            <li class="nav-item active">
-                <a class="nav-link" href="{% url 'home'%}">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
+            {% if url_name == 'home' %}
+            <li class="nav-item active item-menu">
+                <a class="nav-link" href={% url 'home' %}>
+                    <img src={% static "dashboard/img/dash_selecionado.png" %}>
                     <span>Dashboard</span></a>
             </li>
-
-            <!-- Divider -->
-            <hr class="sidebar-divider">
-
-            <!-- Heading -->
-            <div class="sidebar-heading">
-                Interface
-            </div>
+            {% else %}
+            <li class="nav-item item-menu">
+                <a class="nav-link" href={% url 'home' %}>
+                    <img src={% static "dashboard/img/dash.png" %}>
+                    <span>Dashboard</span></a>
+            </li>
+            {% endif %}
             <!-- Favoritos -->
-            <li class="nav-item">
+            <li class="nav-item item-menu">
                 <a class="nav-link" href="charts.html">
-                    <i class="fas fa-solid fa-star"></i>
+                    <img src={% static "dashboard/img/favoritos.png" %}>
                     <span>Favoritos</span></a>
             </li>
 
+            <li class="nav-item item-menu">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target=""
+                aria-expanded="true" aria-controls="">
+                    <img src={% static "dashboard/img/institucional.png" %}>
+                    <span>Institucional</span> 
+                    <img class="vetor" src={% static "dashboard/img/vetor.png" %}>
+                </a>
+                    
+            </li>
+
             <!-- Nav Item - Segurança do trabalho meio ambiente -->
-            <li class="nav-item">
+           
+
+            <li class="nav-item item-menu">
+                {% if '/qualidade' in url_name %}
+                <a class="nav-link active collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+                    aria-expanded="true" aria-controls="collapseTwo">
+                    <img src={% static "dashboard/img/dash_selecionado.png" %}>
+                    <span>Documentos</span>
+                </a>
+                {% else %}
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fas fa-fw fa-cog"></i>
-                    <span>Gestão</span>
+                    <img src={% static "dashboard/img/documentos.png" %}>
+                    <span>Documentos</span>
+                    <img class="vetor" src={% static "dashboard/img/vetor.png" %}>
                 </a>
+                {% endif %}
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         {% comment %} <h6 class="collapse-header">Custom Components:</h6> {% endcomment %}
@@ -86,126 +108,57 @@
                     </div>
                 </div>
             </li>
-            <!-- Institucional -->
-            <li class="nav-item">
+
+            <li class="nav-item item-menu">
                 <a class="nav-link" href="charts.html">
-                    <i class="fas fa-solid fa-star"></i>
-                    <span>Institucional</span></a>
+                    <img src={% static "dashboard/img/painel_tarefas.png" %}>
+                    <span>Painel de Tarefas</span></a>
             </li>
-            <!-- Calendário -->
-            <li class="nav-item">
+
+            <li class="nav-item item-menu">
                 <a class="nav-link" href="charts.html">
-                    <i class="fas fa-solid fa-star"></i>
+                    <img src={% static "dashboard/img/calendario.png" %}>
                     <span>Calendário</span></a>
             </li>
-            <!-- Caixa de Idéias -->
-            <li class="nav-item">
+
+            <li class="nav-item item-menu">
                 <a class="nav-link" href="charts.html">
-                    <i class="fas fa-solid fa-star"></i>
-                    <span>Caixa de Idéias</span></a>
+                    <img src={% static "dashboard/img/mapa_obras.png" %}>
+                    <span>Mapa de Obras</span></a>
             </li>
-            <!-- Blog -->
-            <li class="nav-item">
+
+            <li class="nav-item item-menu">
                 <a class="nav-link" href="charts.html">
-                    <i class="fas fa-solid fa-star"></i>
+                    <img src={% static "dashboard/img/avisos.png" %}>
+                    <span>Avisos</span></a>
+            </li>
+
+            <li class="nav-item item-menu">
+                <a class="nav-link" href="charts.html">
+                    <img src={% static "dashboard/img/aniversariantes.png" %}>
+                    <span>Aniversariantes</span></a>
+            </li>
+
+            <li class="nav-item item-menu">
+                <a class="nav-link" href="charts.html">
+                    <img src={% static "dashboard/img/social.png" %}>
+                    <span>Social</span></a>
+            </li>
+
+            <li class="nav-item item-menu">
+                <a class="nav-link" href="charts.html">
+                    <img src={% static "dashboard/img/cursos.png" %}>
+                    <span>Cursos</span></a>
+            </li>
+
+            <li class="nav-item item-menu">
+                <a class="nav-link" href="charts.html">
+                    <img src={% static "dashboard/img/blog.png" %}>
                     <span>Blog</span></a>
-            </li>
-            <!-- Notícias / Eventos -->
-            <li class="nav-item">
-                <a class="nav-link" href="charts.html">
-                    <i class="fas fa-solid fa-star"></i>
-                    <span>Notícias / Eventos</span></a>
-            </li>
-            <!-- Comunicado Interno -->
-            <li class="nav-item">
-                <a class="nav-link" href="charts.html">
-                    <i class="fas fa-solid fa-star"></i>
-                    <span>Comunicado Interno</span></a>
-            </li>
-            <!-- Tarefas -->
-            <li class="nav-item">
-                <a class="nav-link" href="charts.html">
-                    <i class="fas fa-solid fa-star"></i>
-                    <span>Tarefas</span></a>
-            </li>
-
-            <!-- Social -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#social"
-                    aria-expanded="true" aria-controls="social">
-                    <i class="fas fa-fw fa-wrench"></i>
-                    <span>Social</span>
-                </a>
-                <div id="social" class="collapse" aria-labelledby="headingUtilities"
-                    data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        {% comment %} <h6 class="collapse-header">Custom Utilities:</h6> {% endcomment %}
-                        <a class="collapse-item" href="utilities-color.html">Chat</a>
-                        <a class="collapse-item" href="utilities-border.html">Avisos</a>
-                        <a class="collapse-item" href="utilities-animation.html">Enquete</a>
-                        <a class="collapse-item" href="utilities-other.html">Eventos</a>
-                    </div>
-                </div>
-            </li>
-            
-            
-
-            <!-- Nav Item - Utilities Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
-                    aria-expanded="true" aria-controls="collapseUtilities">
-                    <i class="fas fa-fw fa-wrench"></i>
-                    <span>Utilities</span>
-                </a>
-                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
-                    data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Custom Utilities:</h6>
-                        <a class="collapse-item" href="utilities-color.html">Colors</a>
-                        <a class="collapse-item" href="utilities-border.html">Borders</a>
-                        <a class="collapse-item" href="utilities-animation.html">Animations</a>
-                        <a class="collapse-item" href="utilities-other.html">Other</a>
-                    </div>
-                </div>
             </li>
 
             <!-- Divider -->
             <hr class="sidebar-divider">
-
-            <!-- Heading -->
-            <div class="sidebar-heading">
-                Addons
-            </div>
-
-            <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
-                    aria-expanded="true" aria-controls="collapsePages">
-                    <i class="fas fa-fw fa-folder"></i>
-                    <span>Pages</span>
-                </a>
-                <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Login Screens:</h6>
-                        <a class="collapse-item" href="login.html">Login</a>
-                        <a class="collapse-item" href="register.html">Register</a>
-                        <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
-                        <div class="collapse-divider"></div>
-                        <h6 class="collapse-header">Other Pages:</h6>
-                        <a class="collapse-item" href="404.html">404 Page</a>
-                        <a class="collapse-item" href="blank.html">Blank Page</a>
-                    </div>
-                </div>
-            </li>
-
-            
-
-            <!-- Nav Item - Tables -->
-            <li class="nav-item">
-                <a class="nav-link" href="tables.html">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Tables</span></a>
-            </li>
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
@@ -215,17 +168,12 @@
                 <button class="rounded-circle border-0" id="sidebarToggle"></button>
             </div>
 
-            <!-- Sidebar Message -->
-            <div class="sidebar-card d-none d-lg-flex">
-                
-                <p class="text-center mb-2"><strong>SB Admin Pro</strong> is packed with premium features, components, and more!</p>
-                <a class="btn btn-success btn-sm" href="https://startbootstrap.com/theme/sb-admin-pro">Upgrade to Pro!</a>
-            </div>
 
         </ul>
+        {% endwith %}
         <!-- End of Sidebar -->
         <!-- Content Wrapper -->
-<div id="content-wrapper" class="d-flex flex-column">
+{% comment %} <div id="content-wrapper" class="d-flex flex-column">
 
     <!-- Main Content -->
     <div id="content">
@@ -431,7 +379,8 @@
             </ul>
             
         </nav>
-
+ {% endcomment %}
+    <p><a href="{% url 'logout' %}">Logout</a></p>
         
     {% block content %}{% endblock %}
 
