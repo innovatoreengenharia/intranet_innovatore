@@ -50,6 +50,7 @@ INSTALLED_APPS = [
 
     "dashboard",
     "gestao",
+    "usuario",
 ]
 
 MIDDLEWARE = [
@@ -163,3 +164,5 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # Redirect to home URL after login (Default redirects to /accounts/profile/)
 
+# Tamanho máximo slavo em RAM em bytes
+# codigo =   FILE_UPLOAD_MAX_MEMORY_SIZE = 100000000

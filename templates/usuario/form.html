@@ -1,0 +1,182 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class='conatiner'>
+    <h1>Formulario de Cadastro</h1>
+    <form method="post" action="{% url 'cadastro' %}" autocomplete='off'>
+        {% csrf_token %}
+        <div class='row'>
+            <label for="id_foto">Foto</label>
+            <input type="file" name="foto" accept="image/*" id="id_foto">
+            
+            <label for="id_fundo">Fundo</label>
+            <input type="file" name="fundo" accept="image/*" id="id_fundo">
+
+            <label for="id_usuario">Usuario</label>
+            <input name="usuario" required="" id="id_usuario" value={{usuario_logado}} disabled>
+        </div>
+
+        <h1>Informações Básicas</h1>
+
+
+        <div class="row">
+            <div class="col-lg-3 col-sm-12">
+                <label for="id_nome">Primeiro Nome</label>
+                <input type="text" name="nome" maxlength="20" required="" id="id_nome">
+            </div>
+
+            <div class="col-lg-3 col-sm-12">
+                <label for="id_sobrenome">Sobrenome</label>
+                <input type="text" name="sobrenome" maxlength="50" required="" id="id_sobrenome">
+            </div>
+
+            <div class="col-lg-3 col-sm-12">
+                <label for="{{ form.nascimento.id_for_label }}" >{{ form.nascimento.label }}</label>
+                {{ form.nascimento }}
+            </div>
+
+            <div class="col-lg-3 col-sm-12">
+                <label for="{{ form.sexo.id_for_label }}" >{{ form.sexo.label }}</label>
+                {{ form.sexo }}
+            </div>
+            
+            <div class="col-lg-3 col-sm-12">
+                <label for="id_email">E-mail</label>
+                <input type="email" name="email" maxlength="50" required="" id="id_email">
+            </div>
+
+            <div class="col-lg-3 col-sm-12">
+                <label for="id_contato">Contato</label>
+                <input type="text" name="contato" maxlength="16" required="" id="id_contato">
+            </div>
+
+            <div class="col-lg-3 col-sm-12">
+                <label for="id_cpf">CPF</label>
+                <input type="text" name="cpf" maxlength="14" required="" id="id_cpf">
+            </div>
+
+            <div class="col-lg-3 col-sm-12">
+                <label for="id_rg">RG</label>
+                <input type="text" name="rg" maxlength="25" required="" id="id_rg">
+            </div>
+
+            <div class="col-lg-3 col-sm-12">
+                <label for="id_endereco">Endereço</label>
+                <input type="text" name="endereco" maxlength="50" required="" id="id_endereco">
+            </div>
+
+            <div class="col-lg-3 col-sm-12">
+                <label for="id_bairro">Bairro</label>
+                <input type="text" name="bairro" maxlength="30" required="" id="id_bairro">
+            </div>
+
+            <div class="col-lg-3 col-sm-12">
+                <label for="id_cidade">Cidade</label>
+                <input type="text" name="cidade" maxlength="50" required="" id="id_cidade">
+            </div>
+
+            <div class="col-lg-3 col-sm-12">
+                <label for="{{ form.estado.id_for_label }}" >{{ form.estado.label }}</label>
+                {{ form.estado }}
+            </div>
+
+            <div class="col-lg-3 col-sm-12">
+                <label for="id_numero">Número</label>
+                <input type="text" name="numero" maxlength="15" required="" id="id_numero">
+            </div>
+            
+            <div class="col-lg-3 col-sm-12">
+                <label for="id_complemento">Complemento</label>
+                <input type="text" name="complemento" maxlength="30" id="id_complemento">
+            </div>
+        </div>
+
+        <br>
+        <h1>Informações Profissionais</h1>
+
+        <div class="row">
+            <div class="col-lg-3 col-sm-12">
+                <label for="id_cargo_inicial">Cargo Inicial</label>
+                <input type="text" name="cargo_inicial" maxlength="30" required="" id="id_cargo_inicial">
+            </div>
+
+            <div class="col-lg-3 col-sm-12">
+                <label for="id_cargo">Cargo</label>
+                <input type="text" name="cargo" maxlength="30" required="" id="id_cargo">
+            </div>
+
+            <div class="col-lg-2 col-sm-12">
+                <label for="id_setor">Setor</label>
+                <input type="text" name="setor" maxlength="30" required="" id="id_setor">
+            </div>
+
+            <div class="col-lg-2 col-sm-12">
+                <label for="id_cidade_trabalho">Cidade em que Trabalha</label>
+                <input type="text" name="cidade_trabalho" maxlength="30" required="" id="id_cidade_trabalho">
+            </div>
+
+            <div class="col-lg-2 col-sm-12">
+                <label for="id_estado_trabalho">Estado em que Trabalha</label>
+                <input type="text" name="estado_trabalho" maxlength="30" required="" id="id_estado_trabalho">
+            </div>
+
+            <div class="col-lg-3 col-sm-12">
+                <label for="{{ form.data_inicio.id_for_label }}" >{{ form.data_inicio.label }}</label>
+                {{ form.data_inicio }}
+            </div>
+
+            <div class="col-lg-3 col-sm-12">
+                <label for="{{ form.data_mudanca.id_for_label }}" >{{ form.data_mudanca.label }}</label>
+                {{ form.data_mudanca }}
+            </div>
+
+
+            <div class="col-lg-2 col-sm-12">
+                <label for="id_email_empresa">E-mail</label>
+                <input type="email" name="email_empresa" maxlength="30" required="" id="id_email_empresa">
+            </div>
+
+            <div class="col-lg-2 col-sm-12">
+                <label for="id_telefone">Telefone</label>
+                <input type="text" name="telefone" maxlength="30" required="" id="id_telefone">
+            </div>
+
+            <div class="col-lg-2 col-sm-12">
+                <label for="id_obra_trabalho">Obra em que Trabalha</label>
+                <input type="text" name="obra_trabalho" maxlength="30" required="" id="id_obra_trabalho">
+            </div>
+        </div>    
+            
+
+<!--*****************************************************************************************************************-->
+
+            <h1> Experiência Profissional </h1>
+        <div class="row">
+            
+            <div class="col-12">
+                <label for="{{ form.texto_experiencia.id_for_label }}" >{{ form.texto_experiencia.label }}</label>
+                {{ form.texto_experiencia }}
+            </div>
+
+            {{ form_experiencia.management_form }}
+
+            {% for fe in form_experiencia %}
+                
+            <div class="col-6">
+                <label for="{{ fe.id_for_label }}" >{{ fe.label }}</label>
+                {{ fe }}
+            </div>
+
+            {% endfor %}
+        </div>
+
+        <hr>
+
+        <button class="btn btn-primary" type="submit">Salvar</button>  
+        <a class="btn btn-danger" href="{% url 'cadastro' %}">Cancelar</a>
+    </form>
+</div>
+
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="container">
+
+    <h1>{{ form.nome }}</h1>
+    <ul>
+        {% for fe in form_experiencia.all %}
+        <p>fe.experiencia</p>
+        <p>fe.empresa</p>
+        <p>fe.localidade</p>
+        <p>fe.forma_trabalho</p>
+        <p>fe.inicio_trabalho</p>
+        <p>fe.termino_trabalho</p>
+        <p>fe.descricao_trabalho</p>
+        {% endfor %}
+    </ul>   
+
+</div>
+
+{% endblock %}

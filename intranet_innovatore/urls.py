@@ -26,6 +26,7 @@ urlpatterns = [
     path('admin/login/', auth_views.LoginView.as_view(template_name='login_admin.html'), name='login_admin'),
     path("accounts/", include('django.contrib.auth.urls')),
     path("admin/", admin.site.urls, name="admin"),
+    path("usuario/", include('usuario.urls')),
 ]
 
 if settings.DEBUG:
