@@ -6,9 +6,33 @@ from .models import Perfil, Experiencia, Formacao, Cursos, Habilidades, Hobbies
 class PerfilForm(forms.ModelForm):
     class Meta:
         model = Perfil
-        fields ='__all__'
-    def __init__(self, user=None, *args, **kwargs):
-        super(PerfilForm, self).__init__(*args, **kwargs)
+        fields =[ 
+    'usuario','nome','sobrenome','nascimento','sexo','email', 'contato','cpf','rg','endereco','bairro','cidade','estado','numero', 'complemento','cargo_inicial','cargo', 'setor', 'cidade_trabalho', 'estado_trabalho', 'data_inicio', 'data_mudanca', 'email_empresa', 'telefone', 'obra_trabalho', 'texto_experiencia',
+    ]
+
+        widgets = {
+            'nascimento': forms.DateInput(
+                format='%d/%m/%Y',
+                attrs={
+                    'type': 'date',
+                    'class':'form-control'
+                    },
+                ),
+            'data_inicio': forms.DateInput(
+                format='%d/%m/%Y',
+                attrs={
+                    'type': 'date',
+                    'class':'form-control'
+                    },
+                ),
+            'data_mudanca': forms.DateInput(
+                format='%d/%m/%Y',
+                attrs={
+                    'type': 'date',
+                    'class':'form-control'
+                    },
+                ),
+        }     
 
 class ExperienciaForm(forms.ModelForm):
     class Meta:

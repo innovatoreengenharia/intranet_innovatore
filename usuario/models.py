@@ -39,11 +39,11 @@ class Perfil(models.Model):
         ('Tocantins', 'TO'),
     ]
     # Informações Basicas 
-    usuario = models.OneToOneField(User, on_delete=models.CASCADE)
-    foto = models.ImageField(upload_to="fotos", width_field=40, height_field=40, blank=True)
+    usuario = models.OneToOneField(User, on_delete=models.PROTECT)
+    foto = models.ImageField(upload_to="fotos", blank=True)
     fundo = models.ImageField(upload_to="fundos", blank=True)
     nome = models.CharField(max_length=20, null=True)
-    sobrenome = models.CharField(max_length=50, null=True)
+    sobrenome = models.CharField(max_length=50, null=True, blank=True)
     nascimento = models.DateField(default=datetime.now, null=True)
     sexo = models.CharField(max_length=20, choices=GEN, null=True)
     email = models.EmailField(max_length=50,null=True)

@@ -4,19 +4,23 @@
 {% block content %}
 
 <div class="container">
-
-    <h1>{{ form.nome }}</h1>
-    <ul>
-        {% for fe in form_experiencia.all %}
-        <p>fe.experiencia</p>
-        <p>fe.empresa</p>
-        <p>fe.localidade</p>
-        <p>fe.forma_trabalho</p>
-        <p>fe.inicio_trabalho</p>
-        <p>fe.termino_trabalho</p>
-        <p>fe.descricao_trabalho</p>
-        {% endfor %}
-    </ul>   
+    
+    <h1>{{ usuario_logado }}</h1> 
+    {{ pu }}
+    {% comment %} {{ pu.usuario }}  
+    {{ pu.nome }} 
+    {{ pu.sobrenome }} 
+    {{ pu.sexo }} 
+    {{ pu.email }} 
+    {{ pu.contato }} 
+    {{ pu.cpf }} 
+    {{ pu.rg }} 
+    {{ pu.endereco }} 
+    {{ pu.bairro }} 
+    {{ pu.cidade }} 
+    {{ pu.estado }} 
+    {{ pu.numero }} 
+    {{ pu.complemento }}  {% endcomment %}
 
 </div>
 
