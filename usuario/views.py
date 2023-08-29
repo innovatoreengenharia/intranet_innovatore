@@ -1,6 +1,6 @@
 from django.contrib.auth.models import User
 from django.forms import inlineformset_factory
-from django.shortcuts import redirect, render
+from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse, reverse_lazy
 from .forms import PerfilForm, ExperienciaForm, FormacaoForm, CursosForm,HabilidadesForm, HobbiesForm
 from .models import Perfil, Experiencia, Formacao, Cursos, Habilidades, Hobbies
@@ -54,12 +54,27 @@ def perfil(request):
     logado_id = request.user.id
     
     
-    perfil_usuario = Perfil.objects.filter(usuario_id = logado_id)
+    query_usuario = Perfil.objects.filter(usuario_id = logado_id)
+    perfil_usuario = query_usuario[0]
     context = {
         'pu': perfil_usuario,
         'usuario_logado':usuario_logado,
+        'logado_id':logado_id,
     }
-    print(usuario_logado)
-    print(perfil_usuario)
-    print(logado_id)
     return render(request,'usuario/perfil.html',context)
+
+def editPerfil (request, id):
+    perfil = get_object_or_404(Perfil, pk=id)
+    form = PerfilForm(instance=perfil)
+    if(request.method == 'GET'):
+        return render(request, 'usuario/editar_perfil.html', {'form': form, 'perfil': perfil})
+
+    elif(request.method == 'POST'):
+        form = PerfilForm(request.POST, request.FILES, instance=perfil)
+
+        if form.is_valid():
+            perfil.save()
+            return redirect('perfil')
+        else:
+            return render(request, 'usuario/editar_perfil.html', {'form': form, 'perfil': perfil})
+

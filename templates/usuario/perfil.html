@@ -7,20 +7,39 @@
     
     <h1>{{ usuario_logado }}</h1> 
     {{ pu }}
-    {% comment %} {{ pu.usuario }}  
+    <br>
+    {{ pu.id }}
+    <br>
+    {{ pu.usuario }}
+    <br> 
     {{ pu.nome }} 
+    <br>
     {{ pu.sobrenome }} 
+    <br>
     {{ pu.sexo }} 
+    <br>
     {{ pu.email }} 
+    <br>
     {{ pu.contato }} 
+    <br>
     {{ pu.cpf }} 
+    <br>
     {{ pu.rg }} 
+    <br>
     {{ pu.endereco }} 
+    <br>
     {{ pu.bairro }} 
+    <br>
     {{ pu.cidade }} 
+    <br>
     {{ pu.estado }} 
+    <br>
     {{ pu.numero }} 
-    {{ pu.complemento }}  {% endcomment %}
+    <br>
+    {{ pu.complemento }} 
+    <br>
+
+    <a href="{% url 'editPerfil' pu.id %}">editar</a>
 
 </div>
 
