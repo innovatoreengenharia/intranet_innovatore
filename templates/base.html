@@ -19,6 +19,7 @@
 
     <!-- Estilo dashboard-->
     <link href="{% static 'dashboard/css/sb-admin-2.css' %}" rel="stylesheet">
+    {% block estilo %}{% endblock %}
     
 </head>
 
@@ -387,6 +388,7 @@
     <!-- Bootstrap core JavaScript-->
     <script src="{% static 'dashboard/js/jquery.min.js' %}"></script>
     <script src="{% static 'dashboard/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'usuario/js/usuario.js' %}"></script>
     
     
 
@@ -395,6 +397,7 @@
 
     <!-- Custom scripts for all pages-->
     <script src="{% static 'dashboard/js/sb-admin-2.min.js' %}"></script>
-    
+
+    {% block scripts %}{% endblock %}
 </body>
 </html>

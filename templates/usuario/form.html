@@ -1,11 +1,15 @@
 {% extends 'base.html' %}
 {% load static %}
 
+{% block estilo %}
+    <link href="{% static 'usuario/css/usuario.css' %}" rel="stylesheet">
+{% endblock %}
+
 {% block content %}
 
-<div class='conatiner'>
+<div class='conatiner container-cadastro'>
     <h1>Formulario de Cadastro</h1>
-    <h2>Olá {{ usuario_logado }}</h2>
+    <h2>Olá {{ nome }} {{ sobrenome }}</h2>
     <form method="post" action="{% url 'cadastro' %}" autocomplete='off'>
         {% csrf_token %}
         <div class='row'>
@@ -19,167 +23,191 @@
 
             <label for="id_usuario">Usuario</label>
             <input type="hidden" name="usuario" required="" id="id_usuario" value={{usuario_id}} class="col-4">
-
-
-            {% comment %} <select name="usuario" required="" id="id_usuario"></select>
-
-            <div class="col-lg-3 col-sm-12">
-                <label for="{{ form.usuario.id_for_label }}" >{{ form.usuario.label }}</label>
-                {{ form.usuario }}
-            </div> {% endcomment %}
         </div>
 
-        <h1>Informações Básicas</h1>
+        <h3>Informações Básicas</h3>
 
 
         <div class="row">
-            <div class="col-lg-3 col-sm-12">
+            <div class="form-group col-3">
                 <label for="id_nome">Primeiro Nome</label>
-                <input type="text" name="nome" maxlength="20" required="" id="id_nome">
+                <input type="text" name="nome" maxlength="20" required="" id="id_nome"  placeholder="Digite o seu primeiro nome" class="form-control">
             </div>
 
-            <div class="col-lg-3 col-sm-12">
+            <div class="form-group col-2">
                 <label for="id_sobrenome">Sobrenome</label>
-                <input type="text" name="sobrenome" maxlength="50" required="" id="id_sobrenome">
+                <input type="text" name="sobrenome" maxlength="50" required="" id="id_sobrenome" placeholder="Digite o seu sobre nome"class="form-control">
             </div>
 
-            <div class="col-lg-3 col-sm-12">
+            <div class="form-group col-2">
                 <label for="{{ form.nascimento.id_for_label }}" >{{ form.nascimento.label }}</label>
                 {{ form.nascimento }}
             </div>
 
-            <div class="col-lg-3 col-sm-12">
+            <div class="form-group col-1">
                 <label for="{{ form.sexo.id_for_label }}" >{{ form.sexo.label }}</label>
                 {{ form.sexo }}
             </div>
             
-            <div class="col-lg-3 col-sm-12">
+            <div class="form-group col-2">
                 <label for="id_email">E-mail</label>
-                <input type="email" name="email" maxlength="50" required="" id="id_email">
+                <input type="email" name="email" maxlength="50" required="" id="id_email" class="form-control" placeholder="Digite o seu endereço de e-mail">
             </div>
 
-            <div class="col-lg-3 col-sm-12">
+            <div class="form-group col-2">
                 <label for="id_contato">Contato</label>
-                <input type="text" name="contato" maxlength="16" required="" id="id_contato">
+                <input type="text" name="contato" maxlength="16" required="" id="id_contato" class="form-control" placeholder="Digite o seu telefone">
             </div>
 
-            <div class="col-lg-3 col-sm-12">
-                <label for="id_cpf">CPF</label>
-                <input type="text" name="cpf" maxlength="14" required="" id="id_cpf">
-            </div>
-
-            <div class="col-lg-3 col-sm-12">
-                <label for="id_rg">RG</label>
-                <input type="text" name="rg" maxlength="25" required="" id="id_rg">
-            </div>
-
-            <div class="col-lg-3 col-sm-12">
+            
+            <div class="form-group col-4">
                 <label for="id_endereco">Endereço</label>
-                <input type="text" name="endereco" maxlength="50" required="" id="id_endereco">
+                <input type="text" name="endereco" maxlength="50" required="" id="id_endereco" class="form-control" placeholder="Digite o nome  da sua rua ">
             </div>
-
-            <div class="col-lg-3 col-sm-12">
+            
+            <div class="form-group col-3">
                 <label for="id_bairro">Bairro</label>
-                <input type="text" name="bairro" maxlength="30" required="" id="id_bairro">
+                <input type="text" name="bairro"required="" id="id_bairro" class="form-control" placeholder="Digite o nome  do seu bairro ">
             </div>
-
-            <div class="col-lg-3 col-sm-12">
+            
+            <div class="form-group col-3">
                 <label for="id_cidade">Cidade</label>
-                <input type="text" name="cidade" maxlength="50" required="" id="id_cidade">
+                <input type="text" name="cidade" maxlength="50" required="" id="id_cidade" class="form-control" placeholder="Digite o nome  da sua cidade">
             </div>
-
-            <div class="col-lg-3 col-sm-12">
+            
+            <div class="form-group col-2">
                 <label for="{{ form.estado.id_for_label }}" >{{ form.estado.label }}</label>
                 {{ form.estado }}
             </div>
-
-            <div class="col-lg-3 col-sm-12">
+            
+            <div class="form-group col-2">
                 <label for="id_numero">Número</label>
-                <input type="text" name="numero" maxlength="15" required="" id="id_numero">
+                <input type="text" name="numero" maxlength="15" required="" id="id_numero" class="form-control" placeholder="Número da residência">
             </div>
             
-            <div class="col-lg-3 col-sm-12">
+            <div class="form-group col-2">
                 <label for="id_complemento">Complemento</label>
-                <input type="text" name="complemento" maxlength="30" id="id_complemento">
+                <input type="text" name="complemento"id="id_complemento" class="form-control" placeholder="Casa ou apartamento">
+            </div>
+
+            <div class="form-group col-2">
+                <label for="id_cpf">CPF</label>
+                <input type="text" name="cpf" maxlength="14" required="" id="id_cpf" class="form-control" placeholder="Digite o número do seu CPF">
+            </div>
+    
+            <div class="form-group col-2">
+                <label for="id_rg">RG</label>
+                <input type="text" name="rg" maxlength="25" required="" id="id_rg" class="form-control" placeholder="Digite o número do seu RG">
             </div>
         </div>
 
         <br>
-        <h1>Informações Profissionais</h1>
+        <h3>Informações Profissionais</h3>
 
         <div class="row">
-            <div class="col-lg-3 col-sm-12">
+            <div class="form-group col-3">
                 <label for="id_cargo_inicial">Cargo Inicial</label>
-                <input type="text" name="cargo_inicial" maxlength="30" required="" id="id_cargo_inicial">
+                <input type="text" name="cargo_inicial"required="" id="id_cargo_inicial"  class="form-control" placeholder="Digite a cargo que você iniciou na empresa">
             </div>
 
-            <div class="col-lg-3 col-sm-12">
+            <div class="form-group col-3">
                 <label for="id_cargo">Cargo</label>
-                <input type="text" name="cargo" maxlength="30" required="" id="id_cargo">
+                <input type="text" name="cargo"required="" id="id_cargo" class="form-control" placeholder="Digite a sua função atual">
             </div>
 
-            <div class="col-lg-2 col-sm-12">
-                <label for="id_setor">Setor</label>
-                <input type="text" name="setor" maxlength="30" required="" id="id_setor">
+            <div class="form-group col-2">
+                <label for="id_setor">Setor Atual</label>
+                <input type="text" name="setor"required="" id="id_setor" class="form-control" placeholder="">
             </div>
 
-            <div class="col-lg-2 col-sm-12">
+            <div class="form-group col-2">
                 <label for="id_cidade_trabalho">Cidade em que Trabalha</label>
-                <input type="text" name="cidade_trabalho" maxlength="30" required="" id="id_cidade_trabalho">
+                <input type="text" name="cidade_trabalho"required="" id="id_cidade_trabalho" class="form-control" placeholder="Digite o nome  da sua cidade ">
             </div>
 
-            <div class="col-lg-2 col-sm-12">
-                <label for="id_estado_trabalho">Estado em que Trabalha</label>
-                <input type="text" name="estado_trabalho" maxlength="30" required="" id="id_estado_trabalho">
+            <div class="form-group col-2">
+                <label for="{{ form.estado_trabalho.id_for_label }}" >{{ form.estado_trabalho.label }}</label>
+                {{ form.estado_trabalho }}
             </div>
 
-            <div class="col-lg-3 col-sm-12">
+            <div class="form-group col-2">
                 <label for="{{ form.data_inicio.id_for_label }}" >{{ form.data_inicio.label }}</label>
                 {{ form.data_inicio }}
             </div>
 
-            <div class="col-lg-3 col-sm-12">
+            <div class="form-group col-2">
                 <label for="{{ form.data_mudanca.id_for_label }}" >{{ form.data_mudanca.label }}</label>
                 {{ form.data_mudanca }}
             </div>
-
-
-            <div class="col-lg-2 col-sm-12">
-                <label for="id_email_empresa">E-mail</label>
-                <input type="email" name="email_empresa" maxlength="30" required="" id="id_email_empresa">
+            
+            <div class="form-group col-3">
+                <label for="id_email_empresa">E-mail Corporativo</label>
+                <input type="email" name="email_empresa"required="" id="id_email_empresa" class="form-control" placeholder="Digite o seu endereço de e-mail">
             </div>
 
-            <div class="col-lg-2 col-sm-12">
-                <label for="id_telefone">Telefone</label>
-                <input type="text" name="telefone" maxlength="30" required="" id="id_telefone">
+            <div class="form-group col-2">
+                <label for="id_telefone">Telefone Corporativo</label>
+                <input type="text" name="telefone"required="" id="id_telefone" class="form-control" placeholder="Digite o seu contato telefônico">
             </div>
 
-            <div class="col-lg-2 col-sm-12">
-                <label for="id_obra_trabalho">Obra em que Trabalha</label>
-                <input type="text" name="obra_trabalho" maxlength="30" required="" id="id_obra_trabalho">
+            <div class="form-group col-3">
+                <label for="id_obra_trabalho">Obra em que Trabalha Atualmente</label>
+                <input type="text" name="obra_trabalho"required="" id="id_obra_trabalho" class="form-control" placeholder="Digite o nome da obra ">
             </div>
         </div>    
             
+        <h3> Experiência Profissional </h3>
 
-<!--*****************************************************************************************************************-->
-
-            <h1> Experiência Profissional </h1>
         <div class="row">
+            <div class="form-group col-12">
+                <label for="id_texto_experiencia">Fale Um Pouco Sobre Você</label>
+                <textarea name="texto_experiencia" id="id_texto_experiencia" class="form-control" placeholder="Escreva sobre seus anos de experiência, setor ou competências. Muitas pessoas também descrevem suas conquistas ou empregos anteriores."></textarea>
+                <hr>
+            </div>
+        </div>
+
+<!--******************************Formulário Experiencia*******************************************************************-->
+
+        {{ form_experiencia.management_form }}
+
+        {% for fe in form_experiencia %}
+
+        {% comment %} <div class="col-6 inline-form">
+            <label for="{{ fe.id_for_label }}" >{{ fe.label }}</label>
+            {{ fe }}
+        </div> {% endcomment %}
+        <div class="row inline-form">   
             
-            <div class="col-12">
-                <label for="{{ form.texto_experiencia.id_for_label }}" >{{ form.texto_experiencia.label }}</label>
-                {{ form.texto_experiencia }}
+            <div class="form-group col-5">
+                <label for="{{fe.empresa.id_for_label}}">{{ fe.empresa.label }}</label>
+                {{ fe.empresa }}
             </div>
 
-            {{ form_experiencia.management_form }}
-
-            {% for fe in form_experiencia %}
-                
-            <div class="col-6">
-                <label for="{{ fe.id_for_label }}" >{{ fe.label }}</label>
-                {{ fe }}
+            <div class="form-group col-3">
+                <label for="{{fe.localidade.id_for_label}}">{{ fe.localidade.label }}</label>
+                {{ fe.localidade }}
             </div>
 
+            <div class="form-group col-2">
+                <label for="{{fe.forma_trabalho.id_for_label}}">{{ fe.forma_trabalho.label }}</label>
+                {{ fe.forma_trabalho }}
+            </div>
+
+            <div class="form-group col-2">
+                <label for="{{fe.inicio_trabalho.id_for_label}}">{{ fe.inicio_trabalho.label }}</label>
+                {{ fe.inicio_trabalho }}
+            </div>
+
+            <div class="form-group col-10">
+                <label for="{{fe.descricao_trabalho.id_for_label}}">{{ fe.descricao_trabalho.label }}</label>
+                {{ fe.descricao_trabalho }}
+            </div>
+
+            <div class="form-group col-2">
+                <label for="{{fe.termino_trabalho.id_for_label}}">{{ fe.termino_trabalho.label }}</label>
+                {{ fe.termino_trabalho }}
+            </div>
+            
             {% endfor %}
         </div>
 
@@ -190,4 +218,26 @@
     </form>
 </div>
 
+{% endblock %}
+{% block scripts %}
+    <!-- Script InLineForm -->
+    <script type="text/javascript">
+        $(function() {
+            $('.inline-form').formset({
+                prefix: '{{ form_experiencia.prefix }}',
+                addText: '<img src={% static "usuario/img/adicionar.png" %} >',
+                deleteText: 'Remover Experiência'
+            });
+        })
+    </script>
+
+    <!-- Script Máscaras -->
+    <script type="text/javascript" src="{% static 'usuario/js/jquery.mask.min.js' %}"></script>
+    <script>
+        $(document).ready(function(){
+            $('#id_cpf').mask('000.000.000-00');
+            $('#id_contato').mask('(00)99999-9999');
+            $('#id_telefon').mask('(00)99999-9999');
+        })
+    </script>
 {% endblock %}

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import *
+from .models import Perfil, Experiencia
 
 class ListandoPerfil(admin.ModelAdmin):
     list_display = ('usuario', 'nome')
@@ -9,3 +9,10 @@ class ListandoPerfil(admin.ModelAdmin):
     list_per_page = 10
     
 admin.site.register(Perfil, ListandoPerfil)
+
+class listandoExperiencia(admin.ModelAdmin):
+    list_filter = ('perfil',)
+    list_display = ('perfil', 'empresa')
+    list_per_page = 10
+
+admin.site.register(Experiencia, listandoExperiencia)

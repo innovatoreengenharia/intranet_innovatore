@@ -15,29 +15,87 @@ class PerfilForm(forms.ModelForm):
                 format='%d/%m/%Y',
                 attrs={
                     'type': 'date',
-                    'class':'form-control'
+                    'class':'form-control data',
                     },
                 ),
             'data_inicio': forms.DateInput(
                 format='%d/%m/%Y',
                 attrs={
                     'type': 'date',
-                    'class':'form-control'
+                    'class':'form-control data'
                     },
                 ),
             'data_mudanca': forms.DateInput(
                 format='%d/%m/%Y',
                 attrs={
                     'type': 'date',
-                    'class':'form-control'
+                    'class':'form-control data'
                     },
                 ),
+            'sexo':forms.Select(
+                attrs={
+                    'class': 'form-control'
+                    },
+                ),
+            'estado':forms.Select(
+                attrs={
+                    'class': 'form-control'
+                    },
+                ),
+            'estado_trabalho':forms.Select(
+                attrs={
+                    'class': 'form-control'
+                    },
+                )
+            
         }     
 
 class ExperienciaForm(forms.ModelForm):
     class Meta:
         model = Experiencia
         fields ='__all__'
+        widgets = {
+
+            'empresa': forms.TextInput(
+                attrs={
+                    'class': 'form-control',
+                },
+            ),
+
+            'localidade': forms.TextInput(
+                attrs={
+                    'class': 'form-control',
+                },
+            ),
+
+            'forma_trabalho': forms.TextInput(
+                attrs={
+                    'class': 'form-control',
+                },
+            ),
+
+            'inicio_trabalho': forms.DateInput(
+                format='%d/%m/%Y',
+                attrs={
+                    'type': 'date',
+                    'class':'form-control data'
+                    },
+                ),
+
+            'descricao_trabalho': forms.Textarea(
+                attrs={
+                    'class': 'form-control',
+                },
+            ),
+
+            'termino_trabalho': forms.DateInput(
+                format='%d/%m/%Y',
+                attrs={
+                    'type': 'date',
+                    'class':'form-control data'
+                    },
+                ),
+        } 
 
 class FormacaoForm(forms.ModelForm):
     class Meta:

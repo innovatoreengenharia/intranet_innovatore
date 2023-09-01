@@ -1,162 +1,231 @@
 {% extends 'base.html' %}
 {% load static %}
 
+{% block estilo %}
+<link href="{% static 'usuario/css/usuario.css' %}" rel="stylesheet">
+{% endblock %}
 {% block content %}
 
-<div class='conatiner'>
+<div class='conatiner container-edit'>
     <h1>Editar Cadastro</h1>
-    <h2>Olá {{ usuario_logado }}</h2>
+    <h2>Olá {{ form.nome.value }} {{ form.sobrenome.value }}</h2>
     <form method="post" autocomplete='off'>
         {% csrf_token %}
+
+        
         <div class='row'>
+
+            <input type="hidden" name="usuario" required="" id="id_usuario" value={{usuario_id}} class="col-4">
+
             <label for="id_foto">Foto</label>
-            <input type="file" name="foto" accept="image/*" id="id_foto">
+            <input type="file" name="foto" accept="image/*" id="id_foto" class="form-control col-3">
             
             <label for="id_fundo">Fundo</label>
-            <input type="file" name="fundo" accept="image/*" id="id_fundo">
-
-            
-
-            <label for="id_usuario">Usuario</label>
-            <input type="hidden" name="usuario" required="" id="id_usuario" value={{ form.usuario.value }} class="col-4">
-
+            <input type="file" name="fundo" accept="image/*" id="id_fundo" class="form-control col-3">
         </div>
-
-        <h1>Informações Básicas</h1>
+        <br>
+        <h3>Informações Básicas</h3>
+        <br>
 
 
         <div class="row">
-            <div class="col-lg-3 col-sm-12">
+            <div class="form-gorup col-3">
                 <label for="id_nome">Primeiro Nome</label>
-                <input type="text" name="nome"required="" id="id_nome" value={{form.nome.value}}>
+                <input type="text" name="nome"required="" id="id_nome" class="form-control" value={{form.nome.value}}>
             </div>
 
-            <div class="col-lg-3 col-sm-12">
+            <div class="form-gorup col-2">
                 <label for="id_sobrenome">Sobrenome</label>
-                <input type="text" name="sobrenome" maxlength="50" required="" id="id_sobrenome"value={{form.sobrenome.value}}>
+                <input type="text" name="sobrenome" maxlength="50" required="" id="id_sobrenome" class="form-control" value={{form.sobrenome.value}}>
             </div>
 
-            <div class="col-lg-3 col-sm-12">
+            <div class="form-group col-2">
                 <label for="{{ form.nascimento.id_for_label }}" >{{ form.nascimento.label }}</label>
-                <input type="text" name="nascimento" value="28/02/1985" required="" id="id_nascimento" value={{form.nascimento.date}}>
+                <input type="date" name="nascimento" value="{{ form.nascimento.value|date:'Y-m-d' }}" class="form-control" required="" id="id_nascimento" value="{{ form.nascimento.value }}">
             </div>
 
 
-            <div class="col-lg-3 col-sm-12">
+            <div class="form-group col-1">
                 <label for="{{ form.sexo.id_for_label }}" >{{ form.sexo.label }}</label>
-                {{ form.sexo }}
+                {{form.sexo}}
+                    
+                </select>
             </div>
             
-            <div class="col-lg-3 col-sm-12">
+            <div class="form-group col-2">
                 <label for="id_email">E-mail</label>
-                <input type="email" name="email" maxlength="50" required="" id="id_email"value={{form.email.value}}>
+                <input type="email" name="email" required="" class="form-control" id="id_email"value={{form.email.value}}>
             </div>
 
-            <div class="col-lg-3 col-sm-12">
+            <div class="form-group col-2">
                 <label for="id_contato">Contato</label>
-                <input type="text" name="contato" maxlength="16" required="" id="id_contato"value={{form.contato.value}}>
+                <input type="text" name="contato" class="form-control" required="" id="id_contato"value={{form.contato.value}}>
             </div>
 
-            <div class="col-lg-3 col-sm-12">
-                <label for="id_cpf">CPF</label>
-                <input type="text" name="cpf" maxlength="14" required="" id="id_cpf"value={{form.cpf.value}}>
-            </div>
-
-            <div class="col-lg-3 col-sm-12">
-                <label for="id_rg">RG</label>
-                <input type="text" name="rg" maxlength="25" required="" id="id_rg"value={{form.rg.value}}>
-            </div>
-
-            <div class="col-lg-3 col-sm-12">
+            <div class="form-goup col-4">
                 <label for="id_endereco">Endereço</label>
-                <input type="text" name="endereco" maxlength="50" required="" id="id_endereco"value={{form.endereco.value}}>
+                <input type="text" name="endereco" class="form-control" required="" id="id_endereco"value={{form.endereco.value}}>
             </div>
-
-            <div class="col-lg-3 col-sm-12">
+            
+            <div class="form-group col-3">
                 <label for="id_bairro">Bairro</label>
-                <input type="text" name="bairro" maxlength="30" required="" id="id_bairro"value={{form.bairro.value}}>
+                <input type="text" name="bairro" class="form-control" required="" id="id_bairro"value={{form.bairro.value}}>
             </div>
 
-            <div class="col-lg-3 col-sm-12">
+            <div class="form-group col-3">
                 <label for="id_cidade">Cidade</label>
-                <input type="text" name="cidade" maxlength="50" required="" id="id_cidade"value={{form.cidade.value}}>
+                <input type="text" name="cidade" class="form-control" required="" id="id_cidade"value={{form.cidade.value.str}}>
             </div>
 
-            <div class="col-lg-3 col-sm-12">
+            <div class="form-group col-2">
                 <label for="{{ form.estado.id_for_label }}" >{{ form.estado.label }}</label>
                 {{ form.estado }}
             </div>
 
-            <div class="col-lg-3 col-sm-12">
+            <div class="form-group col-2">
                 <label for="id_numero">Número</label>
-                <input type="text" name="numero" maxlength="15" required="" id="id_numero"value={{form.numero.value}}>
+                <input type="text" name="numero" class="form-control" required="" id="id_numero"value={{form.numero.value}}>
             </div>
             
-            <div class="col-lg-3 col-sm-12">
+            <div class="form-group col-2">
                 <label for="id_complemento">Complemento</label>
-                <input type="text" name="complemento" maxlength="30" id="id_complemento"value={{form.complemento.value}}>
+                <input type="text" name="complemento" class="form-control" id="id_complemento"value={{form.complemento.value}}>
+            </div>
+
+            <div class="form-group col-2">
+                <label for="id_cpf">CPF</label>
+                <input type="text" name="cpf" class="form-control" required="" id="id_cpf"value={{form.cpf.value}}>
+            </div>
+
+            <div class="form-group col-2">
+                <label for="id_rg">RG</label>
+                <input type="text" name="rg" class="form-control" required="" id="id_rg"value={{form.rg.value}}>
             </div>
         </div>
 
         <br>
-        <h1>Informações Profissionais</h1>
+        <h3>Informações Profissionais</h3>
+        <br>
 
         <div class="row">
-            <div class="col-lg-3 col-sm-12">
+            <div class="form-group col-3">
                 <label for="id_cargo_inicial">Cargo Inicial</label>
-                <input type="text" name="cargo_inicial" maxlength="30" required="" id="id_cargo_inicial"value={{form.cargo_inicial.value}}>
+                <input type="text" name="cargo_inicial" class="form-control" required="" id="id_cargo_inicial"value={{form.cargo_inicial.value}}>
             </div>
 
-            <div class="col-lg-3 col-sm-12">
+            <div class="form-group col-3">
                 <label for="id_cargo">Cargo</label>
-                <input type="text" name="cargo" maxlength="30" required="" id="id_cargo"value={{form.cargo.value}}>
+                <input type="text" name="cargo" class="form-control" required="" id="id_cargo"value={{form.cargo.value}}>
             </div>
 
-            <div class="col-lg-2 col-sm-12">
-                <label for="id_setor">Setor</label>
-                <input type="text" name="setor" maxlength="30" required="" id="id_setor"value={{form.setor.value}}>
+            <div class="form-group - col-2">
+                <label for="id_setor">Setor Atual</label>
+                <input type="text" name="setor" class="form-control" required="" id="id_setor"value={{form.setor.value}}>
             </div>
 
-            <div class="col-lg-2 col-sm-12">
+            <div class="form-group - col-2">
                 <label for="id_cidade_trabalho">Cidade em que Trabalha</label>
-                <input type="text" name="cidade_trabalho" maxlength="30" required="" id="id_cidade_trabalho"value={{form.cidade_trabalho.value}}>
+                <input type="text" name="cidade_trabalho" class="form-control" required="" id="id_cidade_trabalho"value={{form.cidade_trabalho.value}}>
             </div>
 
-            <div class="col-lg-2 col-sm-12">
-                <label for="id_estado_trabalho">Estado em que Trabalha</label>
-                <input type="text" name="estado_trabalho" maxlength="30" required="" id="id_estado_trabalho"value={{form.estado_trabalho.value}}>
+            <div class="form-group col-2">
+                <label for="{{ form.estado_trabalho.id_for_label }}" >{{ form.estado_trabalho.label }}</label>
+                {{ form.estado_trabalho }}
             </div>
 
-            <div class="col-lg-3 col-sm-12">
+            <div class="form-group col-2">
                 <label for="{{ form.data_inicio.id_for_label }}" >{{ form.data_inicio.label }}</label>
-                <input type="text" name="data_inicio" value="28/02/1985" required="" id="id_nascimento" value={{form.data_inicio.date}}>
+                <input type="date" name="data_inicio" value="{{ form.data_inicio.value|date:'Y-m-d' }}" class="form-control" required="" id="form.data_inicio.id_for_label">
             </div>
 
-            <div class="col-lg-3 col-sm-12">
+            <div class="form-group col-2">
                 <label for="{{ form.data_mudanca.id_for_label }}" >{{ form.data_mudanca.label }}</label>
-                <input type="text" name="data_mudanca" value="28/02/1985" required="" id="id_nascimento" value={{form.data_mudanca.date}}>
+                <input type="date" name="data_mudanca" value="{{form.data_mudanca.value|date:'Y-m-d'}}" class="form-control" required="" id="form.data_mudanca.id_for_label">
             </div>
 
 
-            <div class="col-lg-2 col-sm-12">
-                <label for="id_email_empresa">E-mail</label>
-                <input type="email" name="email_empresa" maxlength="30" required="" id="id_email_empresa"value={{form.email_empresa.value}}>
+            <div class="form-group col-3">
+                <label for="id_email_empresa">E-mail Corporativo</label>
+                <input type="email" name="email_empresa" class="form-control" required="" id="id_email_empresa"value={{form.email_empresa.value}}>
             </div>
 
-            <div class="col-lg-2 col-sm-12">
-                <label for="id_telefone">Telefone</label>
-                <input type="text" name="telefone" maxlength="30" required="" id="id_telefone"value={{form.telefone.value}}>
+            <div class="form-group col-2">
+                <label for="id_telefone">Telefone Corporativo</label>
+                <input type="text" name="telefone" class="form-control" required="" id="id_telefone"value={{form.telefone.value}}>
             </div>
 
-            <div class="col-lg-2 col-sm-12">
-                <label for="id_obra_trabalho">Obra em que Trabalha</label>
-                <input type="text" name="obra_trabalho" maxlength="30" required="" id="id_obra_trabalho"value={{form.obra_trabalho.value}}>
+            <div class="form-group col-3">
+                <label for="id_obra_trabalho">Obra em que Trabalha Atualmente</label>
+                <input type="text" name="obra_trabalho" class="form-control" required="" id="id_obra_trabalho"value={{form.obra_trabalho.value}}>
             </div>
-        </div>    
+        </div>
+        <br>
+        <div class="row">
+            <br>
+            <h3> Experiência Profissional </h3>
+            <br>
+            <br>
+            
+            <div class="form-group col-12">
+                <label for="id_texto_experiencia">Texto experiencia</label>
+                <textarea name="texto_experiencia" id="id_texto_experiencia" class="form-control" value={{form.texto_experiencia.value}}></textarea>
+            </div>      
+            <br>
+        </div>
+        <!--*****************************************************************************************************************-->
+        
+        {{ form_experiencia.management_form }}
+        {% for fe in form_experiencia %}
+        {% comment %} 
+        {% if fe is none %}
+            {{ fe.as_p }}
+        {% else %}
+        <div class="container inline-form">
+
+            <label for="empresa">Empresa:</label>
+            <input type="text" name="experiencia_set-0-empresa"id="empresa" value={{fe.empresa.value}}>
+
+            <label for="localidade">Localidade:</label>
+            <input type="text" name="experiencia_set-0-localidade"id="localidade" value={{fe.localidade.value}}>
+
+            <label for="forma_trabalho">Forma trabalho:</label>
+            <input type="text" name="experiencia_set-0-forma_trabalho"id="forma_trabalho" value={{fe.forma_trabalho.value}}>
+
+            <label for="inicio_trabalho">Inicio trabalho:</label>
+            <input type="text" name="experiencia_set-0-inicio_trabalho" id="inicio_trabalho" value="{{fe.inicio_trabalho.value}}">
+
+            <label for="termino_trabalho">Termino trabalho:</label>
+            <input type="text" name="experiencia_set-0-termino_trabalho" id="termino_trabalho" value="{{fe.termino_trabalho.value}}">
+
+            <label for="descricao_trabalho">Descricao trabalho:</label>
+            <textarea name="experiencia_set-0-descricao_trabalho" id="descricao_trabalho" class="col-12">{{fe.descricao_trabalho.value}}</textarea>
+
+        </div> 
+        {% endif %}
+        {% endcomment %}
+        
+        <div class="col-6 inline-form">
+            <label for="{{ fe.id_for_label }}" >{{ fe.label }}</label>
+            {{ fe }}
+        </div>
+        {% endfor %}
+        
+
         <button class="btn btn-primary" type="submit">editar</button>  
         <a class="btn btn-danger">Cancelar</a>
     </form>     
 </div>
-<!--*****************************************************************************************************************-->
 
+{% endblock %}
+
+{% block scripts %}
+    <script type="text/javascript">
+        $(function() {
+            $('.inline-form').formset({
+                prefix: '{{ form_experiencia.prefix }}',
+                addText: 'Adicionar Experiência',
+                deleteText: 'Remover Experiência'
+            });
+        })
+    </script>
 {% endblock %}

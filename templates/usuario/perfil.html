@@ -6,17 +6,14 @@
 <div class="container">
     
     <h1>{{ usuario_logado }}</h1> 
-    {{ pu }}
-    <br>
-    {{ pu.id }}
-    <br>
-    {{ pu.usuario }}
     <br> 
     {{ pu.nome }} 
     <br>
     {{ pu.sobrenome }} 
     <br>
     {{ pu.sexo }} 
+    <br>
+    {{ pu.nascimento }} 
     <br>
     {{ pu.email }} 
     <br>
@@ -38,6 +35,20 @@
     <br>
     {{ pu.complemento }} 
     <br>
+    <br>
+    {{ pu.texto_experiencia }}
+
+    {% for ex in experiencia %}
+
+        <p>{{ ex.empresa }}</p>
+        <p>{{ ex.localidade }}</p>
+        <p>{{ ex.forma_trabalho }}</p>
+        <p>{{ ex.inicio_trabalho }}</p>
+        <p>{{ ex.termino_trabalho }}</p>
+        <p>{{ ex.descricao_trabalho }}</p>
+
+    {% endfor %}
+
 
     <a href="{% url 'editPerfil' pu.id %}">editar</a>
 
