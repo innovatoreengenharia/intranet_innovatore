@@ -166,17 +166,11 @@
             </div>
         </div>
 
-<!--******************************Formulário Experiencia*******************************************************************-->
-
+<!--Formulário Experiencia-->
         {{ form_experiencia.management_form }}
 
         {% for fe in form_experiencia %}
-
-        {% comment %} <div class="col-6 inline-form">
-            <label for="{{ fe.id_for_label }}" >{{ fe.label }}</label>
-            {{ fe }}
-        </div> {% endcomment %}
-        <div class="row inline-form">   
+        <div class="row inline-experiencia">   
             
             <div class="form-group col-5">
                 <label for="{{fe.empresa.id_for_label}}">{{ fe.empresa.label }}</label>
@@ -212,18 +206,116 @@
         </div>
 
         <hr>
+<!--Formulário Formação-->
 
+        <h3>Formação Academica</h3>
+
+        {{ form_formacao.management_form }}
+
+        {% for ff in form_formacao %}
+        <div class="row inline-formacao">   
+            
+            <div class="form-group col-4">
+                <label for="{{ff.instituicao.id_for_label}}">Instituição de Ensino</label>
+                {{ ff.instituicao }}
+            </div>
+
+            <div class="form-group col-2">
+                <label for="{{ff.diploma.id_for_label}}">Diploma</label>
+                {{ ff.diploma }}
+            </div>
+
+            <div class="form-group col-4">
+                <label for="{{ff.area_estudo.id_for_label}}">Área de estudo</label>
+                {{ ff.area_estudo }}
+            </div>
+
+            <div class="form-group col-2">
+                <label for="{{ff.inicio_faculdade.id_for_label}}">Início</label>
+                {{ ff.inicio_faculdade }}
+            </div>
+
+            <div class="form-group col-10">
+                <label for="{{ff.descricao_faculdade.id_for_label}}">Descrição</label>
+                {{ ff.descricao_faculdade }}
+            </div>
+
+            <div class="form-group col-2">
+                <label for="{{ff.termino_faculdade.id_for_label}}">Término</label>
+                {{ ff.termino_faculdade }}
+            </div>
+            
+            {% endfor %}
+        </div>
+
+<!-- Licenças ou Cursos -->
+
+        <h3>Licenças ou Cursos</h3>
+
+        {{ form_cursos.management_form }}
+
+        {% for fc in form_cursos %}
+        <div class="row inline-cursos">   
+            
+            <div class="form-group col-3">
+                <label for="{{fc.nome_certificado.id_for_label}}">Nome do Certificado</label>
+                {{ fc.nome_certificado }}
+            </div>
+
+            <div class="form-group col-3">
+                <label for="{{fc.organizacao.id_for_label}}">Organização</label>
+                {{ fc.organizacao }}
+            </div>
+
+            <div class="form-group col-2">
+                <label for="{{fc.inicio_curso.id_for_label}}">Data de Início</label>
+                {{ fc.inicio_curso }}
+            </div>
+
+            <div class="form-group col-2">
+                <label for="{{fc.termino_curso.id_for_label}}">Data do Término</label>
+                {{ fc.termino_curso }}
+            </div>
+
+            <div class="form-group col-2">
+                <label for="{{fc.horas.id_for_label}}">Horas</label>
+                {{ fc.horas }}
+            </div>
+
+            <div class="form-group col-12">
+                <label for="{{fc.descricao_curso.id_for_label}}">Descrição</label>
+                {{ fc.descricao_curso }}
+            </div>
+            
+            {% endfor %}
+        </div>
+
+
+<!--************************************************************************-->
         <button class="btn btn-primary" type="submit">Salvar</button>  
         <a class="btn btn-danger" href="{% url 'cadastro' %}">Cancelar</a>
     </form>
 </div>
 
+
+
 {% endblock %}
 {% block scripts %}
-    <!-- Script InLineForm -->
+    <!-- Script InLineForm Experiencia -->
     <script type="text/javascript">
         $(function() {
-            $('.inline-form').formset({
+            $('.inline-experiencia').formset({
+                prefix: '{{ form_experiencia.prefix }}',
+                addText: '<img src={% static "usuario/img/adicionar.png" %} >',
+                deleteText: 'Remover Experiência'
+            });
+        })
+    </script>
+    
+    <!-- Script InLineForm Formação -->
+    <script type="text/javascript">
+        $(function() {
+            $('.inline-formacao').formset({
                 prefix: '{{ form_experiencia.prefix }}',
                 addText: '<img src={% static "usuario/img/adicionar.png" %} >',
                 deleteText: 'Remover Experiência'
@@ -231,13 +323,26 @@
         })
     </script>
 
+    <!-- Script InLineForm Cursos -->
+    <script type="text/javascript">
+        $(function() {
+            $('.inline-cursos').formset({
+                prefix: '{{ form_experiencia.prefix }}',
+                addText: '<img src={% static "usuario/img/adicionar.png" %} >',
+                deleteText: 'Remover Experiência'
+            });
+        })
+    </script>
+    
+    
+
     <!-- Script Máscaras -->
     <script type="text/javascript" src="{% static 'usuario/js/jquery.mask.min.js' %}"></script>
     <script>
         $(document).ready(function(){
             $('#id_cpf').mask('000.000.000-00');
             $('#id_contato').mask('(00)99999-9999');
-            $('#id_telefon').mask('(00)99999-9999');
+            $('#id_telefone').mask('(00)99999-9999');
         })
     </script>
 {% endblock %}

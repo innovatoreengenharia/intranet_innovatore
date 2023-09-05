@@ -101,11 +101,86 @@ class FormacaoForm(forms.ModelForm):
     class Meta:
         model = Formacao
         fields ='__all__'
+        widgets = {
+
+            'instituicao': forms.TextInput(
+                attrs={
+                    'class': 'form-control',
+                },
+            ),
+            'diploma': forms.TextInput(
+                attrs={
+                    'class': 'form-control',
+                },
+            ),
+            'area_estudo': forms.TextInput(
+                attrs={
+                    'class': 'form-control',
+                },
+            ),
+            'inicio_faculdade': forms.DateInput(
+                format='%d/%m/%Y',
+                attrs={
+                    'type': 'date',
+                    'class':'form-control data'
+                    },
+                ),
+            'termino_faculdade': forms.DateInput(
+                format='%d/%m/%Y',
+                attrs={
+                    'type': 'date',
+                    'class':'form-control data'
+                    },
+                ),
+            'descricao_faculdade': forms.Textarea(
+                attrs={
+                    'class': 'form-control',
+                },
+            ),
+            
+        }
 
 class CursosForm(forms.ModelForm):
     class Meta:
         model = Cursos
         fields ='__all__'
+        widgets = {
+
+            'nome_certificado': forms.TextInput(
+                attrs={
+                    'class': 'form-control',
+                },
+            ),
+            'organizacao': forms.TextInput(
+                attrs={
+                    'class': 'form-control',
+                },
+            ),
+            'inicio_curso': forms.DateInput(
+                format='%d/%m/%Y',
+                attrs={
+                    'type': 'date',
+                    'class':'form-control data'
+                    },
+                ),
+            'termino_curso': forms.DateInput(
+                format='%d/%m/%Y',
+                attrs={
+                    'type': 'date',
+                    'class':'form-control data'
+                    },
+                ),
+            'horas': forms.TextInput(
+                attrs={
+                    'class': 'form-control',
+                },
+            ),
+            'descricao_curso': forms.Textarea(
+                attrs={
+                    'class': 'form-control',
+                },
+            ),
+        }
 
 class HabilidadesForm(forms.ModelForm):
     class Meta:

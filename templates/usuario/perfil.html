@@ -6,6 +6,9 @@
 <div class="container">
     
     <h1>{{ usuario_logado }}</h1> 
+
+    <h2>Informações Básicas</h2>
+
     <br> 
     {{ pu.nome }} 
     <br>
@@ -19,9 +22,6 @@
     <br>
     {{ pu.contato }} 
     <br>
-    {{ pu.cpf }} 
-    <br>
-    {{ pu.rg }} 
     <br>
     {{ pu.endereco }} 
     <br>
@@ -35,7 +35,39 @@
     <br>
     {{ pu.complemento }} 
     <br>
+    {{ pu.cpf }} 
     <br>
+    {{ pu.rg }} 
+    <br>
+
+    <h2>Informações Plrofissionais</h2>
+
+    <br>
+    {{ pu.cargo_inicial }}
+    <br>
+    {{ pu.cargo }}
+    <br>
+    {{ pu.setor }}
+    <br>
+    {{ pu.cidade_trabalho }}
+    <br>
+    {{ pu.estado_trabalho }}
+    <br>
+    {{ pu.data_inicio }}
+    <br>
+    {{ pu.data_mudanca }}
+    <br>
+    {{ pu.email_empresa }}
+    <br>
+    {{ pu.telefone }}
+    <br>
+    {{ pu.obra_trabalho }}
+    <br>
+
+    <hr>
+
+    <h2>Experiência Profissional</h2>
+
     {{ pu.texto_experiencia }}
 
     {% for ex in experiencia %}
@@ -46,11 +78,41 @@
         <p>{{ ex.inicio_trabalho }}</p>
         <p>{{ ex.termino_trabalho }}</p>
         <p>{{ ex.descricao_trabalho }}</p>
+        <hr>
+
+    {% endfor %}
+
+    <h2>Formação Acadêmica</h2>
+
+    {% for fm in formacao %}
+
+        <p>{{ fm.instituicao }}</p>
+        <p>{{ fm.diploma }}</p>
+        <p>{{ fm.area_estudo }}</p>
+        <p>{{ fm.inicio_faculdade }}</p>
+        <p>{{ fm.termino_faculdade }}</p>
+        <p>{{ fm.descricao_faculdade }}</p>
+        <hr>
+
+    {% endfor %}
+
+    <h2>Licenças e Cursos</h2>
+
+    {% for fc in cursos %}
+
+        <p>{{ fc.nome_certificado }}</p>
+        <p>{{ fc.organizacao }}</p>
+        <p>{{ fc.inicio_curso }}</p>
+        <p>{{ fc.termino_curso }}</p>
+        <p>{{ fc.horas }}</p>
+        <p>{{ fc.descricao_curso }}</p>
+        <hr>
 
     {% endfor %}
 
 
-    <a href="{% url 'editPerfil' pu.id %}">editar</a>
+
+    <a href="{% url 'editar' pu.id %}">editar</a>
 
 </div>
 
