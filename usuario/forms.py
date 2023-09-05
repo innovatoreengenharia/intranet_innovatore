@@ -7,7 +7,11 @@ class PerfilForm(forms.ModelForm):
     class Meta:
         model = Perfil
         fields =[ 
-    'usuario','nome','sobrenome','nascimento','sexo','email', 'contato','cpf','rg','endereco','bairro','cidade','estado','numero', 'complemento','cargo_inicial','cargo', 'setor', 'cidade_trabalho', 'estado_trabalho', 'data_inicio', 'data_mudanca', 'email_empresa', 'telefone', 'obra_trabalho', 'texto_experiencia',
+        'foto','fundo','usuario','nome','sobrenome','nascimento',
+        'sexo','email', 'contato','cpf','rg','endereco','bairro',
+        'cidade','estado','numero', 'complemento','cargo_inicial',
+        'cargo', 'setor', 'cidade_trabalho', 'estado_trabalho', 'data_inicio', 
+        'data_mudanca', 'email_empresa', 'telefone', 'obra_trabalho', 'texto_experiencia',
     ]
 
         widgets = {

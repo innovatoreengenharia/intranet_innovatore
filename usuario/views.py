@@ -119,7 +119,7 @@ def perfil(request):
         habilidades = Habilidades.objects.filter(perfil_id = id_perfil)
         hobbies = Hobbies.objects.filter(perfil_id = id_perfil)
         context = {
-            'pu': perfil_usuario,
+            'perfil': perfil_usuario,
             'usuario_logado': usuario_logado,
             'logado_id': logado_id,
             'experiencia': experiencia,

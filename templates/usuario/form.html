@@ -10,7 +10,7 @@
 <div class='conatiner container-cadastro'>
     <h1>Formulario de Cadastro</h1>
     <h2>Olá {{ nome }} {{ sobrenome }}</h2>
-    <form method="post" action="{% url 'cadastro' %}" autocomplete='off'>
+    <form method="post" action="{% url 'cadastro' %}" autocomplete='off' enctype='multipart/form-data'>
         {% csrf_token %}
         <div class='row'>
             <label for="id_foto">Foto</label>
@@ -161,7 +161,7 @@
         <div class="row">
             <div class="form-group col-12">
                 <label for="id_texto_experiencia">Fale Um Pouco Sobre Você</label>
-                <textarea name="texto_experiencia" id="id_texto_experiencia" class="form-control" placeholder="Escreva sobre seus anos de experiência, setor ou competências. Muitas pessoas também descrevem suas conquistas ou empregos anteriores."></textarea>
+                <textarea name="texto_experiencia" id="id_texto_experiencia" class="form-control" placeholder="Escreva sobre seus anos de experiência, setor ou competências. Muitas pessoas também descrevem suas conquistas ou empregos anteriores." required=""></textarea>
                 <hr>
             </div>
         </div>

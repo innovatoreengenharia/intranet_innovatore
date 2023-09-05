@@ -9,7 +9,7 @@
 <div class='conatiner container-edit'>
     <h1>Editar Cadastro</h1>
     <h2>Olá {{ form.nome.value }} {{ form.sobrenome.value }}</h2>
-    <form method="post" autocomplete='off'>
+    <form method="post" autocomplete='off' enctype='multipart/form-data'>
         {% csrf_token %}
 
         

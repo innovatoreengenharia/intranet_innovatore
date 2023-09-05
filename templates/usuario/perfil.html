@@ -10,65 +10,65 @@
     <h2>Informações Básicas</h2>
 
     <br> 
-    {{ pu.nome }} 
+    {{ perfil.nome }} 
     <br>
-    {{ pu.sobrenome }} 
+    {{ perfil.sobrenome }} 
     <br>
-    {{ pu.sexo }} 
+    {{ perfil.sexo }} 
     <br>
-    {{ pu.nascimento }} 
+    {{ perfil.nascimento }} 
     <br>
-    {{ pu.email }} 
+    {{ perfil.email }} 
     <br>
-    {{ pu.contato }} 
+    {{ perfil.contato }} 
     <br>
     <br>
-    {{ pu.endereco }} 
+    {{ perfil.endereco }} 
     <br>
-    {{ pu.bairro }} 
+    {{ perfil.bairro }} 
     <br>
-    {{ pu.cidade }} 
+    {{ perfil.cidade }} 
     <br>
-    {{ pu.estado }} 
+    {{ perfil.estado }} 
     <br>
-    {{ pu.numero }} 
+    {{ perfil.numero }} 
     <br>
-    {{ pu.complemento }} 
+    {{ perfil.complemento }} 
     <br>
-    {{ pu.cpf }} 
+    {{ perfil.cpf }} 
     <br>
-    {{ pu.rg }} 
+    {{ perfil.rg }} 
     <br>
 
     <h2>Informações Plrofissionais</h2>
 
     <br>
-    {{ pu.cargo_inicial }}
+    {{ perfil.cargo_inicial }}
     <br>
-    {{ pu.cargo }}
+    {{ perfil.cargo }}
     <br>
-    {{ pu.setor }}
+    {{ perfil.setor }}
     <br>
-    {{ pu.cidade_trabalho }}
+    {{ perfil.cidade_trabalho }}
     <br>
-    {{ pu.estado_trabalho }}
+    {{ perfil.estado_trabalho }}
     <br>
-    {{ pu.data_inicio }}
+    {{ perfil.data_inicio }}
     <br>
-    {{ pu.data_mudanca }}
+    {{ perfil.data_mudanca }}
     <br>
-    {{ pu.email_empresa }}
+    {{ perfil.email_empresa }}
     <br>
-    {{ pu.telefone }}
+    {{ perfil.telefone }}
     <br>
-    {{ pu.obra_trabalho }}
+    {{ perfil.obra_trabalho }}
     <br>
 
     <hr>
 
     <h2>Experiência Profissional</h2>
 
-    {{ pu.texto_experiencia }}
+    {{ perfil.texto_experiencia }}
 
     {% for ex in experiencia %}
 
@@ -127,7 +127,7 @@
     {% endfor %}
     <hr>
 
-    <a href="{% url 'editar' pu.id %}">editar</a>
+    <a href="{% url 'editar' perfil.id %}">editar</a>
 
 </div>
 
