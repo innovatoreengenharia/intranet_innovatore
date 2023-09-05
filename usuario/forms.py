@@ -11,6 +11,16 @@ class PerfilForm(forms.ModelForm):
     ]
 
         widgets = {
+
+            'foto': forms.FileInput(
+                attrs={'class':'form-control'
+                       }
+                ),
+
+            'fundo': forms.FileInput(
+                attrs={'class':'form-control'
+                       }
+                ),
             'nascimento': forms.DateInput(
                 format='%d/%m/%Y',
                 attrs={
@@ -186,10 +196,24 @@ class HabilidadesForm(forms.ModelForm):
     class Meta:
         model = Habilidades
         fields ='__all__'
-
+        widgets = {
+            'habilidades': forms.TextInput(
+                attrs={
+                    'class': 'form-control',
+                },
+            ),
+        }
 
 class HobbiesForm(forms.ModelForm):
     class Meta:
         model = Hobbies
         fields ='__all__'
+        widgets = {
+
+            'hobbies': forms.TextInput(
+                attrs={
+                    'class': 'form-control',
+                },
+            ),
+        }
 

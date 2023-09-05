@@ -290,6 +290,37 @@
             {% endfor %}
         </div>
 
+<!-- Habilidades -->
+
+        <h3>Habilbidades</h3>
+
+        {{ form_habilidades.management_form }}
+
+        {% for fh in form_habilidades %}
+        <div class="row inline-habilidades">   
+            <div class="form-group col-3">
+                <label for="{{fh.habilidades.id_for_label}}">Habilidades</label>
+                {{ fh.habilidades }}
+            </div>
+        {% endfor %}
+        </div>
+
+<!--Hobbies-->
+        <h3>Hobbies</h3>
+
+        {{ form_hobbies.management_form }}
+
+        {% for fho in form_hobbies %}
+        <div class="row inline-hobbies">   
+            
+            <div class="form-group col-3">
+                <label for="{{fho.hobbies.id_for_label}}">Hobbies</label>
+                {{ fho.hobbies }}
+            </div>
+            
+        {% endfor %}
+        </div>
+
 
 <!--************************************************************************-->
         <button class="btn btn-primary" type="submit">Salvar</button>  
@@ -316,7 +347,7 @@
     <script type="text/javascript">
         $(function() {
             $('.inline-formacao').formset({
-                prefix: '{{ form_experiencia.prefix }}',
+                prefix: '{{ form_formacao.prefix }}',
                 addText: '<img src={% static "usuario/img/adicionar.png" %} >',
                 deleteText: 'Remover Experiência'
             });
@@ -327,7 +358,29 @@
     <script type="text/javascript">
         $(function() {
             $('.inline-cursos').formset({
-                prefix: '{{ form_experiencia.prefix }}',
+                prefix: '{{ form_cursos.prefix }}',
+                addText: '<img src={% static "usuario/img/adicionar.png" %} >',
+                deleteText: 'Remover Experiência'
+            });
+        })
+    </script>
+
+    <!-- Script InLineForm Habilidades -->
+    <script type="text/javascript">
+        $(function() {
+            $('.inline-habilidades').formset({
+                prefix: '{{ form_habilidades.prefix }}',
+                addText: '<img src={% static "usuario/img/adicionar.png" %} >',
+                deleteText: 'Remover Experiência'
+            });
+        })
+    </script>
+
+    <!-- Script InLineForm Hobbies -->
+    <script type="text/javascript">
+        $(function() {
+            $('.inline-hobbies').formset({
+                prefix: '{{ form_hobbies.prefix }}',
                 addText: '<img src={% static "usuario/img/adicionar.png" %} >',
                 deleteText: 'Remover Experiência'
             });

@@ -110,7 +110,22 @@
 
     {% endfor %}
 
+    <h2>Habilidades</h2>
 
+    {% for fh in habilidades %}
+
+        <p>{{ fh.habilidades }}
+
+    {% endfor %}
+
+    <h2>Hobbies</h2>
+
+    {% for fho in hobbies %}
+
+        <p>{{ fho.hobbies }}
+
+    {% endfor %}
+    <hr>
 
     <a href="{% url 'editar' pu.id %}">editar</a>
 

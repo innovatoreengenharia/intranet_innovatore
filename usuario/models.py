@@ -5,6 +5,8 @@ from datetime import datetime
 # Create your models here.
 
 class Perfil(models.Model): 
+    class Meta:
+        verbose_name_plural = "Perfis"
     GEN = [
         ('masculino', 'M'), 
         ('feminino', 'F')
@@ -40,8 +42,8 @@ class Perfil(models.Model):
     ]
     # Informações Basicas 
     usuario = models.OneToOneField(User, on_delete=models.CASCADE)
-    foto = models.ImageField(upload_to="fotos", blank=True)
-    fundo = models.ImageField(upload_to="fundos", blank=True)
+    foto = models.ImageField(upload_to="fotos/", blank=True)
+    fundo = models.ImageField(upload_to="fundos/", blank=True)
     nome = models.CharField(max_length=30, null=True)
     sobrenome = models.CharField(max_length=50, null=True)
     nascimento = models.DateField(max_length=10, null=True, blank=True)
@@ -77,6 +79,8 @@ class Perfil(models.Model):
 
 # Experiência Profissional
 class Experiencia(models.Model):
+    class Meta:
+        verbose_name_plural = "Experiências"
 
     perfil = models.ForeignKey(Perfil, on_delete=models.CASCADE, null=True)
 
@@ -90,6 +94,8 @@ class Experiencia(models.Model):
 
 # Formação Acadêmica
 class Formacao(models.Model):
+    class Meta:
+        verbose_name_plural = "Formações"
 
     perfil = models.ForeignKey(Perfil, on_delete=models.CASCADE, null=True)
 
@@ -103,6 +109,8 @@ class Formacao(models.Model):
 
 # Licenças ou Cursos
 class Cursos(models.Model):
+    class Meta:
+        verbose_name_plural = "Cursos"
 
     perfil = models.ForeignKey(Perfil, on_delete=models.CASCADE, null=True)
 
@@ -116,11 +124,15 @@ class Cursos(models.Model):
 
 # Habilidades
 class Habilidades(models.Model):
+    class Meta:
+        verbose_name_plural = "Habilidades"
     perfil = models.ForeignKey(Perfil, on_delete=models.CASCADE, null=True)
     habilidades = models.CharField(max_length=50, null=True)
 
 # Hobbies
 class Hobbies(models.Model):
+    class Meta:
+        verbose_name_plural = "Hobbies"
     perfil = models.ForeignKey(Perfil, on_delete=models.CASCADE, null=True)
     hobbies = models.CharField(max_length=50, null=True)
 
