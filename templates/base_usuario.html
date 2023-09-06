@@ -25,10 +25,9 @@
 
 <body>
     <div id="wrapper">
-
         <!-- Sidebar -->
         {% with request.resolver_match.url_name as url_name %}
-        <ul class="navbar-nav bg-secondary sidebar sidebar-dark accordion m-3" id="accordionSidebar">
+        <ul class="navbar-nav bg-secondary sidebar sidebar-dark accordion shadow m-3" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
             {% comment %} <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{% url 'home' %}">
@@ -70,7 +69,6 @@
             </li>
 
             <!-- Nav Item - Segurança do trabalho meio ambiente -->
-           
 
             <li class="nav-item item-menu">
                 {% if '/qualidade' in url_name %}
@@ -173,19 +171,19 @@
         </ul>
         {% endwith %}
         <!-- End of Sidebar -->
-        <!-- Content Wrapper -->
-<div id="content-wrapper" class="d-flex flex-column">
+    
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
 
     <!-- Main Content -->
     <div id="content">
 
         <!-- Topbar -->
-        <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
-
-            <!-- Sidebar Toggle (Topbar) -->
-            <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-                <i class="fa fa-bars"></i>
-            </button>
+        {% if perfil.fundo == '' %}
+        <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top nav-sup">
+        {% else %}
+        <nav class="navbar navbar-expand navbar-light bg-white topbar mb-5 static-top nav-sup"style="background-image: url('{{ perfil.fundo.url }}')">
+        {% endif %}
 
             <!-- Topbar Search -->
             {% comment %} <form
@@ -200,8 +198,13 @@
                     </div>
                 </div>
             </form> {% endcomment %}
-            <img class="img-profile rounded-circle" src="{% static 'dashboard/img/pu.png' %}">
 
+            <div class="nav-selecionado">
+                <img class="img-profile rounded-circle" src="{% static 'dashboard/img/pu.png' %}"style="margin-top: 1.5em;">
+                <p>Perfil</p>
+            </div>
+            <img src="{% static 'dashboard/img/menu.png' %}"id="sidebarToggle" class="img-hamburger">
+            
             <!-- Topbar Navbar -->
             <ul class="navbar-nav ml-auto">
 
@@ -352,13 +355,13 @@
                 <li class="nav-item dropdown no-arrow">
                     <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        {% if not perfil%}
+                        {% if perfil.foto == ''%}
                             <img  src="{% static 'dashboard/img/pu.png' %}">
                         {% else %}
-                            <img class="img-profile rounded-circle"src="{{ perfil.foto.url }}">
+                            <img class="img-profile rounded-circle"src="{{ perfil.foto.url   }}">
                         {% endif %}
 
-                        {% if not perfil %}
+                        {% if perfil.nome == '' %}
                             <span class="mr-2 d-none d-lg-inline text-gray-600 small">Usuário</span>
                         {% else %}
                             <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ perfil.nome }} {{ perfil.sobrenome }}</span>
@@ -366,18 +369,15 @@
                     </a>
                     <!-- Dropdown - User Information -->
                     <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                        aria-labelledby="userDropdown">
+                        aria-labelledby="userDropdown" style="background: transparent; border:none;">
                         <a class="dropdown-item" href="{% url 'perfil' %}">
                             <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                             Perfil
                         </a>
+                        <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="#">
                             <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
                             Configuraçãoes
-                        </a>
-                        <a class="dropdown-item" href="#">
-                            <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                            Activity Log
                         </a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="{% url 'logout' %}">
@@ -390,6 +390,13 @@
             </ul>
             
         </nav>
+    </div>
+    <div class="row apresentacao">
+        <img src="{{ perfil.foto.url }}">
+        <h5>{{ perfil.nome }} {{ perfil.sobrenome }}</h5>
+        <p>{{ perfil.cargo }}</p>
+
+    </div>
         
     {% block content %}{% endblock %}
 
@@ -407,5 +414,8 @@
     <script src="{% static 'dashboard/js/sb-admin-2.min.js' %}"></script>
 
     {% block scripts %}{% endblock %}
+
+
+
 </body>
 </html>

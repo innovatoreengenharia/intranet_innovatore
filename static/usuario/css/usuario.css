@@ -61,3 +61,86 @@
 .container-edit textarea{
     height: 4.5rem;
 }
+
+.apresentacao{
+    position: relative;
+    top: -7.5em;
+    background-color: rgba(0, 0, 0, 0.06);  
+    border-radius: 15px;
+    width: 95%;
+    height: 139px;
+    margin: auto;
+}
+.apresentacao img{
+    border: 2px solid red;
+    width: 91px;
+    height: 91px;
+    border-radius: 20px;
+    top:1.5em
+}
+
+.apresentacao h5{
+    position: relative;
+    left: 5em;
+    top: -2em;
+    color: rgba(20, 53, 94, 1);
+    font-family: 'Open Sans';
+    font-size: 1.375rem;
+    font-weight: 600;
+    line-height: 1.5rem;
+}
+
+.apresentacao p{
+    position: relative;
+    left: 9.5em;
+    top: -4em;
+    color: rgba(20, 53, 94, 1);
+    font-family: 'Open Sans';
+    font-size: 0.75rem;
+    font-weight: 600;
+    line-height: 1.5rem;
+}
+
+.perfil{
+    position: relative;
+    padding: 20px;
+    top: -6em;
+    border-radius: 24px;
+}
+
+.perfil h3{
+    font-family: 'Open Sans';
+    font-weight: 700;
+    font-size: 1.375em;
+    color: black;
+}
+
+.perfil h4{
+    font-family: 'Open Sans';
+    font-weight: 400;
+    font-size: 1.375em;
+    color: black;
+}
+
+.perfil h5{
+    font-family: 'Open Sans';
+    font-weight: 700;
+    font-size: 1em;
+    color: black;
+}
+
+.cargo{
+    font-family: 'Open Sans';
+    font-weight: 400;
+    font-size: 1em;
+    color: black;
+}
+.local{
+    position: relative;
+    font-family: 'Open Sans';
+    font-weight: 400;
+    font-size: 1em;
+    top: -1em;
+    color: rgba(164, 164, 164, 1)
+}
+

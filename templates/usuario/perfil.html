@@ -1,18 +1,22 @@
-{% extends 'base.html' %}
+{% extends 'base_usuario.html' %}
 {% load static %}
 
+{% block estilo %}
+<link href="{% static 'usuario/css/usuario.css' %}" rel="stylesheet">
+{% endblock %}
 {% block content %}
 
-<div class="container">
-    
-    <h1>{{ usuario_logado }}</h1> 
+<div class="perfil m-3 shadow"> 
 
-    <h2>Informações Básicas</h2>
+    <h3 class="teste">Informações Básicas</h3>
 
     <br> 
-    {{ perfil.nome }} 
-    <br>
-    {{ perfil.sobrenome }} 
+    <h4>{{ perfil.nome }} {{ perfil.sobrenome }} </h4>
+    <p class="cargo">{{ perfil.cargo }}</p>
+    <p class="local">{{ perfil.cidade_trabalho }}, {{ perfil.estado }}, Brasil</p>
+    
+    <h5>Resumo</h5>
+
     <br>
     {{ perfil.sexo }} 
     <br>

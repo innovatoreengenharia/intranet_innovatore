@@ -3131,9 +3131,13 @@ input[type="button"].btn-block {
 
 .dropdown-divider {
   height: 0;
-  margin: 0.5rem 0;
+  margin: 0.75em auto;
   overflow: hidden;
   border-top: 1px solid #eaecf4;
+  left    : 25%;
+  bottom  : 0;
+  height  : 1px;
+  width   : 80%;
 }
 
 .dropdown-item {
@@ -3142,7 +3146,7 @@ input[type="button"].btn-block {
   padding: 0.25rem 1.5rem;
   clear: both;
   font-weight: 400;
-  color: #3a3b45;
+  color: white;
   text-align: inherit;
   white-space: nowrap;
   background-color: transparent;
@@ -11271,3 +11275,31 @@ body.sidebar-toggled footer.sticky-footer {
   height: 56px;
   margin-bottom: 12px;
 }
+
+.nav-sup{
+  margin: 1em;
+  height: 20em;
+  border-radius: 25px;
+  align-items: flex-start;
+  
+}
+
+.nav-selecionado{
+  display:contents;
+}
+
+.nav-selecionado p {
+  position: relative;
+  color: white;
+  font-family: 'Open Sans';
+  font-size: 0.75em;
+  font-weight: 600;
+  top: 1.5em;
+  left: 2em;
+}
+ .img-hamburger{
+  position: relative;
+  top:0.75em;
+  left: 3em;
+ }
+
