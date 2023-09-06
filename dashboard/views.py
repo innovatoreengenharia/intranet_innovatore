@@ -12,6 +12,4 @@ def home(request):
         'perfil':perfil,
     }
 
-    if perfil is None:
-        return redirect(reverse('cadastro'))
     return render(request, 'dashboard/home.html', context)
