@@ -130,6 +130,7 @@ def perfil(request):
         }
         return render(request,'usuario/perfil.html',context)
     except:
+        print('erro no perfil')
         return redirect('cadastro')
 
 def editPerfil (request, id):
@@ -227,4 +228,31 @@ def editPerfil (request, id):
             }
             print('ERRO NO EDIT', form.is_valid(), form_experiencia.is_valid(), form_formacao.is_valid(), form_cursos.is_valid(), form_habilidades.is_valid(), form_hobbies.errors)
             return render(request, 'usuario/editar_perfil.html', context)
+        
+
+
+def deletar_experiencia(request, id ):
+    experiencia = Experiencia.objects.get(pk=id)
+    experiencia.delete()
+    return redirect('perfil')
+
+def deletar_formacao(request, id ):
+    formacao = Formacao.objects.get(pk=id)
+    formacao.delete()
+    return redirect('perfil')
+
+def deletar_curso(request, id ):
+    curso = Cursos.objects.get(pk=id)
+    curso.delete()
+    return redirect('perfil')
+
+def deletar_habilidade(request, id ):
+    habilidade = Habilidades.objects.get(pk=id)
+    habilidade.delete()
+    return redirect('perfil')
+
+def deletar_hobbie(request, id ):
+    hobbie = Hobbies.objects.get(pk=id)
+    hobbie.delete()
+    return redirect('perfil')
 

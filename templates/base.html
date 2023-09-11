@@ -28,7 +28,7 @@
 
         <!-- Sidebar -->
         {% with request.resolver_match.url_name as url_name %}
-        <ul class="navbar-nav bg-secondary sidebar sidebar-dark accordion m-3" id="accordionSidebar">
+        <ul class="navbar-nav bg-secondary sidebar sidebar-dark accordion mr-3 menu-lateral" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
             {% comment %} <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{% url 'home' %}">
@@ -36,7 +36,7 @@
             
             <!-- Divider -->
             <img class="logo-inn"src="{% static 'dashboard/img/LOGO INNOVATORE1.png' %}">
-            <hr class="sidebar-divider d-none d-md-block">
+            <hr class="divisor-menu">
 
             <!-- Nav Item - Dashboard -->
             {% if url_name == 'home' %}
@@ -54,7 +54,7 @@
             {% endif %}
             <!-- Favoritos -->
             <li class="nav-item item-menu">
-                <a class="nav-link" href="charts.html">
+                <a class="nav-link" href="">
                     <img src={% static "dashboard/img/favoritos.png" %}>
                     <span>Favoritos</span></a>
             </li>
@@ -131,7 +131,7 @@
             <li class="nav-item item-menu">
                 <a class="nav-link" href="charts.html">
                     <img src={% static "dashboard/img/avisos.png" %}>
-                    <span>Avisos</span></a>
+                    <span>Informativos INN</span></a>
             </li>
 
             <li class="nav-item item-menu">
@@ -152,28 +152,15 @@
                     <span>Cursos</span></a>
             </li>
 
-            <li class="nav-item item-menu">
-                <a class="nav-link" href="charts.html">
-                    <img src={% static "dashboard/img/blog.png" %}>
-                    <span>Blog</span></a>
-            </li>
-
             <!-- Divider -->
             <hr class="sidebar-divider">
-
-            <!-- Divider -->
-            <hr class="sidebar-divider d-none d-md-block">
-
-            <!-- Sidebar Toggler (Sidebar) -->
-            <div class="text-center d-none d-md-inline">
-                <button class="rounded-circle border-0" id="sidebarToggle"></button>
-            </div>
 
 
         </ul>
         {% endwith %}
+    </div>
         <!-- End of Sidebar -->
-        <!-- Content Wrapper -->
+
 <div id="content-wrapper" class="d-flex flex-column">
 
     <!-- Main Content -->

@@ -3979,6 +3979,7 @@ input[type="button"].btn-block {
 .nav-link {
   display: block;
   padding: 0.5rem 1rem;
+  height: 3.5em;
 }
 
 .nav-link:hover, .nav-link:focus {
@@ -11265,6 +11266,16 @@ body.sidebar-toggled footer.sticky-footer {
   height: 3.5;
   box-shadow: 1px 1px 1px 0px rgba(0, 0, 0, 0.06);
 }
+.divisor-menu{
+ /*  width: 16.688em;
+  border-top: rgba(232, 232, 232, 1); */
+  margin-top: -1em;
+  width: 16.688em;
+  height: 1px;
+  border: 0px;
+  border-top: 1px solid rgba(232,232,232,1);
+  background-color: #dddddd;
+}
 
 .vetor{
   position: relative;
@@ -11272,7 +11283,7 @@ body.sidebar-toggled footer.sticky-footer {
 }
 
 .item-menu{
-  height: 56px;
+  height: 3.5em;
   margin-bottom: 12px;
 }
 
@@ -11302,4 +11313,10 @@ body.sidebar-toggled footer.sticky-footer {
   top:0.75em;
   left: 3em;
  }
-
+.menu-lateral{
+  position:fixed;
+  z-index:999; 
+  left:5px; 
+  overflow:hidden;
+  padding:6px;
+}

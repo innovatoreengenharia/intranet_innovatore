@@ -82,7 +82,8 @@
         <p>{{ ex.inicio_trabalho }}</p>
         <p>{{ ex.termino_trabalho }}</p>
         <p>{{ ex.descricao_trabalho }}</p>
-        <hr>
+        <a href="{% url 'deletar_experiencia' ex.id %}">remover</a>
+        <br>
 
     {% endfor %}
 
@@ -97,6 +98,8 @@
         <p>{{ fm.termino_faculdade }}</p>
         <p>{{ fm.descricao_faculdade }}</p>
         <hr>
+        <a href="{% url 'deletar_formacao' fm.id %}">remover</a>
+        <br>
 
     {% endfor %}
 
@@ -110,7 +113,8 @@
         <p>{{ fc.termino_curso }}</p>
         <p>{{ fc.horas }}</p>
         <p>{{ fc.descricao_curso }}</p>
-        <hr>
+        <a href="{% url 'deletar_curso' fc.id %}">remover</a>
+        <br>
 
     {% endfor %}
 
@@ -119,6 +123,8 @@
     {% for fh in habilidades %}
 
         <p>{{ fh.habilidades }}
+            <a href="{% url 'deletar_habilidade' fh.id %}">remover</a>
+            <br>
 
     {% endfor %}
 
@@ -127,6 +133,8 @@
     {% for fho in hobbies %}
 
         <p>{{ fho.hobbies }}
+        <a href="{% url 'deletar_hobbie' fho.id %}">remover</a>
+        <br>
 
     {% endfor %}
     <hr>
