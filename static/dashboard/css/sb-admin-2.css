@@ -11267,8 +11267,6 @@ body.sidebar-toggled footer.sticky-footer {
   box-shadow: 1px 1px 1px 0px rgba(0, 0, 0, 0.06);
 }
 .divisor-menu{
- /*  width: 16.688em;
-  border-top: rgba(232, 232, 232, 1); */
   margin-top: -1em;
   width: 16.688em;
   height: 1px;
@@ -11288,8 +11286,8 @@ body.sidebar-toggled footer.sticky-footer {
 }
 
 .nav-sup{
-  margin: 1em;
-  height: 20em;
+  margin: 1em auto;
+  height: 30em;
   border-radius: 25px;
   align-items: flex-start;
   
@@ -11319,4 +11317,20 @@ body.sidebar-toggled footer.sticky-footer {
   left:5px; 
   overflow:hidden;
   padding:6px;
+}
+.configuracao{
+  color: var(--preto-preto-800, #464646);
+  font-family: 'Open Sans';
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 32px;
+}
+
+.conteudo{
+  padding-left: 23em;
+}
+
+.conteudo-recolhido{
+  padding-left: 20em;
 }

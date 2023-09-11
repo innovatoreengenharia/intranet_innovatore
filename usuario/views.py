@@ -4,6 +4,7 @@ from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse, reverse_lazy
 from .forms import PerfilForm, ExperienciaForm, FormacaoForm, CursosForm,HabilidadesForm, HobbiesForm
 from .models import Perfil, Experiencia, Formacao, Cursos, Habilidades, Hobbies
+from datetime import date
 from django.contrib import auth, messages
 from PIL import ImageChops
 
@@ -107,6 +108,7 @@ def perfil(request):
         return redirect('login')
     usuario_logado = request.user
     logado_id = request.user.id
+    hoje = date.today()
     
     query_usuario = Perfil.objects.filter(usuario_id = logado_id)
 
@@ -127,6 +129,7 @@ def perfil(request):
             'cursos': cursos,
             'habilidades':habilidades,
             'hobbies': hobbies,
+            'hoje': hoje,
         }
         return render(request,'usuario/perfil.html',context)
     except:

@@ -75,6 +75,11 @@ class ExperienciaForm(forms.ModelForm):
                     'class': 'form-control',
                 },
             ),
+            'cargo_empresa': forms.TextInput(
+                attrs={
+                    'class': 'form-control',
+                },
+            ),
 
             'localidade': forms.TextInput(
                 attrs={

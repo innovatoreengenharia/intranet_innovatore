@@ -6,9 +6,9 @@
 {% endblock %}
 {% block content %}
 
-<div class="perfil m-3 shadow"> 
+<div class="perfil shadow"> 
 
-    <h3 class="teste">Informações Básicas</h3>
+    <h3>Informações Básicas</h3>
 
     <br> 
     <h4>{{ perfil.nome }} {{ perfil.sobrenome }} </h4>
@@ -17,7 +17,46 @@
     
     <h5>Resumo</h5>
 
+    <p>{{ perfil.texto_experiencia }}</p>
     <br>
+
+    <h5>Informações Profissionais</h5>
+
+    
+    <p>{{ perfil.cargo }}, {{ hoje|timeuntil:perfil.data_mudanca }}<br>
+    {{ perfil.obra_trabalho }}, {{ perfil.cidade_trabalho }}, {{perfil.estado_trabalho }}</p>
+
+    {% comment %} <p>{{ ex.forma_trabalho }}</p>
+    <p>{{ ex.inicio_trabalho }}</p>
+    <p>{{ ex.termino_trabalho }}</p>
+    <p>{{ ex.descricao_trabalho }}</p>
+    <a href="{% url 'deletar_experiencia' ex.id %}">remover</a>
+    <br> {% endcomment %}
+
+    
+
+    <h5>Experiências Profissionais</h5>
+
+    {% for ex in experiencia %}
+    <div class="row">
+        <div class="col-3">
+            <p>{{ ex.empresa }}<br>{{ ex.cargo_empresa }}<br>{{ex.inicio_trabalho}} até {{ ex.termino_trabalho }}<br>
+            {{ ex.localidade }}
+            </p>
+        </div>
+        <div class="col-9">
+            <p>{{ ex.descricao_trabalho }}</p>
+        </div>
+    </div>
+    <a href="{% url 'deletar_experiencia' ex.id %}">remover</a>
+
+    {% endfor %}
+
+    {% comment %} <br>
+
+    <p>{{ perfil.cargo }}, {{ perfil.data_mudanca|timeuntil:ex.inicio_trabalho   }}<br>
+
+
     {{ perfil.sexo }} 
     <br>
     {{ perfil.nascimento }} 
@@ -139,8 +178,8 @@
     {% endfor %}
     <hr>
 
+    {% endcomment %}
     <a href="{% url 'editar' perfil.id %}">editar</a>
 
 </div>
-
 {% endblock %}

@@ -85,6 +85,7 @@ class Experiencia(models.Model):
     perfil = models.ForeignKey(Perfil, on_delete=models.CASCADE, null=True)
 
     empresa = models.CharField(max_length=50, null=True)
+    cargo_empresa = models.CharField(max_length=70, null=True, blank=True)
     localidade = models.CharField(max_length=50, null=True)
     forma_trabalho = models.CharField(max_length=50, null=True)
     inicio_trabalho = models.DateField(max_length=10, null=True, blank=True)
@@ -100,8 +101,8 @@ class Formacao(models.Model):
     perfil = models.ForeignKey(Perfil, on_delete=models.CASCADE, null=True)
 
     instituicao = models.CharField(max_length=50, null=True)
-    diploma = models.CharField(max_length=50, null=True)
-    area_estudo = models.CharField(max_length=60, null=True)
+    diploma = models.CharField(max_length=50, null=True, blank=True)
+    area_estudo = models.CharField(max_length=60, null=True, blank=True)
     inicio_faculdade = models.DateField(max_length=10, null=True, blank=True)
     termino_faculdade= models.DateField(max_length=10, null=True, blank=True)
     descricao_faculdade = models.TextField(null=True, blank=True)

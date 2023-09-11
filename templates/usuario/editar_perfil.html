@@ -179,9 +179,14 @@
         {% for fe in form_experiencia%}
         <div class="row inline-experiencia"> 
             {{fe.id}}
-            <div class="form-group col-5">
+            <div class="form-group col-3">
                 <label for="{{fe.empresa.id_for_label}}">{{ fe.empresa.label }}</label>
                 {{ fe.empresa }}
+            </div>
+
+            <div class="form-group col-3">
+                <label for="{{fe.cargo_empresa.id_for_label}}">{{ fe.cargo_empresa.label }}</label>
+                {{ fe.cargo_empresa }}
             </div>
 
             <div class="form-group col-3">
