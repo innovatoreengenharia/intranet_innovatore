@@ -9,6 +9,17 @@ html, body {
 	height: 100%;
 	margin: 0;	
 }
+p{
+    color: #000;
+    font-family: 'Open Sans';
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 32px;
+}
+a:hover {
+    text-decoration: none;
+ }
 :placeholder-shown{
     font-family: 'Open Sans';
     font-size: 12px;
@@ -16,7 +27,7 @@ html, body {
     line-height: 24px;
     letter-spacing: 0em;
     text-align: left;
-    color: #e8e8e8;
+    color: rgba(232, 232, 232, 1);
 
 }
 .container-edit{
@@ -36,6 +47,9 @@ html, body {
     font-size: 0.75rem;
     font-weight: 600;
     line-height: 1.5rem;
+}
+.container-edit select{
+    height: 2.25em;
 }
 
 .container-cadastro{
@@ -147,5 +161,78 @@ html, body {
     font-size: 1em;
     top: -1em;
     color: rgba(164, 164, 164, 1)
+}
+.habilidades{
+    display: inline-flex;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    padding: 8px 16px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 12px;
+    background: linear-gradient(0deg, #00BBF2 0%, #79E0FA 100%);
+    color:white;
+}
+.hobbies{
+    display: inline-flex;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    padding: 8px 16px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 12px;
+    background: linear-gradient(0deg, #F25C05 0%, #FFB489 100%);
+    color:white;
+}
+.div-editar{
+    margin-bottom: 1em;
+}
+.baixar{
+    display: flex;
+    float:right;
+    margin-right: 25px;
+    width: 160px;
+    height: 64px;
+    padding: 12px 55px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+    border-radius: 12px;
+    border: 1px solid var(--preto-preto-100, #E8E8E8);
+    background: #FFF;
+    color:rgba(20, 53, 94, 1);
+    box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.06);
+}
+.baixar:hover{
+    text-decoration: none;
+    color:rgba(20, 53, 94, 1);
+}
+.editar{
+    display: flex;
+    width: 100%;
+    float:right;
+    width: 160px;
+    height: 64px;
+    padding: 12px 55px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+    border-radius: 12px;
+    background: linear-gradient(90deg, #14295E 0%, #2568BB 100%);
+    color:white;
+    box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.06);
+}
+.editar:hover{
+    text-decoration: none;
+    color: white
+}
+
+.adicionar-habilidade{
+    position: relative;
+    right: 5%;
 }
 

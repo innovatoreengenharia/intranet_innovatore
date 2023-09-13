@@ -255,6 +255,7 @@ def deletar_habilidade(request, id ):
     return redirect('perfil')
 
 def deletar_hobbie(request, id ):
+    usuario_id = request.user.id
     hobbie = Hobbies.objects.get(pk=id)
     hobbie.delete()
     return redirect('perfil')

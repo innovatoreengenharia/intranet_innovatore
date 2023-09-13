@@ -48,17 +48,17 @@ class PerfilForm(forms.ModelForm):
                 ),
             'sexo':forms.Select(
                 attrs={
-                    'class': 'form-control'
+                    'class': 'form-select'
                     },
                 ),
             'estado':forms.Select(
                 attrs={
-                    'class': 'form-control'
+                    'class': 'form-select'
                     },
                 ),
             'estado_trabalho':forms.Select(
                 attrs={
-                    'class': 'form-control'
+                    'class': 'form-select'
                     },
                 )
             

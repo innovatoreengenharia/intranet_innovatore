@@ -9,22 +9,22 @@
 
 <div class='conatiner container-cadastro'>
     <h1>Formulario de Cadastro</h1>
-    <h2>Olá {{ nome }} {{ sobrenome }}</h2>
     <form method="post" action="{% url 'cadastro' %}" autocomplete='off' enctype='multipart/form-data'>
         {% csrf_token %}
         <div class='row'>
-            <label for="id_foto">Foto</label>
-            <input type="file" name="foto" accept="image/*" id="id_foto">
-            
-            <label for="id_fundo">Fundo</label>
-            <input type="file" name="fundo" accept="image/*" id="id_fundo">
-
-            
-
-            <label for="id_usuario">Usuario</label>
+            <div class="col-3">
+                <label for="id_foto">Foto</label>
+                <input type="file" name="foto" accept="image/*" id="id_foto">
+            </div>
+            <div class="col-3">
+                <label for="id_fundo">Fundo</label>
+                <input type="file" name="fundo" accept="image/*" id="id_fundo">
+            </div>
             <input type="hidden" name="usuario" required="" id="id_usuario" value={{usuario_id}} class="col-4">
         </div>
-
+        
+        <br>
+        <br>
         <h3>Informações Básicas</h3>
 
 

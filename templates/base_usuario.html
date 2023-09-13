@@ -393,30 +393,30 @@
         
     {% block content %}{% endblock %}
 
-    <!-- Bootstrap core JavaScript-->
-    <script src="{% static 'dashboard/js/jquery.min.js' %}"></script>
-    <script src="{% static 'dashboard/js/bootstrap.bundle.min.js' %}"></script>
-    <script src="{% static 'usuario/js/usuario.js' %}"></script>
+<!-- Bootstrap core JavaScript-->
+<script src="{% static 'dashboard/js/jquery.min.js' %}"></script>
+<script src="{% static 'dashboard/js/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'usuario/js/usuario.js' %}"></script>
+
+
+
+<!-- Core plugin JavaScript-->
+<script src="{% static 'dashboard/js/jquery.easing.min.js' %}"></script>
+
+<!-- Custom scripts for all pages-->
+<script src="{% static 'dashboard/js/sb-admin-2.min.js' %}"></script>
+<!--  toogle nav na mão  -->
+{% comment %} <script>
+    $('#sidebarToggle').on('click', function(){
+
+        $('#conteudo').removeClass('conteudo')
+        $('#conteudo').addClass('conteudo-recolhido')
+        console.log("clickei")
+    })
     
-    
+</script> {% endcomment %}
 
-    <!-- Core plugin JavaScript-->
-    <script src="{% static 'dashboard/js/jquery.easing.min.js' %}"></script>
-
-    <!-- Custom scripts for all pages-->
-    <script src="{% static 'dashboard/js/sb-admin-2.min.js' %}"></script>
-    <!--  toogle nav na mão  -->
-    {% comment %} <script>
-        $('#sidebarToggle').on('click', function(){
-
-            $('#conteudo').removeClass('conteudo')
-            $('#conteudo').addClass('conteudo-recolhido')
-            console.log("clickei")
-        })
-        
-    </script> {% endcomment %}
-
-    {% block scripts %}{% endblock %}
+{% block scripts %}{% endblock %}
 
 
 

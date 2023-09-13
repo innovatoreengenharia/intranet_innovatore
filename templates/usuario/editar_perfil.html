@@ -7,21 +7,19 @@
 {% block content %}
 
 <div class='conatiner container-edit'>
-    <h1>Editar Cadastro</h1>
-    <h2>Olá {{ form.nome.value }} {{ form.sobrenome.value }}</h2>
     <form method="post" autocomplete='off' enctype='multipart/form-data'>
         {% csrf_token %}
-
         
         <div class='row'>
-
+            <div class="col-3">
+                <label for="id_foto">Foto</label>
+                <input type="file" name="foto" accept="image/*" id="id_foto" class="form-control"value='{{form.foto.value}}'>
+            </div>
+            <div class="col-3">
+                <label for="id_fundo">Fundo</label>
+                <input type="file" name="fundo" accept="image/*" id="id_fundo" class="form-control"value='{{form.fundo.value}}'>
+            </div>
             <input type="hidden" name="usuario" required="" id="id_usuario" value={{usuario_id}} class="col-4">
-
-            <label for="id_foto">Foto</label>
-            <input type="file" name="foto" accept="image/*" id="id_foto" class="form-control col-3">
-            
-            <label for="id_fundo">Fundo</label>
-            <input type="file" name="fundo" accept="image/*" id="id_fundo" class="form-control col-3">
         </div>
         <br>
         <h3>Informações Básicas</h3>
@@ -129,7 +127,7 @@
             </div>
 
             <div class="form-group col-2">
-                <label for="{{ form.estado_trabalho.id_for_label }}" >{{ form.estado_trabalho.label }}</label>
+                <label for="{{ form.estado_trabalho.id_for_label }}" >Estado em que Trabalha</label>
                 {{ form.estado_trabalho }}
             </div>
 
@@ -169,13 +167,8 @@
                 <br>
             </div>      
         </div>
-
-
         <!-- Formulario Experiência -->
-        
         {{ form_experiencia.management_form }}
-            
-        
         {% for fe in form_experiencia%}
         <div class="row inline-experiencia"> 
             {{fe.id}}
@@ -185,11 +178,11 @@
             </div>
 
             <div class="form-group col-3">
-                <label for="{{fe.cargo_empresa.id_for_label}}">{{ fe.cargo_empresa.label }}</label>
+                <label for="{{fe.cargo_empresa.id_for_label}}">Cargo</label>
                 {{ fe.cargo_empresa }}
             </div>
 
-            <div class="form-group col-3">
+            <div class="form-group col-2">
                 <label for="{{fe.localidade.id_for_label}}">{{ fe.localidade.label }}</label>
                 {{ fe.localidade }}
             </div>
@@ -214,18 +207,20 @@
                 <input type="date" name="{{fe.termino_trabalho.html_name}}" value="{{fe.termino_trabalho.value|date:'Y-m-d'}}" class="form-control" id="{{ fe.termino_trabalho.id }}">
             </div>
 
+            {% if not fe.id.value %}
+                <a href="">Remover Experiência</a>
+            {% else %}
+                <a href="{% url 'deletar_experiencia' fe.id.value %}">Remover Experiência</a>
+            {% endif%}
+
         </div>
+        <br>
         {% endfor %}
 
         <!--Formulário Formação-->
-
         <h3>Formação Acadêmica</h3>
-
         {{ form_formacao.management_form }}
-            
-        
         {% for ff in form_formacao%}
-
         <div class="row inline-formacao"> 
             {{ff.id}}
             <div class="form-group col-4">
@@ -258,18 +253,20 @@
                 <input type="date" name="{{ff.termino_faculdade.html_name}}" value="{{ff.termino_faculdade.value|date:'Y-m-d'}}" class="form-control" id="{{ ff.termino_faculdade.id }}">
             </div>
 
+            {% if not ff.id.value %}
+                <a href="">Remover Formação</a>
+            {% else %}
+                <a href="{% url 'deletar_formacao' ff.id.value %}">Remover Formação</a>
+            {% endif%}
+
         </div>
+        <br>
         {% endfor %}
 
         <!--Formulário Cursos-->
-
         <h3>Licenças ou Cursos</h3>
-
         {{ form_cursos.management_form }}
-            
-        
         {% for fc in form_cursos%}
-
         <div class="row inline-cursos"> 
             {{fc.id}}
             <div class="form-group col-3">
@@ -302,51 +299,63 @@
                 {{ fc.descricao_curso }}
             </div>
 
+            {% if not fc.id.value %}
+                <a href="">Remover Curso</a>
+            {% else %}
+                <a href="{% url 'deletar_curso' fc.id.value %}">Remover Curso</a>
+            {% endif%}
+
         </div>
+        <br>
         {% endfor %}
-        <!--Formulário Habilidades-->
 
-        <h3>Habilbidades</h3>
-
-        {{ form_habilidades.management_form }}
-            
+        <div class="row">
+            <!--Formulário Habilidades-->
+            <div class="col-4">
+                <h3>Habilbidades</h3>
+                {{ form_habilidades.management_form }}
+                {% for fh in form_habilidades%}
+                <br>
+                <div class="inline-habilidades"> 
+                    {{fh.id}}
+                    <div class="form-group">
+                        {{ fh.habilidades }}
+                    </div>
+                    {% if not fh.id.value %}
+                        <a href="">Remover Habilidade</a>
+                    {% else %}
+                        <a href="{% url 'deletar_habilidade' fh.id.value %}">Remover Habilidade</a>
+                    {% endif%}
+                </div>
+                {% endfor %}
+            </div>
         
-        {% for fh in form_habilidades%}
+            <!--Formulário Hobbies-->
+            <div class="col-4">
+                <h3>Hobbies</h3>
+                {{ form_hobbies.management_form }}
+                {% for fho in form_hobbies%}
+                <br>
+                <div class="inline-hobbies"> 
+                    {{fho.id}}
+                    <div class="form-group">
+                        {{ fho.hobbies }}
+                    </div>
+                    {% if not fho.id.value %}
+                        <a href="">Remover Hobbie</a>
+                    {% else %}
+                    <a href="{% url 'deletar_hobbie' fho.id.value %}">Remover Hobbie</a>
+                    {% endif%}
+                </div>
 
-        <div class="row inline-habilidades"> 
-            {{fh.id}}
-            <div class="form-group col-3">
-                <label for="{{fh.habilidades.id_for_label}}">Habilidades</label>
-                {{ fh.habilidades }}
+                {% endfor %}
             </div>
         </div>
-        {% endfor %}
-        <!--Formulário Hobbies-->
+        <!--**************************************************************************-->
+        <button class="editar" type="submit">Salvar</button>  
+        <a class="baixar" href="{% url 'perfil' %}">Voltar</a>
+    </form> 
 
-        <h3>Hobbies</h3>
-
-        {{ form_hobbies.management_form }}
-            
-        
-        {% for fho in form_hobbies%}
-
-        <div class="row inline-hobbies"> 
-            {{fho.id}}
-            <div class="form-group col-3">
-                <label for="{{fho.hobbies.id_for_label}}">Hobbies</label>
-                {{ fho.hobbies }}
-            </div>
-        </div>
-
-        {% endfor %}
-
-
-        
-<!--**************************************************************************-->
-        <button class="btn btn-primary" type="submit">editar</button>  
-        <a class="btn btn-danger" href="{% url 'perfil' %}">Cancelar</a>
-    </form>     
-</div>
 
 {% endblock %}
 
@@ -357,7 +366,7 @@
             $('.inline-experiencia').formset({
                 prefix: '{{ form_experiencia.prefix }}',
                 addText: '<img src={% static "usuario/img/adicionar.png" %} >',
-                deleteText: 'Remover Experiência'
+                deleteText: ''
             });
         })
     </script>
@@ -368,7 +377,7 @@
             $('.inline-formacao').formset({
                 prefix: '{{ form_formacao.prefix }}',
                 addText: '<img src={% static "usuario/img/adicionar.png" %} >',
-                deleteText: 'Remover Experiência'
+                deleteText: ''
             });
         })
     </script>
@@ -379,7 +388,7 @@
             $('.inline-cursos').formset({
                 prefix: '{{ form_cursos.prefix }}',
                 addText: '<img src={% static "usuario/img/adicionar.png" %} >',
-                deleteText: 'Remover Experiência'
+                deleteText: ''
             });
         })
     </script>
@@ -390,8 +399,8 @@
         $(function() {
             $('.inline-habilidades').formset({
                 prefix: '{{ form_habilidades.prefix }}',
-                addText: '<img src={% static "usuario/img/adicionar.png" %} >',
-                deleteText: 'Remover Experiência'
+                addText: '<img src={% static "usuario/img/adicionar.png" %} class="adicionar-habilidade">',
+                deleteText: ''
             });
         })
     </script>
@@ -401,8 +410,8 @@
         $(function() {
             $('.inline-hobbies').formset({
                 prefix: '{{ form_hobbies.prefix }}',
-                addText: '<img src={% static "usuario/img/adicionar.png" %} >',
-                deleteText: 'Remover Experiência'
+                addText: '<img src={% static "usuario/img/adicionar.png" %} class="adicionar-habilidade">',
+                deleteText: ''
             });
         })
     </script>

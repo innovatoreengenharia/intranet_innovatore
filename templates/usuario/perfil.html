@@ -26,15 +26,7 @@
     <p>{{ perfil.cargo }}, {{ hoje|timeuntil:perfil.data_mudanca }}<br>
     {{ perfil.obra_trabalho }}, {{ perfil.cidade_trabalho }}, {{perfil.estado_trabalho }}</p>
 
-    {% comment %} <p>{{ ex.forma_trabalho }}</p>
-    <p>{{ ex.inicio_trabalho }}</p>
-    <p>{{ ex.termino_trabalho }}</p>
-    <p>{{ ex.descricao_trabalho }}</p>
-    <a href="{% url 'deletar_experiencia' ex.id %}">remover</a>
-    <br> {% endcomment %}
-
-    
-
+    <br>
     <h5>Experiências Profissionais</h5>
 
     {% for ex in experiencia %}
@@ -48,138 +40,72 @@
             <p>{{ ex.descricao_trabalho }}</p>
         </div>
     </div>
-    <a href="{% url 'deletar_experiencia' ex.id %}">remover</a>
+    {% comment %} <a href="{% url 'deletar_experiencia' ex.id %}">remover experiência</a><br><br> {% endcomment %}
 
     {% endfor %}
-
-    {% comment %} <br>
-
-    <p>{{ perfil.cargo }}, {{ perfil.data_mudanca|timeuntil:ex.inicio_trabalho   }}<br>
-
-
-    {{ perfil.sexo }} 
-    <br>
-    {{ perfil.nascimento }} 
-    <br>
-    {{ perfil.email }} 
-    <br>
-    {{ perfil.contato }} 
-    <br>
-    <br>
-    {{ perfil.endereco }} 
-    <br>
-    {{ perfil.bairro }} 
-    <br>
-    {{ perfil.cidade }} 
-    <br>
-    {{ perfil.estado }} 
-    <br>
-    {{ perfil.numero }} 
-    <br>
-    {{ perfil.complemento }} 
-    <br>
-    {{ perfil.cpf }} 
-    <br>
-    {{ perfil.rg }} 
     <br>
 
-    <h2>Informações Plrofissionais</h2>
-
-    <br>
-    {{ perfil.cargo_inicial }}
-    <br>
-    {{ perfil.cargo }}
-    <br>
-    {{ perfil.setor }}
-    <br>
-    {{ perfil.cidade_trabalho }}
-    <br>
-    {{ perfil.estado_trabalho }}
-    <br>
-    {{ perfil.data_inicio }}
-    <br>
-    {{ perfil.data_mudanca }}
-    <br>
-    {{ perfil.email_empresa }}
-    <br>
-    {{ perfil.telefone }}
-    <br>
-    {{ perfil.obra_trabalho }}
-    <br>
-
-    <hr>
-
-    <h2>Experiência Profissional</h2>
-
-    {{ perfil.texto_experiencia }}
-
-    {% for ex in experiencia %}
-
-        <p>{{ ex.empresa }}</p>
-        <p>{{ ex.localidade }}</p>
-        <p>{{ ex.forma_trabalho }}</p>
-        <p>{{ ex.inicio_trabalho }}</p>
-        <p>{{ ex.termino_trabalho }}</p>
-        <p>{{ ex.descricao_trabalho }}</p>
-        <a href="{% url 'deletar_experiencia' ex.id %}">remover</a>
-        <br>
-
-    {% endfor %}
-
-    <h2>Formação Acadêmica</h2>
-
+    <h5>Formação Acadêmica</h5>
+    <div class="row">
     {% for fm in formacao %}
-
-        <p>{{ fm.instituicao }}</p>
-        <p>{{ fm.diploma }}</p>
-        <p>{{ fm.area_estudo }}</p>
-        <p>{{ fm.inicio_faculdade }}</p>
-        <p>{{ fm.termino_faculdade }}</p>
-        <p>{{ fm.descricao_faculdade }}</p>
-        <hr>
-        <a href="{% url 'deletar_formacao' fm.id %}">remover</a>
-        <br>
-
+        <div class="col-3">
+            <p>{{ fm.instituicao }}<br>
+            {{fm.diploma}}<br>
+            {{ fm.inicio_faculdade }} até {{ fm.termino_faculdade }}
+            </p>
+            {% comment %} <a href="{% url 'deletar_formacao' fm.id %}">remover formação</a><br><br> {% endcomment %}
+        </div>
     {% endfor %}
+    </div>
+    <br>
 
-    <h2>Licenças e Cursos</h2>
+    <h5>Licenças e Cursos</h5>
+    <div class="row">
+        {% for fc in cursos %}
+        <div class="col-3">
+            <p>{{ fc.nome_certificado }}<br>
+            {{fc.horas}} Horas
+            </p>
+        </div>
+        <div class="col-9">
+            <p>{{ fc.descricao_curso }}</p>
+        </div>
+        {% comment %} <a href="{% url 'deletar_curso' fc.id %}">remover curso</a><br><br> {% endcomment %}
+        {% endfor %}
+    </div>
+    <br>
 
-    {% for fc in cursos %}
+    <h5>Habilidades</h5>
+    <br>
+    <div class="row">
+        <div class="col-4">
+        {% for fh in habilidades %}
+            
+                <span class="habilidades">{{ fh.habilidades }}</span>
+                {% comment %} <a href="{% url 'deletar_habilidade' fh.id %}">remover</a> {% endcomment %}
+            
+        {% endfor %}
+        <div>
+    </div>
 
-        <p>{{ fc.nome_certificado }}</p>
-        <p>{{ fc.organizacao }}</p>
-        <p>{{ fc.inicio_curso }}</p>
-        <p>{{ fc.termino_curso }}</p>
-        <p>{{ fc.horas }}</p>
-        <p>{{ fc.descricao_curso }}</p>
-        <a href="{% url 'deletar_curso' fc.id %}">remover</a>
-        <br>
+    <br>
+    <h5>Hobbies</h5>
+    <br>
+    <div class="row">
+        <div>
+        {% for fho in hobbies %}
 
-    {% endfor %}
+            <span class="hobbies">{{ fho.hobbies }}</span>
+            {% comment %} <a href="{% url 'deletar_hobbie' fho.id %}">remover</a> {% endcomment %}
 
-    <h2>Habilidades</h2>
-
-    {% for fh in habilidades %}
-
-        <p>{{ fh.habilidades }}
-            <a href="{% url 'deletar_habilidade' fh.id %}">remover</a>
-            <br>
-
-    {% endfor %}
-
-    <h2>Hobbies</h2>
-
-    {% for fho in hobbies %}
-
-        <p>{{ fho.hobbies }}
-        <a href="{% url 'deletar_hobbie' fho.id %}">remover</a>
-        <br>
-
-    {% endfor %}
-    <hr>
-
-    {% endcomment %}
-    <a href="{% url 'editar' perfil.id %}">editar</a>
-
+        {% endfor %}
+        </div>
+    </div>
 </div>
+    <br><br>
+<div class="div-editar">
+    <a href="{% url 'editar' perfil.id %}" class="editar">Editar</a>
+    <a href="" class="baixar">Baixar</a>
+</div>
+
 {% endblock %}
