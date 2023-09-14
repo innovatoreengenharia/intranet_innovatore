@@ -8,6 +8,9 @@ def home(request):
     id_usuario = request.user.id
     perfil = Perfil.objects.filter(usuario_id = id_usuario).first()
 
+    if not perfil:
+        return redirect('cadastro')
+
     context ={
         'perfil':perfil,
     }

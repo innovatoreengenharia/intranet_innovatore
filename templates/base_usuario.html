@@ -38,19 +38,11 @@
             <hr class="divisor-menu">
 
             <!-- Nav Item - Dashboard -->
-            {% if url_name == 'home' %}
             <li class="nav-item active item-menu">
                 <a class="nav-link" href={% url 'home' %}>
                     <img src={% static "dashboard/img/dash_selecionado.png" %}>
                     <span>Dashboard</span></a>
             </li>
-            {% else %}
-            <li class="nav-item item-menu">
-                <a class="nav-link" href={% url 'home' %}>
-                    <img src={% static "dashboard/img/dash.png" %}>
-                    <span>Dashboard</span></a>
-            </li>
-            {% endif %}
             <!-- Favoritos -->
             <li class="nav-item item-menu">
                 <a class="nav-link" href="charts.html">
@@ -164,11 +156,10 @@
     </div>
     
     <!-- Content Wrapper -->
-    <div id="content-wrapper" id="conteudo"class="conteudo">
+    <div id="content-wrapper" id="conteudo" class="conteudo">
 
         <!-- Main Content -->
         <div id="content">
-
             <!-- Topbar -->
             {% if perfil.fundo == '' %}
             <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top nav-sup">
@@ -191,10 +182,11 @@
                 </form> {% endcomment %}
 
                 <div class="nav-selecionado">
-                    <img class="img-profile rounded-circle" src="{% static 'dashboard/img/pu.png' %}"style="margin-top: 1.5em;">
+                    <img class="img-profile rounded-circle" src="{% static 'dashboard/img/pu.png' %}"style="margin-top: 1.5em; margin-left:1em;">
                     <p>Perfil</p>
                 </div>
-                <img src="{% static 'dashboard/img/menu.png' %}"id="sidebarToggle" class="img-hamburger">
+                {% comment %} <img src="{% static 'dashboard/img/menu.png' %}"id="sidebarToggle" class="img-hamburger"> {% endcomment %}
+                <img src="{% static 'dashboard/img/menu.png' %}" class="img-hamburger">
                 
                 <!-- Topbar Navbar -->
                 <ul class="navbar-nav ml-auto">
@@ -383,10 +375,16 @@
             </nav>
         </div>
         
-        <div class="row apresentacao">
-            <img class="img-profile rounded-circle"src="{{ perfil.foto.url }}">
+        <div class="row apresentacao sombra">
+            <div class="foto-perfil" style="background-image: url('{{ perfil.foto.url }}')">
+            </div>
+            {% comment %} <img class="img-profile rounded-circle"src="{{ perfil.foto.url }}"> {% endcomment %}
             <h5>{{ perfil.nome }} {{ perfil.sobrenome }}</h5>
             <p>{{ perfil.cargo }}</p>
+            <div class="icone-config">
+                <img src="{% static "dashboard/img/settings.png" %}">
+                <p>Configurações</p>
+            </div>
 
         </div>
     

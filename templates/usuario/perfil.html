@@ -6,7 +6,7 @@
 {% endblock %}
 {% block content %}
 
-<div class="perfil shadow"> 
+<div class="perfil sombra"> 
 
     <h3>Informações Básicas</h3>
 
@@ -105,7 +105,14 @@
     <br><br>
 <div class="div-editar">
     <a href="{% url 'editar' perfil.id %}" class="editar">Editar</a>
-    <a href="" class="baixar">Baixar</a>
+    <a href="" class="baixar" id="imprimir">Baixar</a>
 </div>
 
+{% endblock %}
+{% block scripts %}
+    <script>
+        document.getElementById('imprimir').addEventListener('click', function() {
+            window.print();
+        });
+    </script>
 {% endblock %}

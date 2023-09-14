@@ -10470,7 +10470,8 @@ a:focus {
 @media (min-width: 768px) {
   
   .sidebar {
-    width: 20.438em !important;
+    width: 20.5em !important;
+    height: 57.688em;
     padding: 0 20px;
     box-shadow:8px 8px 8px 0px rgba(0, 0, 0, 0.06);
   }
@@ -11286,6 +11287,8 @@ body.sidebar-toggled footer.sticky-footer {
 }
 
 .nav-sup{
+  background-size: cover;
+  background-repeat: no-repeat;
   margin: 1em auto;
   height: 30em;
   border-radius: 25px;
@@ -11295,6 +11298,8 @@ body.sidebar-toggled footer.sticky-footer {
 
 .nav-selecionado{
   display:contents;
+  position: relative;
+  left:-2em;
 }
 
 .nav-selecionado p {
@@ -11312,6 +11317,8 @@ body.sidebar-toggled footer.sticky-footer {
   left: 3em;
  }
 .menu-lateral{
+  width: 20.5em;
+  height: 57.688em;
   position:fixed;
   z-index:999; 
   left:5px; 
@@ -11329,6 +11336,8 @@ body.sidebar-toggled footer.sticky-footer {
 
 .conteudo{
   padding-left: 23em;
+  padding-right: 2em;
+  background-color: #f9f9f9;
 }
 
 .conteudo-recolhido{
