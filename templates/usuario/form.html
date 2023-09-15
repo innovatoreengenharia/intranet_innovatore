@@ -6,28 +6,26 @@
 {% endblock %}
 
 {% block content %}
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-    Launch demo modal
-  </button>
 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document"style="width:1500px;">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
+          <h5 class="modal-title">Seja Bem-Vindo</h5>
         </div>
         <div class="modal-body">
-          ...
+            Essa plataforma foi desenvolvida para melhorar a comunicação interna entre os colaboradores da <br>
+            <b>Innovatore Engenharia.</b><br><br>
+            
+            <b>Seja bem-vindo</b> e desfrute de todas as ferramentas disponíveis!<br><br>
+            
+            No seu primeiro acesso terá de ser realizado um breve cadastro, para continuar o uso da intranet.
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal" id="fecha-modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
+          <button type="button" class="cadastrar-modal" data-dismiss="modal" id="fecha-modal">Cadastrar</button>
         </div>
       </div>
     </div>
-  </div>
+</div>
 
 <div class='conatiner container-cadastro sombra'>
     <form method="post" action="{% url 'cadastro' %}" autocomplete='off' enctype='multipart/form-data'>
@@ -108,7 +106,7 @@
             
             <div class="form-group col-2">
                 <label for="id_complemento">Complemento</label>
-                <input type="text" name="complemento"id="id_complemento" class="form-control" placeholder="Casa ou apartamento">
+                <input type="text" name="complemento"id="id_complemento" required="" class="form-control" placeholder="Casa ou apartamento">
             </div>
 
             {% comment %} <div class="form-group col-2">

@@ -14,37 +14,14 @@ def cadastro(request):
 
     if request.method == 'GET':
         usuario_logado = request.user
-        nome = request.user.first_name
-        sobrenome = request.user.last_name
         usuario_id = request.user.id
         form = PerfilForm() 
 
-        form_experiencia_factory = inlineformset_factory(Perfil, Experiencia, form=ExperienciaForm, extra=1)
-        form_experiencia = form_experiencia_factory()
-
-        form_formacao_factory = inlineformset_factory(Perfil, Formacao, form=FormacaoForm, extra=1)
-        form_formacao = form_formacao_factory()
-
-        form_cursos_factory = inlineformset_factory(Perfil, Cursos, form=CursosForm, extra=1)
-        form_cursos = form_cursos_factory()
-
-        form_habilidades_factory = inlineformset_factory(Perfil, Habilidades, form=HabilidadesForm, extra=1)
-        form_habilidades = form_habilidades_factory()
-
-        form_hobbies_factory = inlineformset_factory(Perfil, Hobbies, form=HobbiesForm, extra=1)
-        form_hobbies = form_hobbies_factory()
 
         context = {
              'form': form,
-             'form_experiencia': form_experiencia,
-             'form_formacao': form_formacao,
-             'form_cursos': form_cursos,
-             'form_habilidades': form_habilidades,
-             'form_hobbies': form_hobbies,
              'usuario_logado': usuario_logado,
              'usuario_id': usuario_id,
-             'nome': nome,
-             'sobrenome': sobrenome,
              
              }
         return render(request, 'usuario/form.html', context)
@@ -52,53 +29,15 @@ def cadastro(request):
     elif request.method == 'POST':
         form = PerfilForm(request.POST, request.FILES)
 
-        form_experiencia_factory = inlineformset_factory(Perfil, Experiencia, form=ExperienciaForm)
-        form_experiencia = form_experiencia_factory(request.POST)
 
-        form_formacao_factory = inlineformset_factory(Perfil, Formacao, form=FormacaoForm)
-        form_formacao = form_formacao_factory(request.POST)
-
-        form_cursos_factory = inlineformset_factory(Perfil, Cursos, form=CursosForm)
-        form_cursos = form_cursos_factory(request.POST)
-
-        form_habilidades_factory = inlineformset_factory(Perfil, Habilidades, form=HabilidadesForm)
-        form_habilidades = form_habilidades_factory(request.POST)
-
-        form_hobbies_factory = inlineformset_factory(Perfil, Hobbies, form=HobbiesForm)
-        form_hobbies = form_hobbies_factory(request.POST)
-
-
-        if (form.is_valid() 
-                and form_experiencia.is_valid() 
-                and form_formacao.is_valid()
-                and form_cursos.is_valid()
-                and form_habilidades.is_valid()
-                and form_hobbies.is_valid()
-                ):
-            perfil = form.save()
-
-            form_experiencia.instance = perfil
-            form_formacao.instance = perfil
-            form_cursos.instance = perfil
-            form_habilidades.instance = perfil
-            form_hobbies.instance = perfil
-
-            form_experiencia.save()
-            form_formacao.save()
-            form_cursos.save()
-            form_habilidades.save()
-            form_hobbies.save()
+        if form.is_valid():
+            form.save()
 
             return redirect(reverse('perfil'))
 
         else:
             context = {
                  'form': form,
-                 'form_experiencia':form_experiencia,
-                 'form_formacao': form_formacao,
-                 'form_cursos': form_cursos,
-                 'form_habilidades': form_habilidades,
-                 'form_hobbies': form_hobbies,
             }
             print('ERRO NO CADASTRO')
             return render(request, 'usuario/form.html', context)
@@ -137,6 +76,8 @@ def perfil(request):
         return redirect('cadastro')
 
 def editPerfil (request, id):
+    if not request.user.is_authenticated:
+        return redirect('login')
     if(request.method == 'GET'):
         usuario_logado = request.user
         usuario_id = request.user.id
@@ -229,7 +170,14 @@ def editPerfil (request, id):
                 'form_habilidades': form_habilidades,
                 'form_hobbies': form_hobbies,
             }
-            print('ERRO NO EDIT', form.is_valid(), form_experiencia.is_valid(), form_formacao.is_valid(), form_cursos.is_valid(), form_habilidades.is_valid(), form_hobbies.errors)
+            print('ERRO NO EDIT', 
+                  'Form',form.is_valid(), form.errors,
+                  'exp',form_experiencia.is_valid(), form_experiencia.errors,
+                  'formacao',form_formacao.is_valid(), form_formacao.errors,
+                  'cursos',form_cursos.is_valid(), form_cursos.errors,
+                  'hab',form_habilidades.is_valid(), form_habilidades.errors,
+                  'hob',form_hobbies.errors,form_hobbies.errors,
+                )
             return render(request, 'usuario/editar_perfil.html', context)
         
 

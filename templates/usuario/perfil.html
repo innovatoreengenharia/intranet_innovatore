@@ -12,36 +12,50 @@
 
     <br> 
     <h4>{{ perfil.nome }} {{ perfil.sobrenome }} </h4>
-    <p class="cargo">{{ perfil.cargo }}</p>
-    <p class="local">{{ perfil.cidade_trabalho }}, {{ perfil.estado }}, Brasil</p>
+
+    {% if not perfil.cargo %}
+        <p></p>
+    {% else %}
+        <p class="cargo">{{ perfil.cargo }}</p>
+    {% endif %}
+
+    {% if not perfil.cidade_trabalho %}
+        <p></p>
+    {% else %}
+        <p class="local">{{ perfil.cidade_trabalho }}, {{ perfil.estado }}, Brasil</p>
+    {% endif %}
     
     <h5>Resumo</h5>
-
-    <p>{{ perfil.texto_experiencia }}</p>
-    <br>
+    {% if not perfil.texto_experiencia%}
+        <p></p>
+    {%else %}
+        <p>{{ perfil.texto_experiencia }}</p>
+        <br>
+    {% endif %}
 
     <h5>Informações Profissionais</h5>
 
-    
-    <p>{{ perfil.cargo }}, {{ hoje|timeuntil:perfil.data_mudanca }}<br>
-    {{ perfil.obra_trabalho }}, {{ perfil.cidade_trabalho }}, {{perfil.estado_trabalho }}</p>
+    {%if not perfil.cargo %}
+        <p></p>
+    {% else %}
+        <p>{{ perfil.cargo }}, {{ hoje|timeuntil:perfil.data_mudanca }}<br>
+        {{ perfil.obra_trabalho }}, {{ perfil.cidade_trabalho }}, {{perfil.estado_trabalho }}</p>
+    {% endif %}
 
     <br>
     <h5>Experiências Profissionais</h5>
-
     {% for ex in experiencia %}
-    <div class="row">
-        <div class="col-3">
-            <p>{{ ex.empresa }}<br>{{ ex.cargo_empresa }}<br>{{ex.inicio_trabalho}} até {{ ex.termino_trabalho }}<br>
-            {{ ex.localidade }}
-            </p>
+        <div class="row">
+            <div class="col-3">
+                <p>{{ ex.empresa }}<br>{{ ex.cargo_empresa }}<br>{{ex.inicio_trabalho}} até {{ ex.termino_trabalho }}<br>
+                {{ ex.localidade }}
+                </p>
+            </div>
+            <div class="col-9">
+                <p>{{ ex.descricao_trabalho }}</p>
+            </div>
         </div>
-        <div class="col-9">
-            <p>{{ ex.descricao_trabalho }}</p>
-        </div>
-    </div>
     {% comment %} <a href="{% url 'deletar_experiencia' ex.id %}">remover experiência</a><br><br> {% endcomment %}
-
     {% endfor %}
     <br>
 

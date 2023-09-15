@@ -50,7 +50,7 @@ class Perfil(models.Model):
     sexo = models.CharField(max_length=20, choices=GEN, null=True, default='M')
     email = models.EmailField(max_length=50,null=True)
     contato = models.CharField(max_length=14)
-    cpf = models.CharField(max_length=14, null=True)
+    cpf = models.CharField(max_length=14, null=True, blank=True)
     rg = models.CharField(max_length=25, null=True, blank=True)
     endereco = models.CharField(max_length=50, null=True, blank=True)
     bairro = models.CharField(max_length=50, null=True, blank=True)
@@ -64,7 +64,7 @@ class Perfil(models.Model):
     cargo = models.CharField(max_length=50, null=True, blank=True)
     setor = models.CharField(max_length=50, null=True, blank=True)
     cidade_trabalho = models.CharField(max_length=50, null=True, blank=True)
-    estado_trabalho = models.CharField(choices=ESTADO, null=True, default='AC')
+    estado_trabalho = models.CharField(choices=ESTADO, null=True, blank=True)
     data_inicio = models.DateField(max_length=10, null=True, blank=True)
     data_mudanca = models.DateField(max_length=10, null=True, blank=True)
     email_empresa = models.EmailField(max_length=50, null=True, blank=True)
@@ -84,7 +84,7 @@ class Experiencia(models.Model):
 
     perfil = models.ForeignKey(Perfil, on_delete=models.CASCADE, null=True)
 
-    empresa = models.CharField(max_length=50, null=True)
+    empresa = models.CharField(max_length=50, null=True, blank=True)
     cargo_empresa = models.CharField(max_length=70, null=True, blank=True)
     localidade = models.CharField(max_length=50, null=True)
     forma_trabalho = models.CharField(max_length=50, null=True)

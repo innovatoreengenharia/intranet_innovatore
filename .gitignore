@@ -11,3 +11,4 @@ bin/
 .vscode-test/
 .vscode-test-web/
 .pyc
+media/

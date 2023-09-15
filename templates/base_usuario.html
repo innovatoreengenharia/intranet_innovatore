@@ -161,10 +161,10 @@
         <!-- Main Content -->
         <div id="content">
             <!-- Topbar -->
-            {% if perfil.fundo == '' %}
-            <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top nav-sup">
+            {% if not perfil.fundo  %}
+                <nav class="navbar navbar-expand navbar-light topbar mb-4 static-top nav-sup" style="background-color: #14355e;">
             {% else %}
-            <nav class="navbar navbar-expand navbar-light bg-white topbar mb-5 static-top nav-sup"style="background-image: url('{{ perfil.fundo.url }}')">
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-5 static-top nav-sup"style="background-image: url('{{ perfil.fundo.url }}')">
             {% endif %}
 
                 <!-- Topbar Search -->
@@ -338,13 +338,13 @@
                     <li class="nav-item dropdown no-arrow">
                         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            {% if perfil.foto == ''%}
+                            {% if not perfil.foto%}
                                 <img  src="{% static 'dashboard/img/pu.png' %}">
                             {% else %}
                                 <img class="img-profile rounded-circle"src="{{ perfil.foto.url   }}">
                             {% endif %}
 
-                            {% if perfil.nome == '' %}
+                            {% if not perfil.nome %}
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">Usuário</span>
                             {% else %}
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ perfil.nome }} {{ perfil.sobrenome }}</span>
@@ -376,11 +376,20 @@
         </div>
         
         <div class="row apresentacao sombra">
+            {% if not perfil.foto %}
+            <div class="foto-perfil" style="background-image: url('{% static "usuario/img/usuario-vazio.png" %}')">
+            </div>
+            {% else %}
             <div class="foto-perfil" style="background-image: url('{{ perfil.foto.url }}')">
             </div>
+            {% endif %}
             {% comment %} <img class="img-profile rounded-circle"src="{{ perfil.foto.url }}"> {% endcomment %}
             <h5>{{ perfil.nome }} {{ perfil.sobrenome }}</h5>
-            <p>{{ perfil.cargo }}</p>
+            {% if not perfil.cargo %}
+                <p></p>
+            {% else %}
+                <p>{{ perfil.cargo }}</p>
+            {% endif %}
             <div class="icone-config">
                 <img src="{% static "dashboard/img/settings.png" %}">
                 <p>Configurações</p>

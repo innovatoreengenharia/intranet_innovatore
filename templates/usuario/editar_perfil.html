@@ -89,16 +89,29 @@
                 <label for="id_complemento">Complemento</label>
                 <input type="text" name="complemento" class="form-control" id="id_complemento"value='{{form.complemento.value}}'>
             </div>
-
+            {% if not perfil.cpf %}
             <div class="form-group col-2">
                 <label for="id_cpf">CPF</label>
-                <input type="text" name="cpf" class="form-control" required="" id="id_cpf"value='{{form.cpf.value}}'>
+                <input type="text" name="cpf" maxlength="14" id="id_cpf" class="form-control" placeholder="Digite o número do seu CPF">
             </div>
+            {% else %}
+            <div class="form-group col-2">
+                <label for="id_cpf">CPF</label>
+                <input type="text" name="cpf" class="form-control" id="id_cpf"value='{{form.cpf.value}}'>
+            </div>
+            {% endif %}
 
+            {% if not perfil.rg %}
             <div class="form-group col-2">
                 <label for="id_rg">RG</label>
-                <input type="text" name="rg" class="form-control" required="" id="id_rg"value='{{form.rg.value}}'>
+                <input type="text" name="rg" maxlength="25" id="id_rg" class="form-control" placeholder="Digite o número do seu RG">
             </div>
+            {% else %}
+            <div class="form-group col-2">
+                <label for="id_rg">RG</label>
+                <input type="text" name="rg" class="form-control" id="id_rg"value='{{form.rg.value}}'>
+            </div>
+            {% endif %}
         </div>
 
         <br>
@@ -106,101 +119,195 @@
         <br>
 
         <div class="row">
+            {% if not perfil.cargo_inicial%}
             <div class="form-group col-3">
                 <label for="id_cargo_inicial">Cargo Inicial</label>
-                <input type="text" name="cargo_inicial" class="form-control" required="" id="id_cargo_inicial"value='{{form.cargo_inicial.value}}'>
+                <input type="text" name="cargo_inicial" id="id_cargo_inicial"  class="form-control" placeholder="Digite a cargo que você iniciou na empresa">
             </div>
+            {% else %}
+            <div class="form-group col-3">
+                <label for="id_cargo_inicial">Cargo Inicial</label>
+                <input type="text" name="cargo_inicial" class="form-control" id="id_cargo_inicial"value='{{form.cargo_inicial.value}}'>
+            </div>
+            {% endif %}
 
+            {% if not perfil.cargo %}
             <div class="form-group col-3">
                 <label for="id_cargo">Cargo</label>
-                <input type="text" name="cargo" class="form-control" required="" id="id_cargo"value='{{form.cargo.value}}'>
+                <input type="text" name="cargo" id="id_cargo" class="form-control" placeholder="Digite a sua função atual">
             </div>
+            {% else %}
+            <div class="form-group col-3">
+                <label for="id_cargo">Cargo</label>
+                <input type="text" name="cargo" class="form-control"id="id_cargo"value='{{form.cargo.value}}'>
+            </div>
+            {% endif %}
 
+            {% if not perfil.setor%}
+            <div class="form-group col-2">
+                <label for="id_setor">Setor Atual</label>
+                <input type="text" name="setor" id="id_setor" class="form-control" placeholder="Digite seu setor">
+            </div>
+            {% else %}
             <div class="form-group - col-2">
                 <label for="id_setor">Setor Atual</label>
-                <input type="text" name="setor" class="form-control" required="" id="id_setor"value='{{form.setor.value}}'>
+                <input type="text" name="setor" class="form-control" id="id_setor"value='{{form.setor.value}}'>
             </div>
+            {% endif %}
 
+            {% if not perfil.cidade_trabalho %}
+            <div class="form-group col-2">
+                <label for="id_cidade_trabalho">Cidade em que Trabalha</label>
+                <input type="text" name="cidade_trabalho" id="id_cidade_trabalho" class="form-control" placeholder="Digite o nome  da sua cidade ">
+            </div>
+            {% else %}
             <div class="form-group - col-2">
                 <label for="id_cidade_trabalho">Cidade em que Trabalha</label>
-                <input type="text" name="cidade_trabalho" class="form-control" required="" id="id_cidade_trabalho"value='{{form.cidade_trabalho.value}}'>
+                <input type="text" name="cidade_trabalho" class="form-control" id="id_cidade_trabalho"value='{{form.cidade_trabalho.value}}'>
             </div>
+            {% endif %}
 
+            {% if not perfil.estado_trabalho %}
+            <div class="form-group col-2">
+                <label for="{{ form.estado_trabalho.id_for_label }}" >{{ form.estado_trabalho.label }}</label>
+                {{ form.estado_trabalho }}
+            </div>
+            {% else %}
             <div class="form-group col-2">
                 <label for="{{ form.estado_trabalho.id_for_label }}" >Estado em que Trabalha</label>
                 {{ form.estado_trabalho }}
             </div>
+            {% endif %}
 
             <div class="form-group col-2">
                 <label for="{{ form.data_inicio.id_for_label }}" >{{ form.data_inicio.label }}</label>
-                <input type="date" name="data_inicio" value="{{ form.data_inicio.value|date:'Y-m-d' }}" class="form-control" required="" id="form.data_inicio.id_for_label">
+                <input type="date" name="data_inicio" value="{{ form.data_inicio.value|date:'Y-m-d' }}" class="form-control"id="form.data_inicio.id_for_label">
             </div>
 
             <div class="form-group col-2">
                 <label for="{{ form.data_mudanca.id_for_label }}" >{{ form.data_mudanca.label }}</label>
-                <input type="date" name="data_mudanca" value="{{form.data_mudanca.value|date:'Y-m-d'}}" class="form-control" required="" id="form.data_mudanca.id_for_label">
+                <input type="date" name="data_mudanca" value="{{form.data_mudanca.value|date:'Y-m-d'}}" class="form-control" id="form.data_mudanca.id_for_label">
             </div>
 
 
             <div class="form-group col-3">
                 <label for="id_email_empresa">E-mail Corporativo</label>
-                <input type="email" name="email_empresa" class="form-control" required="" id="id_email_empresa"value='{{form.email_empresa.value}}'>
+                <input type="email" name="email_empresa" class="form-control" id="id_email_empresa"value='{{ perfil.email }}'required="false">
             </div>
 
+            {% if not perfil.telefone %}
             <div class="form-group col-2">
                 <label for="id_telefone">Telefone Corporativo</label>
-                <input type="text" name="telefone" class="form-control" required="" id="id_telefone"value='{{form.telefone.value}}'>
+                <input type="text" name="telefone" id="id_telefone" class="form-control" placeholder="Digite o seu contato telefônico">
             </div>
+            {% else %}
+            <div class="form-group col-2">
+                <label for="id_telefone">Telefone Corporativo</label>
+                <input type="text" name="telefone" class="form-control" id="id_telefone"value='{{form.telefone.value}}'>
+            </div>
+            {% endif %}
 
+            {% if not perfil.obra_trabalho %}
             <div class="form-group col-3">
                 <label for="id_obra_trabalho">Obra em que Trabalha Atualmente</label>
-                <input type="text" name="obra_trabalho" class="form-control" required="" id="id_obra_trabalho"value='{{form.obra_trabalho.value}}'>
+                <input type="text" name="obra_trabalho" id="id_obra_trabalho" class="form-control" placeholder="Digite o nome da obra ">
             </div>
+            {% else %}
+            <div class="form-group col-3">
+                <label for="id_obra_trabalho">Obra em que Trabalha Atualmente</label>
+                <input type="text" name="obra_trabalho" class="form-control" id="id_obra_trabalho"value='{{form.obra_trabalho.value}}'>
+            </div>
+            {% endif %}
         </div>
 
         <h3> Experiência Profissional </h3>
 
+        {% if not perfil.texto_experiencia %}
         <div class="row">
             <div class="form-group col-12">
-                <label for="id_texto_experiencia">Texto experiencia</label>
+                <label for="id_texto_experiencia">Fale Um Pouco Sobre Você</label>
+                <textarea name="texto_experiencia" id="id_texto_experiencia" class="form-control" placeholder="Escreva sobre seus anos de experiência, setor ou competências. Muitas pessoas também descrevem suas conquistas ou empregos anteriores."></textarea>
+                <hr>
+            </div>
+        </div>
+        {% else %}
+        <div class="row">
+            <div class="form-group col-12">
+                <label for="id_texto_experiencia">Fale Um Pouco Sobre Você</label>
                 <textarea name="texto_experiencia" id="id_texto_experiencia" class="form-control">{{form.texto_experiencia.value}}</textarea>
                 <br>
             </div>      
         </div>
+        {% endif %}
         <!-- Formulario Experiência -->
         {{ form_experiencia.management_form }}
         {% for fe in form_experiencia%}
         <div class="row inline-experiencia"> 
             {{fe.id}}
+            {% if not fe.empresa.value %}
+            <div class="form-group col-3">
+                <label for="{{ fe.empresa.id_for_label }}" >{{ fe.empresa.label }}</label>
+                <input type="text" name="{{fe.empresa.html_name}}" placeholder="Digite o nome da empresa" class="form-control" id="{{fe.empresa.id}}">
+            </div>
+            {% else %}
             <div class="form-group col-3">
                 <label for="{{fe.empresa.id_for_label}}">{{ fe.empresa.label }}</label>
                 {{ fe.empresa }}
             </div>
+            {% endif %}
 
+            {% if not fe.cargo_empresa.value %}
+            <div class="form-group col-3">
+                <label for="{{ fe.cargo_empresa.id_for_label }}" >cargo</label>
+                <input type="text" name="{{fe.cargo_empresa.html_name}}" placeholder="Digite o cargo" class="form-control" id="{{fe.cargo_empresa.id}}">
+            </div>
+            {% else %}
             <div class="form-group col-3">
                 <label for="{{fe.cargo_empresa.id_for_label}}">Cargo</label>
                 {{ fe.cargo_empresa }}
             </div>
+            {% endif %}
 
+            {% if not fe.localidade.value %}
+            <div class="form-group col-2">
+                <label for="{{ fe.localidade.id_for_label }}" >{{ fe.localidade.label }}</label>
+                <input type="text" name="{{fe.localidade.html_name}}" placeholder="Digite o nome do estado" class="form-control" id="{{fe.localidade.id}}">
+            </div>
+            {% else %}
             <div class="form-group col-2">
                 <label for="{{fe.localidade.id_for_label}}">{{ fe.localidade.label }}</label>
                 {{ fe.localidade }}
             </div>
+            {% endif %}
 
+            {% if not fe.forma_trabalho.value %}
             <div class="form-group col-2">
-                <label for="{{fe.forma_trabalho.id_for_label}}">{{ fe.forma_trabalho.label }}</label>
+                <label for="{{ fe.forma_trabalho.id_for_label }}" >Forma de Trabalho</label>
+                <input type="text" name="{{fe.forma_trabalho.html_name}}" placeholder="Digite a forma de trabalho" class="form-control" id="{{fe.forma_trabalho.id}}">
+            </div>
+            {% else %}
+            <div class="form-group col-2">
+                <label for="{{fe.forma_trabalho.id_for_label}}">Forma de trabalho</label>
                 {{ fe.forma_trabalho }}
             </div>
+            {% endif  %}
 
             <div class="form-group col-2">
                 <label for="{{ fe.inicio_trabalho.id_for_label }}" >{{ fe.inicio_trabalho.label }}</label>
                 <input type="date" name="{{fe.inicio_trabalho.html_name}}" value="{{fe.inicio_trabalho.value|date:'Y-m-d'}}" class="form-control" id="{{fe.inicio_trabalho.id}}">
             </div>
 
+            {% if not fe.descricao_trabalho.value%}
             <div class="form-group col-10">
-                <label for="{{fe.descricao_trabalho.id_for_label}}">{{ fe.descricao_trabalho.label }}</label>
+                <label for="{{ fe.descricao_trabalho.id_for_label }}" >Descrição</label>
+                <textarea type="text" name="{{fe.descricao_trabalho.html_name}}" placeholder="Escreva sobre seus anos de experiência, setor ou competências."  class="form-control" id="{{fe.descricao_trabalho.id}}"></textarea>
+            </div>
+            {% else %}
+            <div class="form-group col-10">
+                <label for="{{fe.descricao_trabalho.id_for_label}}">Descrição</label>
                 {{ fe.descricao_trabalho }}
             </div> 
+            {% endif %}
 
             <div class="form-group col-2">
                 <label for="{{ fe.termino_trabalho.id_for_label }}" >{{ fe.termino_trabalho.label }}</label>
@@ -223,30 +330,59 @@
         {% for ff in form_formacao%}
         <div class="row inline-formacao"> 
             {{ff.id}}
+
+            {% if not ff.instituicao.value%}
+            <div class="form-group col-4">
+                <label for="{{ ff.instituicao.id_for_label }}" >Instituição de Ensino</label>
+                <input type="text" name="{{ff.instituicao.html_name}}" placeholder="Ex.: Universidade de São Paulo"  class="form-control" id="{{ff.instituicao.id}}">
+            </div>
+            {% else %}
             <div class="form-group col-4">
                 <label for="{{ff.instituicao.id_for_label}}">Instituição de Ensino</label>
                 {{ ff.instituicao }}
             </div>
+            {% endif %}
 
+            {% if not ff.diploma.value %}
+            <div class="form-group col-2">
+                <label for="{{ ff.diploma.id_for_label }}" >Diploma</label>
+                <input type="text" name="{{ff.diploma.html_name}}" placeholder="Ex.: Bacharelado"  class="form-control" id="{{ff.diploma.id}}">
+            </div>
+            {% else %}
             <div class="form-group col-2">
                 <label for="{{ff.diploma.id_for_label}}">Diploma</label>
                 {{ ff.diploma }}
             </div>
+            {% endif %}
 
+            {% if not ff.area_estudo.value %}
             <div class="form-group col-4">
-                <label for="{{ff.area_estudo.id_for_label}}">Área de estudo</label>
+                <label for="{{ ff.area_estudo.id_for_label }}" >Área de Estudo</label>
+                <input type="text" name="{{ff.area_estudo.html_name}}" placeholder="Ex.: Administração"  class="form-control" id="{{ff.area_estudo.id}}">
+            </div>
+            {% else %}
+            <div class="form-group col-4">
+                <label for="{{ff.area_estudo.id_for_label}}">Área de Estudo</label>
                 {{ ff.area_estudo }}
             </div>
+            {% endif %}
 
             <div class="form-group col-2">
                 <label for="{{ ff.inicio_faculdade.id_for_label }}" >Início</label>
                 <input type="date" name="{{ff.inicio_faculdade.html_name}}" value="{{ff.inicio_faculdade.value|date:'Y-m-d'}}" class="form-control" id="{{ff.inicio_faculdade.id}}">
             </div>
 
+            {% if not ff.descricao_faculdade.value %}
+            <div class="form-group col-10">
+                <label for="{{ ff.descricao_faculdade.id_for_label }}" >Descrição</label>
+                <textarea type="text" name="{{ff.descricao_faculdade.html_name}}" placeholder="Escreva sobre seus anos de experiência, setor ou competências."  class="form-control" id="{{ff.descricao_faculdade.id}}"></textarea>
+            </div>
+            {% else %}
             <div class="form-group col-10">
                 <label for="{{ff.descricao_faculdade.id_for_label}}">Descrição</label>
                 {{ ff.descricao_faculdade }}
             </div> 
+            {% endif %}
 
             <div class="form-group col-2">
                 <label for="{{ ff.termino_faculdade.id_for_label }}" >Término</label>
@@ -269,15 +405,30 @@
         {% for fc in form_cursos%}
         <div class="row inline-cursos"> 
             {{fc.id}}
+
+            {% if not fc.nome_certificado.value %}
+            <div class="form-group col-3">
+                <label for="{{ fc.nome_certificado.id_for_label }}" >Nome do certificado</label>
+                <input type="text" name="{{fc.nome_certificado.html_name}}" placeholder="Ex.: Microsofot Certified Network"  class="form-control" id="{{fc.nome_certificado.id}}">
+            </div>
+            {% else %}
             <div class="form-group col-3">
                 <label for="{{fc.nome_certificado.id_for_label}}">Nome do Certificado</label>
                 {{ fc.nome_certificado }}
             </div>
+            {% endif %}
 
+            {% if not fc.organizacao.value %}
+            <div class="form-group col-3">
+                <label for="{{ fc.organizacao.id_for_label }}" >Organização</label>
+                <input type="text" name="{{fc.organizacao.html_name}}" placeholder="Ex.: Microsoft"  class="form-control" id="{{fc.organizacao.id}}">
+            </div>
+            {% else %}
             <div class="form-group col-3">
                 <label for="{{fc.organizacao.id_for_label}}">Organização</label>
                 {{ fc.organizacao }}
             </div>
+            {% endif %}
 
             <div class="form-group col-2">
                 <label for="{{ fc.inicio_curso.id_for_label }}" >Data de Início</label>
@@ -289,15 +440,29 @@
                 <input type="date" name="{{fc.termino_curso.html_name}}" value="{{fc.termino_curso.value|date:'Y-m-d'}}" class="form-control" id="{{ fc.termino_curso.id }}">
             </div>
 
+            {% if not fc.horas.value %}
+            <div class="form-group col-2">
+                <label for="{{ fc.horas.id_for_label }}" >Horas</label>
+                <input type="text" name="{{fc.horas.html_name}}" placeholder="Ex.: 4 Horas"  class="form-control" id="{{fc.horas.id}}">
+            </div>
+            {% else %}
             <div class="form-group col-2">
                 <label for="{{fc.horas.id_for_label}}">Horas</label>
                 {{ fc.horas }}
             </div>
+            {% endif %}
 
+            {% if not fc.descricao_curso.value %}
             <div class="form-group col-12">
-                <label for="{{fc.descricao_curso.id_for_label}}">Horas</label>
+                <label for="{{ fc.descricao_curso.id_for_label }}" >Descrição</label>
+                <textarea type="text" name="{{fc.descricao_curso.html_name}}" placeholder="Escreva sobre seus anos de experiência, setor ou competências."  class="form-control" id="{{fc.descricao_curso.id}}"></textarea>
+            </div>
+            {% else %}
+            <div class="form-group col-12">
+                <label for="{{fc.descricao_curso.id_for_label}}">Descrição</label>
                 {{ fc.descricao_curso }}
             </div>
+            {% endif %}
 
             {% if not fc.id.value %}
                 <a href="">Remover Curso</a>
@@ -318,9 +483,16 @@
                 <br>
                 <div class="inline-habilidades"> 
                     {{fh.id}}
+                    {% if not fh.habilidades.value %}
+                    <div class="form-group">
+                        <label for="{{ fh.habilidades.id_for_label }}">Habilbidades</label>
+                        <input type="text" name="{{fh.habilidades.html_name}}" placeholder="Ex.: Autocad"  class="form-control" id="{{fh.habilidades.id}}">
+                    </div>
+                    {% else %}
                     <div class="form-group">
                         {{ fh.habilidades }}
                     </div>
+                    {% endif %}
                     {% if not fh.id.value %}
                         <a href="">Remover Habilidade</a>
                     {% else %}
@@ -338,9 +510,17 @@
                 <br>
                 <div class="inline-hobbies"> 
                     {{fho.id}}
+                    {% if not fho.hobbies.value %}
+                    <div class="form-group">
+                        <label for="{{ fho.hobbies.id_for_label }}">Hobbies</label>
+                        <input type="text" name="{{fho.hobbies.html_name}}" placeholder="Ex.: Futebol"  class="form-control" id="{{fho.hobbies.id}}">
+                    </div>
+                    {% else %}
                     <div class="form-group">
                         {{ fho.hobbies }}
                     </div>
+                    {% endif %}
+
                     {% if not fho.id.value %}
                         <a href="">Remover Hobbie</a>
                     {% else %}
