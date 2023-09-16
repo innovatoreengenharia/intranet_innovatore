@@ -19,6 +19,7 @@
 
     <!-- Estilo dashboard-->
     <link href="{% static 'dashboard/css/sb-admin-2.css' %}" rel="stylesheet">
+    <link href="{% static 'dashboard/css/style.css' %}" rel="stylesheet">
     {% block estilo %}{% endblock %}
     
 </head>
@@ -167,13 +168,13 @@
     </div>
         <!-- End of Sidebar -->
 
-<div id="content-wrapper" class="conteudo">
+<div id="content-wrapper" class="conteudo-base">
 
     <!-- Main Content -->
     <div id="content">
 
         <!-- Topbar -->
-        <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+        <nav class="navbar navbar-expand navbar-light topbar mb-4 static-top navbar-dashboard">
 
             <!-- Sidebar Toggle (Topbar) -->
             <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
@@ -193,8 +194,8 @@
                     </div>
                 </div>
             </form> {% endcomment %}
-            <img class="img-profile rounded-circle" src="{% static 'dashboard/img/pu.png' %}">
-
+            {% block icones %}{% endblock %}
+           
             <!-- Topbar Navbar -->
             <ul class="navbar-nav ml-auto">
 

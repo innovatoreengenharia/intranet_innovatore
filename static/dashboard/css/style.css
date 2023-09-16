@@ -1,3 +1,98 @@
-.logo-inn{
-    width:10px;
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital@0;1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap');
+
+
+h1{
+    font-family: 'Open Sans';
+    font-size: 32px;
+    font-weight: 700;
+    color:#14355E;
+
+}
+.borda{
+    border-radius: 24px;
+}
+.conteudo-base{
+    padding-left:21em ;
+    background-color: white;
+}
+
+.navbar-dashboard{
+    margin-left: 2em;
+}
+.icones{
+    position: relative;
+    top:0.5em;
+    width:100%
+}
+
+.icone-dash{
+    position: relative;
+    top:-0.2em;
+    display:inline-block;
+    margin-right: 0.5em;
+    width: 22px;
+    height: 22px;
+}
+
+.icone-menu{
+    position: relative;
+    top:-0.1em;
+    display:inline-block;
+    margin-right: 0.5em;
+    width: 22px;
+    height: 22px;
+}
+.icones p{
+    display:inline-block;
+    margin-right: 0.5em;
+    font-family: 'Open Sans';
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 24px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #464646;
+}
+.apresentacao{
+    background-color: rgba(0, 0, 0, 0.6);
+    border: none;
+    color: white;
+    padding: 1.5em 1.5em 0.5em 1.5em;
+    
+}
+.apresentacao p{
+    font-family: 'Open Sans';
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 32px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+.institucional{
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+    padding: 24px;
+}
+.institucional img{
+    position: relative;
+    left: 1.7em;
+    margin-bottom: 3em;
+}
+.institucional h6{
+    color: #14355E;
+    text-align: right;
+    font-family: 'Open Sans';
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 24px;
+}
+.tempo{
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
 }
