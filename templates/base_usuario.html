@@ -347,7 +347,7 @@
                             {% if not perfil.nome %}
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">Usuário</span>
                             {% else %}
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ perfil.nome }} {{ perfil.sobrenome }}</span>
+                                <span class="nome-menu">{{ perfil.nome }} {{ perfil.sobrenome }}</span>
                             {% endif %}
                         </a>
                         <!-- Dropdown - User Information -->
@@ -383,7 +383,6 @@
             <div class="foto-perfil" style="background-image: url('{{ perfil.foto.url }}')">
             </div>
             {% endif %}
-            {% comment %} <img class="img-profile rounded-circle"src="{{ perfil.foto.url }}"> {% endcomment %}
             <h5>{{ perfil.nome }} {{ perfil.sobrenome }}</h5>
             {% if not perfil.cargo %}
                 <p></p>

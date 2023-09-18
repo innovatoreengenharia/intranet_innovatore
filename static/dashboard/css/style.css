@@ -13,14 +13,34 @@ h1{
 }
 .borda{
     border-radius: 24px;
+    background: var(--preto-branco, #FFF);
+    box-shadow: 8px 8px 8px 0px rgba(0, 0, 0, 0.06);
 }
+
+
+.nome-menu{
+    position:relative;
+    top:-0.5em;
+    font-family: 'Open Sans';
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 32px;
+    letter-spacing: 0em;
+    text-align: right;
+    color: #464646;
+    margin-left: 1em;
+}
+.dropdown-item{
+    color: #464646;
+}
+
 .conteudo-base{
     padding-left:21em ;
     background-color: white;
 }
 
 .navbar-dashboard{
-    margin-left: 2em;
+    margin-left: 0.5em;
 }
 .icones{
     position: relative;
@@ -76,6 +96,7 @@ h1{
     background-repeat: no-repeat;
     height: 100%;
     padding: 24px;
+    background-image: url("../img/bg-institucional.png")
 }
 .institucional img{
     position: relative;
@@ -92,7 +113,96 @@ h1{
     line-height: 24px;
 }
 .tempo{
+    background-image: url("../img/bg-temp.png");
     background-size: cover;
     background-repeat: no-repeat;
     height: 100%;
+    padding: 1em;
+}
+.tempo h1{
+    font-family: 'Open Sans';
+    font-size: 32px;
+    font-weight: 700;
+    text-align: right;
+    color: white;
+}
+
+.tempo h5{
+    font-family: 'Open Sans';
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 32px;
+    letter-spacing: 0em;
+    text-align: right;
+    color: white;
+}
+.tempo p{
+    font-family: 'Open Sans';
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 24px;
+    letter-spacing: 0em;
+    text-align: right;
+    color: white;
+}
+.aniversariantes{
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+    padding: 24px;
+    background-image: url("../img/bg-aniversariantes.png")
+}
+.aniversariantes p{
+    font-family: Open Sans;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 32px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #14355E;
+
+}
+.aniversariantes-icone{
+    margin-right: -1.8em;
+}
+
+.foto-aniversariante{
+    width: 50px;
+    height: 50px;
+}
+.informativos{
+    background: linear-gradient(to right, #14355F, #1656A4);
+    color:white;
+    border: none;
+    padding: 1.5em 1.5em 0.5em 1.5em;
+    height: 100%;
+}
+.informativos h1{
+    color: white;
+}
+.informativos h5{
+    font-family: 'Open Sans';
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 24px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+.informativos p{
+    font-family: 'Open Sans';
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 24px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+.informativos a{
+    color:white;
+}
+
+.cursos{
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 15em;
+    background-image: url('../img/bg-cursos.png');
 }
