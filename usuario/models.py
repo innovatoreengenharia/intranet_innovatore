@@ -64,7 +64,7 @@ class Perfil(models.Model):
     cargo = models.CharField(max_length=50, null=True, blank=True)
     setor = models.CharField(max_length=50, null=True, blank=True)
     cidade_trabalho = models.CharField(max_length=50, null=True, blank=True)
-    estado_trabalho = models.CharField(choices=ESTADO, null=True, blank=True)
+    estado_trabalho = models.CharField(max_length=50, choices=ESTADO, null=True, default='AC')
     data_inicio = models.DateField(max_length=10, null=True, blank=True)
     data_mudanca = models.DateField(max_length=10, null=True, blank=True)
     email_empresa = models.EmailField(max_length=50, null=True, blank=True)

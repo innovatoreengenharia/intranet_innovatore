@@ -169,7 +169,7 @@
 
             {% if not perfil.estado_trabalho %}
             <div class="form-group col-2">
-                <label for="{{ form.estado_trabalho.id_for_label }}" >{{ form.estado_trabalho.label }}</label>
+                <label for="{{ form.estado_trabalho.id_for_label }}" >Estado em que Trabalha</label>
                 {{ form.estado_trabalho }}
             </div>
             {% else %}
@@ -180,12 +180,12 @@
             {% endif %}
 
             <div class="form-group col-2">
-                <label for="{{ form.data_inicio.id_for_label }}" >{{ form.data_inicio.label }}</label>
+                <label for="{{ form.data_inicio.id_for_label }}" >Data de Início</label>
                 <input type="date" name="data_inicio" value="{{ form.data_inicio.value|date:'Y-m-d' }}" class="form-control"id="form.data_inicio.id_for_label">
             </div>
 
             <div class="form-group col-2">
-                <label for="{{ form.data_mudanca.id_for_label }}" >{{ form.data_mudanca.label }}</label>
+                <label for="{{ form.data_mudanca.id_for_label }}" >Data da mudança de Cargo</label>
                 <input type="date" name="data_mudanca" value="{{form.data_mudanca.value|date:'Y-m-d'}}" class="form-control" id="form.data_mudanca.id_for_label">
             </div>
 
@@ -246,7 +246,7 @@
             {{fe.id}}
             {% if not fe.empresa.value %}
             <div class="form-group col-3">
-                <label for="{{ fe.empresa.id_for_label }}" >{{ fe.empresa.label }}</label>
+                <label for="{{ fe.empresa.id_for_label }}" required="">{{ fe.empresa.label }}</label>
                 <input type="text" name="{{fe.empresa.html_name}}" placeholder="Digite o nome da empresa" class="form-control" id="{{fe.empresa.id}}">
             </div>
             {% else %}
@@ -258,7 +258,7 @@
 
             {% if not fe.cargo_empresa.value %}
             <div class="form-group col-3">
-                <label for="{{ fe.cargo_empresa.id_for_label }}" >cargo</label>
+                <label for="{{ fe.cargo_empresa.id_for_label }}"required="" >cargo</label>
                 <input type="text" name="{{fe.cargo_empresa.html_name}}" placeholder="Digite o cargo" class="form-control" id="{{fe.cargo_empresa.id}}">
             </div>
             {% else %}
@@ -270,7 +270,7 @@
 
             {% if not fe.localidade.value %}
             <div class="form-group col-2">
-                <label for="{{ fe.localidade.id_for_label }}" >{{ fe.localidade.label }}</label>
+                <label for="{{ fe.localidade.id_for_label }}" required="">{{ fe.localidade.label }}</label>
                 <input type="text" name="{{fe.localidade.html_name}}" placeholder="Digite o nome do estado" class="form-control" id="{{fe.localidade.id}}">
             </div>
             {% else %}
@@ -282,7 +282,7 @@
 
             {% if not fe.forma_trabalho.value %}
             <div class="form-group col-2">
-                <label for="{{ fe.forma_trabalho.id_for_label }}" >Forma de Trabalho</label>
+                <label for="{{ fe.forma_trabalho.id_for_label }}" required="">Forma de Trabalho</label>
                 <input type="text" name="{{fe.forma_trabalho.html_name}}" placeholder="Digite a forma de trabalho" class="form-control" id="{{fe.forma_trabalho.id}}">
             </div>
             {% else %}
@@ -293,13 +293,13 @@
             {% endif  %}
 
             <div class="form-group col-2">
-                <label for="{{ fe.inicio_trabalho.id_for_label }}" >{{ fe.inicio_trabalho.label }}</label>
+                <label for="{{ fe.inicio_trabalho.id_for_label }}"required="" >Início</label>
                 <input type="date" name="{{fe.inicio_trabalho.html_name}}" value="{{fe.inicio_trabalho.value|date:'Y-m-d'}}" class="form-control" id="{{fe.inicio_trabalho.id}}">
             </div>
 
             {% if not fe.descricao_trabalho.value%}
             <div class="form-group col-10">
-                <label for="{{ fe.descricao_trabalho.id_for_label }}" >Descrição</label>
+                <label for="{{ fe.descricao_trabalho.id_for_label }}"required="">Descrição</label>
                 <textarea type="text" name="{{fe.descricao_trabalho.html_name}}" placeholder="Escreva sobre seus anos de experiência, setor ou competências."  class="form-control" id="{{fe.descricao_trabalho.id}}"></textarea>
             </div>
             {% else %}
@@ -310,7 +310,7 @@
             {% endif %}
 
             <div class="form-group col-2">
-                <label for="{{ fe.termino_trabalho.id_for_label }}" >{{ fe.termino_trabalho.label }}</label>
+                <label for="{{ fe.termino_trabalho.id_for_label }}" >Término</label>
                 <input type="date" name="{{fe.termino_trabalho.html_name}}" value="{{fe.termino_trabalho.value|date:'Y-m-d'}}" class="form-control" id="{{ fe.termino_trabalho.id }}">
             </div>
 
@@ -535,7 +535,9 @@
         <button class="editar" type="submit">Salvar</button>  
         <a class="baixar" href="{% url 'perfil' %}">Voltar</a>
     </form> 
-
+</div>
+<div style="height: 5px;">
+</div>
 
 {% endblock %}
 

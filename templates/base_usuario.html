@@ -162,7 +162,7 @@
         <div id="content">
             <!-- Topbar -->
             {% if not perfil.fundo  %}
-                <nav class="navbar navbar-expand navbar-light topbar mb-4 static-top nav-sup" style="background-color: #14355e;">
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-5 static-top nav-sup"style="background-image: url('../../static/usuario/img/fundo-padrao.jpeg')">
             {% else %}
                 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-5 static-top nav-sup"style="background-image: url('{{ perfil.fundo.url }}')">
             {% endif %}
@@ -339,7 +339,11 @@
                         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             {% if not perfil.foto%}
-                                <img  src="{% static 'dashboard/img/pu.png' %}">
+                                {% if perfil.sexo == 'feminino' %}
+                                <img class="img-profile rounded-circle" src="{% static 'usuario/img/avatar-f.jpeg' %}">
+                                {% else %}
+                                <img class="img-profile rounded-circle" src="{% static 'usuario/img/avatar-m.jpeg' %}">
+                                {% endif %}
                             {% else %}
                                 <img class="img-profile rounded-circle"src="{{ perfil.foto.url   }}">
                             {% endif %}
@@ -377,7 +381,12 @@
         
         <div class="row apresentacao sombra">
             {% if not perfil.foto %}
-            <div class="foto-perfil" style="background-image: url('{% static "usuario/img/usuario-vazio.png" %}')">
+                {% if perfil.sexo == 'feminino' %}
+                <div class="foto-perfil" style="background-image: url('{% static "usuario/img/avatar-f.jpeg" %}')">
+                {% else %}
+                <div class="foto-perfil" style="background-image: url('{% static "usuario/img/avatar-m.jpeg" %}')">
+                {% endif %}
+
             </div>
             {% else %}
             <div class="foto-perfil" style="background-image: url('{{ perfil.foto.url }}')">

@@ -77,7 +77,7 @@ h1{
     color: #464646;
 }
 .apresentacao{
-    background-color: rgba(0, 0, 0, 0.6);
+    background-image: url("../img/fundo_escuro.png");
     border: none;
     color: white;
     padding: 1.5em 1.5em 0.5em 1.5em;
@@ -148,7 +148,11 @@ h1{
 .aniversariantes{
     background-size: cover;
     background-repeat: no-repeat;
-    height: 100%;
+    overflow: auto;
+    overflow-x: hidden;
+    /* overflow-y: hidden; */
+    width: 100%;
+    height: 256px;
     padding: 24px;
     background-image: url("../img/bg-aniversariantes.png")
 }
@@ -162,7 +166,7 @@ h1{
     color: #14355E;
 
 }
-.aniversariantes-icone{
+.icones-direita{
     margin-right: -1.8em;
 }
 
@@ -175,7 +179,7 @@ h1{
     color:white;
     border: none;
     padding: 1.5em 1.5em 0.5em 1.5em;
-    height: 100%;
+    height: 256px;
 }
 .informativos h1{
     color: white;
@@ -205,4 +209,23 @@ h1{
     background-repeat: no-repeat;
     height: 15em;
     background-image: url('../img/bg-cursos.png');
+}
+
+.feed{
+    height: 831px;
+}
+
+.calendario{
+    background-image: url("../img/Calendário.png");
+    height: 530px;
+}
+
+.mapa{
+    position: relative;
+    left: 30em;
+    top: -600px;
+    background-image: url("../img/bg-mapa-obras.png");
+    background-size: cover;
+    height: 558px;
+    width: 970px;
 }

@@ -33,7 +33,7 @@ def cadastro(request):
         if form.is_valid():
             form.save()
 
-            return redirect(reverse('perfil'))
+            return redirect(reverse('home'))
 
         else:
             context = {

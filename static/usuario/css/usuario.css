@@ -41,7 +41,7 @@ input{
     flex-shrink: 0;
     border-radius: 8px;
     border: 1px solid var(--preto-preto-100, #E8E8E8);
-    color: var(--preto-preto-300, #BBB);
+    color: black;
     background: #FFF;
     box-shadow: 1px 1px 1px 0px rgba(0, 0, 0, 0.06);
 }
@@ -75,6 +75,7 @@ input:-ms-input-placeholder {
 .container-edit{
     padding: 25px 25px 100px 25px;
     margin-top: -5em;
+    margin-bottom: 32px;
 }
 
 .container-edit h3{
@@ -98,14 +99,14 @@ input:-ms-input-placeholder {
     flex-shrink: 0;
     border-radius: 8px;
     border: 1px solid var(--preto-preto-100, #E8E8E8);
-    color: var(--preto-preto-300, #BBB);
+    color: black;
     background: #FFF;
     box-shadow: 1px 1px 1px 0px rgba(0, 0, 0, 0.06);
 }
 .container-edit select{
     height: 2.25em; 
     border: 1px solid var(--preto-preto-100, #E8E8E8);
-    color: var(--preto-preto-300, #BBB);
+    color: black;
     box-shadow: 1px 1px 1px 0px rgba(0, 0, 0, 0.06);
 }
 .container-edit textarea{
@@ -115,7 +116,7 @@ input:-ms-input-placeholder {
     flex-shrink: 0;
     border-radius: 8px;
     border: 1px solid var(--preto-preto-100, #E8E8E8);
-    color: var(--preto-preto-300, #BBB);
+    color: black;
     background: #FFF;
     box-shadow: 1px 1px 1px 0px rgba(0, 0, 0, 0.06);
 }
@@ -185,18 +186,18 @@ input:-ms-input-placeholder {
 .apresentacao{
     position: relative;
     top: -7.5em;
-    background-color: rgba(255,255,255, 0.85);  
+    background-color: rgba(255,255,255, 0.90);  
     border-radius: 15px;
     width: 97%;
     height: 139px;
     margin: auto;
 }
-.apresentacao img{
+/* .apresentacao img{
     width: 115px;
     height: 91px;
     border-radius: 20px;
     top:1.5em
-}
+} */
 
 .apresentacao h5{
     position: relative;
@@ -382,7 +383,12 @@ input:-ms-input-placeholder {
     background: linear-gradient(90deg, #14295E 0%, #2568BB 100%);
     color:white;
     box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.06);
-    
+    color: #FFF;
+    font-family: Open Sans;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 24px;
 }
 .modal-footer{
     justify-content:center;
@@ -412,13 +418,13 @@ input:-ms-input-placeholder {
 .icone-config img{
     position: relative;
     left: 90%;
-    top: 1.3em;
+    top: 1.6em;
     width: 2em;
     height: 2em;
 }
 .icone-config p{
     position:relative;
-    top: -1em;
+    top: -0.45em;
     left: 130%;
     font-family: 'Open Sans';
     font-size: 16px;
@@ -442,6 +448,7 @@ input:-ms-input-placeholder {
 
 .modal-content{
     padding: 5em;
+    border:none;
 }
 
 .modal-title{
@@ -455,13 +462,14 @@ input:-ms-input-placeholder {
 }
 
 .modal-body{
-    font-family: Open 'Sans';
+    font-family: 'Open Sans';
     font-size: 22px;
     font-weight: 400;
     line-height: 32px;
     letter-spacing: 0em;
     text-align: center;
     color:black;
+    border:none;
 }
 
 .modla-bory b{
@@ -472,4 +480,5 @@ input:-ms-input-placeholder {
     letter-spacing: 0em;
     text-align: center;
     color: black;
+    border:none;
 }
