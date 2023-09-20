@@ -149,7 +149,7 @@ figure {
 
 img {
   position: relative;
-  top: -8px;
+  top: -10px;
   vertical-align: middle;
   border-style: none;
 }
@@ -10288,6 +10288,7 @@ a:focus {
 
 .sidebar .nav-item:last-child {
   margin-bottom: 1rem;
+  margin-top: 2em;
 }
 
 .sidebar .nav-item .nav-link {
@@ -10509,7 +10510,7 @@ a:focus {
   }
   .sidebar .nav-item .nav-link span {
     position: relative;
-    top: -8px;
+    top: -12px;
     font-size: 1rem;
     display: inline;
   }
@@ -11283,7 +11284,7 @@ body.sidebar-toggled footer.sticky-footer {
 }
 
 .item-menu{
-  height: 3.5em;
+  height: 3.1em;
   margin-bottom: 12px;
 }
 

@@ -213,6 +213,7 @@ h1{
 
 .feed{
     height: 831px;
+    padding: 24px;
 }
 
 .calendario{
@@ -226,6 +227,6 @@ h1{
     top: -600px;
     background-image: url("../img/bg-mapa-obras.png");
     background-size: cover;
-    height: 558px;
+    height: 565px;
     width: 970px;
 }
