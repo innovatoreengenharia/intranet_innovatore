@@ -38,9 +38,9 @@
             <hr class="divisor-menu">
 
             <!-- Nav Item - Dashboard -->
-            <li class="nav-item active item-menu">
+            <li class="nav-item item-menu">
                 <a class="nav-link" href={% url 'home' %}>
-                    <img src={% static "dashboard/img/dash_selecionado.png" %}>
+                    <img src={% static "dashboard/img/dash.png" %}>
                     <span>Dashboard</span></a>
             </li>
             <!-- Favoritos -->
@@ -51,8 +51,7 @@
             </li>
 
             <li class="nav-item item-menu">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target=""
-                aria-expanded="true" aria-controls="">
+                <a a class="nav-link collapsed" href={% url 'institucional' %}>
                     <img src={% static "dashboard/img/institucional.png" %}>
                     <span>Institucional</span> 
                     <img class="vetor" src={% static "dashboard/img/vetor.png" %}>

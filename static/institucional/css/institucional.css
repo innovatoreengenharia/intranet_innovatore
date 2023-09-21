@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital@0;1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap');
+
+
+.img-topo-institucional{
+    position: absolute;
+    width:83%;
+    z-index: -1;
+    top:0%;
+}
+
+.h1-institucional{
+    font-family: Open Sans;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 48px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: white;
+    margin-left: 0.75em;
+}
+
+.bem-vindos{
+    margin-top: 21em;
+    padding:31px;
+}
+.bem-vindos h1{
+    margin-top: 32px;
+}
+.bem-vindos p{
+
+    font-family: 'Open Sans';
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 32px;
+    letter-spacing: 0em;
+    text-align: left;
+    color:#464646;
+}
+
+.bem-vindos b{
+    font-family: 'Open Sans';
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 32px;
+    letter-spacing: 0em;
+    text-align: left;
+    color:#14355E;
+}
+
+.p-cinza{
+    color: var(--preto-preto-400, #A4A4A4);
+    font-family: 'Open Sans';
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 24px;
+    padding: 0px;
+    margin: 0px
+}
+
+/* Estilo Carrossel*/

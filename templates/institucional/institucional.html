@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block estilo %}
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.7.1/slick.css"rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.7.1/slick-theme.css"rel="stylesheet">
+
+
+    <link href="{% static 'institucional/css/institucional.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block icones %}
+    <div class="icones">
+        <img class="icone-dash" src="{% static 'institucional/img/icone-institucional.png' %}">
+        <p style="color:white">Documentos / </p>
+        <img class="icone-menu" src="{% static 'dashboard/img/menu.png' %}">
+    </div>
+
+{% endblock %}
+
+{% block content %}
+    <h1 class="h1-institucional">Institucional</h1>
+    <img src="{% static 'institucional/img/topo-institucional.png' %}" class="img-topo-institucional">
+    <div class="bem-vindos">
+        <p class="p-cinza">Quem Somos</p>
+        <h1>Bem-Vindos!</h1>
+        <br>
+        <p>A Innovatore é mais que uma construtora; somos arquitetos do futuro. Com <b>oito anos de existência</b> e excelência, firmamos parcerias sólidas no setor privado, destacando-nos tanto no comercial quanto no industrial. Nossa qualidade e soluções personalizadas nos elevam no mercado.<br><br>
+
+            Realizamos projetos icônicos, como Dexco, Saint-Gobain, Auren, Raízen, Ambev, desafiando-nos a entregar soluções eficientes, fortalecendo nossa reputação e impulsionando o desenvolvimento econômico e social.<br><br>
+            
+            Nossa equipe de mais de  <b>50 engenheiros</b> altamente capacitados é o alicerce do nosso sucesso, investindo paixão e competência diariamente. Acreditamos que nossos resultados refletem a dedicação de nossos profissionais. <br><br>
+            
+            Com mais de <b>500 colaboradores</b>, formamos um time comprometido em superar expectativas. <br><br>
+            
+            Investimos em seu crescimento, criando um ambiente inspirador e com oportunidades de crescimento.<br><br>
+            
+            Hoje, atuamos apenas em território brasileiro, mas nosso olhar vai além. Até 2025, planejamos internacionalizar, com sede em Houston, EUA, para explorar horizontes globais na indústria.<br><br>
+            
+            Nossas metas são ousadas e respaldadas por nossa equipe comprometida. Continuaremos construindo legados, transformando ideias em realidade, buscando inovação e confiança, e contribuindo para a expansão da construção civil.
+        </p>
+        <img src="{% static 'institucional/img/imagem-video-institucional.png' %}" style="margin-top: 120px;">
+    </div>
+
+    <!-- Carrossel -->
+    
+    <div class="carousel">
+        <div><img src="https://i.imgur.com/3aIutJi.png" alt="js" /></div>
+        <div><img src="https://i.imgur.com/rWtGeQ0.png" alt="java" /></div>
+        <div><img src="https://i.imgur.com/8946bSF.png" alt="python"/></div>
+        <div><img src="https://i.imgur.com/9Hc7hjb.png" alt="kotlin" /></div>
+        <div><img src="https://i.imgur.com/uZDEpjX.png" alt="scala" /></div>
+        <div><img src="https://i.imgur.com/eQoyQjy.png" alt="C#" /></div>
+        <div><img src="https://i.imgur.com/ko3iAbu.png" alt="PHP" /></div>
+        <div><img src="https://i.imgur.com/Afkz5od.png" alt="dotnet" /></div>
+      </div>
+
+</div>
+</div>
+{% endblock %}
+{% block scripts %}
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.7.1/slick.js"></script>
+
+<script type="text/javascript">
+    $('.carousel').slick({
+        dots: true,
+        infinite: true,
+        speed: 1500,
+        slidesToShow: 2,
+        slidesToScroll: 2,
+    });
+</script>
+
+{% endblock %}

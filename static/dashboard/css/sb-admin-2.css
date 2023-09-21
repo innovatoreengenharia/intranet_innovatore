@@ -6,6 +6,13 @@
 article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
   display: block;
 }
+*{
+  margin: 0;
+  padding: 0;
+  list-style: none ;
+  outline: 0;
+  font-family: 'Arial','Sans-Serif';
+}
 
 body {
   margin: 0;
@@ -16,6 +23,7 @@ body {
   color: #858796;
   text-align: left;
   background-color: #fff;
+  max-width: 100%;
 }
 
 [tabindex="-1"]:focus:not(:focus-visible) {
@@ -152,6 +160,7 @@ img {
   top: -10px;
   vertical-align: middle;
   border-style: none;
+  max-width: 100%;
 }
 
 svg {
@@ -10472,7 +10481,7 @@ a:focus {
 @media (min-width: 768px) {
   
   .sidebar {
-    width: 20.5em !important;
+    width: 19em !important;
     height: 57.688em;
     padding: 0 20px;
     box-shadow:8px 8px 8px 0px rgba(0, 0, 0, 0.06);
@@ -11319,7 +11328,7 @@ body.sidebar-toggled footer.sticky-footer {
   left: 3em;
  }
 .menu-lateral{
-  width: 20.5em;
+  width: 19em;
   height: 57.688em;
   position:fixed;
   z-index:999; 
@@ -11337,7 +11346,7 @@ body.sidebar-toggled footer.sticky-footer {
 }
 
 .conteudo{
-  padding-left: 23em;
+  padding-left: 21.5em;
   padding-right: 2em;
   background-color: #f9f9f9;
 }

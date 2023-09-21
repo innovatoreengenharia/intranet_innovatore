@@ -21,12 +21,13 @@ from django.conf.urls.static import static
 from django.conf import settings
 
 urlpatterns = [
-    path("", include('dashboard.urls')),
-    path("gestao/", include('gestao.urls')),
     path('admin/login/', auth_views.LoginView.as_view(template_name='login_admin.html'), name='login_admin'),
     path("accounts/", include('django.contrib.auth.urls')),
+    path("", include('dashboard.urls')),
     path("admin/", admin.site.urls, name="admin"),
+    path("gestao/", include('gestao.urls')),
     path("usuario/", include('usuario.urls')),
+    path("institucional/", include('institucional.urls')),
 ]
 
 if settings.DEBUG:

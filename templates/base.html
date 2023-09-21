@@ -59,22 +59,29 @@
                     <img src={% static "dashboard/img/favoritos.png" %}>
                     <span>Favoritos</span></a>
             </li>
-
+            {% if url_name == 'institucional' %}
+            <li class="nav-item active item-menu">
+                <a class="nav-link collapsed" href={% url 'institucional' %}>
+                    <img src={% static 'dashboard/img/institucional-selecionado.png' %}>
+                    <span>Institucional</span> 
+                    <img class="vetor" src={% static "dashboard/img/vetor.png" %}>
+                </a>
+            </li>
+            {% else %}
             <li class="nav-item item-menu">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target=""
-                aria-expanded="true" aria-controls="">
+                <a class="nav-link collapsed" href={% url 'institucional' %}>
                     <img src={% static "dashboard/img/institucional.png" %}>
                     <span>Institucional</span> 
                     <img class="vetor" src={% static "dashboard/img/vetor.png" %}>
                 </a>
-                    
             </li>
+            {% endif %}
 
             <!-- Nav Item - Segurança do trabalho meio ambiente -->
            
 
             <li class="nav-item item-menu">
-                {% if '/qualidade' in url_name %}
+                {% if 'qualidade' in url_name %}
                 <a class="nav-link active collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
                     <img src={% static "dashboard/img/dash_selecionado.png" %}>
@@ -168,10 +175,10 @@
     </div>
         <!-- End of Sidebar -->
 
-<div id="content-wrapper" class="conteudo-base">
+<div id="content-wrapper" class="conteudo-base" style="max-width:100%">
 
     <!-- Main Content -->
-    <div id="content">
+    <div id="content" syle="max-width:100%;">
 
         <!-- Topbar -->
         <nav class="navbar navbar-expand navbar-light topbar mb-4 static-top navbar-dashboard">
@@ -356,11 +363,23 @@
                             <img class="img-profile rounded-circle"src="{{ perfil.foto.url }}">
                         {% endif %}
 
-                        {% if not perfil %}
-                            <span class="mr-2 d-none d-lg-inline text-gray-600 small">Usuário</span>
+                        {% with request.resolver_match.url_name as url_name %}
+                        {% if url_name == 'institucional' or url_name == 'cursos' %}
+
+                            {% if not perfil %}
+                                <span class="mr-5 d-none d-lg-inline small" style="color:white">Usuário</span>
+                            {% else %}
+                                <span class="nome-menu-branco mr-5 d-none d-lg-inline small">{{ perfil.nome }} {{ perfil.sobrenome }}</span>
+                            {% endif %}    
+
                         {% else %}
-                            <span class="nome-menu">{{ perfil.nome }} {{ perfil.sobrenome }}</span>
+                            {% if not perfil %}
+                                <span class="mr-5 d-none d-lg-inline text-gray-600 small">Usuário</span>
+                            {% else %}
+                                <span class="nome-menu mr-5 d-none d-lg-inline small">{{ perfil.nome }} {{ perfil.sobrenome }}</span>
+                            {% endif %}
                         {% endif %}
+                        {% endwith %}
                     </a>
                     <!-- Dropdown - User Information -->
                     <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
