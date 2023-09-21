@@ -9,6 +9,7 @@ from django.contrib import auth, messages
 from PIL import ImageChops
 
 def cadastro(request):
+    usuario_id = request.user.id
     if not request.user.is_authenticated:
         return redirect('login')
 
@@ -39,7 +40,7 @@ def cadastro(request):
             context = {
                  'form': form,
             }
-            print('ERRO NO CADASTRO')
+            print('ERRO NO CADASTRO', form.errors, usuario_id)
             return render(request, 'usuario/form.html', context)
 
 def perfil(request):
