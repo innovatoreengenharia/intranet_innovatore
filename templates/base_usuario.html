@@ -139,12 +139,18 @@
                 <a class="nav-link" href="charts.html">
                     <img src={% static "dashboard/img/cursos.png" %}>
                     <span>Cursos</span></a>
-            </li> 
+            </li>
+            
+            <li class="nav-item item-menu">
+                <a class="nav-link" href="charts.html">
+                    <img src={% static "dashboard/img/cartao-visita.png" %}>
+                    <span>Cartão de Visitas</span></a>
+            </li>
             
             <!-- Divider -->
-            <hr class="sidebar-divider">
+            <hr class="sidebar-divider"style="margin-top:3em">
 
-            <li class="nav-item item-menu">
+            <li class="nav-item item-menu"style="margin-top:-0.7em">
                 <a class="nav-link" href="">
                     <img src={% static "dashboard/img/settings-cinza.png" %}>
                     <span class=' configuracao'>Configurações</span></a>
@@ -339,9 +345,9 @@
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             {% if not perfil.foto%}
                                 {% if perfil.sexo == 'feminino' %}
-                                <img class="img-profile rounded-circle" src="{% static 'usuario/img/avatar-f.jpeg' %}">
+                                    <img class="img-profile rounded-circle" src="{% static 'usuario/img/avatar-f.jpeg' %}">
                                 {% else %}
-                                <img class="img-profile rounded-circle" src="{% static 'usuario/img/avatar-m.jpeg' %}">
+                                    <img class="img-profile rounded-circle" src="{% static 'usuario/img/avatar-m.jpeg' %}">
                                 {% endif %}
                             {% else %}
                                 <img class="img-profile rounded-circle"src="{{ perfil.foto.url   }}">

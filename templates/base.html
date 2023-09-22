@@ -160,10 +160,16 @@
                     <span>Cursos</span></a>
             </li>
 
-            <!-- Divider -->
-            <hr class="sidebar-divider">
-
             <li class="nav-item item-menu">
+                <a class="nav-link" href="charts.html">
+                    <img src={% static "dashboard/img/cartao-visita.png" %}>
+                    <span>Cartão de Visitas</span></a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider"style="margin-top:3em">
+
+            <li class="nav-item item-menu"style="margin-top:-0.7em">
                 <a class="nav-link" href="">
                     <img src={% static "dashboard/img/settings-cinza.png" %}>
                     <span class=' configuracao'>Configurações</span></a>
@@ -423,6 +429,6 @@
     <!-- Custom scripts for all pages-->
     <script src="{% static 'dashboard/js/sb-admin-2.min.js' %}"></script>
 
-    {% block scripts %}{% endblock %}
 </body>
+{% block scripts %}{% endblock %}
 </html>

@@ -2,9 +2,14 @@
 {% load static %}
 
 {% block estilo %}
-
+<!-- carousel 1-->
 <link href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.7.1/slick.css"rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.7.1/slick-theme.css"rel="stylesheet">
+
+<!-- casrousel 2 -->
+<link rel = " folha de estilo " type = " text/css " href = " //cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.css " /> 
+<link rel = " folha de estilo " type = " text/css " href = " //cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick-theme.css " />   
+
 
 
     <link href="{% static 'institucional/css/institucional.css' %}" rel="stylesheet">
@@ -23,7 +28,7 @@
     <h1 class="h1-institucional">Institucional</h1>
     <img src="{% static 'institucional/img/topo-institucional.png' %}" class="img-topo-institucional">
     <div class="bem-vindos">
-        <p class="p-cinza">Quem Somos</p>
+        <p id="p-cinza">Quem Somos</p>
         <h1>Bem-Vindos!</h1>
         <br>
         <p>A Innovatore é mais que uma construtora; somos arquitetos do futuro. Com <b>oito anos de existência</b> e excelência, firmamos parcerias sólidas no setor privado, destacando-nos tanto no comercial quanto no industrial. Nossa qualidade e soluções personalizadas nos elevam no mercado.<br><br>
@@ -43,23 +48,30 @@
         <img src="{% static 'institucional/img/imagem-video-institucional.png' %}" style="margin-top: 120px;">
     </div>
 
-    <!-- Carrossel -->
+    <!-- Carrossel 1  -->
+    <div style="width:100%">
     
-    <div class="carousel">
-        <div><img src="https://i.imgur.com/3aIutJi.png" alt="js" /></div>
-        <div><img src="https://i.imgur.com/rWtGeQ0.png" alt="java" /></div>
-        <div><img src="https://i.imgur.com/8946bSF.png" alt="python"/></div>
-        <div><img src="https://i.imgur.com/9Hc7hjb.png" alt="kotlin" /></div>
-        <div><img src="https://i.imgur.com/uZDEpjX.png" alt="scala" /></div>
-        <div><img src="https://i.imgur.com/eQoyQjy.png" alt="C#" /></div>
-        <div><img src="https://i.imgur.com/ko3iAbu.png" alt="PHP" /></div>
-        <div><img src="https://i.imgur.com/Afkz5od.png" alt="dotnet" /></div>
-      </div>
+        <div class="carousel">
+            <div><img src="https://i.imgur.com/3aIutJi.png" alt="js" /></div>
+            <div><img src="https://i.imgur.com/rWtGeQ0.png" alt="java" /></div>
+            <div><img src="https://i.imgur.com/8946bSF.png" alt="python"/></div>
+            <div><img src="https://i.imgur.com/9Hc7hjb.png" alt="kotlin" /></div>
+            <div><img src="https://i.imgur.com/uZDEpjX.png" alt="scala" /></div>
+            <div><img src="https://i.imgur.com/eQoyQjy.png" alt="C#" /></div>
+            <div><img src="https://i.imgur.com/ko3iAbu.png" alt="PHP" /></div>
+            <div><img src="https://i.imgur.com/Afkz5od.png" alt="dotnet" /></div>
+        </div>
+        <button type="button" class="slick-next">Next</button>
+    <button type="button" class="slick-prev">Previous</button>
+    </div>
+    <!-- Carrossel -2  -->
 
 </div>
 </div>
 {% endblock %}
 {% block scripts %}
+
+<!-- carousel - 1-->
 <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
 <script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.7.1/slick.js"></script>
@@ -71,7 +83,10 @@
         speed: 1500,
         slidesToShow: 2,
         slidesToScroll: 2,
+        prevArrow: '<div class="custom-slick"><span class="fa fa-angle-left"></span><span class="sr-only">Prev</span></div>',
+        nextArrow: '<div class="custom-slick"><span class="fa fa-angle-right"></span><span class="sr-only">Next</span></div>'
     });
 </script>
 
+<!-- carousel 2 -->
 {% endblock %}
