@@ -22,17 +22,21 @@ h1{
 .conexao{
     margin:auto;
     position: relative;
-    top: 52em;
+    top: 50em;
 }
 
 .conexao-h1{
     font-family: 'Open Sans', sans-serif;
-    font-weight:400;
+    font-weight: 400;
+    margin-bottom: 10px;
 }
 
 .conexao-p{
     font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
     font-weight:300;
+    max-width: 522px;
+    margin:auto;
 }
 
 .col-6{
@@ -47,7 +51,7 @@ h1{
 }
 
 .direita{
-    min-height: 61em;
+    min-height: 100vh;
     background-image: url(../img/img-auth.jpg);
     background-size: cover;
     background-repeat: no-repeat;
@@ -112,7 +116,7 @@ input{
 
 .login{
     position: relative;
-    top: 13em;
+    top: 86px;
     margin:auto;
     width: 38em;
 }

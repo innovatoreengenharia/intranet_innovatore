@@ -47,7 +47,7 @@ class Perfil(models.Model):
     nome = models.CharField(max_length=30, null=True)
     sobrenome = models.CharField(max_length=50, null=True)
     nascimento = models.DateField(max_length=10, null=True, blank=True)
-    sexo = models.CharField(max_length=20, choices=GEN, null=True, default='M')
+    sexo = models.CharField(max_length=20, choices=GEN, null=True, default='masculino')
     email = models.EmailField(max_length=50,null=True)
     contato = models.CharField(max_length=14)
     cpf = models.CharField(max_length=14, null=True, blank=True)
@@ -55,7 +55,7 @@ class Perfil(models.Model):
     endereco = models.CharField(max_length=50, null=True, blank=True)
     bairro = models.CharField(max_length=50, null=True, blank=True)
     cidade = models.CharField(max_length=50, null=True)
-    estado = models.CharField(max_length=50, choices=ESTADO, null=True, default='AC')
+    estado = models.CharField(max_length=50, choices=ESTADO, null=True, default='Acre')
     numero = models.CharField(max_length=15, null=True, blank=True)
     complemento = models.CharField(max_length=30, null=True, blank=True)
 
