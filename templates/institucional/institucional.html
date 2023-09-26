@@ -3,16 +3,12 @@
 
 {% block estilo %}
 <!-- carousel 1-->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.7.1/slick.css"rel="stylesheet">
-<link href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.7.1/slick-theme.css"rel="stylesheet">
-
-<!-- casrousel 2 -->
-<link rel = " folha de estilo " type = " text/css " href = " //cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.css " /> 
-<link rel = " folha de estilo " type = " text/css " href = " //cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick-theme.css " />   
-
-
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.7.1/slick.css"rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.7.1/slick-theme.css"rel="stylesheet">
 
     <link href="{% static 'institucional/css/institucional.css' %}" rel="stylesheet">
+    <link href="{% static 'institucional/css/carrossel.css' %}" rel="stylesheet">
+
 {% endblock %}
 
 {% block icones %}
@@ -48,23 +44,213 @@
         <img src="{% static 'institucional/img/imagem-video-institucional.png' %}" style="margin-top: 120px;">
     </div>
 
-    <!-- Carrossel 1  -->
-    <div style="width:100%">
-    
-        <div class="carousel">
-            <div><img src="https://i.imgur.com/3aIutJi.png" alt="js" /></div>
-            <div><img src="https://i.imgur.com/rWtGeQ0.png" alt="java" /></div>
-            <div><img src="https://i.imgur.com/8946bSF.png" alt="python"/></div>
-            <div><img src="https://i.imgur.com/9Hc7hjb.png" alt="kotlin" /></div>
-            <div><img src="https://i.imgur.com/uZDEpjX.png" alt="scala" /></div>
-            <div><img src="https://i.imgur.com/eQoyQjy.png" alt="C#" /></div>
-            <div><img src="https://i.imgur.com/ko3iAbu.png" alt="PHP" /></div>
-            <div><img src="https://i.imgur.com/Afkz5od.png" alt="dotnet" /></div>
+    <!-- Anos -->
+    <div class="anos p-3">
+        <div id="div-2015" class="ano-div mostrar">
+            <div class="imagem-anos">
+                <img src="{% static 'institucional/img/marco-0.png' %}">
+            </div>
+            <div class="texto-anos">
+                <p class="p-cinza">2015</p>
+                <h1>Marco Zero</h1>
+                <p class="texto-anos-p">Marco Zero da nossa história, com a fundação da Innovatore que começou em Limeira/SP.</p>
+            </div>
         </div>
-        <button type="button" class="slick-next">Next</button>
-    <button type="button" class="slick-prev">Previous</button>
+
+        <div id="div-2017" class="ano-div">
+            <div class="imagem-anos">
+                <img src="{% static 'institucional/img/marco-0.png' %}">
+            </div>
+            <div class="texto-anos">
+                <p class="p-cinza">2017</p>
+                <h1>Texto</h1>
+                <p class="texto-anos-p">Marco Zero da nossa história, com a fundação da Innovatore que começou em Limeira/SP.</p>
+            </div>
+        </div>
+
+        <div id="div-2019" class="ano-div">
+            <div class="imagem-anos">
+                <img src="{% static 'institucional/img/marco-0.png' %}">
+            </div>
+            <div class="texto-anos">
+                <p class="p-cinza">2019</p>
+                <h1>2019</h1>
+                <p class="texto-anos-p">Marco Zero da nossa história, com a fundação da Innovatore que começou em Limeira/SP.</p>
+            </div>
+        </div>
+        <div id="div-2021" class="ano-div">
+            <div class="imagem-anos">
+                <img src="{% static 'institucional/img/marco-0.png' %}">
+            </div>
+            <div class="texto-anos">
+                <p class="p-cinza">2021</p>
+                <h1>2021</h1>
+                <p class="texto-anos-p">Marco Zero da nossa história, com a fundação da Innovatore que começou em Limeira/SP.</p>
+            </div>
+        </div>
+        <div id="div-2022" class="ano-div">
+            <div class="imagem-anos">
+                <img src="{% static 'institucional/img/marco-0.png' %}">
+            </div>
+            <div class="texto-anos">
+                <p class="p-cinza">2022</p>
+                <h1>2022</h1>
+                <p class="texto-anos-p">Marco Zero da nossa história, com a fundação da Innovatore que começou em Limeira/SP.</p>
+            </div>
+        </div>
+        <div id="div-2023" class="ano-div">
+            <div class="imagem-anos">
+                <img src="{% static 'institucional/img/marco-0.png' %}">
+            </div>
+            <div class="texto-anos">
+                <p class="p-cinza">2023</p>
+                <h1>2023</h1>
+                <p class="texto-anos-p">Marco Zero da nossa história, com a fundação da Innovatore que começou em Limeira/SP.</p>
+            </div>
+        </div>
     </div>
-    <!-- Carrossel -2  -->
+
+    <div class="anos-numeros text-center">
+        <a class="ano-2015" style="font-weight: 700">2015</a>
+        <a class="ano-2017">2017</a>
+        <a class="ano-2019">2019</a>
+        <a class="ano-2021">2021</a>
+        <a class="ano-2022">2022</a>
+        <a class="ano-2023">2023</a>
+    </div>
+
+    <div class="negocios">
+        <h1>Negócios</h1>
+        <p class="negocios-descricao">Nossa equipe técnica e comercial está ativamente envolvida no setor privado, executando projetos industriais, comerciais, atacadistas e construções de galpões logísticos. Durante nossos oito anos de atuação, já concluímos com sucesso mais de 150 obras em 14 estados brasileiros.
+        Por meio de nossas atividades comerciais e investimentos, estamos desempenhando um papel significativo no desenvolvimento das regiões onde estamos presentes.
+        </p>
+        <div class="row justify-content-center" style="max-width: 100%">
+            <div class="col-4 text-center">
+                <img src="{% static 'institucional/img/users.png' %}">
+                <p class="quantidade">+ 500</p>
+                <p>Colaboradores Ativos</p>
+            </div>
+            <div class="col-4 text-center">
+                <img src="{% static 'institucional/img/engenheiros.png' %}">
+                <p class="quantidade">+ 50</p>
+                <p>Engenheiros</p>
+            </div>
+            <div class="col-4 text-center mr-0">
+                <img src="{% static 'institucional/img/obras.png' %}">
+                <br>
+                <p class="quantidade">+ 150</p>
+                <p>Obras Entregues</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="certificacoes">
+        <span span-certificacoes>Certificações</span>
+        <h1>ISO's</h1>
+        <p>Somos certificados com as <b>ISO 9001, ISO 14001 e ISO 45001</b>, que nos posiciona entre as  melhores construtoras do mercado. Onde nossos processos de gestão e qualidade são validados por normas internacionais.<br><br>
+
+            A certificação <b>ISO 9001</b>, atesta a qualidade dos processos de gestão da nossa empresa. Ela nos mantém atualizados em relação às melhores práticas do mercado, otimizando a melhoria contínua de nossos processos internos. <br><br>
+            
+            O ISO 14001, valida a nossa responsabilidade com a preservação do meio ambiente, com recursos produtivos e sustentáveis, minimizando os impactos ambientais em nossas atividades. Atuando de forma responsável em relação ao meio ambiente e à sociedade.<br><br>
+            
+            Com o certificado <b>ISO 45001</b>, focamos na segurança e na saúde dos nossos colaboradores. Promovendo um ambiente de trabalho melhor, para que toda a equipe possa desenvolver seu maior potencial, impactando positivamente na qualidade e no atendimento de nossos clientes.<br><br>
+            
+            Essas certificações validam o compromisso que temos com a qualidade, a sustentabilidade, a responsabilidade social e a segurança, para garantir a satisfação do cliente e a consolidação da nossa empresa no mercado. 
+            </p>
+    </div>
+
+    <div class=" row missao-visao">
+        <div class="col-6 p-0">
+            <h1>Missão</h1>
+            <p class="text-left">Transformar o presente construindo o futuro, deixando um legado em cada obra realizada, impulsionando o emprego e o crescimento das comunidades locais.</p>
+        </div>
+        <div class="col-6">
+            <h1>Visão</h1>
+            <p class="text-left">Ser uma empresa referência no setor da construção civil, atendendo as demandas com uma estrutura competente e otimizada que nos permita enfrentar novos desafios e continuar a superar as expectativas de nossos clientes, possibilitando assim o crescimento sólido e a consequente expansão de nossas atividades.
+            </p>
+        </div>
+    </div>
+
+    <!-- Carrossel -->
+    <div class="box-carrossel">
+        <div class="carrossel">
+            <div class="carrossel-item align-itens-left">
+                <img class="imagem-carrossel mt-5"src="{% static 'institucional/img/valores.png' %}">
+                <div class="texto-carrossel text-left">
+                    <h2 class="titulo-item">Valores</h2>
+                    <h2 class="sub-titulo-item">Ética e Integridade</h2>
+                    <ul>
+                        <li>Praticar ações honestas e transparentes;</li>
+                        <li>Respeitar os princípios éticos em todas as atividades;</li>
+                        <li>Cumprir normas e políticas organizacionais.</li>
+                    </ul>
+                    <div class="pontos">
+                        <img class="ponto" src="{% static 'institucional/img/ponto-selecionado.png' %}">
+                        <img class="ponto" src="{% static 'institucional/img/ponto.png' %}">
+                        <img class="ponto" src="{% static 'institucional/img/ponto.png' %}">
+                        <img class="ponto" src="{% static 'institucional/img/ponto.png' %}">
+                        <img class="ponto" src="{% static 'institucional/img/ponto.png' %}">
+                        <img class="ponto" src="{% static 'institucional/img/ponto.png' %}">
+                        <img class="ponto" src="{% static 'institucional/img/ponto.png' %}">
+                        <img class="ponto" src="{% static 'institucional/img/ponto.png' %}">
+                        <img class="ponto" src="{% static 'institucional/img/ponto.png' %}">
+                    </div>
+                </div>
+            </div>
+            <div class="carrossel-item">
+                <img class="imagem-carrossel mt-5"src="{% static 'institucional/img/valores.png' %}">
+                <div class="texto-carrossel text-left">
+                    <h2 class="titulo-item">teste</h2>
+                    <h2 class="sub-titulo-item">Ética e Integridade</h2>
+                    <ul>
+                        <li>Praticar ações honestas e transparentes;</li>
+                        <li>Respeitar os princípios éticos em todas as atividades;</li>
+                        <li>Cumprir normas e políticas organizacionais.</li>
+                    </ul>
+                    <div class="pontos">
+                        <img class="ponto" src="{% static 'institucional/img/ponto.png' %}">
+                        <img class="ponto" src="{% static 'institucional/img/ponto-selecionado.png' %}">
+                        <img class="ponto" src="{% static 'institucional/img/ponto.png' %}">
+                        <img class="ponto" src="{% static 'institucional/img/ponto.png' %}">
+                        <img class="ponto" src="{% static 'institucional/img/ponto.png' %}">
+                        <img class="ponto" src="{% static 'institucional/img/ponto.png' %}">
+                        <img class="ponto" src="{% static 'institucional/img/ponto.png' %}">
+                        <img class="ponto" src="{% static 'institucional/img/ponto.png' %}">
+                        <img class="ponto" src="{% static 'institucional/img/ponto.png' %}">
+                    </div>
+                </div>
+            </div>
+            <div class="carrossel-item">
+                <img class="imagem-carrossel mt-5"src="{% static 'institucional/img/valores.png' %}">
+                <div class="texto-carrossel text-left">
+                    <h2 class="titulo-item">teste 2</h2>
+                    <h2 class="sub-titulo-item">Ética e Integridade</h2>
+                    <ul>
+                        <li>Praticar ações honestas e transparentes;</li>
+                        <li>Respeitar os princípios éticos em todas as atividades;</li>
+                        <li>Cumprir normas e políticas organizacionais.</li>
+                    </ul>
+                    <div class="pontos">
+                        <img class="ponto" src="{% static 'institucional/img/ponto.png' %}">
+                        <img class="ponto" src="{% static 'institucional/img/ponto.png' %}">
+                        <img class="ponto" src="{% static 'institucional/img/ponto-selecionado.png' %}">
+                        <img class="ponto" src="{% static 'institucional/img/ponto.png' %}">
+                        <img class="ponto" src="{% static 'institucional/img/ponto.png' %}">
+                        <img class="ponto" src="{% static 'institucional/img/ponto.png' %}">
+                        <img class="ponto" src="{% static 'institucional/img/ponto.png' %}">
+                        <img class="ponto" src="{% static 'institucional/img/ponto.png' %}">
+                        <img class="ponto" src="{% static 'institucional/img/ponto.png' %}">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="setas text-right">
+            <img class="prev" src="{% static 'institucional/img/prev.png' %}">
+            <img class="next" src="{% static 'institucional/img/next.png' %}">
+        </div>
+    </div>
+    
+
 
 </div>
 </div>
@@ -76,7 +262,7 @@
 <script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.7.1/slick.js"></script>
 
-<script type="text/javascript">
+{% comment %} <script type="text/javascript">
     $('.carousel').slick({
         dots: true,
         infinite: true,
@@ -86,7 +272,10 @@
         prevArrow: '<div class="custom-slick"><span class="fa fa-angle-left"></span><span class="sr-only">Prev</span></div>',
         nextArrow: '<div class="custom-slick"><span class="fa fa-angle-right"></span><span class="sr-only">Next</span></div>'
     });
-</script>
+</script> {% endcomment %}
 
-<!-- carousel 2 -->
+<!-- anos -->
+<script src="{% static 'institucional/js/institucional.js' %}"></script>
+<script src="{% static 'institucional/js/carrossel.js' %}"></script>
+
 {% endblock %}
