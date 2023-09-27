@@ -5,7 +5,6 @@
   <table class="table table-striped">
       <thead>
         <tr>
-          <th scope="col">#</th>
           <th scope="col">Nome</th>
           <th scope="col">Modificado</th>
           <th scope="col">Tamanho</th>
@@ -17,9 +16,8 @@
       <tbody>
         {% for doc, i in docs %}
           <tr>
-            <th scope="row">{{ doc.id }}</th>
             <td>{{ doc.nome }}</td>
-            <td>{{ doc.modificado }}</td>
+            <td>{{ doc.modificado|date:"d/m/y" }}</td>
             <td>{{ i|filesizeformat }}</td>
             <td>{{ doc.tipo }}</td>
             <td><a href="{{ doc.doc.url }}">Link</a></td>

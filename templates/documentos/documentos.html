@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+{%load static%}
+
+{% block estilo %}
+    <link href="{% static 'documentos/css/documentos.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block icones %}
+    <div class="icones">
+        <img class="icone-dash" src="{% static 'dashboard/img/dash-cinza.png' %}">
+        <p>Dashboard / </p>
+        <img class="icone-menu" src="{% static 'dashboard/img/menu-cinza.png' %}">
+    </div>
+
+{% endblock %}
+
+{% block content%}
+
+<div class="container-fluid">
+    <h1 class="h1-doc">Documentos</h1>
+    <div class="row">
+        <a class=" cartao comercial">
+            <h2>Contorladoria</h2>
+        </a>
+        <a class=" cartao controladoria">
+            <h2>Contorladoria</h2>
+        </a>
+        <a class=" cartao dp">
+            <h2>Departamento Pessoal</h2>
+        </a>
+        <a class=" cartao engenharia">
+            <h1>Engenharia</h1>
+        </a>
+        <a class=" cartao financeiro">
+            <h2>Financeiro</h2>
+        </a>
+        <a class=" cartao fiscal">
+            <h2>Fiscal</h2>
+        </a>
+        <a class=" cartao juridico">
+            <h2>Jurídico</h2>
+        </a>
+        <a class=" cartao logistica">
+            <h1>Logística</h1>
+        </a>
+        <a class=" cartao marketing">
+            <h1>Marketing</h1>
+        </a>
+        <a class=" cartao meio-ambiente">
+            <h1>Meio Ambiente</h1>
+        </a>
+        <a class=" cartao orcamentos">
+            <h1>Orçamentos</h1>
+        </a>
+        <a class=" cartao pmo">
+            <h2>P.M.O.</h2>
+        </a>
+        <a href="{% url 'documentos/qualidade' %}" class=" cartao qualidade">
+            <h1>Qualidade</h1>
+        </a>
+        <a class=" cartao rh">
+            <h2>R.H.</h2>
+        </a>
+        <a class=" cartao seguranca">
+            <h1>Segurança do Trabalho</h1>
+        </a>
+        <a class=" cartao sistemas">
+            <h1>Sistemas</h1>
+        </a>
+        <a class=" cartao suprimentos">
+            <h1>Suprimentos</h1>
+        </a>
+        <a class=" cartao ti">
+            <h1>T.I.</h1>
+        </a>
+        <a class=" cartao vendas">
+            <h2>Vendas</h2>
+        </a>
+    </div>
+</div>
+
+{% endblock %}

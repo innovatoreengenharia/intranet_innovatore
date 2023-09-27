@@ -62,9 +62,8 @@
             {% if url_name == 'institucional' %}
             <li class="nav-item active item-menu">
                 <a class="nav-link collapsed" href={% url 'institucional' %}>
-                    <img src={% static 'dashboard/img/institucional-selecionado.png' %}>
+                    <img src={% static 'dashboard/img/icone-institucional.png' %}>
                     <span>Institucional</span> 
-                    <img class="vetor" src={% static "dashboard/img/vetor.png" %}>
                 </a>
             </li>
             {% else %}
@@ -72,7 +71,22 @@
                 <a class="nav-link collapsed" href={% url 'institucional' %}>
                     <img src={% static "dashboard/img/institucional.png" %}>
                     <span>Institucional</span> 
-                    <img class="vetor" src={% static "dashboard/img/vetor.png" %}>
+                </a>
+            </li>
+            {% endif %}
+
+            {% if 'documentos' in url_name %}
+            <li class="nav-item active item-menu">
+                <a class="nav-link collapsed" href={% url 'documentos' %}>
+                    <img src={% static 'dashboard/img/icone-institucional.png' %}>
+                    <span>Documentos</span> 
+                </a>
+            </li>
+            {% else %}
+            <li class="nav-item item-menu">
+                <a class="nav-link collapsed" href={% url 'documentos' %}>
+                    <img src={% static "dashboard/img/documentos.png" %}>
+                    <span>Documentos</span> 
                 </a>
             </li>
             {% endif %}
@@ -80,11 +94,11 @@
             <!-- Nav Item - Segurança do trabalho meio ambiente -->
            
 
-            <li class="nav-item item-menu">
-                {% if 'qualidade' in url_name %}
+            <!--<li class="nav-item item-menu">
+                {% if 'documentos' in url_name %}
                 <a class="nav-link active collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
-                    <img src={% static "dashboard/img/dash_selecionado.png" %}>
+                    <img src={% static "dashboard/img/icone-documentos.png" %}>
                     <span>Documentos</span>
                 </a>
                 {% else %}
@@ -99,7 +113,7 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         {% comment %} <h6 class="collapse-header">Custom Components:</h6> {% endcomment %}
                         <a class="collapse-item" href="buttons.html">Segurança do Trabalho e Meio Ambiente</a>
-                        <a class="collapse-item" href="{% url 'qualidade' %}">Qualidade</a>
+                        <a class="collapse-item" href="{% url 'documentos/qualidade' %}">Qualidade</a>
                         <a class="collapse-item" href="cards.html">Financeiro</a>
                         <a class="collapse-item" href="cards.html">Suprimentos</a>
                         <a class="collapse-item" href="cards.html">Recursos Humanos</a>
@@ -116,7 +130,7 @@
                         <a class="collapse-item" href="cards.html">Marketing</a>
                     </div>
                 </div>
-            </li>
+            </li> -->
 
             <li class="nav-item item-menu">
                 <a class="nav-link" href="charts.html">

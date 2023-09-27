@@ -1,0 +1,170 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital@0;1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap');
+
+.h1-doc{
+    color: #14355E;
+    font-size: 32px;
+    font-family: 'Open Sans';
+    font-weight: 700;
+    line-height: 48px;
+    word-wrap: break-word;
+    text-align: left;
+}
+
+h1{
+    font-family: 'Open Sans';
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 48px;
+    letter-spacing: 0em;
+    text-align: right;
+    color: white;
+    margin-top: 92px;
+    margin-right: 51px;
+}
+
+h2{
+    font-family: 'Open Sans';
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 48px;
+    letter-spacing: 0em;
+    text-align: right;
+    color: #14355E;
+    margin-top: 92px;
+    margin-right: 51px;
+}
+
+.cartao{
+    width: 485px;
+    height: 180px;
+    border-radius: 24px;
+    margin: 22px 12px;
+}
+a:hover{
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.comercial{
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 24px 0px 24px 0px;
+    background-image: url("../img/comercial.jpg")
+}
+.controladoria{
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 24px 0px 24px 0px;
+    background-image: url("../img/controladoria.png")
+}
+.dp{
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 24px 0px 24px 0px;
+    background-image: url("../img/dp.png")
+}
+.engenharia{
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 24px 0px 24px 0px;
+    background-image: url("../img/engenharia.png")
+}
+.financeiro{
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 24px 0px 24px 0px;
+    background-image: url("../img/financeiro.png")
+}
+.fiscal{
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 24px 0px 24px 0px;
+    background-image: url("../img/fiscal.png")
+}
+.juridico{
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 24px 0px 24px 0px;
+    background-image: url("../img/juridico.png")
+}
+.logistica{
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 24px 0px 24px 0px;
+    background-image: url("../img/logistica.png")
+}
+.marketing{
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 24px 0px 24px 0px;
+    background-image: url("../img/marketing.png")
+}
+.meio-ambiente{
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 24px 0px 24px 0px;
+    background-image: url("../img/meio-ambiente.png")
+}
+.orcamentos{
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 24px 0px 24px 0px;
+    background-image: url("../img/orcamentos.png")
+}
+.controladoria{
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 24px 0px 24px 0px;
+    background-image: url("../img/controladoria.png")
+}
+.pmo{
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 24px 0px 24px 0px;
+    background-image: url("../img/pmo.png")
+}
+.qualidade{
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 24px 0px 24px 0px;
+    background-image: url("../img/qualidade.png")
+}
+.rh{
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 24px 0px 24px 0px;
+    background-image: url("../img/rh.png")
+}
+.seguranca{
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 24px 0px 24px 0px;
+    background-image: url("../img/seguranca.png")
+}
+.sistemas{
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 24px 0px 24px 0px;
+    background-image: url("../img/sistemas.png")
+}
+.suprimentos{
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 24px 0px 24px 0px;
+    background-image: url("../img/suprimentos.png")
+}
+.ti{
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 24px 0px 24px 0px;
+    background-image: url("../img/ti.png")
+}
+.vendas{
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 24px 0px 24px 0px;
+    background-image: url("../img/vendas.png")
+}

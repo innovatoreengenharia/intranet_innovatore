@@ -9,3 +9,5 @@ class ListandoQualidade(admin.ModelAdmin):
     list_per_page = 10
     
 admin.site.register(Qualidade, ListandoQualidade)
+
+# Register your models here.

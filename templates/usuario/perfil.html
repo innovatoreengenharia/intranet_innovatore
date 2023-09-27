@@ -64,7 +64,7 @@
     {% for fm in formacao %}
         <div class="col-3">
             <p>{{ fm.instituicao }}<br>
-            {{fm.diploma}}<br>
+            {{fm.area_estudo}}<br>
             {{ fm.inicio_faculdade }} até {{ fm.termino_faculdade }}
             </p>
             {% comment %} <a href="{% url 'deletar_formacao' fm.id %}">remover formação</a><br><br> {% endcomment %}
