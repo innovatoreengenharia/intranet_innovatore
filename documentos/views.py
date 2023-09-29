@@ -22,7 +22,7 @@ def render_model(request, modelo, url, nome):
     perfil = Perfil.objects.filter(usuario_id = id_usuario).first()
     docs_modelo = modelo.objects.order_by('-modificado')
 
-    documento_paginator = Paginator(docs_modelo, 1)
+    documento_paginator = Paginator(docs_modelo, 10)
     page_num = request.GET.get('page')
     page = documento_paginator.get_page(page_num)
 
@@ -38,7 +38,6 @@ def render_model(request, modelo, url, nome):
         "perfil":perfil,
         "url":url,
     }
-    print(modelo.nome)
     return context
     
 
