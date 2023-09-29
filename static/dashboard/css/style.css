@@ -247,4 +247,5 @@ h1{
     background-image: url("../img/bg-mapa-obras.png");
     background-size: cover;
     height: 565px;
+    margin-bottom: -600px;
 }

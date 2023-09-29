@@ -11,7 +11,6 @@
         <p>Dashboard / </p>
         <img class="icone-menu" src="{% static 'dashboard/img/menu-cinza.png' %}">
     </div>
-
 {% endblock %}
 
 {% block content%}
@@ -19,61 +18,61 @@
 <div class="container-fluid">
     <h1 class="h1-doc">Documentos</h1>
     <div class="row">
-        <a class=" cartao comercial">
+        <a href="{% url 'documentos/comercial' %}"class=" cartao comercial">
+            <h1>Comercial</h1>
+        </a>
+        <a href="{% url 'documentos/controladoria' %}" class=" cartao controladoria">
             <h2>Contorladoria</h2>
         </a>
-        <a class=" cartao controladoria">
-            <h2>Contorladoria</h2>
-        </a>
-        <a class=" cartao dp">
+        <a href="{% url 'documentos/departamento_pessoal' %}" class=" cartao dp">
             <h2>Departamento Pessoal</h2>
         </a>
-        <a class=" cartao engenharia">
+        <a href="{% url 'documentos/engenharia' %}" class=" cartao engenharia">
             <h1>Engenharia</h1>
         </a>
-        <a class=" cartao financeiro">
+        <a href="{% url 'documentos/financeiro' %}" class=" cartao financeiro">
             <h2>Financeiro</h2>
         </a>
-        <a class=" cartao fiscal">
+        <a href="{% url 'documentos/fiscal' %}" class=" cartao fiscal">
             <h2>Fiscal</h2>
         </a>
-        <a class=" cartao juridico">
+        <a href="{% url 'documentos/juridico' %}" class=" cartao juridico">
             <h2>Jurídico</h2>
         </a>
-        <a class=" cartao logistica">
+        <a href="{% url 'documentos/logistica' %}" class=" cartao logistica">
             <h1>Logística</h1>
         </a>
-        <a class=" cartao marketing">
+        <a href="{% url 'documentos/marketing' %}" class=" cartao marketing">
             <h1>Marketing</h1>
         </a>
-        <a class=" cartao meio-ambiente">
+        <a href="{% url 'documentos/meio_ambiente' %}" class=" cartao meio-ambiente">
             <h1>Meio Ambiente</h1>
         </a>
-        <a class=" cartao orcamentos">
+        <a href="{% url 'documentos/orcamentos' %}" class=" cartao orcamentos">
             <h1>Orçamentos</h1>
         </a>
-        <a class=" cartao pmo">
+        <a href="{% url 'documentos/pmo' %}" class=" cartao pmo">
             <h2>P.M.O.</h2>
         </a>
-        <a href="{% url 'documentos/qualidade' %}" class=" cartao qualidade">
+        <a href="{% url 'documentos/qualidade' %}" href="{% url 'documentos/qualidade' %}" class=" cartao qualidade">
             <h1>Qualidade</h1>
         </a>
-        <a class=" cartao rh">
+        <a href="{% url 'documentos/recursos_humanos' %}" class=" cartao rh">
             <h2>R.H.</h2>
         </a>
-        <a class=" cartao seguranca">
+        <a href="{% url 'documentos/seguranca_do_trabalho' %}" class=" cartao seguranca">
             <h1>Segurança do Trabalho</h1>
         </a>
-        <a class=" cartao sistemas">
+        <a href="{% url 'documentos/sistemas' %}" class=" cartao sistemas">
             <h1>Sistemas</h1>
         </a>
-        <a class=" cartao suprimentos">
+        <a href="{% url 'documentos/suprimentos' %}" class=" cartao suprimentos">
             <h1>Suprimentos</h1>
         </a>
-        <a class=" cartao ti">
+        <a href="{% url 'documentos/ti' %}" class=" cartao ti">
             <h1>T.I.</h1>
         </a>
-        <a class=" cartao vendas">
+        <a href="{% url 'documentos/vendas' %}" class=" cartao vendas">
             <h2>Vendas</h2>
         </a>
     </div>

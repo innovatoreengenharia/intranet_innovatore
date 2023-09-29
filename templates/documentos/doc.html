@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{%load static%}
+
+{% block estilo %}
+    <link href="{% static 'documentos/css/doc.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block icones %}
+    <div class="icones">
+        <img class="icone-dash" src="{% static 'dashboard/img/dash-cinza.png' %}">
+        <p>Dashboard / </p>
+        <img class="icone-menu" src="{% static 'dashboard/img/menu-cinza.png' %}">
+    </div>
+{% endblock %}
+
+{% block content%}
+<h1 class="text-left ml-2 mb-2">Documentos {{ nome }}<h1>
+<div class="tabela">
+  <div class="gerenciador">
+    <h1>Gernciador de Arquivos</h1>
+    {% if user.is_authenticated and user.is_staff %}
+      <a href="{% url 'admin:index' %}"><img class="upload" src="{% static 'documentos/img/upload.png' %}"></a>
+    {% endif %}
+  </div>
+  <div class="container-fluid">
+    <div class="row">
+      <table class="table col-12">
+        <thead>
+          <tr>
+            <th class="titulo" scope="col">Nome</th>
+            <th class="titulo" scope="col">Modificado</th>
+            <th class="titulo" scope="col">Tamanho</th>
+            <th class="titulo" scope="col">Tipo</th>
+            <th class="titulo" scope="col"> </th>
+          </tr>
+        </thead>
+        {% if lista_completa %}
+        <tbody>
+          {% for doc, i in lista_completa %}
+            <tr>
+              <td><img src="{% static 'documentos/img/img-doc.png' %}">{{ doc.nome }}</td>
+              <td>{{ doc.modificado|date:"d/m/y" }}</td>
+              <td>{{ i|filesizeformat }}</td>
+              <td>{{ doc.tipo }}</td>
+              <td class="text-right">
+                <a href="{{ doc.doc.url }}"><img src="{% static "documentos/img/link.png" %}"></a>
+                <a href="{{ doc.doc.url }}" download><img src="{% static "documentos/img/download.png" %}"></a>
+              </td>
+
+            </tr>
+          {% endfor %}
+        </tbody>
+        {% endif %}
+      </table>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <a href="{% url 'documentos' %}" class="botao">Voltar</a>
+      </div>
+    </div> 
+</div>
+</div>
+
+{% if page.has_previous %}
+  <a href="{% url url %}?page={{page.previous_page_number}}">Anterior</a>
+{% endif %}
+{% for i in page.paginator.page_range %}
+    {% if page.number == i %}
+      <a style="color:red;">{{ i }}</a>
+    {% else %}
+      <a href="?page={{ i }}">{{ i }}</a>
+    {% endif %}
+{% endfor %}
+
+{% if page.has_next %}
+  <a href="{% url url %}?page={{page.next_page_number}}">Próximo</a>
+{% endif %}
+</div>
+</div>
+{%  endblock %}

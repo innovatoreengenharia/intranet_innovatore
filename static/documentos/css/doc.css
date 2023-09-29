@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital@0;1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap');
+
+
+.conteudo-base{
+    background-color: #f9f9f9;
+    height: 100vh;
+}
+
+h1{
+    font-family: 'Open Sans';
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 48px;
+    letter-spacing: 0em;
+    text-align: center;
+    color: #14355E;
+    margin-bottom: 37px;
+}
+.titulo{
+    color: #14355E !important;
+    font-size: 16px;
+    font-family: 'Open Sans';
+    font-weight: 700;
+    line-height: 24px;
+    word-wrap: break-word;
+}
+
+.gerenciador{
+    margin-bottom: -50px;
+    height: 180px;
+}
+.gerenciador h1{
+    padding-top: 24px;
+}
+
+.upload{
+    position: relative;
+    top:-90px;
+    left: 47%;
+}
+.tabela{
+    background-color: white;
+    margin-right: 32px;
+    margin-left: 10px;
+}
+.tabela .container-fluid .table td{
+    font-family: 'Open Sans';
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 32px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #464646;
+}
+.tabela .container-fluid .table th{
+    font-family: 'Open Sans';
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 24px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #14355E;
+}
+img{
+    position:relative;
+    top:-2px;
+    margin-right: 2px;
+}
+
+.botao{
+    font-family: 'Open Sans';
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 24px;
+    letter-spacing: 0em;
+    text-align: left;
+    margin-top: 36px;
+    margin-bottom: 36px;
+
+    display: flex;
+    width: 100%;
+    float:right;
+    width: 160px;
+    height: 64px;
+    padding: 12px 55px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+    border-radius: 12px;
+    background: linear-gradient(90deg, #14295E 0%, #2568BB 100%);
+    color:white;
+    box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.06);
+}
+
+.botao:hover{
+    text-decoration: none;
+    color: white;
+}

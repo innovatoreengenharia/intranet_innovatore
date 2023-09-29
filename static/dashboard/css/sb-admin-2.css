@@ -1448,7 +1448,7 @@ pre code {
   color: #858796;
 }
 
-.table th,
+/* .table th,
 .table td {
   padding: 0.75rem;
   vertical-align: top;
@@ -1462,7 +1462,7 @@ pre code {
 
 .table tbody + tbody {
   border-top: 2px solid #e3e6f0;
-}
+} */
 
 .table-sm th,
 .table-sm td {
