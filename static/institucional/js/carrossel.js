@@ -5,6 +5,7 @@ $(function(){
     var ident = 0;
     var count = numImages - 1;
     var slide = parseInt($('.carrossel .carrossel-item').outerWidth() + (MarginPadding * numImages));
+    var total = slide * (numImages - 1);
     $('.next').click(function(){
         if (ident < count) {
             ident ++;
@@ -12,7 +13,7 @@ $(function(){
         }
         else{
             ident = 0;
-            $('.carrossel').animate({'margin-left': '=' + 0 + 'px'}, '1000');
+            $('.carrossel').animate({'margin-left': '+=' + total + 'px'}, '1000');
         }
     });
     $('.prev').click(function(){

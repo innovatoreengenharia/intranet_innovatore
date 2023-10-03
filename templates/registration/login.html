@@ -8,6 +8,9 @@
         <p class="login-p">Para acessar a nossa intranet, faça o login com o seu endereço de e-mail e senha</p>
         <form method="post" action="{% url 'login' %}">
             {% csrf_token %}
+
+            <!-- redireciona para página antes do login  -->
+            <input type="hidden" name="next" value="{{ request.GET.next }}">
             
             <div class="form-group">
                 <label for="id_username">E-mail:</label>

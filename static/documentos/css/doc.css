@@ -3,10 +3,27 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;1,400&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap');
 
+html{
+    background-color: #f9f9f9;
+}
 
 .conteudo-base{
     background-color: #f9f9f9;
-    height: 100vh;
+    min-height: 100%;
+    
+}
+
+.cabecalho_busca{
+    display: inline-block;
+}
+
+.input-busca{
+    border: 1px solid #E8E8E8;
+}
+
+.botao-buscar{
+    border: none;
+    background-color: transparent;
 }
 
 h1{
@@ -38,13 +55,14 @@ h1{
 
 .upload{
     position: relative;
-    top:-90px;
-    left: 47%;
+    top:-70px;
+    left: 95%;
 }
 .tabela{
     background-color: white;
     margin-right: 32px;
     margin-left: 10px;
+    border-radius: 12px;
 }
 .tabela .container-fluid .table td{
     font-family: 'Open Sans';
@@ -78,7 +96,7 @@ img{
     letter-spacing: 0em;
     text-align: left;
     margin-top: 36px;
-    margin-bottom: 36px;
+    margin-bottom: 24px;
 
     display: flex;
     width: 100%;
@@ -99,4 +117,34 @@ img{
 .botao:hover{
     text-decoration: none;
     color: white;
+}
+
+.paginacao{
+    background-color: transparent;
+    margin-top: 50px;
+    padding-bottom: 52px;
+}
+
+.paginas{
+    font-family: 'Open Sans';
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 32px;
+    letter-spacing: 0em;
+    margin-left: 32px;
+    text-align: left;
+    color: #bbbbbb;
+
+}
+.pagina-selecionada{
+    display: inline-block;
+    background: linear-gradient(90deg, #14355F 0%, #1655A3 100%);
+    font-family: 'Open Sans';
+    font-size: 22px;
+    font-weight: 400;
+    width:37px;
+    height: 37px;
+    margin-left: 30px;
+    border-radius: 50%;
+    color:white;
 }

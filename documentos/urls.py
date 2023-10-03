@@ -1,9 +1,13 @@
 from django.urls import path
-from .views import documentos, qualidade, comercial, controladoria, departamento_pessoal, engenharia, financeiro,fiscal, juridico, logistica, marketing, meio_ambiente, orcamentos, pmo, recursos_humanos, seguranca_do_trabalho, sistemas, suprimentos, ti, vendas
+from .views import documentos, qualidade, comercial, controladoria, departamento_pessoal, engenharia, financeiro,fiscal, juridico, logistica, marketing, meio_ambiente, orcamentos, pmo, recursos_humanos, seguranca_do_trabalho, sistemas, suprimentos, ti, vendas, buscarComercial, buscarControladoria
 
 urlpatterns = [
     path("", documentos , name='documentos'),
+    path('buscarComercial/', buscarComercial, name='documentos/buscarComercial'),
+
     path("comercial/", comercial, name='documentos/comercial'),
+    path('buscarControladoria/', buscarControladoria, name='buscarControladoria'),
+
     path("controladoria/", controladoria, name='documentos/controladoria'),
     path("departamento_pessoal/", departamento_pessoal, name='documentos/departamento_pessoal'),
     path("engenharia/", engenharia, name='documentos/engenharia'),

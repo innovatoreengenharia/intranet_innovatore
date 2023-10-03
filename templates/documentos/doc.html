@@ -10,11 +10,21 @@
         <img class="icone-dash" src="{% static 'dashboard/img/dash-cinza.png' %}">
         <p>Dashboard / </p>
         <img class="icone-menu" src="{% static 'dashboard/img/menu-cinza.png' %}">
+        <div class="cabecalho_busca">
+          <div class="busca_fundo">
+              <form action= "/documentos/{{busca}}">
+                  <input type="text" name="buscar" class="input-busca">
+                  <button class="botao-buscar" type="submit">
+                      <img src="{% static 'documentos/img/lupa.png' %}">
+                  </button>
+              </form>
+          </div>
+      </div>
     </div>
 {% endblock %}
 
 {% block content%}
-<h1 class="text-left ml-2 mb-2">Documentos {{ nome }}<h1>
+<h1 class="text-left ml-2 mb-2">Documentos / {{ nome }}</h1>
 <div class="tabela">
   <div class="gerenciador">
     <h1>Gernciador de Arquivos</h1>
@@ -43,7 +53,7 @@
               <td>{{ i|filesizeformat }}</td>
               <td>{{ doc.tipo }}</td>
               <td class="text-right">
-                <a href="{{ doc.doc.url }}"><img src="{% static "documentos/img/link.png" %}"></a>
+                <a href="127.0.0.1:8000{{ doc.doc.url }}" class="link"><img src="{% static "documentos/img/link.png" %}"></a>
                 <a href="{{ doc.doc.url }}" download><img src="{% static "documentos/img/download.png" %}"></a>
               </td>
 
@@ -61,20 +71,53 @@
 </div>
 </div>
 
+<div class="container-fluid text-center paginacao">
 {% if page.has_previous %}
-  <a href="{% url url %}?page={{page.previous_page_number}}">Anterior</a>
+  <a href="{% url url %}?page={{page.previous_page_number}}"><img src={% static 'documentos/img/anterior.png' %}></a>
 {% endif %}
 {% for i in page.paginator.page_range %}
     {% if page.number == i %}
-      <a style="color:red;">{{ i }}</a>
+      <p class="pagina-selecionada"><a>{{ i }}</a></p>
     {% else %}
-      <a href="?page={{ i }}">{{ i }}</a>
+      <a href="?page={{ i }}" class="paginas">{{ i }}</a>
     {% endif %}
 {% endfor %}
 
 {% if page.has_next %}
-  <a href="{% url url %}?page={{page.next_page_number}}">Próximo</a>
+  <a href="{% url url %}?page={{page.next_page_number}}" style="margin-left: 32px;"><img src={% static "documentos/img/proximo.png" %}></a>
 {% endif %}
+</div>
+
 </div>
 </div>
 {%  endblock %}
+
+{% block scripts %}
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var links = document.querySelectorAll('.link');
+
+            links.forEach(function (link) {
+                link.addEventListener('click', function (event) {
+                    event.preventDefault(); // Impede o link de navegar para a página
+
+                    var linkURL = link.getAttribute('href');
+
+                    // Cria um elemento de input oculto para copiar o texto
+                    var input = document.createElement('input');
+                    input.setAttribute('value', linkURL);
+                    document.body.appendChild(input);
+
+                    // Seleciona e copia o texto no input
+                    input.select();
+                    document.execCommand('copy');
+
+                    // Remove o elemento de input
+                    document.body.removeChild(input);
+
+                    alert('Link copiado para a área de transferência: ' + linkURL);
+                });
+            });
+        });
+    </script>
+{% endblock %}
