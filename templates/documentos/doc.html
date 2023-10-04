@@ -12,7 +12,7 @@
         <img class="icone-menu" src="{% static 'dashboard/img/menu-cinza.png' %}">
         <div class="cabecalho_busca">
           <div class="busca_fundo">
-              <form action= "/documentos/{{busca}}">
+              <form action= "">
                   <input type="text" name="buscar" class="input-busca">
                   <button class="botao-buscar" type="submit">
                       <img src="{% static 'documentos/img/lupa.png' %}">
@@ -65,7 +65,8 @@
     </div>
     <div class="row">
       <div class="col-md-12">
-        <a href="{% url 'documentos' %}" class="botao">Voltar</a>
+        {% comment %} <a href="{% url 'documentos' %}" class="botao">Voltar</a> {% endcomment %}
+        <a  class="botao" id="voltar">Voltar</a>
       </div>
     </div> 
 </div>
@@ -119,5 +120,11 @@
                 });
             });
         });
+    </script>
+    <script>
+      function voltar() {
+        history.back();
+      }
+      document.getElementById("voltar").addEventListener("click", voltar);
     </script>
 {% endblock %}

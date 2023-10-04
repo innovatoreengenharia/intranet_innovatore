@@ -14,33 +14,7 @@ def documentos(request):
     }
     return render(request, 'documentos/documentos.html', context)
 
-    
-
-def buscar(request, modelo, nome, busca):
-    if not request.user.is_authenticated:
-        return redirect('login')
-    id_usuario = request.user.id
-    perfil = Perfil.objects.filter(usuario_id = id_usuario).first()
-
-    documentos = modelo.objects.order_by('-modificado')
-    if "buscar" in request.GET:
-        nome_a_buscar = request.GET['buscar']
-        if nome_a_buscar:
-            doc_encontrado = documentos.filter(nome__icontains=nome_a_buscar)
-            lista = []
-            for i in doc_encontrado:
-                sz = Path(f'media/{i.doc.name}').stat().st_size
-                lista.append(sz)
-            lista_completa = zip(doc_encontrado, lista)
-    context = {
-        "nome":nome,
-        "lista_completa": lista_completa,
-        "perfil": perfil,
-        "busca": busca,
-    }
-    return context
-
-def render_model(request, modelo, url, nome, busca):
+def render_model(request, modelo, url, nome):
     if not request.user.is_authenticated:
         return redirect('login')
 
@@ -48,35 +22,36 @@ def render_model(request, modelo, url, nome, busca):
     perfil = Perfil.objects.filter(usuario_id = id_usuario).first()
     docs_modelo = modelo.objects.order_by('-modificado')
 
-    documento_paginator = Paginator(docs_modelo, 10)
+    buscar_filtro = request.GET.get('buscar')
+
+    if buscar_filtro:
+        docs_modelo = modelo.objects.filter(nome__contains=buscar_filtro)
+
+    documento_paginator = Paginator(docs_modelo, 1)
     page_num = request.GET.get('page')
     page = documento_paginator.get_page(page_num)
-
     lista = []
     for i in page:
         sz = Path(f'media/{i.doc.name}').stat().st_size
         lista.append(sz)
     lista_completa = zip(page, lista)
+
+
     context = {
         "nome":nome,
         "page": page,
         "lista_completa": lista_completa,
         "perfil":perfil,
         "url":url,
-        "busca":busca,
     } 
     return context
     
 
 def comercial(request):
-    return render(request, 'documentos/doc.html',render_model(request, Comercial, 'documentos/comercial', 'Comercial', 'buscarComercial/') )
-def buscarComercial(request):
-    return render(request, 'documentos/doc.html',buscar(request, Comercial, 'Comercial','buscarComercial/') )
+    return render(request, 'documentos/doc.html',render_model(request, Comercial, 'documentos/comercial', 'Comercial') )
 
 def controladoria(request):
-    return render(request, 'documentos/doc.html',render_model(request, Controladoria, 'documentos/controladoria', 'Controladoria', 'buscarControladoria/') )
-def buscarControladoria(request):
-    return render(request, 'documentos/doc.html',buscar(request, Controladoria) )
+    return render(request, 'documentos/doc.html',render_model(request, Controladoria, 'documentos/controladoria', 'Controladoria') )
 
 def departamento_pessoal(request):
     return render(request, 'documentos/doc.html',render_model(request, DepartamentoPessoal, 'documentos/departamento_pessoal', 'Departamento Pessoal') )
