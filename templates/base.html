@@ -131,12 +131,22 @@
                     </div>
                 </div>
             </li> -->
+            {% if 'tarefas' in url_name %}
+                <li class="nav-item active item-menu">
+                    <a class="nav-link collapsed" href={% url 'tarefas' %}>
+                        <img src={% static 'dashboard/img/tarefas-selecionado.png' %}>
+                        <span>Painel de Tarefas</span> 
+                    </a>
+                </li>
+            {% else %}
+                <li class="nav-item item-menu">
+                    <a class="nav-link collapsed" href={% url 'tarefas' %}>
+                        <img src={% static 'dashboard/img/painel_tarefas.png' %}>
+                        <span>Painel de Tarefas</span> 
+                    </a>
+                </li>
+            {% endif %}
 
-            <li class="nav-item item-menu">
-                <a class="nav-link" href="charts.html">
-                    <img src={% static "dashboard/img/painel_tarefas.png" %}>
-                    <span>Painel de Tarefas</span></a>
-            </li>
 
             <li class="nav-item item-menu">
                 <a class="nav-link" href="charts.html">

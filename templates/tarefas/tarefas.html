@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{%load static%}
+
+{% block estilo %}
+    <link href="{% static 'tarefas/css/tarefas.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block icones %}
+    <div class="icones">
+        <img class="icone-dash" src="{% static 'tarefas/img/tarefas-topo.png' %}">
+        <p>Painel de Tarefas / </p>
+        <img class="icone-menu" src="{% static 'dashboard/img/menu-cinza.png' %}">
+    </div>
+{% endblock %}
+
+{% block content%}
+    <h1> Painel de Tarefas </h1>
+    <div class="container">
+        <div class="row">
+            <div class="col-4">
+
+            </div>
+            <div class="col-4">
+            </div>
+            <div class="col-4">
+            </div>
+        </div>
+    </div>
+{% endblock %}

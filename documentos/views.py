@@ -27,7 +27,7 @@ def render_model(request, modelo, url, nome):
     if buscar_filtro:
         docs_modelo = modelo.objects.filter(nome__contains=buscar_filtro)
 
-    documento_paginator = Paginator(docs_modelo, 1)
+    documento_paginator = Paginator(docs_modelo, 15)
     page_num = request.GET.get('page')
     page = documento_paginator.get_page(page_num)
     lista = []

@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     "dashboard",
     "usuario",
     "documentos",
+    "tarefas",
 ]
 
 MIDDLEWARE = [
