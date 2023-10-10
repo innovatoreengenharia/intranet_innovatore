@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block estilo %}
+    <link href="{% static 'cursos/css/cursos.css' %}" rel="stylesheet">
+{% endblock %}
+
+
+{% block icones %}
+    <div class="icones">
+        <img class="icone-dash" src="{% static 'cursos/img/icone-cursos.png' %}">
+        <p style="color:white">Documentos / </p>
+        <img class="icone-menu" src="{% static 'dashboard/img/menu.png' %}">
+    </div>
+{% endblock %}
+
+{% block content %}
+    <h1 class="h1-cursos">Cursos</h1>
+    <img src="{% static 'cursos/img/cursos_topo.jpg' %}" class="img-topo-cursos">
+
+{% endblock %}

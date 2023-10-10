@@ -178,17 +178,34 @@
                     <span>Social</span></a>
             </li>
 
-            <li class="nav-item item-menu">
-                <a class="nav-link" href="charts.html">
-                    <img src={% static "dashboard/img/cursos.png" %}>
-                    <span>Cursos</span></a>
-            </li>
+            {% if 'cursos' in url_name %}
+                <li class="nav-item active item-menu">
+                    <a class="nav-link" href={% url 'cursos' %}>
+                        <img src={% static "dashboard/img/cursos-selecionado.png" %}>
+                        <span>Cursos</span></a>
+                </li>
+            {% else %}
+                <li class="nav-item item-menu">
+                    <a class="nav-link" href={% url 'cursos' %}>
+                        <img src={% static "dashboard/img/cursos.png" %}>
+                        <span>Cursos</span></a>
+                </li>
+            {% endif %}
 
-            <li class="nav-item item-menu">
-                <a class="nav-link" href="charts.html">
-                    <img src={% static "dashboard/img/cartao-visita.png" %}>
-                    <span>Cartão de Visitas</span></a>
-            </li>
+
+            {% if 'cartao' in url_name%}
+                <li class="nav-item active item-menu">
+                    <a class="nav-link" href={% url 'cartao_visitas' %}>
+                        <img src={% static "dashboard/img/cartao-selecionado.png" %}>
+                        <span>Cartão de Visitas</span></a>
+                </li>
+            {% else %}
+                <li class="nav-item item-menu">
+                    <a class="nav-link" href={% url 'cartao_visitas' %}>
+                        <img src={% static "dashboard/img/cartao-visita.png" %}>
+                        <span>Cartão de Visitas</span></a>
+                </li>
+            {% endif %}
 
             <!-- Divider -->
             <hr class="sidebar-divider"style="margin-top:3em">

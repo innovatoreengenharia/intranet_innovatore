@@ -52,6 +52,8 @@ INSTALLED_APPS = [
     "usuario",
     "documentos",
     "tarefas",
+    "cursos",
+    "cartao_visitas",
 ]
 
 MIDDLEWARE = [
