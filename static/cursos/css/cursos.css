@@ -3,13 +3,140 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;1,400&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap');
 
+.texto-principal{
+    background-image: url(../img/cursos_topo.jpg);
+    margin-left: -20px;
+    margin-top: -100px;
+    height: 820px;
+}
 
-.img-topo-cursos{
-    position: relative;
-    width:110%;
-    z-index: -1;
-    top:-150px;
-    left:-1em;
-    margin:0px;
-    
+.h3-cursos{
+    padding-top: 120px;
+    color:white;
+    margin-left: 24px;
+    font-family: 'Open Sans';
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 48px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+.div-invista{
+    padding-top: 130px;
+    margin-left: 115px;
+}
+.h1-invista{
+    font-family: 'Open Sans';
+    color: white;
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 65px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+.h3-invista{
+    font-family: 'Open Sans';
+    color: white;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 48px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+.botao-invista{
+    color: white;
+    margin-top: 40px;
+    border:none;
+    width: 172px;
+    height: 64px;
+    padding: 12px 55px 12px 55px;
+    border-radius: 12px;
+    gap: 10px;
+    background: linear-gradient(#14295E, #2568BB);
+}
+
+.novos-cursos{
+    font-family: 'Open Sans';
+    margin: 55px 0px 40px 32px;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 48px;
+    letter-spacing: 0em;
+    text-align: left;
+    color:#464646;
+
+}
+
+.img-novos-cursos{
+    width: 365px;
+    height: 340px;
+    border-radius: 12px;
+}
+.tns-horizontal.tns-subpixel>.tns-item {
+    /* vertical-align: bottom !important; */
+    /* border-radius: 12px; */
+    margin-top: 25px;
+}
+
+.setor{
+    font-family: 'Open Sans';
+    margin-bottom: 0px;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 24px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #14355E;
+}
+.nome{
+    font-family: Open Sans;
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 32px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #464646;
+}
+.horas{
+    font-family: 'Open Sans';
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 24px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #464646;
+}
+
+.sombra{
+    border-radius: 24px;
+    background: var(--preto-branco, #FFF);
+    box-shadow: 8px 8px 8px 0px rgba(0, 0, 0, 0.06);
+}
+
+.faq{
+    width: 100%;
+    height: 80px;
+    padding: 24px 27px 24px 27px;
+    border-radius: 12px;
+    border: 1px solid #E8E8E8;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+.p-faq{
+    font-family: 'Open Sans';
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 32px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #464646;
+}
+
+.seta-faq{
+    float:right;
+    margin-right: 36px;
+    margin-top: 12px;
 }

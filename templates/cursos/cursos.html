@@ -3,6 +3,8 @@
 
 {% block estilo %}
     <link href="{% static 'cursos/css/cursos.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/tiny-slider.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/min/tiny-slider.helper.ie8.js"></script>
 {% endblock %}
 
 
@@ -15,7 +17,91 @@
 {% endblock %}
 
 {% block content %}
-    <h1 class="h1-cursos">Cursos</h1>
-    <img src="{% static 'cursos/img/cursos_topo.jpg' %}" class="img-topo-cursos">
+<div class=" container-fluid texto-principal">
+    <h3 class="h3-cursos">Cursos</h3>
+    <div class="div-invista container">
+        <h3 class="h3-invista">Invista em Você!</h3>
+        <h1 class="h1-invista">A Innovatore Engenharia Oferece Cursos para o Seu Crescimento Profissional</h1>
+        <button class="botao-invista">Acessar</button>
+    </div>
+</div>  
+
+<h1 class="novos-cursos">Veja abaixo os novos cursos adicionados:</h1>
+
+<div class="container-fluid">
+    {% comment %} <button data-controls="prev" tabindex="-1" aria-controls="tns1"class="prev">anterior</button>
+    <button data-controls="next" tabindex="-1" aria-controls="tns1" class="next">proximo</button> {% endcomment %}
+    <div class="carrossel-novos-cursos">
+        {% for curso in cursos%}
+            <div class="col-3">
+                <img class="img-novos-cursos" src={{ curso.imagem.url }}><br>
+                <p class="setor">{{ curso.setor }}</p>
+                <p class="nome">{{ curso.nome }}</p>
+                <p class="horas"><img src={% static 'cursos/img/horas.png' %}>{{ curso.horas }} Horas </p>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+<h1 class="titulo-centro">Amplie suas habilidades com nossos cursos de alto impacto!
+    Conheça abaixo os módulos oferecidos:</h1>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-3">
+        </div>
+    </div>
+</div>
+
+<h1 class="titulo-centro">Conheça os instrutores dos nossos cursos</h1>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-3">
+        </div>
+    </div>
+</div>
+
+<h1 class="novos-cursos">FAQ</h1>
+<div class="container-fluid mb-5">
+    <div class="col-12 faq sombra">
+        <p class="p-faq">Preciso pagar alguma mesalidade para ter acesso a plataforma?<img class="seta-faq"src={% static 'cursos/img/down.png'%}></p>
+    </div>
+    <div class="col-12 faq sombra">
+        <p class="p-faq">Como solicito o meu login e senha?<img class="seta-faq"src={% static 'cursos/img/down.png'%}></p>
+    </div>
+    <div class="col-12 faq sombra">
+        <p class="p-faq">Quando expira a minha assinatura?<img class="seta-faq"src={% static 'cursos/img/down.png'%}></p>
+    </div>
+    <div class="col-12 faq sombra">
+        <p class="p-faq">Como faço para recuperar minha senha da plataforma de cursos?<img class="seta-faq"src={% static 'cursos/img/down.png'%}></p>
+    </div>
+    <div class="col-12 faq sombra">
+        <p class="p-faq">Quantos cursos posso fazer ao mesmo tempo?<img class="seta-faq"src={% static 'cursos/img/down.png'%}></p>
+    </div>
+    <div class="col-12 faq sombra">
+        <p class="p-faq">Como acompanho meu progresso nos cursos?<img class="seta-faq"src={% static 'cursos/img/down.png'%}></p>
+    </div>
+    <div class="col-12 faq sombra">
+        <p class="p-faq">Como faço para sugerir novos cursos ou tópicos de interesse?<img class="seta-faq"src={% static 'cursos/img/down.png'%}></p>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.2/min/tiny-slider.js"></script>
+
+    <script type="module">                         // String selector
+        var slider = tns({
+          container: '.carrossel-novos-cursos',
+          items: 4, // Quantidade de itens que são exibidos ao mesmo tempo
+          slideBy: 'page',
+          autoplay: true,
+          mouseDrag: true, // Seta se o carousel pode ser rotacionado com o movimento de clicar e arrastar do mouse
+          autoplayButtonOutput: false, // Seta visibilidade do botão de auto play
+          controls: true, // seta visibilidade das setas de controle   
+          controlsText:["<img class='prev' src={% static 'institucional/img/prev.png' %}>", "<img class='next' src={% static 'institucional/img/next.png' %}>"],
+          nav: false, // Seta visibilidade da navegação (3 pontinhos)
+          speed: 1000,
+        });
+    </script>
 
 {% endblock %}

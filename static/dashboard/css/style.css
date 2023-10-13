@@ -44,6 +44,13 @@ h1{
     margin-left: 1.5em;
 }
 
+.seta-perfil-branca{
+    margin: 15px 32px 0px 15px;
+  }
+.seta-perfil-cinza{
+    margin: 15px 32px 0px 15px;
+  }
+
 .dropdown-item{
     color: #464646;
 }

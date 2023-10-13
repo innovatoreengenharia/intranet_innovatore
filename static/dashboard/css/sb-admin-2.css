@@ -11356,3 +11356,13 @@ body.sidebar-toggled footer.sticky-footer {
 .conteudo-recolhido{
   padding-left: 20em;
 }
+
+.seta-perfil-branca{
+  margin-top: 15px;
+  margin-left: 15px;
+}
+.sombra{
+  border-radius: 24px;
+  background: var(--preto-branco, #FFF);
+  box-shadow: 8px 8px 8px 0px rgba(0, 0, 0, 0.06);
+}

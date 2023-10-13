@@ -416,14 +416,14 @@
                             {% if not perfil %}
                                 <span class="mr-5 d-none d-lg-inline small" style="color:white">Usuário</span>
                             {% else %}
-                                <span class="nome-menu-branco mr-5 d-none d-lg-inline small">{{ perfil.nome }} {{ perfil.sobrenome }}</span>
+                                <span class="nome-menu-branco mr-5 d-none d-lg-inline small">{{ perfil.nome }} {{ perfil.sobrenome }}<img src="{% static 'dashboard/img/seta-perfil-branca.png' %}" class="seta-perfil-branca"></span>
                             {% endif %}    
 
                         {% else %}
                             {% if not perfil %}
                                 <span class="mr-5 d-none d-lg-inline text-gray-600 small">Usuário</span>
                             {% else %}
-                                <span class="nome-menu mr-5 d-none d-lg-inline small">{{ perfil.nome }} {{ perfil.sobrenome }}</span>
+                                <span class="nome-menu mr-5 d-none d-lg-inline small">{{ perfil.nome }} {{ perfil.sobrenome }}<img src="{% static 'dashboard/img/seta-perfil-cinza.png' %}" class="seta-perfil-cinza"</span>
                             {% endif %}
                         {% endif %}
                         {% endwith %}

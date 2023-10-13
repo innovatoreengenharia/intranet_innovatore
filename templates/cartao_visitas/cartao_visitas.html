@@ -8,106 +8,84 @@
 
 {% block icones %}
     <div class="icones">
-        <img class="icone-dash" src="{% static 'dashboard/img/icone-pasta.png' %}">
+        <img class="icone-dash" src="{% static 'cartao_visitas/img/icone-visitas.png' %}">
         <p>Cartõs de Visitas / </p>
         <img class="icone-menu" src="{% static 'dashboard/img/menu-cinza.png' %}">
     </div>
 {% endblock %}
 
 {% block content %}
-<h1 class="text-left ml-2 mb-2">Documentos / {{ nome }}</h1>
+<h1 class="text-left ml-2 mb-2">Cartões de Visitas</h1>
+<div class="linha-busca container-fluid">
+    <form action="">
+        {% if user.is_authenticated and user.is_staff %}
+            <a href="{% url 'admin:index' %}"><img class="mt-3"src={% static 'cartao_visitas/img/adicionar.png' %}></a>
+        {% else %}
+            <img class="mt-3"src={% static 'cartao_visitas/img/adicionar.png' %}>
+        {% endif %}
+        <img src={% static 'cartao_visitas/img/filtro.png' %} class="float-right filtro">
+        <button href="" class="float-right botao-pesquisar" type="submit ">Pesquisar</button>
+        <input type="text" name="buscar" class="input-busca float-right" placeholder="Pesquisar Contato">
+    </form>
+</div>
 <div class="tabela">
     <div class="gerenciador">
+        <h1>Gerenciador de Contatos</h1>
         <div class="container-fluid">
             <div class="row">
-            <table class="table col-12">
-                <thead>
-                <tr>
-                    <th class="titulo" scope="col">Nome</th>
-                    <th class="titulo" scope="col">Empresa</th>
-                    <th class="titulo" scope="col">E-mail</th>
-                    <th class="titulo" scope="col">Telefone Fixo</th>
-                    <th class="titulo" scope="col">Telefone Celular</th>
-                    <th class="titulo" scope="col">site</th>
-                </tr>
-                </thead>
-                {% if cartoes %}
+                <table class="table col-12">
+                    <thead>
+                    <tr>
+                        <th class="titulo" scope="col">Nome</th>
+                        <th class="titulo" scope="col">Empresa</th>
+                        <th class="titulo" scope="col">E-mail</th>
+                        <th class="titulo" scope="col">Telefone Fixo</th>
+                        <th class="titulo" scope="col">Telefone Celular</th>
+                        <th class="titulo" scope="col">site</th>
+                    </tr>
+                    </thead>
                     <tbody>
-                    {% for cartao in cartoes %}
-                        <tr>
-                        <td>{{ cartao.nome }}</td>
-                        <td>{{ cartao.empresa }}</td>
-                        <td>{{ cartao.email }}</td>
-                        <td>{{ cartao.telefone_fixo }}</td>
-                        <td>{{ cartao.telefone_celular }}</td>
-                        <td>{{ cartao.site }}</td>
-                        </tr>
-                    {% endfor %}
+                        {% for cartao in page.object_list %}
+                            <tr>
+                                <td>{{ cartao.nome }}</td>
+                                <td>{{ cartao.empresa }}</td>
+                                <td>{{ cartao.email }}</td>
+                                <td>{{ cartao.telefone_fixo }}</td>
+                                <td>{{ cartao.telefone_celular }}</td>
+                                <td>{{ cartao.site }}</td>
+                            </tr>
+                        {% endfor %}
                     </tbody>
-                {% endif %}
-            </table>
+                </table>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    {% comment %} <a href="{% url 'documentos' %}" class="botao">Voltar</a> {% endcomment %}
+                    <a href={% url 'cartao_visitas' %} class="botao">Voltar</a>
+                    {% if user.is_authenticated and user.is_staff %}
+                        <a href="{% url 'admin:index' %}"class="botao-branco">Editar</a>
+                    {% endif %}
+                </div>
+            </div> 
         </div>
-        <div class="row">
-        <div class="col-md-12">
-            {% comment %} <a href="{% url 'documentos' %}" class="botao">Voltar</a> {% endcomment %}
-            <a  class="botao">Voltar</a>
-            <a class="botao-branco">Editar</a>
     </div>
-</div> 
+</div>
 
 <div class="container-fluid text-center paginacao">
-{% if page.has_previous %}
-  <a href="{% url url %}?page={{page.previous_page_number}}"><img src={% static 'documentos/img/anterior.png' %}></a>
-{% endif %}
-{% for i in page.paginator.page_range %}
-    {% if page.number == i %}
-      <p class="pagina-selecionada"><a>{{ i }}</a></p>
-    {% else %}
-      <a href="?page={{ i }}" class="paginas">{{ i }}</a>
+    {% if page.has_previous %}
+        <a href="{% url 'cartao_visitas' %}?page={{page.previous_page_number}}"><img src={% static 'documentos/img/anterior.png' %}></a>
     {% endif %}
-{% endfor %}
+    {% for i in page.paginator.page_range %}
+        {% if page.number == i %}
+            <p class="pagina-selecionada"><a>{{ i }}</a></p>
+        {% else %}
+            <a href="?page={{ i }}" class="paginas">{{ i }}</a>
+        {% endif %}
+    {% endfor %}
 
-{% if page.has_next %}
-  <a href="{% url url %}?page={{page.next_page_number}}" style="margin-left: 32px;"><img src={% static "documentos/img/proximo.png" %}></a>
-{% endif %}
-</div>
-
-</div>
+    {% if page.has_next %}
+    <a href="{% url 'cartao_visitas' %}?page={{page.next_page_number}}" style="margin-left: 32px;"><img src={% static "documentos/img/proximo.png" %}></a>
+    {% endif %}
 </div>
 {%  endblock %}
 
-{% block scripts %}
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            var links = document.querySelectorAll('.link');
-
-            links.forEach(function (link) {
-                link.addEventListener('click', function (event) {
-                    event.preventDefault(); // Impede o link de navegar para a página
-
-                    var linkURL = link.getAttribute('href');
-
-                    // Cria um elemento de input oculto para copiar o texto
-                    var input = document.createElement('input');
-                    input.setAttribute('value', linkURL);
-                    document.body.appendChild(input);
-
-                    // Seleciona e copia o texto no input
-                    input.select();
-                    document.execCommand('copy');
-
-                    // Remove o elemento de input
-                    document.body.removeChild(input);
-
-                    alert('Link copiado para a área de transferência: ' + linkURL);
-                });
-            });
-        });
-    </script>
-    <script>
-      function voltar() {
-        history.back();
-      }
-      document.getElementById("voltar").addEventListener("click", voltar);
-    </script>
-{% endblock %}
