@@ -55,6 +55,7 @@ INSTALLED_APPS = [
     "cursos",
     "cartao_visitas",
     "aniversariantes",
+    "social",
 ]
 
 MIDDLEWARE = [

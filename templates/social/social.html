@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block estilo %}
+    <link href="{% static 'social/css/social.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block icones %}
+    <div class="icones">
+        <img class="icone-dash" src="{% static 'cartao_visitas/img/icone-visitas.png' %}">
+        <p>Social / </p>
+        <img class="icone-menu" src="{% static 'dashboard/img/menu-cinza.png' %}">
+    </div>
+{% endblock %}
+
+{% block content %}
+
+<h1 class="text-left ml-2 mb-2">Social</h1>
+<a href={% url 'contatos' %}> contatos </a>
+
+{% endblock %}

@@ -182,11 +182,21 @@
                 </li>
             {% endif %}
 
-            <li class="nav-item item-menu">
-                <a class="nav-link" href="charts.html">
-                    <img src={% static "dashboard/img/social.png" %}>
-                    <span>Social</span></a>
-            </li>
+            {% if 'social' in url_name or 'contatos' in url_name %}
+                <li class="nav-item active item-menu">
+                    <a class="nav-link" href={% url 'social' %}>
+                        <img src={% static "dashboard/img/social-selecionado.png" %}>
+                        <span>Social</span>
+                    </a>
+                </li>
+            {% else %}
+                <li class="nav-item item-menu">
+                    <a class="nav-link" href={% url 'social' %}>
+                        <img src={% static "dashboard/img/social.png" %}>
+                        <span>Social</span>
+                    </a>
+                </li>
+            {% endif %}
 
             {% if 'cursos' in url_name %}
                 <li class="nav-item active item-menu">
