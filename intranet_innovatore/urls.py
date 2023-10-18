@@ -30,7 +30,8 @@ urlpatterns = [
     path("institucional/", include('institucional.urls')),
     path("tarefas/", include('tarefas.urls')),
     path("cursos/", include('cursos.urls')),
-    path("cartao_visitas", include('cartao_visitas.urls')),
+    path("cartao_visitas/", include('cartao_visitas.urls')),
+    path("aniversariantes/", include('aniversariantes.urls')),
 ]
 
 if settings.DEBUG:

@@ -1,0 +1,195 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital@0;1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap');
+
+
+html{
+    background-color: #f9f9f9;
+}
+body{
+    background-color: #f9f9f9;
+}
+
+.conteudo-aniversariantes{
+    background-color: #f9f9f9;
+    min-height: 100%;
+    padding: 24px;
+    margin-right: 24px;
+}
+
+.h1-aniversariantes{
+    margin-left: 24px;
+}
+
+.quadro{
+    background-color: white;
+    background-image: url('../img/fundo-aniversariantes.jpg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    border-radius: 12px;
+    padding:62px 0px 62px 93px;
+}
+
+.celebramos{
+   margin: 140px 0px 0px 170px;
+}
+.quadro h1{
+    font-family: 'Open Sans';
+    font-size: 56px;
+    font-weight: 800;
+    line-height: 40px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+ .h1-parte-1{
+    margin-left: 48px;
+    transform: rotate(1deg);
+    margin-bottom: 48px;
+ }
+
+ .compromisso{
+    color:white;
+    padding: 0px 32px 0px 8px;
+    background-color: #F25C05;
+    font-family: 'Open Sans';
+    font-size: 56px;
+    font-weight: 800;
+    line-height: 40px;
+    letter-spacing: 0em;
+    text-align: left;
+ }
+
+ .emocao{
+    color:#F2059F;
+    font-family: 'Open Sans';
+    font-size: 56px;
+    font-weight: 800;
+    line-height: 40px;
+    letter-spacing: 0em;
+    text-align: left;
+
+ }
+
+ .especial{
+    color: #0597F2;
+    font-family: 'Open Sans';
+    font-size: 56px;
+    font-weight: 800;
+    line-height: 40px;
+    letter-spacing: 0em;
+    text-align: left;
+
+ }
+
+ .h1-parte-2{
+    transform: rotate(-1deg);
+ }
+
+ .lista-aniversariantes{
+    margin-top: 100px;
+    width:876px;
+ }
+
+ .img-aniversariante{
+    width: 200px;
+    height: 200px;
+ }
+
+ /* .fita-1{
+    position: relative;
+    left:447px;
+    top: 57px;
+ }
+ .fita-2{
+    position: relative;
+    left: 1252px;
+    top: 147px;
+ }
+ .fita-3{
+    position: relative;
+    top:400px;
+    left: 50px;
+ }
+ .fita-4{
+    position: relative;
+    top:450px;
+    left: 1100px;
+ }
+ .fita-5{
+    position: relative;
+    left: -100px;
+    top: 750px;
+ }
+ .fita-6{
+    position: relative;
+    top:900px;
+    left: 950px;
+ }
+ .vela-vermelha{
+    position: relative;
+    left: 732px;
+    top:27px;
+ }
+ .vela-azul{
+    position: relative;
+    left: 612px;
+    top:47px;
+ } */
+
+ .aniversario{
+    font-family: 'Open Sans';
+    color: black;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 24px;
+    letter-spacing: 0em;
+    text-align: center;
+    margin-top: 24px;
+    margin-bottom: 0px;
+}
+
+.nome-aniversariante{
+    font-family: 'Open Sans';
+    color: #464646;
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 32px;
+    letter-spacing: 0em;
+    text-align: center;
+    margin-bottom: 48px;
+}
+
+.quadro .inesquecivel{
+    font-family: 'Open Sans';
+    color: #a4a4a4;
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 32px;
+    letter-spacing: 0em;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.anos{
+    margin-top: 0px;
+}
+.anos h1{
+    font-family: 'Open Sans';
+    color:#14355E;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 48px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+.anos p{
+    font-family: 'Open Sans';
+    color:#464646;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 24px;
+    letter-spacing: 0em;
+    text-align: left;
+}

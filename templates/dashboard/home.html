@@ -52,22 +52,24 @@
             <!-- Aniversariantes -->
             <div class="row justify-content-end">
                 <div class="col-4 mb-4">
-                    <div class="aniversariantes borda pb-0">
-                        <img src="{% static 'dashboard/img/aniversariantes-icone.png' %}" class="icones-direita float-end">
-                        <h1 class="mb-0">Aniversariantes</h1>
-                        <br>
-                        {% for user in aniversariantes %}
-                        <p class="m-1">
-                            {% if not user.foto %}
-                            <img  class="img-profile rounded-circle foto-aniversariante" src="{% static 'dashboard/img/pu-2.png' %}">
-                            {% else %}
-                            <img class="img-profile rounded-circle foto-aniversariante" src="{{ user.foto.url }}"> 
-                            {% endif %}
-                            {{ user.nascimento|date:"d/m"}} - Aniversário de {{user.nome }}</p>
-                        {% empty %}
-                        <p> Não Há Aniversariantes Este Mês </p>
-                        {% endfor %}
-                    </div>
+                    <a href={% url 'aniversariantes' %} class="link-aniversariantes">
+                        <div class="aniversariantes borda pb-0">
+                            <img src="{% static 'dashboard/img/aniversariantes-icone.png' %}" class="icones-direita float-end">
+                            <h1 class="mb-0">Aniversariantes</h1>
+                            <br>
+                            {% for user in aniversariantes %}
+                            <p class="m-1">
+                                {% if not user.foto %}
+                                    <img  class="img-profile rounded-circle foto-aniversariante" src="{% static 'dashboard/img/pu-2.png' %}">
+                                {% else %}
+                                    <img class="img-profile rounded-circle foto-aniversariante" src="{{ user.foto.url }}"> 
+                                {% endif %}
+                                {{ user.nascimento|date:"d/m"}} - Aniversário de {{user.nome }}</p>
+                            {% empty %}
+                            <p> Não Há Aniversariantes Este Mês </p>
+                            {% endfor %}
+                        </div>
+                    </a>
                     <div class="feed borda mt-4">
                         <h1>Feed de Notícias</h1>
                     </div>
@@ -83,11 +85,14 @@
                         <a class="float-end">Ler Mais</a>
                     </div>
                 <!--Cursos-->
-                    <div class="cursos borda mt-4">
-                        <p>Invista em você!</p>
-                        <h1>Cursos Gratuitos</h1>
-                        <h4>Acesse Agora<h4>
-                    </div> 
+                    <a href="{% url 'cursos' %}" class="tag-cursos">
+                        <div class="cursos borda mt-4">
+                            <img src={% static "dashboard/img/cursos-selecionado.png" %} class="float-end">
+                            <p>Invista em você!</p>
+                            <h1>Cursos Gratuitos</h1>
+                            <h4>Acesse Agora<h4>
+                        </div> 
+                    </a>
                 </div>
 
                 <!-- Calendário -->

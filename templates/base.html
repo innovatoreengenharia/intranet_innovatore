@@ -166,11 +166,21 @@
                     <span>Informativos INN</span></a>
             </li>
 
-            <li class="nav-item item-menu">
-                <a class="nav-link" href="charts.html">
-                    <img src={% static "dashboard/img/aniversariantes.png" %}>
-                    <span>Aniversariantes</span></a>
-            </li>
+            {% if 'aniversariantes' in url_name %}
+                <li class="nav-item active item-menu">
+                    <a class="nav-link" href={% url 'aniversariantes' %}>
+                        <img src="{% static 'dashboard/img/aniversariantes-selecionado.png' %}">
+                        <span>Aniversariantes</span>
+                    </a>
+                </li>
+            {% else %}
+                <li class="nav-item item-menu">
+                    <a class="nav-link" href={% url 'aniversariantes' %}>
+                        <img src={% static "dashboard/img/aniversariantes.png" %}>
+                        <span>Aniversariantes</span>
+                    </a>
+                </li>
+            {% endif %}
 
             <li class="nav-item item-menu">
                 <a class="nav-link" href="charts.html">
@@ -182,13 +192,15 @@
                 <li class="nav-item active item-menu">
                     <a class="nav-link" href={% url 'cursos' %}>
                         <img src={% static "dashboard/img/cursos-selecionado.png" %}>
-                        <span>Cursos</span></a>
+                        <span>Cursos</span>
+                    </a>
                 </li>
             {% else %}
                 <li class="nav-item item-menu">
                     <a class="nav-link" href={% url 'cursos' %}>
                         <img src={% static "dashboard/img/cursos.png" %}>
-                        <span>Cursos</span></a>
+                        <span>Cursos</span>
+                    </a>
                 </li>
             {% endif %}
 

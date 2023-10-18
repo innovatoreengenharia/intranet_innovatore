@@ -171,6 +171,9 @@ h1{
     text-align: right;
     color: white;
 }
+.link-aniversariantes:hover{
+    text-decoration: none;
+}
 .aniversariantes{
     background-size: cover;
     background-repeat: no-repeat;
@@ -181,6 +184,9 @@ h1{
     height: 256px;
     padding: 24px;
     background-image: url("../img/bg-aniversariantes.png")
+}
+::-webkit-scrollbar{
+    display:none;
 }
 .aniversariantes p{
     font-family: Open Sans;
@@ -230,11 +236,51 @@ h1{
     color:white;
 }
 
+.tag-cursos:hover{
+    text-decoration: none;
+    color: white;
+}
+
 .cursos{
+    padding: 24px 16px 24px 24px;
     background-size: cover;
     background-repeat: no-repeat;
     height: 15em;
     background-image: url('../img/bg-cursos.png');
+}
+.cursos p{
+    font-family: Open Sans;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 24px;
+    letter-spacing: 0em;
+    text-align: left;
+    color:white;
+    margin-top: 8px;
+    margin-bottom: 0px;
+
+}
+.cursos h1{
+    color: white;
+    font-family: 'Open Sans';
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 48px;
+    letter-spacing: 0em;
+    text-align: left;
+    margin-top: 0px;
+}
+
+.cursos h4{
+    color:white;
+    font-family: 'Open Sans';
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 32px;
+    letter-spacing: 0em;
+    text-align: left;
+    margin-top: 70px;
+
 }
 
 .feed{

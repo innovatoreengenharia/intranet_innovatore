@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block estilo %}
+    <link href="{% static 'aniversariantes/css/aniversariantes.css' %}" rel="stylesheet">
+{% endblock %}
+
+
+{% block icones %}
+    <div class="icones">
+        <img class="icone-dash" src="{% static 'aniversariantes/img/icone-aniversariantes.png' %}">
+        <p>Aniversariantes / </p>
+        <img class="icone-menu" src="{% static 'dashboard/img/menu-cinza.png' %}">
+    </div>
+{% endblock %}
+
+{% block content %}
+    <h1 class="text-left h1-aniversariantes">Aniversariantes</h1>
+    <div class="conteudo-aniversariantes">
+
+        {% comment %} <img src="{% static 'aniversariantes/img/fita-1.png' %}" class="fita-1">
+        <img src="{% static 'aniversariantes/img/fita-2.png' %}" class="fita-2">
+        <img src="{% static 'aniversariantes/img/fita-3.png' %}" class="fita-3">
+        <img src="{% static 'aniversariantes/img/fita-4.png' %}" class="fita-4">
+        <img src="{% static 'aniversariantes/img/fita-5.png' %}" class="fita-5">
+        <img src="{% static 'aniversariantes/img/fita-6.png' %}" class="fita-6">
+
+        <img src="{% static 'aniversariantes/img/vela-vermelha.png' %}" class="vela-vermelha">
+        <img src="{% static 'aniversariantes/img/vela-azul.png' %}" class="vela-azul"> {% endcomment %}
+
+        <div class="quadro">
+            {% comment %} <img src={% static 'aniversariantes/img/bolo.png' %}> {% endcomment %}
+            <div class="celebramos">
+                <h1 class="h1-parte-1">Celebramos com <span class="compromisso">compromisso</span> </h1>
+                <h1 class="h1-parte-2">e <span class="emocao">emoção</span> cada momento <sapn class="especial">especial.</span></h1>
+            </div>
+            
+            <div class="container lista-aniversariantes" >
+                <div class="div-aniversariantes row text-center justify-content-md-center">
+                    {% for aniversariante in aniversariantes %}
+                        <div class="col-4">
+                            {% if aniversariante.foto %}
+                                <img  class="img-aniversariante"  src={{aniversariante.foto.url}}>
+                            {% else %}
+                                <img  class="img-aniversariante" src="{% static 'dashboard/img/pu-2.png' %}">
+                            {% endif %}
+                            <p class="aniversario">{{ aniversariante.nascimento|date:"d/m"}}</p>
+                            <p class="nome-aniversariante">{{aniversariante.nome}} {{aniversariante.sobrenome}}</p>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <h1 class="inesquecivel">Nossos colaboradores merecem um feliz aniversário inesquecível!</h1>
+            <div class="row">
+                <div class="col-2 anos">
+                    <h1>+ 8 anos</h1>
+                    <p>Festejando juntos com nossos colaboradores<p/>
+                </div>
+                <div class="col-8"></div>
+                {% comment %} <div class="col-2 align-self-end" >
+                    <img src={% static 'aniversariantes/img/tablet.png' %}>
+                </div> {% endcomment %}
+            </div>
+
+        </div>
+    </div>
+{% endblock %}

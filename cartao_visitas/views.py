@@ -20,6 +20,7 @@ def cartao_visitas(request):
     page = documento_paginator.get_page(page_num)
 
     context = {
+        'buscar': buscar_filtro,
         'perfil': perfil,
         'page': page,
     }
