@@ -26,7 +26,6 @@
 <body>
     <div id="wrapper">
         <!-- Sidebar -->
-        {% with request.resolver_match.url_name as url_name %}
         <ul class="navbar-nav bg-secondary sidebar sidebar-dark accordion shadow mr-3 menu-lateral" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
@@ -106,49 +105,49 @@
             </li>-->
 
             <li class="nav-item item-menu">
-                <a class="nav-link" href="charts.html">
+                <a class="nav-link" href={% url 'tarefas' %}>
                     <img src={% static "dashboard/img/painel_tarefas.png" %}>
                     <span>Painel de Tarefas</span></a>
             </li>
 
             <li class="nav-item item-menu">
-                <a class="nav-link" href="charts.html">
+                <a class="nav-link" href="">
                     <img src={% static "dashboard/img/calendario.png" %}>
                     <span>Calendário</span></a>
             </li>
 
             <li class="nav-item item-menu">
-                <a class="nav-link" href="charts.html">
+                <a class="nav-link" href="">
                     <img src={% static "dashboard/img/mapa_obras.png" %}>
                     <span>Mapa de Obras</span></a>
             </li>
 
             <li class="nav-item item-menu">
-                <a class="nav-link" href="charts.html">
+                <a class="nav-link" href="">
                     <img src={% static "dashboard/img/avisos.png" %}>
                     <span>Inforativos INN</span></a>
             </li>
 
             <li class="nav-item item-menu">
-                <a class="nav-link" href="charts.html">
+                <a class="nav-link" href={% url "aniversariantes" %}>
                     <img src={% static "dashboard/img/aniversariantes.png" %}>
                     <span>Aniversariantes</span></a>
             </li>
 
             <li class="nav-item item-menu">
-                <a class="nav-link" href="charts.html">
+                <a class="nav-link" href={% url "social" %}>
                     <img src={% static "dashboard/img/social.png" %}>
                     <span>Social</span></a>
             </li>
 
             <li class="nav-item item-menu">
-                <a class="nav-link" href="charts.html">
+                <a class="nav-link" href={% url "cursos" %}>
                     <img src={% static "dashboard/img/cursos.png" %}>
                     <span>Cursos</span></a>
             </li>
             
             <li class="nav-item item-menu">
-                <a class="nav-link" href="charts.html">
+                <a class="nav-link" href={% url "cartao_visitas" %}>
                     <img src={% static "dashboard/img/cartao-visita.png" %}>
                     <span>Cartão de Visitas</span></a>
             </li>
@@ -162,7 +161,6 @@
                     <span class=' configuracao'>Configurações</span></a>
             </li> 
         </ul>
-        {% endwith %}
         <!-- End of Sidebar -->
     </div>
     
@@ -397,7 +395,6 @@
                 {% else %}
                 <div class="foto-perfil" style="background-image: url('{% static "usuario/img/avatar-m.jpeg" %}')">
                 {% endif %}
-
             </div>
             {% else %}
             <div class="foto-perfil" style="background-image: url('{{ perfil.foto.url }}')">

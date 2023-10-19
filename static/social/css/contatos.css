@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital@0;1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap');
+
+
+
+html{
+    background-color: #f9f9f9;
+}
+
+.conteudo-base{
+    background-color: #f9f9f9;
+    min-height: 100%;
+}
+
+td{
+    padding: 0px !important;
+    text-align: center;
+}
+
+.tabela{
+    background-color: white;
+    margin-right: 32px;
+    margin-left: 10px;
+    border-radius: 12px;
+}
+
+.tabela .container-fluid .table td{
+    font-family: 'Open Sans';
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 32px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #464646;
+    border-top: 1px solid #f4f4f4;
+    border-bottom: 1px solid #f4f4f4;
+}
+
+.foto-perfil{
+    width: 91px;
+    height: 91px;
+    flex-shrink: 0;
+    border-radius: 20px;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.td-nome-usuario{
+    width:500px;
+    display:inline;
+}
+
+.td-nome-usuario img{
+    margin-left: 0px;
+    display: inline;
+}
+
+.nome-usuario{
+    display: inline-block;
+    margin-left:50px;
+    border:none !important;
+}

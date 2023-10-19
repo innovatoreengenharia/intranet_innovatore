@@ -59,7 +59,7 @@
 
 .novos-cursos{
     font-family: 'Open Sans';
-    margin: 197px 0px 40px 32px;
+    margin: 55px 0px 40px 32px;
     font-size: 32px;
     font-weight: 700;
     line-height: 48px;
@@ -186,7 +186,7 @@
 }
 
 .modulo-p-2{
-    margin-top: 200px;
+    margin-top: 220px;
     font-family: 'Open Sans';
     font-size: 22px;
     font-weight: 700;
@@ -204,7 +204,7 @@
 }
 
 .financeiro{
-    background-image: url('../img/financeiro.png');
+    background-image: url('../img/mod-financeiro.png');
     background-size: contain;
     background-repeat: no-repeat;
     width: 364px;
@@ -253,36 +253,34 @@
 
 .instrutor{
     position:relative;
-    width: 22%;
-    margin-right: 48px;
+    width: 365px;
     height: 512px;
     border-radius: 12px;
-    padding: 32px 0px 0px 32px;
 }
 
 .conteudo-instrutores-1{
     position: absolute;
     bottom: 47px;
-    left: 35px;
+    left: 45px;
 }
 
 .conteudo-instrutores-2{
     position: absolute;
     bottom: 47px;
-    left: 45px;
+    left: 55px;
     width: 250px;
 }
 
 .conteudo-instrutores-3{
     position: absolute;
     bottom: 47px;
-    left: 55px;
+    left: 65px;
 }
 
 .conteudo-instrutores-4{
     position: absolute;
     bottom: 47px;
-    left: 80px;
+    left: 90px;
 }
 
 .icones{
@@ -313,19 +311,38 @@
 
 .instrutor-1{
     background-image: url('../img/instrutor-1.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+
 }
 
 .instrutor-2{
     background-image: url('../img/instrutor-2.png');
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 
 .instrutor-3{
     background-image: url('../img/instrutor-3.png');
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 
 .instrutor-4{
     background-image: url('../img/instrutor-4.png');
+    background-size: contain;
+    background-repeat: no-repeat;
     margin-right: 0px;
+}
+
+.accordion-item .respostas{
+    font-family: 'Open Sans';
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 32px;
+    letter-spacing: 0em;
+    text-align: left;
+    color:#A4A4A4;
 }
 
 

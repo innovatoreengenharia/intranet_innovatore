@@ -35,15 +35,21 @@
                 <h1 class="h1-parte-2">e <span class="emocao">emoção</span> cada momento <sapn class="especial">especial.</span></h1>
             </div>
             
-            <div class="container lista-aniversariantes" >
+            <div class="container lista-aniversariantes-template" >
                 <div class="div-aniversariantes row text-center justify-content-md-center">
                     {% for aniversariante in aniversariantes %}
                         <div class="col-4">
-                            {% if aniversariante.foto %}
-                                <img  class="img-aniversariante"  src={{aniversariante.foto.url}}>
+
+                            {% if not aniversariante.foto %}
+                                {% if aniversariante.sexo == 'feminino'%}
+                                    <img class="img-aniversariante" src="{% static 'usuario/img/avatar-f.jpeg' %}">
+                                {% else %}
+                                    <img class="img-aniversariante" src="{% static 'usuario/img/avatar-m.jpeg' %}">
+                                {% endif %}
                             {% else %}
-                                <img  class="img-aniversariante" src="{% static 'dashboard/img/pu-2.png' %}">
+                                <img  class="img-aniversariante"  src={{aniversariante.foto.url}}>
                             {% endif %}
+
                             <p class="aniversario">{{ aniversariante.nascimento|date:"d/m"}}</p>
                             <p class="nome-aniversariante">{{aniversariante.nome}} {{aniversariante.sobrenome}}</p>
                         </div>

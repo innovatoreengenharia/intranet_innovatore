@@ -10665,6 +10665,7 @@ a:focus {
   border-top: 1px solid rgba(0, 0, 0, 0.35);
   width: 80%;
   height: 1px;
+  margin-top: 1.5rem !important;
 }
 
 .sidebar-dark .sidebar-heading {

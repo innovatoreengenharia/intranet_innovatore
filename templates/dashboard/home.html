@@ -57,17 +57,25 @@
                             <img src="{% static 'dashboard/img/aniversariantes-icone.png' %}" class="icones-direita float-end">
                             <h1 class="mb-0">Aniversariantes</h1>
                             <br>
-                            {% for user in aniversariantes %}
-                            <p class="m-1">
-                                {% if not user.foto %}
-                                    <img  class="img-profile rounded-circle foto-aniversariante" src="{% static 'dashboard/img/pu-2.png' %}">
-                                {% else %}
-                                    <img class="img-profile rounded-circle foto-aniversariante" src="{{ user.foto.url }}"> 
-                                {% endif %}
-                                {{ user.nascimento|date:"d/m"}} - Aniversário de {{user.nome }}</p>
-                            {% empty %}
-                            <p> Não Há Aniversariantes Este Mês </p>
-                            {% endfor %}
+                            <div class="lista-aniversariantes">
+                                {% for user in aniversariantes %}
+                                <p class="m-1">
+                                    {% if not user.foto %}
+
+                                        {% if user.sexo == 'feminino'%}
+                                            <img class="img-profile rounded-circle foto-aniversariante" src="{% static 'usuario/img/avatar-f.jpeg' %}">
+                                        {% else %}
+                                            <img class="img-profile rounded-circle foto-aniversariante" src="{% static 'usuario/img/avatar-m.jpeg' %}">
+                                        {% endif %}
+
+                                    {% else %}
+                                        <img class="img-profile rounded-circle foto-aniversariante" src="{{ user.foto.url }}"> 
+                                    {% endif %}
+                                    {{ user.nascimento|date:"d/m"}} - Aniversário de {{user.nome }}</p>
+                                {% empty %}
+                                <p> Não Há Aniversariantes Este Mês </p>
+                                {% endfor %}
+                            </div>
                         </div>
                     </a>
                     <div class="feed borda mt-4">

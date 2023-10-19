@@ -16,5 +16,50 @@
 {% block content %}
 
 <h1 class="text-left ml-2 mb-2">Contatos</h1>
+<div class="tabela">
+<div class="container-fluid">
+        <div class="row">
+            <table class="table col-12">
+                <thead>
+                <tr>
+                    <th class="titulo" scope="col">Nome</th>
+                    <th class="titulo" scope="col">Função</th>
+                    <th class="titulo" scope="col">Telefone</th>
+                    <th class="titulo" scope="col">E-mail</th>
+                    <th class="titulo" scope="col">Obra/Sede</th>
+                </tr>
+                </thead>
+                <tbody>
+                    {% for usuario in usuarios  %}
+                        <tr>
+                            <td class="td-nome-usuario">
+                                {% if not usuario.foto %}
+                                    {% if usuario.sexo == 'feminino' %}
+
+                                    <img class="foto-perfil" src={% static "usuario/img/avatar-f.jpeg" %}>
+
+                                    {% else %}
+
+                                    <img class="foto-perfil" src={% static "usuario/img/avatar-m.jpeg" %}>
+
+                                    {% endif %}
+
+                                {% else %}
+                                    <img class="foto-perfil" src={{ usuario.foto.url }}>
+                                {% endif %}
+                                <p class="nome-usuario">{{ usuario.nome }}</p>
+                            </td>
+
+                            <td>{{ usuario.cargo }}</td>
+                            <td>{{ usuario.contato }}</td>
+                            <td>{{ usuario.email }}</td>
+                            <td>{{ usuario.obra_trabalho }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
 
 {% endblock %}
