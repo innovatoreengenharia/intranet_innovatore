@@ -14,8 +14,75 @@ html{
     min-height: 100%;
 }
 
+
+.botao-pesquisar{
+    font-family: 'Open Sans';
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 24px;
+    letter-spacing: 0em;
+    text-align: left;
+
+
+    width: 158px;
+    height: 64px;
+    padding: 12px 44px 12px 40px;
+    border-radius: 30px;
+    gap: 10px;
+    background: linear-gradient(#14295E, #2568BB);
+    color:white;
+    margin-right:50px;
+}
+
+.input-busca{
+    background-image: url('../../../static/cartao_visitas/img/lupa-input.png');
+    background-repeat: no-repeat;
+    background-position: 32px 15px;
+    margin-right: 24px;
+    width: 411px;
+    height: 64px;
+    padding: 18px 32px 14px 86px;
+    border-radius: 30px;
+    border: 1px solid #e8e8e8;
+    gap: 10px;
+
+}
+/* Para navegadores webkit como Safari */
+input[name='buscar']::-webkit-input-placeholder {
+    color: var(--preto-preto-300, #e8e8e8);
+    font-family: 'Open Sans';   
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 24px;
+    letter-spacing: 0em;
+    /* padding-left: 44px; */
+
+}
+
+input:-ms-input-placeholder {
+    color: var(--preto-preto-300, #e8e8e8);
+    font-family: 'Open Sans';   
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 24px;
+    letter-spacing: 0em;
+    text-align: left;
+
+  }
+
+th{
+    font-family: Open Sans;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 24px;
+    letter-spacing: 0em;
+    text-align: left;
+    color:#14355E !important;
+    border:none;
+}
+
 td{
-    padding: 0px !important;
+    padding: 8px !important;
     text-align: center;
 }
 
@@ -28,10 +95,11 @@ td{
 
 .tabela .container-fluid .table td{
     font-family: 'Open Sans';
+    width: 23%;
+    vertical-align: middle;
     font-size: 16px;
     font-weight: 400;
     line-height: 32px;
-    letter-spacing: 0em;
     text-align: left;
     color: #464646;
     border-top: 1px solid #f4f4f4;
@@ -47,18 +115,6 @@ td{
     background-repeat: no-repeat;
 }
 
-.td-nome-usuario{
-    width:500px;
-    display:inline;
-}
-
 .td-nome-usuario img{
-    margin-left: 0px;
-    display: inline;
-}
-
-.nome-usuario{
-    display: inline-block;
-    margin-left:50px;
-    border:none !important;
+    margin: 32px 10px 16px 0px;
 }

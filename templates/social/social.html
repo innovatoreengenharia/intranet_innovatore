@@ -14,8 +14,71 @@
 {% endblock %}
 
 {% block content %}
+<div class="container-fluid primeira-linha">
+    <h1 class="text-left ml-2 mb-2">Social</h1>
+    <button class="adicionar">+</button>
+</div>
+<div class="contatos sombra">
+    <h1>Contatos</h1>
+    <div>
+        {% for usuario in usuarios %}
+            {% if not usuario.foto %}
+                {% if usuario.sexo == 'feminino' %}
+                    <img class="foto-perfil" src={% static "usuario/img/avatar-f.jpeg" %}>
+                {% else %}
+                    <img class="foto-perfil" src={% static "usuario/img/avatar-m.jpeg" %}>
+                {% endif %}
+            {% else %}
+                <img class="foto-perfil" src={{ usuario.foto.url }}>
+            {% endif %}
 
-<h1 class="text-left ml-2 mb-2">Social</h1>
-<a href={% url 'contatos' %}> contatos </a>
+            <p class="nome-contatos">{{ usuario.nome }} {{ usuario.sobrenome }}</p>
+            <p class="cargo">{{ usuario.cargo }}</p>
+
+        {% endfor %}
+        <a href={% url 'contatos' %}> contatos </a>
+    </div>
+</div>
+
+
+
+<div class="posts sombra">
+    <div class="autor">
+        {% if not perfil.foto %}
+            {% if perfil.sexo == 'feminino' %}
+                <img class="img-profile rounded-circle" src="{% static 'usuario/img/avatar-f.jpeg' %}">
+            {% else %}
+                <img class="img-profile rounded-circle" src="{% static 'usuario/img/avatar-m.jpeg' %}">
+            {% endif %}
+        {% else %}
+            <img class="img-profile rounded-circle"src="{{ perfil.foto.url }}">
+        {% endif %}
+        <p class="nome">{{perfil.nome}} {{ perfil.sobrenome }}</p>
+        <p class="tempo-postagem">3 dias atrás</p>
+    </div>
+    <p class="descricao">Os perfis pessoais são a maneira perfeita de chamar a atenção deles e persuadir os recrutadores a continuar lendo seu currículo, porque você está dizendo a eles exatamente por que eles devem contratá-lo.</p>
+    <img src={% static 'social/img/post.png' %}>
+    <div class="icones-post">
+        <p class="likes-p"><img src={% static 'social/img/like.png' %}> 150</p>
+        <p class="comentarios-p"><img src={% static 'social/img/comentario.png' %}>25</p>
+    </div>
+</div>
+
+<div class="posts sombra">
+    <div>
+        {% if not perfil.foto%}
+            {% if perfil.sexo == 'feminino' %}
+                <img class="img-profile rounded-circle" src="{% static 'usuario/img/avatar-f.jpeg' %}">
+            {% else %}
+                <img class="img-profile rounded-circle" src="{% static 'usuario/img/avatar-m.jpeg' %}">
+            {% endif %}
+        {% else %}
+            <img class="img-profile rounded-circle"src="{{ perfil.foto.url }}">
+        {% endif %}
+        <p>{{perfil.nome}} {{ perfil.sobrenome }}</p>
+    </div>
+    <img src={% static 'social/img/post.png' %}>
+</div>
+
 
 {% endblock %}

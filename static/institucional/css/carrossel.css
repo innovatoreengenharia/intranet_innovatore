@@ -19,13 +19,14 @@ element.style{
     padding-top:6em;
     padding-right: 32px;
     padding-left: 4em;
-    width:10000px;
+    width:100000px;
     align-items: left;
     justify-content: left;
 }
 
 .carrossel-item{
     display: inline-block;
+    position: relative;
     margin-right: 25em;
     
 }
@@ -33,9 +34,9 @@ element.style{
 .imagem-carrossel{
     display:inline-block;
     margin: 4em 0em 1em 0em;
-    padding-left: 1em;
     margin-bottom: 5em;
     margin-left: 3em;
+    border-radius: 12px ;
 }
 .texto-carrossel{ 
     display: inline-block;
@@ -44,8 +45,8 @@ element.style{
     width: 600px;
 }
 .titulo-item{
-    position:relative; 
-    top:-1.3em;
+    position:absolute;
+    top:35px; 
     margin-bottom: 1em;
     color: white;
     font-size: 32px;
@@ -57,8 +58,8 @@ element.style{
 }
 
 .sub-titulo-item{
-    position:relative; 
-    top:3em;
+    position:absolute; 
+    top: 250px;
     color: white;
     font-size: 32px;
     font-family: 'Open Sans';
@@ -68,9 +69,69 @@ element.style{
    
 }
 
-.texto-carrossel ul{
+.texto-carrossel li{
+    margin-left: 16px;
+    color: white;
+    font-size: 22px;
+    font-family: 'Open Sans';
+    font-weight: 400;
+    line-height: 32px;
+    word-wrap: break-word;
+}
+
+.ul-seguranca{
     position:relative; 
-    top:6em;
+    top:3em;
+}
+
+.ul-proatividade{
+    position:relative; 
+    top:12em;
+}
+
+.ul-comprometimento{
+    position:relative; 
+    top:4em;
+}
+
+.ul-etica{
+    position:relative; 
+    top:9em;
+}
+
+.ul-honestidade{
+    position:relative; 
+    top:9em;
+}
+
+.ul-desenvolvimento{
+    position:relative; 
+    top:12em;
+}
+
+.ul-responsabilidade{
+    position:relative; 
+    top:12em;
+}
+
+.ul-foco{
+    position:relative; 
+    top:12em;
+}
+
+.ul-colaboracao{
+    position:relative; 
+    top:12em;
+}
+
+.ul-respeito{
+    position:relative; 
+    top:12em;
+}
+
+.ul-adaptacao{
+    position:relative; 
+    top:12em;
 }
 
 .texto-carrossel li{
@@ -88,7 +149,6 @@ element.style{
     position:relative;
     top:13em;
     margin-bottom: 5em;
-    margin-left: 3em;
 }
 
 .setas{

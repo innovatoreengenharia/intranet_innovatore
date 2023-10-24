@@ -1,7 +1,7 @@
 $(function(){
 
-    var numImages = 5;
-    var MarginPadding = 80;
+    var numImages = 11;
+    var MarginPadding = 37;
     var ident = 0;
     var count = numImages - 1;
     var slide = parseInt($('.carrossel .carrossel-item').outerWidth() + (MarginPadding * numImages));

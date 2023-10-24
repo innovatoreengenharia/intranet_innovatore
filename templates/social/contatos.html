@@ -15,9 +15,18 @@
 
 {% block content %}
 
-<h1 class="text-left ml-2 mb-2">Contatos</h1>
-<div class="tabela">
-<div class="container-fluid">
+<h1 class="text-left ml-2 mb-5">Contatos</h1>
+
+<div class="linha-busca container-fluid">
+        <form action="" style="margin-bottom:100px;">
+            <div><br></div>
+            <button href="" class="float-right botao-pesquisar" type="submit ">Pesquisar</button>
+            <input type="text" name="buscar" class="input-busca float-right" placeholder="Pesquisar Contato">
+        </form>
+</div>
+
+<div class="tabela pt-4">
+    <div class="container-fluid">
         <div class="row">
             <table class="table col-12">
                 <thead>
@@ -29,31 +38,36 @@
                     <th class="titulo" scope="col">Obra/Sede</th>
                 </tr>
                 </thead>
-                <tbody>
+                <tbody class="mt-5">
                     {% for usuario in usuarios  %}
                         <tr>
                             <td class="td-nome-usuario">
                                 {% if not usuario.foto %}
+
                                     {% if usuario.sexo == 'feminino' %}
-
-                                    <img class="foto-perfil" src={% static "usuario/img/avatar-f.jpeg" %}>
-
+                                        <img class="foto-perfil" src={% static "usuario/img/avatar-f.jpeg" %}>
                                     {% else %}
-
-                                    <img class="foto-perfil" src={% static "usuario/img/avatar-m.jpeg" %}>
-
+                                        <img class="foto-perfil" src={% static "usuario/img/avatar-m.jpeg" %}>
                                     {% endif %}
-
                                 {% else %}
                                     <img class="foto-perfil" src={{ usuario.foto.url }}>
                                 {% endif %}
-                                <p class="nome-usuario">{{ usuario.nome }}</p>
-                            </td>
 
-                            <td>{{ usuario.cargo }}</td>
+                                {{ usuario.nome }} {{ usuario.sobrenome }}
+                            </td>
+                            {% if not usuario.cargo %}
+                                <td></td>
+                            {% else %}
+                                <td>{{ usuario.cargo }}</td>
+                            {% endif %}
+
                             <td>{{ usuario.contato }}</td>
-                            <td>{{ usuario.email }}</td>
-                            <td>{{ usuario.obra_trabalho }}</td>
+                            <td>{{ usuario.email_empresa }}</td>
+                            {% if not usuario.obra_trabalho %}
+                                <td></td>
+                            {% else %}
+                                <td>{{ usuario.obra_trabalho }}</td>
+                            {% endif %}
                         </tr>
                     {% endfor %}
                 </tbody>

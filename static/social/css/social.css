@@ -1,0 +1,147 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital@0;1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap');
+
+
+
+html{
+    background-color: #f9f9f9;
+}
+
+.conteudo-base{
+    background-color: #f9f9f9;
+    min-height: 100%;
+}
+.primeira-linha{
+    position:relative;
+    margin-bottom:24px;
+}
+.primeira-linha button{
+    position: absolute;
+    right:560px;
+    top: 0px;
+}
+
+.adicionar{
+    display:inline-block;
+    width: 80px;
+    height: 40px;
+    border-radius: 12px;
+    background: linear-gradient(#143763, #16519A);
+    color:white;
+    font-size: 24px;
+}
+
+.autor{
+    border-bottom: 1px solid #E8E8E8;
+    margin-bottom: 20px;
+}
+
+.posts{
+    display:inline-block;
+    position:relative;
+    background-color: white;
+    border-radius: 24px;
+    width:1011px;
+    margin-right: 24px;
+    padding: 32px 12px 32px 24px;   
+    height:min-content;
+    margin-bottom: 34px;
+}
+.posts .nome{
+    position: absolute;
+    top:33px;
+    left: 70px;
+    display: inline-block;
+    color: #14355E;
+    font-size: 16px;
+    font-family: 'Open Sans';
+    font-weight: 700;
+    line-height: 24px;
+    word-wrap: break-word;
+}
+
+.posts .tempo-postagem{
+    position:absolute;
+    top:55px;
+    left:70px;
+    color: #A4A4A4;
+    font-size: 12px;
+    font-family: 'Open Sans';
+}
+
+.posts img{
+    border-radius:12px;
+}
+
+.descricao{
+    font-family: 'Open Sans';
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 32px;
+    letter-spacing: 0em;
+    text-align: left;
+    color:#464646;
+    margin-bottom: 24px;
+}
+
+.icones-post{
+    border-bottom: 1px solid #E8E8E8;
+    margin-bottom: 40px;
+    margin-top: 20px;
+    padding-bottom: 12px;
+}
+
+.likes-p{
+    display:inline-block;
+    margin-right: 25px;
+}
+
+.comentarios-p{
+    display:inline-block;
+}
+
+.likes-p p{
+    margin-right: 20px;
+}
+
+.likes-p img{
+    margin-top: 12px;
+}
+
+.comentarios-p img{
+    margin-top: 12px;
+    margin-right: 12px;
+}
+
+.contatos{
+    position:sticky;
+    top:12px;
+    float:right;
+    margin-right:32px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow: auto;
+    overflow-x: hidden;
+    height: 873px;
+    background-color: white;
+    border-radius: 24px;
+    width: 494px;
+}
+
+.img-profile{
+    height: 2rem;
+    width: 2rem;
+    margin-bottom: 32px;
+    top: 0px;
+}
+
+.foto-perfil{
+    width: 91px;
+    height: 91px;
+    flex-shrink: 0;
+    border-radius: 20px;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
