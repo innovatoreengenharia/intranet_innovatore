@@ -1,28 +1,62 @@
 from django.shortcuts import render, redirect
 from usuario.models import Perfil
-from datetime import date
-from usuario.models import Perfil, Experiencia, Formacao, Cursos, Habilidades, Hobbies
 # from .models import Post, Like, Comment
 # from .forms import CommentForm
 from random import shuffle
 from django.db.models import Q
+from .models import Post, Comentarios
+from .forms import PostForm,ComentarioForm
 
 def social(request):
-
     if not request.user.is_authenticated:
         return redirect('login')
+    
     id_usuario = request.user.id
     perfil = Perfil.objects.get(usuario_id = id_usuario)
     usuarios = Perfil.objects.all()
     usuarios_list = list(usuarios)
     shuffle(usuarios_list)
-    # post = Post.objects.all()
-
+    postagens = Post.objects.order_by('-criado_em').prefetch_related('comentarios_set')
+    comentarios = Comentarios.objects.order_by('-criado_em')
     context = {
         "perfil":perfil,
         "usuarios": usuarios,
+        "postagens": postagens,
+        "comentarios": comentarios,
     }
-    return render(request, 'social/social.html', context)
+    
+    if request.method == 'GET':
+        return render(request, 'social/social.html', context)
+    
+    elif request.method == "POST" and 'form_post' in request.POST:
+        form_post = PostForm(request.POST, request.FILES)
+        context = {
+        "form_post": form_post,
+        }
+        if form_post.is_valid():
+            form_post.save()
+            form_post = PostForm()
+            return redirect('social')
+        else:
+            return redirect('social')
+    
+    elif request.method == "POST" and 'form_comentario' in request.POST:
+        form_comentario = ComentarioForm(request.POST, request.FILES)
+        context = {
+            "form_comentario":form_comentario,
+        }
+        if form_comentario.is_valid():
+            form_comentario.save()
+            form_comentario = ComentarioForm()
+            return redirect('social')
+        else:
+            return redirect('social')
+        
+def excluir_post(request, post_id):
+    post = Post.objects.get(id=post_id)
+    post.delete()
+    return redirect('social')
+
 
 # def like_post(request, post_id):
 #     post = Post.objects.get(pk=post_id)

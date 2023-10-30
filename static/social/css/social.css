@@ -13,6 +13,45 @@ html{
     background-color: #f9f9f9;
     min-height: 100%;
 }
+
+.formulario-postagem{
+    display:none;
+    background-color: white;
+    width:1011px;
+    border-radius: 24px;
+    padding:24px;
+    margin-bottom: 24px;
+}
+
+.imagem-postagem{
+    width:100%;
+    margin-bottom: 24px;
+}
+
+.texto-postagem{
+    width:100%;
+    margin-bottom: 24px;
+}
+
+.botao{
+    color:white;
+    background: linear-gradient(#14295E, #2568BB);
+    width:160px;
+    height:64px;
+    padding: 12px auto;
+    border-radius: 12px;
+    gap: 10px;
+    margin-right: 12px;
+
+}
+
+.botao-comentar{
+    color:white;
+    background: linear-gradient(#14295E, #2568BB);
+    padding: 6px 12px;
+    border-radius: 12px;
+}
+
 .primeira-linha{
     position:relative;
     margin-bottom:24px;
@@ -117,23 +156,28 @@ html{
 
 .contatos{
     position:sticky;
-    top:12px;
+    top:24px;
     float:right;
+    padding:24px;
     margin-right:32px;
-    background-size: cover;
-    background-repeat: no-repeat;
-    overflow: auto;
-    overflow-x: hidden;
     height: 873px;
     background-color: white;
     border-radius: 24px;
     width: 494px;
 }
+.contatos-interno{
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow: auto;
+    overflow-x: hidden;
+    height: 730px;
+    padding-top: 30px;
+}
 
 .img-profile{
     height: 2rem;
     width: 2rem;
-    margin-bottom: 32px;
+    margin-bottom: 16px;
     top: 0px;
 }
 
@@ -144,4 +188,93 @@ html{
     border-radius: 20px;
     background-size: cover;
     background-repeat: no-repeat;
+}
+
+.nome-e-cargo{
+    position:relative;
+    margin-bottom:32px;
+}
+
+.nome-contatos{
+    position:absolute;
+    left:115px;
+    top:20px;
+    font-family: 'Open Sans';
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 32px;
+    letter-spacing: 0em;
+    text-align: left;
+    color:#14355E;
+}
+
+.cargo{
+    position:absolute;
+    top: 50px;
+    left:115px;
+    font-family: 'Open Sans';
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 24px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #464646;
+}
+
+.link-contatos{
+    position:absolute;
+    bottom:30px;
+    right:64px;
+    font-family: 'Open Sans';
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 24px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #14355E;
+}
+
+.texto-comentario{
+    background-color: #f9f9f9;
+    border-radius: 12px;
+    margin-bottom:12px;
+}
+
+.texto-comentario-p{
+    margin-left: 48px;
+}
+.texto-comentario .img-comentario{
+    margin-top: 12px;
+    margin-right:12px;
+    width:32px;
+    height:32px;
+    border-radius:50%;
+}
+
+.nome-comentario{
+    display:inline-block;
+}
+
+.texto-comentario .icone-comentarios-p img{
+    margin-top: 12px;
+    margin-left: 48px;
+    margin-right: 12px;
+}
+
+.div-comentario{
+    border-top: 1px solid #E8E8E8;
+    margin-top: 24px;
+    padding-top: 24px;
+}
+
+.div-comentario .img-input-comentario{
+    width:32px;
+    height:32px;
+    border-radius: 50%;
+    margin-top: 12px;
+    margin-right: 12px;
+}
+
+.div-comentario form{
+    display: block;
 }

@@ -18,67 +18,137 @@
     <h1 class="text-left ml-2 mb-2">Social</h1>
     <button class="adicionar">+</button>
 </div>
+
+<div class="formulario-postagem">
+    <form method="post" action="{% url 'social' %}" autocomplete='off' enctype='multipart/form-data'>
+        {% csrf_token %}
+
+            <input type="hidden" name="user " required="" value={{ perfil.id }}>
+
+            <label for="imagem">Imagem</label>
+            <input type="file" name="img" accept="image/*" id="imagem" class="form-control imagem-postagem">
+
+            <label for="texto_postagem">Texto</label>
+            <input type="text" class="form-control texto-postagem" name="texto_postagem" placeholder="Digite o Texto da Postagem" id="texto_postagem" required="">
+            <button type="submit" class="botao" name="form_post">Postar</button>
+        <button class="fechar botao">Cancelar</button>
+    </form>
+</div>
+
 <div class="contatos sombra">
-    <h1>Contatos</h1>
-    <div>
+    <h1 class="mb-2">Contatos</h1>
+    <div class="contatos-interno">
         {% for usuario in usuarios %}
-            {% if not usuario.foto %}
-                {% if usuario.sexo == 'feminino' %}
-                    <img class="foto-perfil" src={% static "usuario/img/avatar-f.jpeg" %}>
+        <div class="nome-e-cargo">
+                {% if not usuario.foto %}
+                    {% if usuario.sexo == 'feminino' %}
+                        <img class="foto-perfil" src={% static "usuario/img/avatar-f.jpeg" %}>
+                    {% else %}
+                        <img class="foto-perfil" src={% static "usuario/img/avatar-m.jpeg" %}>
+                    {% endif %}
                 {% else %}
-                    <img class="foto-perfil" src={% static "usuario/img/avatar-m.jpeg" %}>
+                    <img class="foto-perfil" src={{ usuario.foto.url }}>
                 {% endif %}
-            {% else %}
-                <img class="foto-perfil" src={{ usuario.foto.url }}>
-            {% endif %}
-
-            <p class="nome-contatos">{{ usuario.nome }} {{ usuario.sobrenome }}</p>
-            <p class="cargo">{{ usuario.cargo }}</p>
-
+                    <p class="nome-contatos">{{ usuario.nome }} {{ usuario.sobrenome }}</p>
+                    {% if usuario.cargo %}
+                        <p class="cargo">{{ usuario.cargo }}</p>
+                    {% endif %}
+        </div>
         {% endfor %}
-        <a href={% url 'contatos' %}> contatos </a>
     </div>
+    <a href={% url 'contatos' %} class="link-contatos"> Mais Contatos </a>
 </div>
 
 
-
+{% for post in postagens %}
 <div class="posts sombra">
     <div class="autor">
-        {% if not perfil.foto %}
-            {% if perfil.sexo == 'feminino' %}
+        {% if not post.user.foto %}
+            {% if post.user.sexo == 'feminino' %}
                 <img class="img-profile rounded-circle" src="{% static 'usuario/img/avatar-f.jpeg' %}">
             {% else %}
                 <img class="img-profile rounded-circle" src="{% static 'usuario/img/avatar-m.jpeg' %}">
             {% endif %}
         {% else %}
-            <img class="img-profile rounded-circle"src="{{ perfil.foto.url }}">
+            <img class="img-profile rounded-circle"src="{{ post.user.foto.url }}">
         {% endif %}
-        <p class="nome">{{perfil.nome}} {{ perfil.sobrenome }}</p>
-        <p class="tempo-postagem">3 dias atrás</p>
+        <p class="nome">{{post.user.nome}} {{ post.user.sobrenome }}</p>
+        <p class="tempo-postagem">{{ post.criado_em|timesince }} atrás</p>
     </div>
-    <p class="descricao">Os perfis pessoais são a maneira perfeita de chamar a atenção deles e persuadir os recrutadores a continuar lendo seu currículo, porque você está dizendo a eles exatamente por que eles devem contratá-lo.</p>
-    <img src={% static 'social/img/post.png' %}>
+
+    {% if post.texto_postagem %}
+        <p class="descricao">{{post.texto_postagem}}</p>
+    {% endif %}
+
+    {% if post.img %}
+        <img src={{post.img.url}} class="rounded mx-auto d-block">
+    {% endif %}
+
+    {% if perfil.id == post.user.id%}
+        <a href={% url 'excluir_post' post.id %}>Excluir Postagem</a>
+    {% endif %}
+
     <div class="icones-post">
         <p class="likes-p"><img src={% static 'social/img/like.png' %}> 150</p>
         <p class="comentarios-p"><img src={% static 'social/img/comentario.png' %}>25</p>
     </div>
-</div>
 
-<div class="posts sombra">
-    <div>
-        {% if not perfil.foto%}
-            {% if perfil.sexo == 'feminino' %}
-                <img class="img-profile rounded-circle" src="{% static 'usuario/img/avatar-f.jpeg' %}">
+
+<!--                Visualização de Comentários               -->
+
+{% for comment in post.comentarios_set.all %}
+
+    <div class="texto-comentario">
+        {% if not comment.user.foto %}
+            {% if comment.user.sexo == 'feminino' %}
+                <img class="img-comentario" src={% static "usuario/img/avatar-f.jpeg" %}>
             {% else %}
-                <img class="img-profile rounded-circle" src="{% static 'usuario/img/avatar-m.jpeg' %}">
+                <img class="img-comentario" src={% static "usuario/img/avatar-m.jpeg" %}>
             {% endif %}
         {% else %}
-            <img class="img-profile rounded-circle"src="{{ perfil.foto.url }}">
+            <img src="{{comment.user.foto.url}}" class="img-comentario">
         {% endif %}
-        <p>{{perfil.nome}} {{ perfil.sobrenome }}</p>
+
+        <p class="nome-comentario">{{comment.user.nome}} {{ comment.user.sobrenome }}</p>
+        <p class="texto-comentario-p">{{ comment.texto_comentario }}</p>
+        <p class="icone-comentarios-p"><img src={% static 'social/img/like.png' %}>25</p>
     </div>
-    <img src={% static 'social/img/post.png' %}>
+
+{% endfor %}
+<!--                Fim da Visualização               -->
+
+    <div class="div-comentario">
+        <form method="post" action="{% url 'social' %}" autocomplete='off'class="form-inline">
+            {% csrf_token %}
+        
+        {% if not perfil.foto %}
+            {% if perfil.sexo == 'feminino' %}
+                <img class="img-input-comentario" src={% static "usuario/img/avatar-f.jpeg" %}>
+            {% else %}
+                <img class="img-input-comentario" src={% static "usuario/img/avatar-m.jpeg" %}>
+            {% endif %}
+        {% else %}
+            <img src="{{perfil.foto.url}}" class="img-input-comentario">
+        {% endif %}
+            <input type="hidden" name="user" required="" value={{ perfil.id }}>
+            <input type="hidden" name="post" required="" value={{ post.id }}>
+            <input type="text" class="form-control"placeholder="Escreva o seu comentário" style="width:82%; margin-right: 24px"name="texto_comentario">
+            <button type="submit" class="botao-comentar" name="form_comentario">Comentar</button>
+        </form>
+    </div>
 </div>
+{% endfor %}
 
 
+{% endblock %}
+
+{% block scripts %}
+<script>
+    $(document).on('click', '.adicionar', function(){
+        $(".formulario-postagem").css("display","block");
+    });
+    $(document).on('click', '.fechar', function(){
+        $(".formulario-postagem").css("display","none");
+    });
+</script>
 {% endblock %}
