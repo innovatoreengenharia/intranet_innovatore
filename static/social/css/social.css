@@ -23,8 +23,9 @@ html{
     margin-bottom: 24px;
 }
 
-.imagem-postagem{
-    width:100%;
+.imagem-postada{
+    height: 604px;
+    padding-right:12px;
     margin-bottom: 24px;
 }
 
@@ -50,6 +51,7 @@ html{
     background: linear-gradient(#14295E, #2568BB);
     padding: 6px 12px;
     border-radius: 12px;
+    margin-right: 12px;
 }
 
 .primeira-linha{
@@ -236,6 +238,7 @@ html{
 
 .texto-comentario{
     background-color: #f9f9f9;
+    padding-right:12px;
     border-radius: 12px;
     margin-bottom:12px;
 }

@@ -56,6 +56,11 @@ def excluir_post(request, post_id):
     post = Post.objects.get(id=post_id)
     post.delete()
     return redirect('social')
+        
+def excluir_comentario(request, post_id):
+    comentario = Comentarios.objects.get(id=post_id)
+    comentario.delete()
+    return redirect('social')
 
 
 # def like_post(request, post_id):

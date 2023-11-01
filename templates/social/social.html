@@ -81,7 +81,7 @@
     {% endif %}
 
     {% if post.img %}
-        <img src={{post.img.url}} class="rounded mx-auto d-block">
+        <img src={{post.img.url}} class="rounded mx-auto d-block imagem-postada">
     {% endif %}
 
     {% if perfil.id == post.user.id%}
@@ -90,28 +90,31 @@
 
     <div class="icones-post">
         <p class="likes-p"><img src={% static 'social/img/like.png' %}> 150</p>
-        <p class="comentarios-p"><img src={% static 'social/img/comentario.png' %}>25</p>
+        <p class="comentarios-p"><img src={% static 'social/img/comentario.png' %}>{{ post.comentarios_set.all|length }}</p>
     </div>
 
 
 <!--                Visualização de Comentários               -->
 
-{% for comment in post.comentarios_set.all %}
+{% for comentario in post.comentarios_set.all %}
 
     <div class="texto-comentario">
-        {% if not comment.user.foto %}
-            {% if comment.user.sexo == 'feminino' %}
+        {% if not comentario.user.foto %}
+            {% if comentario.user.sexo == 'feminino' %}
                 <img class="img-comentario" src={% static "usuario/img/avatar-f.jpeg" %}>
             {% else %}
                 <img class="img-comentario" src={% static "usuario/img/avatar-m.jpeg" %}>
             {% endif %}
         {% else %}
-            <img src="{{comment.user.foto.url}}" class="img-comentario">
+            <img src="{{comentario.user.foto.url}}" class="img-comentario">
         {% endif %}
 
-        <p class="nome-comentario">{{comment.user.nome}} {{ comment.user.sobrenome }}</p>
-        <p class="texto-comentario-p">{{ comment.texto_comentario }}</p>
+        <p class="nome-comentario">{{comentario.user.nome}} {{ comentario.user.sobrenome }}</p>
+        <p class="texto-comentario-p">{{ comentario.texto_comentario }}</p>
         <p class="icone-comentarios-p"><img src={% static 'social/img/like.png' %}>25</p>
+        {% if comentario.user.id == perfil.id %}
+            <a href={% url 'excluir_comentario' comentario.id %}>Excluir Comentário</a>
+        {% endif %}
     </div>
 
 {% endfor %}
@@ -132,7 +135,7 @@
         {% endif %}
             <input type="hidden" name="user" required="" value={{ perfil.id }}>
             <input type="hidden" name="post" required="" value={{ post.id }}>
-            <input type="text" class="form-control"placeholder="Escreva o seu comentário" style="width:82%; margin-right: 24px"name="texto_comentario">
+            <input type="text" class="form-control"placeholder="Escreva o seu comentário" style="width:82%; margin-right: 12px"name="texto_comentario">
             <button type="submit" class="botao-comentar" name="form_comentario">Comentar</button>
         </form>
     </div>
