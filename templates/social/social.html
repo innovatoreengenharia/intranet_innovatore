@@ -74,6 +74,32 @@
         {% endif %}
         <p class="nome">{{post.user.nome}} {{ post.user.sobrenome }}</p>
         <p class="tempo-postagem">{{ post.criado_em|timesince }} atrás</p>
+        {% if post.user.id == perfil.id %}
+            
+            <div class="dropdown">
+                    <img src="{% static 'social/img/mais.png' %}" class="mais dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <button class="dropdown-item editar_postagem"data-post-id="{{ post.id }}">Editar</button>
+                  <a class="dropdown-item" href={% url 'excluir_post' post.id %}>Excluir</a>
+                </div>
+            </div>
+            <div class="formulario_editar_postagem" data-post-id="{{post.id}}">
+                <form method="post" action="{% url 'editar_postagem' post.id %}" autocomplete='off' enctype='multipart/form-data'>
+                    {% csrf_token %}
+            
+                    <input type="hidden" name="user " required="" value={{ perfil.id }}>
+        
+                    <label for="imagem">Imagem</label>
+                    <input type="file" name="img" accept="image/*" id="imagem" class="form-control imagem-postagem" value={{post.img}}>
+        
+                    <label for="texto_postagem">Texto</label>
+                    <input type="text" class="form-control texto-postagem" name="texto_postagem" id="texto_postagem" required="" value="{{post.texto_postagem}}">
+                    <button type="submit" class="botao" name="form_post">Editar</button>
+                    <button type="text"class="fechar_editar_postagem botao" data-post-id="{{post.id}}">Cancelar</button>
+                </form>
+            </div>
+        {% endif %}
     </div>
 
     {% if post.texto_postagem %}
@@ -82,10 +108,6 @@
 
     {% if post.img %}
         <img src={{post.img.url}} class="rounded mx-auto d-block imagem-postada">
-    {% endif %}
-
-    {% if perfil.id == post.user.id%}
-        <a href={% url 'excluir_post' post.id %}>Excluir Postagem</a>
     {% endif %}
 
     <div class="icones-post">
@@ -153,5 +175,16 @@
     $(document).on('click', '.fechar', function(){
         $(".formulario-postagem").css("display","none");
     });
+
+    $(document).on('click', '.editar_postagem', function(){
+        var postID = $(this).data('post-id');
+        $(".formulario_editar_postagem[data-post-id='" + postID + "']").css("display", "block");
+    });
+    
+    $(document).on('click', '.fechar_editar_postagem', function(){
+        var postID = $(this).data('post-id');
+        $(".formulario_editar_postagem[data-post-id='" + postID + "']").css("display", "none");
+    });
+
 </script>
 {% endblock %}

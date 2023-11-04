@@ -52,6 +52,15 @@ def social(request):
         else:
             return redirect('social')
         
+
+def editPost(request, post_edit_id):
+    post = Post.objects.get(id=post_edit_id)
+    form_post = PostForm(request.POST, request.FILES, instance=post)
+    if form_post.is_valid():
+        form_post.save()
+        return redirect('social')
+    return redirect('social')
+        
 def excluir_post(request, post_id):
     post = Post.objects.get(id=post_id)
     post.delete()
