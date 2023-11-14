@@ -14,6 +14,7 @@
 {% endblock %}
 
 {% block content %}
+
 <div class="container-fluid primeira-linha">
     <h1 class="text-left ml-2 mb-2">Social</h1>
     <button class="adicionar">+</button>
@@ -84,6 +85,8 @@
                   <a class="dropdown-item" href={% url 'excluir_post' post.id %}>Excluir</a>
                 </div>
             </div>
+
+            <!--EDITAR POSTAGEM-->
             <div class="formulario_editar_postagem" data-post-id="{{post.id}}">
                 <form method="post" action="{% url 'editar_postagem' post.id %}" autocomplete='off' enctype='multipart/form-data'>
                     {% csrf_token %}
@@ -96,7 +99,7 @@
                     <label for="texto_postagem">Texto</label>
                     <input type="text" class="form-control texto-postagem" name="texto_postagem" id="texto_postagem" required="" value="{{post.texto_postagem}}">
                     <button type="submit" class="botao" name="form_post">Editar</button>
-                    <button type="text"class="fechar_editar_postagem botao" data-post-id="{{post.id}}">Cancelar</button>
+                    <button type="button"class="fechar_editar_postagem botao" data-post-id="{{post.id}}">Cancelar</button>
                 </form>
             </div>
         {% endif %}
@@ -117,34 +120,55 @@
 
 
 <!--                Visualização de Comentários               -->
+<div class="container-comentarios">
+    <div  id="chat-log-{{post.id}}">
+    {% for comentario in post.comentarios_set.all %}
 
-{% for comentario in post.comentarios_set.all %}
-
-    <div class="texto-comentario">
-        {% if not comentario.user.foto %}
-            {% if comentario.user.sexo == 'feminino' %}
-                <img class="img-comentario" src={% static "usuario/img/avatar-f.jpeg" %}>
+        <div class="texto-comentario">
+            {% if not comentario.user.foto %}
+                {% if comentario.user.sexo == 'feminino' %}
+                    <img class="img-comentario" src={% static "usuario/img/avatar-f.jpeg" %}>
+                {% else %}
+                    <img class="img-comentario" src={% static "usuario/img/avatar-m.jpeg" %}>
+                {% endif %}
             {% else %}
-                <img class="img-comentario" src={% static "usuario/img/avatar-m.jpeg" %}>
+                <img src="{{comentario.user.foto.url}}" class="img-comentario">
             {% endif %}
-        {% else %}
-            <img src="{{comentario.user.foto.url}}" class="img-comentario">
-        {% endif %}
 
-        <p class="nome-comentario">{{comentario.user.nome}} {{ comentario.user.sobrenome }}</p>
-        <p class="texto-comentario-p">{{ comentario.texto_comentario }}</p>
-        <p class="icone-comentarios-p"><img src={% static 'social/img/like.png' %}>25</p>
-        {% if comentario.user.id == perfil.id %}
-            <a href={% url 'excluir_comentario' comentario.id %}>Excluir Comentário</a>
-        {% endif %}
-    </div>
+            <p class="nome-comentario">{{comentario.user.nome}} {{ comentario.user.sobrenome }}</p>
+            <p class="texto-comentario-p">{{ comentario.texto_comentario }}</p>
+            {% comment %} <p class="icone-comentarios-p"><img src={% static 'social/img/like.png' %}>25</p> {% endcomment %}
+            {% if comentario.user.id == perfil.id %}
+                <a href={% url 'excluir_comentario' comentario.id %} class="link-excluir-comentario">Excluir</a>
+                <a style="cursor:pointer" class="link-editar-comentario editar_comentario" data-comentario-id="{{ comentario.id }}">Editar</a>
+            {% endif %}
+        </div>
 
-{% endfor %}
+        <!--EDITAR COMENTÁRIO-->
+        <div class="formulario_editar_comentario" data-comentario-id="{{comentario.id}}">
+            <form method="post" action="{% url 'editar_comentario' comentario.id %}" autocomplete='off'>
+                {% csrf_token %}
+
+                <input type="hidden" name="user" required="" value={{ perfil.id }}>
+                <input type="hidden" name="post" required="" value={{ post.id }}>
+                <input type="hidden" name="criado_em" value="{{comentario.criado_em}}">
+
+                <label for="texto_comentario">Texto</label>
+                <input type="text" class="form-control texto-postagem" name="texto_comentario" id="texto_comentario" required="" value="{{comentario.texto_comentario}}">
+                <button type="submit" class="botao" name="form_comentario">Editar</button>
+                <button type="button"class="fechar_editar_comentario botao" data-comentario-id="{{comentario.id}}">Cancelar</button>
+            </form>
+        </div>
+
+    {% endfor %}
+</div>
+</div>
 <!--                Fim da Visualização               -->
 
-    <div class="div-comentario">
-        <form method="post" action="{% url 'social' %}" autocomplete='off'class="form-inline">
-            {% csrf_token %}
+
+
+
+    <div class="div-comentario form-inline">
         
         {% if not perfil.foto %}
             {% if perfil.sexo == 'feminino' %}
@@ -155,11 +179,18 @@
         {% else %}
             <img src="{{perfil.foto.url}}" class="img-input-comentario">
         {% endif %}
-            <input type="hidden" name="user" required="" value={{ perfil.id }}>
-            <input type="hidden" name="post" required="" value={{ post.id }}>
-            <input type="text" class="form-control"placeholder="Escreva o seu comentário" style="width:82%; margin-right: 12px"name="texto_comentario">
-            <button type="submit" class="botao-comentar" name="form_comentario">Comentar</button>
-        </form>
+            <input type="hidden" name="user" value={{perfil.id}}>
+            <input type="hidden" name="post" value={{post.id}}>
+            <input type="text" class="form-control" id="chat-message-input-{{post.id}}"placeholder="Escreva o seu comentário" style="width: 83.5%; margin-right: 12px" name="texto_comentario">
+            <button type="submit" class="botao-comentar" id="chat-message-submit-{{post.id}}" name="form_comentario">Comentar</button>
+            <p style="display:none;" id="room-chat-{{post.id}}">{{post.id}}</p><br><br>
+            <script>
+                // Inicialize a função para cada post dentro do loop
+                initializeChat('#chat-log-{{post.id}}', '#chat-message-input-{{post.id}}', '#chat-message-submit-{{post.id}}', '#room-chat-{{post.id}}',{{perfil.id}}, {{post.id}});
+
+                {% comment %} salvar_comentario({{perfil.id}}, {{post.id}}, '#chat-message-submit-{{post.id}}', '#chat-message-input-{{post.id}}') {% endcomment %}
+                
+            </script>
     </div>
 </div>
 {% endfor %}
@@ -168,7 +199,9 @@
 {% endblock %}
 
 {% block scripts %}
+
 <script>
+    // gerar formulário de postagem
     $(document).on('click', '.adicionar', function(){
         $(".formulario-postagem").css("display","block");
     });
@@ -176,6 +209,7 @@
         $(".formulario-postagem").css("display","none");
     });
 
+    //gerar formulário para editar postagem
     $(document).on('click', '.editar_postagem', function(){
         var postID = $(this).data('post-id');
         $(".formulario_editar_postagem[data-post-id='" + postID + "']").css("display", "block");
@@ -186,5 +220,17 @@
         $(".formulario_editar_postagem[data-post-id='" + postID + "']").css("display", "none");
     });
 
+    //gerar formulário para editar comentário
+    $(document).on('click', '.editar_comentario', function(){
+        var comentarioID = $(this).data('comentario-id');
+        $(".formulario_editar_comentario[data-comentario-id='" + comentarioID + "']").css("display", "block");
+    });
+    
+    $(document).on('click', '.fechar_editar_comentario', function(){
+        var comentarioID = $(this).data('comentario-id');
+        $(".formulario_editar_comentario[data-comentario-id='" + comentarioID + "']").css("display", "none");
+    });
+
 </script>
+
 {% endblock %}

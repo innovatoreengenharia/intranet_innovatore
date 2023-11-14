@@ -32,10 +32,24 @@ html{
     margin-bottom: 24px;
 }
 
+.formulario_editar_comentario{
+    position:fixed;
+    border: 1px solid gray;
+    top:40%;
+    right: 35%;
+    z-index: 1000;
+    display:none;
+    background-color: white;
+    width:700px;
+    border-radius: 24px;
+    padding:24px;
+    margin-bottom: 24px;
+}
+
 
 .imagem-postada{
     height: 604px;
-    padding-right:12px;
+    border-radius:12px;
     margin-bottom: 24px;
 }
 
@@ -61,7 +75,6 @@ html{
     background: linear-gradient(#14295E, #2568BB);
     padding: 6px 12px;
     border-radius: 12px;
-    margin-right: 12px;
 }
 
 .primeira-linha{
@@ -103,7 +116,7 @@ html{
     border-radius: 24px;
     width:1011px;
     margin-right: 24px;
-    padding: 32px 12px 32px 24px;   
+    padding: 32px 24px 32px 24px;   
     height:min-content;
     margin-bottom: 34px;
 }
@@ -254,8 +267,10 @@ html{
 }
 
 .texto-comentario{
+    position: relative;
     background-color: #f9f9f9;
     padding-right:12px;
+    padding-bottom: 8px;
     border-radius: 12px;
     margin-bottom:12px;
 }
@@ -297,4 +312,22 @@ html{
 
 .div-comentario form{
     display: block;
+}
+
+.link-excluir-comentario{
+    position: absolute;
+    right: 90px;
+    bottom:8px;
+}
+
+.link-editar-comentario{
+    position: absolute;
+    right:24px;
+    bottom:8px;
+}
+
+.container-comentarios{
+    max-height: 220px;
+    overflow: auto;
+    overflow-x: hidden;
 }

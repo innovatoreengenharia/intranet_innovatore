@@ -18,6 +18,6 @@ class ComentarioForm(forms.ModelForm):
         fields = ['user', 'texto_comentario', 'post']
         widgets={
 
-            'texto_postagem': forms.Textarea(attrs={'class': 'form-control'} ),
+            'texto_comentario': forms.Textarea(attrs={'class': 'form-control'} ),
         }
 

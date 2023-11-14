@@ -8,8 +8,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Intranet Innovatore</title>
+
+    <link rel="icon" href="{% static 'dashboard/img/inn-favicon.jpeg' %} ">
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Bootstrap core JavaScript-->
+    <script src="{% static 'dashboard/js/jquery.min.js' %}"></script>
+    <script src="{% static 'dashboard/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'usuario/js/usuario.js' %}"></script>
+    <!--DJANGO CHANNELS-->
+    <script src={% static "social/js/social.js" %}></script>
     
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
     
@@ -479,10 +488,7 @@
         
     {% block content %}{% endblock %}
 
-    <!-- Bootstrap core JavaScript-->
-    <script src="{% static 'dashboard/js/jquery.min.js' %}"></script>
-    <script src="{% static 'dashboard/js/bootstrap.bundle.min.js' %}"></script>
-    <script src="{% static 'usuario/js/usuario.js' %}"></script>
+    
     
     
 

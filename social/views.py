@@ -6,6 +6,7 @@ from random import shuffle
 from django.db.models import Q
 from .models import Post, Comentarios
 from .forms import PostForm,ComentarioForm
+from django.db.models import Prefetch
 
 def social(request):
     if not request.user.is_authenticated:
@@ -16,8 +17,11 @@ def social(request):
     usuarios = Perfil.objects.all()
     usuarios_list = list(usuarios)
     shuffle(usuarios_list)
-    postagens = Post.objects.order_by('-criado_em').prefetch_related('comentarios_set')
-    comentarios = Comentarios.objects.order_by('-criado_em')
+    postagens = Post.objects.order_by('-criado_em').prefetch_related(Prefetch('comentarios_set', queryset=Comentarios.objects.order_by('criado_em')))
+
+    
+
+    comentarios = Comentarios.objects.all()
     context = {
         "perfil":perfil,
         "usuarios": usuarios,
@@ -52,6 +56,7 @@ def social(request):
         else:
             return redirect('social')
         
+        
 
 def editPost(request, post_edit_id):
     post = Post.objects.get(id=post_edit_id)
@@ -64,6 +69,15 @@ def editPost(request, post_edit_id):
 def excluir_post(request, post_id):
     post = Post.objects.get(id=post_id)
     post.delete()
+    return redirect('social')
+
+
+def editComentario(request, comentario_edit_id):
+    comentario = Comentarios.objects.get(id=comentario_edit_id)
+    form_comentario = ComentarioForm(request.POST, instance=comentario)
+    if form_comentario.is_valid():
+        form_comentario.save()
+        return redirect('social')
     return redirect('social')
         
 def excluir_comentario(request, post_id):
