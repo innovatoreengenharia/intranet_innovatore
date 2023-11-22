@@ -45,10 +45,10 @@ function initializeChat(chatLogSelector, chatInputSelector, chatSubmitSelector, 
             if (data?.user?.id == perfil_id) {
                 // verifica se a acao foi de curtir ou descurtir para mudar o ícone e a classe
                 if (data?.like?.acao == 'curtir') {
-                    document.querySelector(`.like-vazio-${post_id} img`).src = "/static/social/img/like_preenchido.png"
+                    document.querySelector(`.like-vazio-${post_id} img`).src = "/static/social/img/like_preenchido.jpeg"
                     document.querySelector(`.like-vazio-${post_id}`).classList.replace(`like-vazio-${post_id}`, `like-preenchido-${post_id}`)
                 } else {
-                    document.querySelector(`.like-preenchido-${post_id} img`).src = "/static/social/img/like.png"
+                    document.querySelector(`.like-preenchido-${post_id} img`).src = "/static/social/img/like.jpeg"
                     document.querySelector(`.like-preenchido-${post_id}`).classList.replace(`like-preenchido-${post_id}`, `like-vazio-${post_id}`)
                 }
             }

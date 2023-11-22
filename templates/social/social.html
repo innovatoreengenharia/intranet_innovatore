@@ -115,9 +115,9 @@
 
     <div class="icones-post">
         {% if post.id in user_likes %}
-            <p class="likes-p like-preenchido-{{post.id}}" ><img src="{% static 'social/img/like_preenchido.png' %}"><span id="likes-{{post.id}}">{{ post.like_set.all|length }}</span></p>
+            <p class="likes-p like-preenchido-{{post.id}}" ><img src="{% static 'social/img/like_preenchido.jpeg' %}"><span id="likes-{{post.id}}">{{ post.like_set.all|length }}</span></p>
         {% else %}
-            <p class="likes-p like-vazio-{{post.id}}"><img src="{% static 'social/img/like.png' %}"><span id="likes-{{post.id}}">{{ post.like_set.all|length }}</p>
+            <p class="likes-p like-vazio-{{post.id}}"><img src="{% static 'social/img/like.jpeg' %}"><span id="likes-{{post.id}}">{{ post.like_set.all|length }}</p>
         {% endif %}
 
 
