@@ -114,8 +114,16 @@
     {% endif %}
 
     <div class="icones-post">
-        <p class="likes-p"><img src={% static 'social/img/like.png' %}> 150</p>
+        {% if post.id in user_likes %}
+            <p class="likes-p like-preenchido-{{post.id}}" ><img src="{% static 'social/img/like_preenchido.png' %}"><span id="likes-{{post.id}}">{{ post.like_set.all|length }}</span></p>
+        {% else %}
+            <p class="likes-p like-vazio-{{post.id}}"><img src="{% static 'social/img/like.png' %}"><span id="likes-{{post.id}}">{{ post.like_set.all|length }}</p>
+        {% endif %}
+
+
         <p class="comentarios-p"><img src={% static 'social/img/comentario.png' %}>{{ post.comentarios_set.all|length }}</p>
+
+
     </div>
 
 

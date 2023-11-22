@@ -14,6 +14,6 @@ class Comentarios(models.Model):
     criado_em = models.DateTimeField(auto_now_add=True)
 
 
-# class Like(models.Model):
-#     user = models.ForeignKey(Perfil, on_delete=models.CASCADE)
-#     post = models.ForeignKey(Post, on_delete=models.CASCADE)
+class Like(models.Model):
+    user = models.ForeignKey(Perfil, on_delete=models.CASCADE)
+    post = models.ForeignKey(Post, on_delete=models.CASCADE)

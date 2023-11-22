@@ -169,12 +169,17 @@ html{
     margin-right: 25px;
 }
 
+.likes-p p{
+    display:inline-block;
+    margin-right: 25px;
+}
+
 .comentarios-p{
     display:inline-block;
 }
 
-.likes-p p{
-    margin-right: 20px;
+.likes-p img{
+    margin-right: 16px;
 }
 
 .likes-p img{

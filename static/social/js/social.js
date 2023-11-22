@@ -26,19 +26,41 @@ function initializeChat(chatLogSelector, chatInputSelector, chatSubmitSelector, 
 
     chatSocket.onmessage = function (e) {
         const data = JSON.parse(e.data);
-        // e.data vem {status: 'Comentário salvo com sucesso'}
-        const texto_comentario = data?.texto_comentario;
-        const user = data?.user;
-        const user_foto = getUserPhoto(user);
-        const user_nome_completo = `${user?.nome} ${user?.sobrenome}`
-        document.querySelector(chatLogSelector).innerHTML += `
-            <div class="texto-comentario">
-                ${user_foto}
-                <p class="nome-comentario">${user_nome_completo}</p>
-                <p class="texto-comentario-p">${texto_comentario}</p>
-            </div>
-        `;
-        console.log(data.user)
+        if (data?.texto_comentario) {
+            // recebeu comentario
+            const texto_comentario = data?.texto_comentario;
+            const user = data?.user;
+            const user_foto = getUserPhoto(user);
+            const user_nome_completo = `${user?.nome} ${user?.sobrenome}`
+            document.querySelector(chatLogSelector).innerHTML += `
+                <div class="texto-comentario">
+                    ${user_foto}
+                    <p class="nome-comentario">${user_nome_completo}</p>
+                    <p class="texto-comentario-p">${texto_comentario}</p>
+                </div>
+            `;
+        } else {
+            // recebeu like
+            // verificar se é o próprio usuario que realizou a ação
+            if (data?.user?.id == perfil_id) {
+                // verifica se a acao foi de curtir ou descurtir para mudar o ícone e a classe
+                if (data?.like?.acao == 'curtir') {
+                    document.querySelector(`.like-vazio-${post_id} img`).src = "/static/social/img/like_preenchido.png"
+                    document.querySelector(`.like-vazio-${post_id}`).classList.replace(`like-vazio-${post_id}`, `like-preenchido-${post_id}`)
+                } else {
+                    document.querySelector(`.like-preenchido-${post_id} img`).src = "/static/social/img/like.png"
+                    document.querySelector(`.like-preenchido-${post_id}`).classList.replace(`like-preenchido-${post_id}`, `like-vazio-${post_id}`)
+                }
+            }
+            // incrementa número de likes
+            let likes_atual = parseInt(document.querySelector(`#likes-${post_id}`).innerHTML); 
+            if (data?.like?.acao == 'curtir') {
+                document.querySelector(`#likes-${post_id}`).innerHTML = likes_atual + 1
+            }
+            else {
+                document.querySelector(`#likes-${post_id}`).innerHTML = likes_atual - 1
+            }
+        }
     };
 
     chatSocket.onclose = function (e) {
@@ -70,4 +92,30 @@ function initializeChat(chatLogSelector, chatInputSelector, chatSubmitSelector, 
 
         messageInputDom.value = ''
     };
+
+    // FUNÇÃO DE LIKE
+
+    $(document).on('click', `.like-vazio-${post_id}`, function () {
+        const mensagem = {
+            'user': perfil_id,
+            'post': post_id,
+            'like': {
+                'acao': 'curtir'
+            }
+        }
+        chatSocket.send(JSON.stringify(mensagem));
+    });
+
+    // FUNÇÃO DE DESLIKE
+
+    $(document).on('click', `.like-preenchido-${post_id}`, function () {
+        const mensagem = {
+            'user': perfil_id,
+            'post': post_id,
+            'like': {
+                'acao': 'descurtir'
+            }
+        }
+        chatSocket.send(JSON.stringify(mensagem));
+    });
 }
