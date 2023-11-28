@@ -1,0 +1,13 @@
+html{
+    background-color: #f9f9f9;
+}
+body{
+    background-color: #f9f9f9;
+}
+
+.conteudo-calendario{
+    background-color: #f9f9f9;
+    min-height: 100%;
+    padding: 24px;
+    margin-right: 24px;
+}

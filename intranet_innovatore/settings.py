@@ -18,29 +18,25 @@ SECRET_KEY = "django-insecure-tkahy*n1l1_6&kt94yfcb0tl6b6r)x(x-uag5rb_3=1mwj5$u(
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1']
+ALLOWED_HOSTS = ["127.0.0.1"]
 
-LOGIN_REDIRECT_URL = '/'
-LOGOUT_REDIRECT_URL = 'login'
+LOGIN_REDIRECT_URL = "/"
+LOGOUT_REDIRECT_URL = "login"
 
-EMAIL_BACKEND =  'django.core.mail.backends.filebased.EmailBackend'
-EMAIL_FILE_PATH = BASE_DIR / 'emails'
+EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
+EMAIL_FILE_PATH = BASE_DIR / "emails"
 
 # Application definition
 
 INSTALLED_APPS = [
     "daphne",
-
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-
-    'django.contrib.humanize',
-
-
+    "django.contrib.humanize",
     "dashboard",
     "usuario",
     "documentos",
@@ -49,11 +45,11 @@ INSTALLED_APPS = [
     "cartao_visitas",
     "aniversariantes",
     "social",
+    "calendario",
 ]
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
-
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -67,7 +63,7 @@ ROOT_URLCONF = "intranet_innovatore.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [os.path.join(BASE_DIR, 'templates')],
+        "DIRS": [os.path.join(BASE_DIR, "templates")],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -81,7 +77,6 @@ TEMPLATES = [
 ]
 
 
-
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
@@ -92,15 +87,15 @@ TEMPLATES = [
     }
 } """
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'intranet_innovatore',
-        'USER': 'flavio',
-        'PASSWORD': '314628',
-        'HOST': 'localhost',
-        'PORT': '5432',
+    "default": {
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": "intranet_innovatore",
+        "USER": "flavio",
+        "PASSWORD": "314628",
+        "HOST": "localhost",
+        "PORT": "5432",
     }
-} 
+}
 
 
 # Password validation
@@ -137,19 +132,18 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = "/static/"
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'intranet_innovatore/static')
+STATIC_ROOT = os.path.join(BASE_DIR, "intranet_innovatore/static")
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
+    os.path.join(BASE_DIR, "static"),
 ]
 
 
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-
-MEEDIA_URL = '/media/'
+MEEDIA_URL = "/media/"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
@@ -170,7 +164,7 @@ SESSION_SAVE_EVERY_REQUEST = True
 WSGI_APPLICATION = "intranet_innovatore.wsgi.application"
 
 
-#CHANNELS
+# CHANNELS
 ASGI_APPLICATION = "intranet_innovatore.asgi.application"
 
 CHANNEL_LAYERS = {

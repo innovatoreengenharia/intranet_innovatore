@@ -1,0 +1,145 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block estilo %}
+<script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.9/index.global.min.js'></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+<link href="{% static 'calendario/css/calendario.css' %}" rel="stylesheet">
+{% endblock %}
+
+
+{% block icones %}
+    <div class="icones">
+        <img class="icone-dash" src="{% static 'calendario/img/icone-calendario.png' %}">
+        <p>Calendario / </p>
+        <img class="icone-menu" src="{% static 'dashboard/img/menu-cinza.png' %}">
+    </div>
+{% endblock %}
+
+{% block content %}
+<div class="conteudo-calendario">
+    <div id='calendar'></div>
+</div>
+
+{% endblock %}
+
+
+{% block scripts %}
+
+<script>
+
+    document.addEventListener('DOMContentLoaded', function() {
+      var calendarEl = document.getElementById('calendar');
+      var calendar = new FullCalendar.Calendar(calendarEl, {
+
+        initialView: 'dayGridMonth',
+        locale:'pt-br',
+        buttonText:{
+          today:    'hoje',
+          month:    'mês',
+          week:     'semana',
+          day:      'dia',
+          list:     'lista'
+        },
+        headerToolbar: {
+          left: 'title',
+          center: 'dayGridMonth,timeGridWeek,timeGridDay',
+          right: 'prev,next today'
+        },
+        events: '/calendario/all_events/',
+        selectable: true,
+        editable: true,
+        select: function(start, end, allDay){
+            var title = prompt("Título do Evento")
+            if (title) {
+                
+                var end = start.endStr;
+                var start = start.startStr;
+                var user = {{ id_usuario }}
+                $.ajax({
+                    type:"GET",
+                    url:"/calendario/add_event/",
+                    data:{"title":title, "start": start, "end": end, "user": user},
+                    dataType: "json",
+                    success: function (data) {
+                        calendar.refetchEvents()
+                        alert("Evento Adicionado");
+                    },
+                    error: function (data) {
+                        alert("Ocorreu Um Problema !!" + start);
+                    }
+                });
+            }
+        },
+
+        eventResize: function (event){
+            var start = $.fullCalendar.formatDate(event.start, "Y-MM-DD HH:mm:ss");
+            var end = $.fullCalendar.formatDate(event.end, "Y-MM-DD HH:mm:ss");
+            var title = event.title;
+            var id = event.id;
+            var user = {{perfil.user.id}}
+            $.ajax({
+                type:"GET",
+                url:"/calendario/update/",
+                data:{"title":title, "start": start, "end": end, "id":id, "user":user},
+                dataType: "json",
+                success: function (data) {
+                    calendar.fullCalendar('refetchEvents');
+                    alert("Evento Atualizado");
+                },
+                error: function (data) {
+                    alert("Ocorreu Um Problema !!");
+                }
+
+            });
+        },
+
+        eventDrop: function(event){
+            var start = $.fullCalendar.formatDate(event.start, "Y-MM-DD HH:mm:ss");
+            var end = $.fullCalendar.formatDate(event.end, "Y-MM-DD HH:mm:ss");
+            var title = event.title;
+            var id = event.id;
+            var user = {{perfil.user.id}}
+            $.ajax({
+                type:"GET",
+                url:"/calendario/update/",
+                data:{"title":title, "start": start, "end": end, "id":id, "user": user},
+                dataType: "json",
+                success: function (data) {
+                    calendar.fullCalendar('refetchEvents');
+                    alert("Evento Atualizado");
+                },
+                error: function (data) {
+                    alert("Ocorreu Um Problema !!");
+                }
+
+            });
+        },
+
+        eventClick: function(event){
+            if(confirm("Tem certeza que quer remover o Evento?")){
+                var id = event.event.id;
+                $.ajax({
+                    type: "GET",
+                    url: '/calendario/remove/',
+                    data: {"id": id},
+                    dataType: "json",
+                    success: function (data) {
+                        calendar.refetchEvents()
+                        alert("Evento Removido");
+                    },
+                    error: function (data) {
+                        alert("Ocorreu Um Problema !!");
+                    }
+                });
+            }
+        },
+    });
+    calendar.render();
+});
+
+    
+
+  </script>
+
+{% endblock %}

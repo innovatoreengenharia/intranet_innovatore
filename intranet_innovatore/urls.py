@@ -21,18 +21,23 @@ from django.conf.urls.static import static
 from django.conf import settings
 
 urlpatterns = [
-    path('admin/login/', auth_views.LoginView.as_view(template_name='login_admin.html'), name='login_admin'),
-    path("accounts/", include('django.contrib.auth.urls')),
-    path("", include('dashboard.urls')),
+    path(
+        "admin/login/",
+        auth_views.LoginView.as_view(template_name="login_admin.html"),
+        name="login_admin",
+    ),
+    path("accounts/", include("django.contrib.auth.urls")),
+    path("", include("dashboard.urls")),
     path("admin/", admin.site.urls, name="admin"),
-    path("documentos/", include('documentos.urls')),
-    path("usuario/", include('usuario.urls')),
-    path("institucional/", include('institucional.urls')),
-    path("tarefas/", include('tarefas.urls')),
-    path("cursos/", include('cursos.urls')),
-    path("cartao_visitas/", include('cartao_visitas.urls')),
-    path("aniversariantes/", include('aniversariantes.urls')),
-    path("social/", include('social.urls')),
+    path("documentos/", include("documentos.urls")),
+    path("usuario/", include("usuario.urls")),
+    path("institucional/", include("institucional.urls")),
+    path("tarefas/", include("tarefas.urls")),
+    path("cursos/", include("cursos.urls")),
+    path("cartao_visitas/", include("cartao_visitas.urls")),
+    path("aniversariantes/", include("aniversariantes.urls")),
+    path("social/", include("social.urls")),
+    path("calendario/", include("calendario.urls")),
 ]
 
 if settings.DEBUG:

@@ -156,12 +156,20 @@
                 </li>
             {% endif %}
 
+            {% if 'calendario' in url_name %}
+                <li class="nav-item item-menu">
+                    <a class="nav-link" href={% url 'calendario' %}>
+                        <img src={% static "dashboard/img/calendario-selecionado.png" %}>
+                        <span>Calendário</span></a>
+                </li>
 
-            <li class="nav-item item-menu">
-                <a class="nav-link" href="charts.html">
-                    <img src={% static "dashboard/img/calendario.png" %}>
-                    <span>Calendário</span></a>
-            </li>
+            {% else %}
+                <li class="nav-item item-menu">
+                    <a class="nav-link" href={% url 'calendario' %}>
+                        <img src={% static "dashboard/img/calendario.png" %}>
+                        <span>Calendário</span></a>
+                </li>
+            {% endif %}
 
             <li class="nav-item item-menu">
                 <a class="nav-link" href="charts.html">
@@ -491,7 +499,7 @@
     
     
     
-
+        
     <!-- Core plugin JavaScript-->
     <script src="{% static 'dashboard/js/jquery.easing.min.js' %}"></script>
 
