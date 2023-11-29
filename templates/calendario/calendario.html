@@ -2,7 +2,8 @@
 {% load static %}
 
 {% block estilo %}
-<script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.9/index.global.min.js'></script>
+{% comment %} <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.9/index.global.min.js'></script> {% endcomment %}
+<script src="{% static 'calendario/js/index.global.min.js' %}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
 <link href="{% static 'calendario/css/calendario.css' %}" rel="stylesheet">
 {% endblock %}
@@ -33,7 +34,12 @@
       var calendar = new FullCalendar.Calendar(calendarEl, {
 
         initialView: 'dayGridMonth',
+        height: 700,
         locale:'pt-br',
+        eventColor: '#5FC4F0',
+        eventBorderColor: "#e8e8e8",
+        navLinks: true,
+        selectMirror: true,
         buttonText:{
           today:    'hoje',
           month:    'mês',
@@ -46,15 +52,14 @@
           center: 'dayGridMonth,timeGridWeek,timeGridDay',
           right: 'prev,next today'
         },
-        events: '/calendario/all_events/',
         selectable: true,
         editable: true,
-        select: function(start, end, allDay){
+        
+        select: function(info){
             var title = prompt("Título do Evento")
             if (title) {
-                
-                var end = start.endStr;
-                var start = start.startStr;
+                var start = info.startStr;
+                var end = info.endStr;
                 var user = {{ id_usuario }}
                 $.ajax({
                     type:"GET",
@@ -66,25 +71,25 @@
                         alert("Evento Adicionado");
                     },
                     error: function (data) {
-                        alert("Ocorreu Um Problema !!" + start);
+                        alert("Ocorreu Um Problema !!" + info);
                     }
                 });
             }
         },
 
-        eventResize: function (event){
-            var start = $.fullCalendar.formatDate(event.start, "Y-MM-DD HH:mm:ss");
-            var end = $.fullCalendar.formatDate(event.end, "Y-MM-DD HH:mm:ss");
-            var title = event.title;
-            var id = event.id;
-            var user = {{perfil.user.id}}
+        eventResize: function (info){
+            var start = info.event.start.toISOString();
+            var end =  info.event.end.toISOString();
+            var title = info.event.title;
+            var id = info.event.id;
+            var user = {{ id_usuario }}
             $.ajax({
                 type:"GET",
                 url:"/calendario/update/",
                 data:{"title":title, "start": start, "end": end, "id":id, "user":user},
                 dataType: "json",
                 success: function (data) {
-                    calendar.fullCalendar('refetchEvents');
+                    calendar.refetchEvents()
                     alert("Evento Atualizado");
                 },
                 error: function (data) {
@@ -94,19 +99,19 @@
             });
         },
 
-        eventDrop: function(event){
-            var start = $.fullCalendar.formatDate(event.start, "Y-MM-DD HH:mm:ss");
-            var end = $.fullCalendar.formatDate(event.end, "Y-MM-DD HH:mm:ss");
-            var title = event.title;
-            var id = event.id;
-            var user = {{perfil.user.id}}
+        eventDrop: function(info){
+            var start = info.event.start.toISOString();
+            var end =  info.event.end.toISOString();
+            var title = info.event.title;
+            var id = info.event.id;
+            var user = {{ id_usuario }}
             $.ajax({
                 type:"GET",
                 url:"/calendario/update/",
                 data:{"title":title, "start": start, "end": end, "id":id, "user": user},
                 dataType: "json",
                 success: function (data) {
-                    calendar.fullCalendar('refetchEvents');
+                    calendar.refetchEvents()
                     alert("Evento Atualizado");
                 },
                 error: function (data) {
@@ -117,6 +122,7 @@
         },
 
         eventClick: function(event){
+            console.log(event)
             if(confirm("Tem certeza que quer remover o Evento?")){
                 var id = event.event.id;
                 $.ajax({
@@ -134,7 +140,9 @@
                 });
             }
         },
+        events: '/calendario/all_events/',
     });
+
     calendar.render();
 });
 

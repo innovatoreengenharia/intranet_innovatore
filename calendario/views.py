@@ -60,7 +60,7 @@ def update(request):
     event.start = start
     event.end = end
     event.name = title
-    event.user = user
+    event.user_id = user
     event.save()
     data = {}
     return JsonResponse(data)
