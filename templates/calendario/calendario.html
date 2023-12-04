@@ -36,10 +36,12 @@
         initialView: 'dayGridMonth',
         height: 700,
         locale:'pt-br',
+        timeZone: 'UTC',
+        ignoreTimezone: false,
+        timeZoneParam: 'timeZone',
         eventColor: '#5FC4F0',
         eventBorderColor: "#e8e8e8",
-        navLinks: true,
-        selectMirror: true,
+        displayEventEnd: "true",
         buttonText:{
           today:    'hoje',
           month:    'mês',
@@ -52,19 +54,24 @@
           center: 'dayGridMonth,timeGridWeek,timeGridDay',
           right: 'prev,next today'
         },
+        navLinks: true,
         selectable: true,
+        selectMirror: true,
+        dayMaxEvents: true,
         editable: true,
         
         select: function(info){
+            console.log(info)
             var title = prompt("Título do Evento")
             if (title) {
                 var start = info.startStr;
                 var end = info.endStr;
+                var allDay = info.allDay;
                 var user = {{ id_usuario }}
                 $.ajax({
                     type:"GET",
                     url:"/calendario/add_event/",
-                    data:{"title":title, "start": start, "end": end, "user": user},
+                    data:{"title":title, "start": start, "end": end, "user": user, "allDay":allDay},
                     dataType: "json",
                     success: function (data) {
                         calendar.refetchEvents()
@@ -75,6 +82,7 @@
                     }
                 });
             }
+            calendar.unselect()
         },
 
         eventResize: function (info){
@@ -122,7 +130,6 @@
         },
 
         eventClick: function(event){
-            console.log(event)
             if(confirm("Tem certeza que quer remover o Evento?")){
                 var id = event.event.id;
                 $.ajax({
