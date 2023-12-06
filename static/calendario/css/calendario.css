@@ -47,15 +47,6 @@ body{
     --fc-now-indicator-color: red;
   }
 
-  /* .fc-button-active{
-    width: 139px;
-    border-radius: 12px;
-    background: linear-gradient(#14355E, #2568BB);
-
-  }
-
-  .fc-timeGridWeek-button {
-    border: 1px solid #e8e8e8;
-    color: black;
-    background-color: white;
-  } */
+.fc-day-today{
+  background-color: #f4f4f4 !important;
+}

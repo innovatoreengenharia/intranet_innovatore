@@ -31,6 +31,7 @@ def all_events(request):
     publicos = Events.objects.filter(public=True)
     data_atual = date.today()
     ano_atual = data_atual.year
+    ano_seguinte = ano_atual + 1
 
     out = []
 
@@ -49,6 +50,18 @@ def all_events(request):
             {
                 "title": f"Aniversariante {aniversario.nome} {aniversario.sobrenome}",
                 "start": f"{ano_atual}-{aniversario.nascimento.month:02d}-{aniversario.nascimento.day:02d}",
+                "allDay": True,
+            }
+        )
+
+    for aniversario in aniversarios:
+        # Adiciona 1 ao ano atual para marcar o aniversário no próximo ano
+        ano_aniversario = ano_atual + 1
+
+        out.append(
+            {
+                "title": f"Aniversariante {aniversario.nome} {aniversario.sobrenome}",
+                "start": f"{ano_aniversario}-{aniversario.nascimento.month:02d}-{aniversario.nascimento.day:02d}",
                 "allDay": True,
             }
         )
@@ -112,8 +125,22 @@ def add_event(request):
 
 
 def update(request):
-    start = request.GET.get("start", None)
-    end = request.GET.get("end", None)
+    start_inicio = request.GET.get("start", None)
+
+    data_start = datetime.fromisoformat(start_inicio[:-1])
+
+    data_3 = data_start + timedelta(hours=3)
+
+    start = data_3.strftime("%Y-%m-%dT%H:%M:%S.000Z")
+
+    end_inicio = request.GET.get("end", None)
+
+    data_end = datetime.fromisoformat(end_inicio[:-1])
+
+    data_end_3 = data_end + timedelta(hours=3)
+
+    end = data_end_3.strftime("%Y-%m-%dT%H:%M:%S.000Z")
+
     title = request.GET.get("title", None)
     id = request.GET.get("id", None)
     user = request.GET.get("user", None)

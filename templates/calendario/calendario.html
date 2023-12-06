@@ -34,14 +34,14 @@
       var calendar = new FullCalendar.Calendar(calendarEl, {
 
         initialView: 'dayGridMonth',
-        height: 700,
+        height: 780,
         locale:'pt-br',
         timeZone: 'UTC',
-        ignoreTimezone: false,
         timeZoneParam: 'timeZone',
-        eventColor: '#5FC4F0',
+        eventColor: '#f4f4f4',
         eventBorderColor: "#e8e8e8",
         displayEventEnd: "true",
+        eventTextColor: "#000000",
         buttonText:{
           today:    'hoje',
           month:    'mês',
@@ -101,7 +101,7 @@
                     alert("Evento Atualizado");
                 },
                 error: function (data) {
-                    alert("Ocorreu Um Problema !!");
+                    alert("Você não pode alterar esse evento !");
                 }
 
             });
@@ -123,7 +123,7 @@
                     alert("Evento Atualizado");
                 },
                 error: function (data) {
-                    alert("Ocorreu Um Problema !!");
+                    alert("Você não pode alterar esse evento !");
                 }
 
             });
@@ -142,7 +142,7 @@
                         alert("Evento Removido");
                     },
                     error: function (data) {
-                        alert("Ocorreu Um Problema !!");
+                        alert("Você nao pode excluir esse Evento!!");
                     }
                 });
             }
