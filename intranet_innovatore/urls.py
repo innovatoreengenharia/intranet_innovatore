@@ -38,6 +38,7 @@ urlpatterns = [
     path("aniversariantes/", include("aniversariantes.urls")),
     path("social/", include("social.urls")),
     path("calendario/", include("calendario.urls")),
+    path("informativos/", include("informativos.urls")),
 ]
 
 if settings.DEBUG:

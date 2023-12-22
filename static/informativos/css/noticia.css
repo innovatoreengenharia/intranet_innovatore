@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital@0;1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap');
+
+
+
+html{
+    background-color: white;
+}
+.h1-informativos{
+    margin-left: 25px;
+}
+
+.conteudo-noticia{
+    background-color: white;
+    min-height: 100%;
+    padding-right: 32px;
+    margin-left: 137px;
+    width: 1295px;
+    margin-top: 137px;
+}
+
+.conteudo-noticia h1{
+    margin-bottom: 43px;
+}
+
+.imagem-noticia{
+    width: 100%;
+    margin: 0 auto;
+    margin-bottom: 33px;
+}
+
+.paragrafo-noticia{
+    line-height: 150%;
+}

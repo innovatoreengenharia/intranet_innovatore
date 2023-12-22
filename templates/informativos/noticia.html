@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block estilo %}
+<link href="{% static 'informativos/css/noticia.css' %}" rel="stylesheet">
+{% endblock %}
+
+
+{% block icones %}
+    <div class="icones">
+        <img class="icone-dash" src="{% static 'informativos/img/icone-informativos.png' %}">
+        <p>Informativos / </p>
+        <img class="icone-menu" src="{% static 'dashboard/img/menu-cinza.png' %}">
+    </div>
+{% endblock %}
+
+{% block content %}
+<h1 class="h1-informativos">Informativos INN</h1>
+<div class="conteudo-noticia">
+    <h1>{{ noticia.titulo }}</h1>
+    <img src={{ noticia.imagem_noticia.url }} class="imagem-noticia">
+    <p class="paragrafo-noticia">{{ noticia.paragrafo }}</p>
+    {% if noticia.obter_lista_de_tags %}
+        <div>
+            {% for tag in noticia.obter_lista_de_tags %}
+                <div class="tag">{{ tag }}</div>
+            {% endfor %}
+        </div>
+    {% endif %}
+</div>
+
+{% if tags_relacionadas %}
+<div class="container">
+    <div class="row">
+    {% for noticia in tags_relacionadas %}
+    <div class="col-4">
+        <div class="card">
+            <img class="card-img-top" src={{ noticia.imagem_thumb.url }} alt="Card image cap">
+            <div class="card-body">
+            <h5 class="card-title">{{ noticia.titulo }}</h5>
+            <p class="card-text paragrafo-card">{{ noticia.paragrafo }}</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+    </div>
+</div>
+{% endif %}
+
+{% endblock %}
+
+
+{% block scripts %}
+<script src="{% static 'informativos/js/js.js' %}"></script>
+
+{% endblock %}

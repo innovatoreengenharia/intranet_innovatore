@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block estilo %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/croppie/2.6.5/croppie.css"/>
+<link href="{% static 'informativos/css/informativos.css' %}" rel="stylesheet">
+{% endblock %}
+
+
+{% block icones %}
+    <div class="icones">
+        <img class="icone-dash" src="{% static 'informativos/img/icone-informativos.png' %}">
+        <p>Calendario / </p>
+        <img class="icone-menu" src="{% static 'dashboard/img/menu-cinza.png' %}">
+    </div>
+{% endblock %}
+
+{% block content %}
+<div class="conteudo-informativos">
+    <h1>Informativos INN</h1>
+
+    {% comment %} <form method="post" enctype='multipart/form-data'>{% csrf_token %}
+        <label>Título da Notícia</label>
+        <input type="text" name="titulo" class="form-control"><br><br>
+
+        <label>Imagem</label>
+        <input type="file" name="imagem" class="form-control" id="imagem"><br><br>
+        
+        <!-- Apresentar o preview da imagem -->
+        <div class="row">
+            <div id="preview_destaque"></div>
+            <div id="preview_thumb"></div>
+            <div id="preview_noticia"></div>
+        </div>
+        <button class="btn-upload-imagem">Enviar</button>
+    </form> {% endcomment %}
+
+    <form method="POST" enctype='multipart/form-data'>{% csrf_token %}
+        <label>Título da Notícia</label>
+        <input type="text" name="titulo" class="form-control" id="titulo"><br><br>
+
+        <label>Texto da Notícia</label>
+        <textarea type="text" name="titulo" class="form-control" rows="10" id="paragrafo"></textarea><br><br>
+
+        <label>Imagem</label>
+        <input type="file" name="imagem" class="form-control" id="imagem"><br><br>
+
+        <h3>Dimensione a imagem que será Destaque: </h3><br>
+        <div id="preview_destaque"></div>
+
+        <h3>Dimensione a imagem que será Thumbnail: </h3><br>
+        <div id="preview_thumb"></div>
+
+        <h3>Dimensione a imagem que será apresentada na Notícia: </h3><br>
+        <div id="preview_noticia"></div>
+
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="destaque">
+            <label class="form-check-label" for="flexCheckDefault">
+              Destaque
+            </label>
+        </div><br><br>
+
+        <label>Tags</label>
+        <span>Digite as tags separadas com vígula</span>
+        <input type="text" name="tags" class="form-control" id="tags"><br><br>
+
+        <button class="btn-upload-imagem" type="button">Enviar</button>
+    </form>
+
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/croppie/2.6.5/croppie.min.js"></script>
+<script src={% static 'informativos/js/custom.js' %}></script>
+{% endblock %}

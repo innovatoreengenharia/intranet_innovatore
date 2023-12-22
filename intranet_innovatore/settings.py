@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     "aniversariantes",
     "social",
     "calendario",
+    "informativos",
 ]
 
 MIDDLEWARE = [
@@ -176,3 +177,8 @@ CHANNEL_LAYERS = {
     },
 }
 SESSION_SAVE_EVERY_REQUEST = True
+
+
+# Tamanho de upload permitido
+
+DATA_UPLOAD_MAX_MEMORY_SIZE = 10000000

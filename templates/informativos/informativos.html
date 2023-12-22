@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block estilo %}
+<link href="{% static 'informativos/css/informativos.css' %}" rel="stylesheet">
+{% endblock %}
+
+
+{% block icones %}
+    <div class="icones">
+        <img class="icone-dash" src="{% static 'informativos/img/icone-informativos.png' %}">
+        <p>Informativos / </p>
+        <img class="icone-menu" src="{% static 'dashboard/img/menu-cinza.png' %}">
+    </div>
+{% endblock %}
+
+{% block content %}
+<div class="conteudo-informativos">
+    <h1>Informativos INN</h1>
+
+    <div class="carrossel-container">
+      <div class="carrossel">
+        {% for item in noticias_em_destaque %}
+          <a href="{% url 'informativos/noticia' item.id %}" class="carrossel-item" style="background-image: url('{{ item.imagem_destaque.url }}');">
+            <div class="texto-destaque">
+              <h3 class="texto-destaque-h3">{{ item.titulo }}</h3>
+              <p class="paragrafo-destaque">{{ item.paragrafo }}</p>
+            </div>
+          </a>
+        {% endfor %}
+      </div>
+      <button class="prev-button">&lt;</button>
+      <button class="next-button">&gt;</button>
+      <div class="dots-container"></div>
+    </div>
+
+    <h1 class="noticias-h1">Notícias</h1>
+
+    <div class="row" style="max-width: 100%;">
+      {% for item in noticias%}
+        <a href="{% url 'informativos/noticia' item.id %}" class="col-6 row conteudo-thumb">
+          <div class="col-6">
+            <img style="width:100%;"class="imagem-thumb" src={{item.imagem_thumb.url }}>
+          </div>
+          <div class="col-6 texto-thumb">
+            <h6>{{ item.titulo }}</h6>
+            <p class="paragrafo_thumb">{{ item.paragrafo }}</p>
+          </div>
+        </a>
+      {% endfor %}
+    </div>
+</div>
+
+<a href={% url 'informativos/criar_noticia' %}>Criar Notícia</a>
+{% endblock %}
+
+{% block scripts %}
+<script src="{% static 'informativos/js/carrossel.js' %}"></script>
+<script src="{% static 'informativos/js/js.js' %}"></script>
+
+{% endblock %}
