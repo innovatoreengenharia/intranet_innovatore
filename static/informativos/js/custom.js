@@ -129,7 +129,17 @@ $(".btn-upload-imagem").on("click", async function(){
         size: "original"
     });
 
-
+    var blocos = []
+    $('.inline-bloco').each(function(index, element){
+        blocos.push(
+            {
+                /* imagem_bloco: $(element).find('[name$=imagem_bloco]').val(), */
+                titulo_bloco: $(element).find('[name$=titulo_bloco]').val(),
+                paragrafo_bloco: $(element).find('[name$=paragrafo_bloco]').val(),
+            },
+        )
+    });
+    console.log(blocos)
 
     $.ajax({
         url:"/informativos/add_noticia/",
@@ -147,6 +157,7 @@ $(".btn-upload-imagem").on("click", async function(){
             "nome_imagem_noticia": "noticia_" + nome_imagem_original,
             "imagem_noticia": noticia,
             "destaque_checkbox": destaque_checkbox,
+            "blocos": JSON.stringify(blocos),
         },
         success:function(){
 

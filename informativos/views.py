@@ -9,6 +9,7 @@ from django.views.decorators.csrf import csrf_exempt
 import base64
 from django.core.files.base import ContentFile
 from django.db.models import Q
+import json
 
 
 def informativos(request):
@@ -123,11 +124,23 @@ def add_noticia(request):
         paragrafo=paragrafo,
     )
 
-    form_bloco_factory = inlineformset_factory(Noticia, Bloco, BlocoForm)
-    form_bloco = form_bloco_factory(request.POST, instance=noticia)
-
     noticia.save()
-    form_bloco.save()
+
+    """ form_bloco_factory = inlineformset_factory(Noticia, Bloco, BlocoForm)
+    form_bloco = form_bloco_factory(request.POST, instance=noticia)
+    form_bloco.save() """
+
+    blocos_json = request.POST.get("blocos", None)
+    blocos = json.loads(blocos_json)
+    for bloco in blocos:
+        titulo_boco = bloco["titulo_bloco"]
+        paragrafo_bloco = bloco["paragrafo_bloco"]
+        bloco_save = Bloco(
+            noticia=noticia,
+            titulo_bloco=titulo_boco,
+            paragrafo_bloco=paragrafo_bloco,
+        )
+        bloco_save.save()
 
     return JsonResponse(
         data={},
