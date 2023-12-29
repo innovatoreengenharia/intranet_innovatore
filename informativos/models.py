@@ -35,6 +35,10 @@ class Bloco(models.Model):
     class Meta:
         verbose_name_plural = "Blocos"
 
-    imagem = models.ImageField(upload_to="informativos/imagem", blank=True, null=True)
-    titulo = models.CharField(max_length=255, null=True, blank=True)
-    paragrafo = models.TextField(null=True, blank=True)
+    noticia = models.ForeignKey(Noticia, on_delete=models.CASCADE, null=True)
+
+    imagem_bloco = models.ImageField(
+        upload_to="informativos/imagem_bloco", blank=True, null=True
+    )
+    titulo_bloco = models.CharField(max_length=255, null=True, blank=True)
+    paragrafo_bloco = models.TextField(null=True, blank=True)

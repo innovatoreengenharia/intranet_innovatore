@@ -29,6 +29,17 @@
     {% endif %}
 </div>
 
+<!-- Blocos aqui! -->
+{% if blocos %}
+    {% for bloco in blocos %}
+        <h1>{{ bloco.titulo_bloco }}</h1>
+        {% if bloco.imagem_bloco %}
+        <img src={{ bloco.imagem_bloco.url }} class="imagem-noticia">
+        {% endif %}
+        <p>{{ bloco.paragrafo_bloco }}</p>
+    {% endfor %}
+{% endif %}
+
 {% if tags_relacionadas %}
 <div class="container">
     <div class="row">

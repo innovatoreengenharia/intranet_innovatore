@@ -19,23 +19,8 @@
 <div class="conteudo-informativos">
     <h1>Informativos INN</h1>
 
-    {% comment %} <form method="post" enctype='multipart/form-data'>{% csrf_token %}
-        <label>Título da Notícia</label>
-        <input type="text" name="titulo" class="form-control"><br><br>
-
-        <label>Imagem</label>
-        <input type="file" name="imagem" class="form-control" id="imagem"><br><br>
-        
-        <!-- Apresentar o preview da imagem -->
-        <div class="row">
-            <div id="preview_destaque"></div>
-            <div id="preview_thumb"></div>
-            <div id="preview_noticia"></div>
-        </div>
-        <button class="btn-upload-imagem">Enviar</button>
-    </form> {% endcomment %}
-
     <form method="POST" enctype='multipart/form-data'>{% csrf_token %}
+        
         <label>Título da Notícia</label>
         <input type="text" name="titulo" class="form-control" id="titulo"><br><br>
 
@@ -65,7 +50,26 @@
         <span>Digite as tags separadas com vígula</span>
         <input type="text" name="tags" class="form-control" id="tags"><br><br>
 
+        <h1> Bloco adicional</h1>
+        {{ form_bloco.management_form }}
+
+        {% for bloco in form_bloco %}
+
+        <div class="row inline-bloco"> 
+
+            <label for="{{bloco.imagem_bloco.id_for_label}}">{{ bloco.imagem_bloco.label }}</label>
+            {{ bloco.imagem_bloco }}<br><br>
+
+            <label for="{{ bloco.titulo_bloco.id_for_label }}">{{ bloco.titulo_bloco.label }}</label>
+            {{bloco.titulo_bloco}}<br><br>
+
+            <label for="{{ bloco.paragrafo_bloco.id_for_label }}">{{ bloco.paragrafo_bloco.label }}</label>
+            {{bloco.paragrafo_bloco}}
+        </div>
+        {% endfor %}
+        
         <button class="btn-upload-imagem" type="button">Enviar</button>
+
     </form>
 
 </div>
@@ -75,4 +79,15 @@
 {% block scripts %}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/croppie/2.6.5/croppie.min.js"></script>
 <script src={% static 'informativos/js/custom.js' %}></script>
+<script src={% static 'informativos/js/formset.js' %}></script>
+
+<script type="text/javascript">
+    $(function() {
+        $('.inline-bloco').formset({
+            prefix: '{{ form_bloco.prefix }}',
+            addText: '<img src={% static "usuario/img/adicionar.png" %} class="adicionar-bloco">',
+            deleteText: ''
+        });
+    })
+</script>
 {% endblock %}

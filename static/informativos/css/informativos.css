@@ -12,7 +12,7 @@ html{
 .conteudo-informativos{
     background-color: white;
     min-height: 100%;
-    padding-right: 32px;
+    padding: 32px;
 }
 h1{
   margin-bottom: 32px;
@@ -153,3 +153,24 @@ h6{
   width: 20px;
   margin-bottom: -2px;
 }
+
+.inline-bloco{
+  margin-bottom: 32px;
+}
+.dynamic-form{
+  position:relative
+
+}
+
+.add-row{
+  position:absolute;
+  bottom: 30px;
+  right:40px;
+
+}
+
+/* .adicionar-bloco{
+  position: absolute;
+  left:10px;
+  bottom: 50%;
+} */

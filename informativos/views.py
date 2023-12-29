@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from usuario.models import Perfil
-from .models import Noticia
+from .models import Noticia, Bloco
+from .forms import NoticiaForm, BlocoForm
+from django.forms import inlineformset_factory
 from django.urls import reverse
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
@@ -15,10 +17,10 @@ def informativos(request):
 
     id_usuario = int(request.user.id)
     perfil = Perfil.objects.get(usuario_id=id_usuario)
+    noticias = Noticia.objects.filter(destaque=False).order_by("-publicado_em")[:4]
     noticias_em_destaque = Noticia.objects.filter(destaque=True).order_by(
         "-publicado_em"
     )
-    noticias = Noticia.objects.filter(destaque=False).order_by("-publicado_em")[:4]
 
     context = {
         "perfil": perfil,
@@ -65,10 +67,15 @@ def criar_noticia(request):
         return redirect("login")
     id_usuario = int(request.user.id)
     perfil = Perfil.objects.get(usuario_id=id_usuario)
+    noticia_form = Noticia()
+
+    form_bloco_factory = inlineformset_factory(Noticia, Bloco, BlocoForm, extra=1)
+    form_bloco = form_bloco_factory(instance=noticia_form)
 
     context = {
         "perfil": perfil,
         "id_usuario": id_usuario,
+        "form_bloco": form_bloco,
     }
 
     return render(request, "informativos/criar_noticia.html", context)
@@ -115,7 +122,12 @@ def add_noticia(request):
         destaque=destaque,
         paragrafo=paragrafo,
     )
+
+    form_bloco_factory = inlineformset_factory(Noticia, Bloco, BlocoForm)
+    form_bloco = form_bloco_factory(request.POST, instance=noticia)
+
     noticia.save()
+    form_bloco.save()
 
     return JsonResponse(
         data={},

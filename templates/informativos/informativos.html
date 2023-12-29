@@ -37,11 +37,13 @@
     <h1 class="noticias-h1">Notícias</h1>
 
     <div class="row" style="max-width: 100%;">
-      {% for item in noticias%}
+      {% for item in noticias %}
         <a href="{% url 'informativos/noticia' item.id %}" class="col-6 row conteudo-thumb">
+          {%if item.imagem_thumb %}
           <div class="col-6">
-            <img style="width:100%;"class="imagem-thumb" src={{item.imagem_thumb.url }}>
+            <img style="width:100%;"class="imagem-thumb" src={{ item.imagem_thumb.url }}>
           </div>
+          {% endif %}
           <div class="col-6 texto-thumb">
             <h6>{{ item.titulo }}</h6>
             <p class="paragrafo_thumb">{{ item.paragrafo }}</p>
