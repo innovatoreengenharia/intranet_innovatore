@@ -36,6 +36,8 @@ def informativos(request):
 def noticia(request, id):
     noticia = get_object_or_404(Noticia, pk=id)
 
+    blocos = Bloco.objects.filter(noticia_id=noticia.id)
+
     # Obtém as tags da notícia atual
     tags_do_objeto = noticia.obter_lista_de_tags()
 
@@ -51,13 +53,14 @@ def noticia(request, id):
                 Noticia.objects.filter(Q(tags__icontains=tag) | Q(tags__iexact=tag))
                 .exclude(pk=id)
                 .exclude(pk__in=[n.pk for n in tags_relacionadas])
-            )
+            )[:3]
 
     # Prepara o contexto
     context = {
         "noticia": noticia,
         "tags_do_objeto": tags_do_objeto,
         "tags_relacionadas": tags_relacionadas,
+        "blocos": blocos,
     }
 
     return render(request, "informativos/noticia.html", context)

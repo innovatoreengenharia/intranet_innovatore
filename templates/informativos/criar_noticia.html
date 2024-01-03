@@ -56,12 +56,12 @@
         {% for bloco in form_bloco %}
 
         <div class="row inline-bloco"> 
-
-            <label for="{{bloco.imagem_bloco.id_for_label}}">{{ bloco.imagem_bloco.label }}</label>
-            {{ bloco.imagem_bloco }}<br><br>
-
+            
             <label for="{{ bloco.titulo_bloco.id_for_label }}">{{ bloco.titulo_bloco.label }}</label>
             {{bloco.titulo_bloco}}<br><br>
+            
+            <label for="{{bloco.imagem_bloco.id_for_label}}">{{ bloco.imagem_bloco.label }}</label>
+            {{ bloco.imagem_bloco }}<br><br>
 
             <label for="{{ bloco.paragrafo_bloco.id_for_label }}">{{ bloco.paragrafo_bloco.label }}</label>
             {{bloco.paragrafo_bloco}}

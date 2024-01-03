@@ -20,13 +20,6 @@
     <h1>{{ noticia.titulo }}</h1>
     <img src={{ noticia.imagem_noticia.url }} class="imagem-noticia">
     <p class="paragrafo-noticia">{{ noticia.paragrafo }}</p>
-    {% if noticia.obter_lista_de_tags %}
-        <div>
-            {% for tag in noticia.obter_lista_de_tags %}
-                <div class="tag">{{ tag }}</div>
-            {% endfor %}
-        </div>
-    {% endif %}
 </div>
 
 <!-- Blocos aqui! -->
@@ -38,6 +31,14 @@
         {% endif %}
         <p>{{ bloco.paragrafo_bloco }}</p>
     {% endfor %}
+{% endif %}
+
+{% if noticia.obter_lista_de_tags %}
+    <div>
+        {% for tag in noticia.obter_lista_de_tags %}
+            <div class="tag">{{ tag }}</div>
+        {% endfor %}
+    </div>
 {% endif %}
 
 {% if tags_relacionadas %}
