@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from usuario.models import Perfil
 from .models import Noticia, Bloco
-from .forms import NoticiaForm, BlocoForm
+from .forms import NoticiaForm, BlocoForm, ComunicadoForm
 from django.forms import inlineformset_factory
 from django.urls import reverse
 from django.http import JsonResponse
@@ -148,3 +148,33 @@ def add_noticia(request):
     return JsonResponse(
         data={},
     )
+
+
+def criar_comunicado(request):
+    if not request.user.is_authenticated:
+        return redirect("login")
+
+    if request.method == "GET":
+        id_usuario = int(request.user.id)
+        perfil = Perfil.objects.get(usuario_id=id_usuario)
+
+        context = {
+            "perfil": perfil,
+        }
+
+        return render(request, "informativos/criar_comunicado.html", context)
+
+    elif request.method == "POST":
+        form = ComunicadoForm(request.POST, request.FILES)
+
+        if form.is_valid():
+            form.save()
+
+            return redirect(reverse("informativos"))
+
+        else:
+            context = {
+                "form": form,
+            }
+            print("ERRO NO CADASTRO", form.errors, usuario_id)
+            return render(request, "usuario/form.html", context)

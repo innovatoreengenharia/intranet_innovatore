@@ -42,3 +42,8 @@ class Bloco(models.Model):
     )
     titulo_bloco = models.CharField(max_length=255, null=True, blank=True)
     paragrafo_bloco = models.TextField(null=True, blank=True)
+
+
+class Comunicado(models.Model):
+    titulo = models.CharField(max_length=255, null=True, blank=True)
+    paragrafo = models.TextField(null=True, blank=True)

@@ -157,7 +157,7 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 # codigo =   FILE_UPLOAD_MAX_MEMORY_SIZE = 100000000
 
 # Logof limite de tempo:
-# SESSION_COOKIE_AGE = 1200
+SESSION_COOKIE_AGE = 1200
 # Reinicia a contagem com request:
 SESSION_SAVE_EVERY_REQUEST = True
 

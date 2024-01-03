@@ -169,8 +169,14 @@ h6{
 
 }
 
-/* .adicionar-bloco{
-  position: absolute;
-  left:10px;
-  bottom: 50%;
-} */
+
+.container-comunicados{
+  background-color: #F4F4F4;
+  margin-top: 64px;
+  min-height: 100%;
+  padding-left: 0px !important;
+}
+
+.container-comunicados h1{
+  margin-left: 32px;
+}

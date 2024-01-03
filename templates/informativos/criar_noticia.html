@@ -10,14 +10,14 @@
 {% block icones %}
     <div class="icones">
         <img class="icone-dash" src="{% static 'informativos/img/icone-informativos.png' %}">
-        <p>Calendario / </p>
+        <p>Informativos / </p>
         <img class="icone-menu" src="{% static 'dashboard/img/menu-cinza.png' %}">
     </div>
 {% endblock %}
 
 {% block content %}
 <div class="conteudo-informativos">
-    <h1>Informativos INN</h1>
+    <h1>Criar Notícia</h1>
 
     <form method="POST" enctype='multipart/form-data'>{% csrf_token %}
         
