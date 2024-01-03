@@ -11,4 +11,14 @@ urlpatterns = [
         views.criar_comunicado,
         name="informativos/criar_comunicado",
     ),
+    path(
+        "editar_comunicado/<int:id_comunicado>",
+        views.editar_comunicado,
+        name="informativos/editar_comunicado",
+    ),
+    path(
+        "deletar_comunicado/<int:id>",
+        views.deletar_comunicado,
+        name="deletar_comunicado",
+    ),
 ]

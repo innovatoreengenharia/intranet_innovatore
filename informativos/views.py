@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from usuario.models import Perfil
-from .models import Noticia, Bloco
-from .forms import NoticiaForm, BlocoForm, ComunicadoForm
+from .models import Noticia, Bloco, Comunicado
+from .forms import BlocoForm, ComunicadoForm
 from django.forms import inlineformset_factory
 from django.urls import reverse
 from django.http import JsonResponse
@@ -22,12 +22,14 @@ def informativos(request):
     noticias_em_destaque = Noticia.objects.filter(destaque=True).order_by(
         "-publicado_em"
     )
+    comunicados = Comunicado.objects.order_by("-publicado_em")[:3]
 
     context = {
         "perfil": perfil,
         "id_usuario": id_usuario,
         "noticias_em_destaque": noticias_em_destaque,
         "noticias": noticias,
+        "comunicados": comunicados,
     }
 
     return render(request, "informativos/informativos.html", context)
@@ -176,5 +178,37 @@ def criar_comunicado(request):
             context = {
                 "form": form,
             }
-            print("ERRO NO CADASTRO", form.errors, usuario_id)
-            return render(request, "usuario/form.html", context)
+
+
+def editar_comunicado(request, id_comunicado):
+    if not request.user.is_authenticated:
+        return redirect("login")
+    if request.method == "GET":
+        comunicado = Comunicado.objects.get(id=id_comunicado)
+        id_usuario = int(request.user.id)
+        perfil = Perfil.objects.get(usuario_id=id_usuario)
+
+        form = ComunicadoForm(instance=comunicado)
+
+        context = {
+            "perfil": perfil,
+            "form": form,
+        }
+        return render(request, "informativos/editar_comunicado.html", context)
+    elif request.method == "POST":
+        id_usuario = int(request.user.id)
+        perfil = Perfil.objects.get(usuario_id=id_usuario)
+        comunicado = Comunicado.objects.get(id=id_comunicado)
+        form = ComunicadoForm(request.POST, instance=comunicado)
+
+        if form.is_valid():
+            form.save()
+            return redirect("informativos")
+        else:
+            return redirect("informativos")
+
+
+def deletar_comunicado(request, id):
+    comunicado = Comunicado.objects.get(pk=id)
+    comunicado.delete()
+    return redirect("informativos")

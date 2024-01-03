@@ -47,3 +47,4 @@ class Bloco(models.Model):
 class Comunicado(models.Model):
     titulo = models.CharField(max_length=255, null=True, blank=True)
     paragrafo = models.TextField(null=True, blank=True)
+    publicado_em = models.DateTimeField(default=datetime.now, blank=False)

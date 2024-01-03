@@ -56,6 +56,19 @@ h6{
   text-align: left;
 
 }
+.paragrafo{
+font-family: 'Open Sans';
+color: #464646;
+font-size: 12px;
+font-weight: 600;
+line-height: 24px;
+letter-spacing: 0em;
+text-align: left;
+}
+
+a:hover{
+  text-decoration: none;
+}
 
 .conteudo-thumb{
   padding: 0px 0px 32px 32px;
@@ -67,6 +80,7 @@ h6{
 
 .texto-thumb{
   margin: auto 0px;
+  text-decoration: none;
 }
 
 .noticias-h1{
@@ -172,6 +186,7 @@ h6{
 
 .container-comunicados{
   background-color: #F4F4F4;
+  padding:64px;
   margin-top: 64px;
   min-height: 100%;
   padding-left: 0px !important;
@@ -179,4 +194,12 @@ h6{
 
 .container-comunicados h1{
   margin-left: 32px;
+}
+.div-comunicados{
+  cursor: pointer;
+  margin-bottom: 50px;
+}
+
+.editar-comunicado{
+  margin-right: 15px;
 }
