@@ -59,15 +59,20 @@
     </div>
 </div>
 
-<a href={% url 'informativos/criar_noticia' %}>Criar Notícia</a>
+<a href={% url 'informativos/todas_noticias' %}>Todas Notícias</a><br>
+
+{% if user.is_staff%}
+  <a href={% url 'informativos/criar_noticia' %}>Criar Notícia</a>
+{% endif %}
 
 <div class="container-fluid container-comunicados">
   <h1>Comunicados</h1>
   <div class="row">
   {% for comunicado in comunicados %}
-    <div class="col-lg-4 pl-5 div-comunicados" data-toggle="modal" data-target="#comunicadoModal{{ forloop.counter }}">
+    <div class="col-lg-4 pl-5 div-comunicados">
       <h6>{{ comunicado.titulo }}</h6>
       <p class="paragrafo paragrafo-comunicado">{{ comunicado.paragrafo }}</p>
+      <p data-toggle="modal" data-target="#comunicadoModal{{ forloop.counter }}"class="ler-mais">Ler Mais</p>
       {% if user.is_staff%}
         <a href="{% url 'informativos/editar_comunicado' comunicado.id %}" class="editar-comunicado">Editar</a>
         <a href="{% url 'deletar_comunicado' comunicado.id %}">Excluir</a>
@@ -92,6 +97,8 @@
     </div>
   </div>
 {% endfor %}
+
+<a href="{% url 'informativos/todos_comunicados' %}">Todos Comunicados</a><br>
 
   
 {% if user.is_staff%}

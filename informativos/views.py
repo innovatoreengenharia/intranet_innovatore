@@ -36,6 +36,8 @@ def informativos(request):
 
 
 def noticia(request, id):
+    id_usuario = int(request.user.id)
+    perfil = Perfil.objects.get(usuario_id=id_usuario)
     noticia = get_object_or_404(Noticia, pk=id)
 
     blocos = Bloco.objects.filter(noticia_id=noticia.id)
@@ -59,6 +61,7 @@ def noticia(request, id):
 
     # Prepara o contexto
     context = {
+        "perfil": perfil,
         "noticia": noticia,
         "tags_do_objeto": tags_do_objeto,
         "tags_relacionadas": tags_relacionadas,
@@ -152,6 +155,19 @@ def add_noticia(request):
     )
 
 
+def todas_noticias(request):
+    if not request.user.is_authenticated:
+        return redirect("login")
+    id_usuario = int(request.user.id)
+    perfil = Perfil.objects.get(usuario_id=id_usuario)
+    noticias = Noticia.objects.order_by("-publicado_em")
+    context = {
+        "perfil": perfil,
+        "noticias": noticias,
+    }
+    return render(request, "informativos/todas_noticias.html", context)
+
+
 def criar_comunicado(request):
     if not request.user.is_authenticated:
         return redirect("login")
@@ -206,6 +222,19 @@ def editar_comunicado(request, id_comunicado):
             return redirect("informativos")
         else:
             return redirect("informativos")
+
+
+def todos_comunicados(request):
+    if not request.user.is_authenticated:
+        return redirect("login")
+    id_usuario = int(request.user.id)
+    perfil = Perfil.objects.get(usuario_id=id_usuario)
+    comunicados = Comunicado.objects.order_by("-publicado_em")
+    context = {
+        "perfil": perfil,
+        "comunicados": comunicados,
+    }
+    return render(request, "informativos/todos_comunicados.html", context)
 
 
 def deletar_comunicado(request, id):

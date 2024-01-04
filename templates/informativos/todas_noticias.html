@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block estilo %}
+<link href="{% static 'informativos/css/informativos.css' %}" rel="stylesheet">
+{% endblock %}
+
+
+{% block icones %}
+    <div class="icones">
+        <img class="icone-dash" src="{% static 'informativos/img/icone-informativos.png' %}">
+        <p>Informativos / </p>
+        <img class="icone-menu" src="{% static 'dashboard/img/menu-cinza.png' %}">
+    </div>
+{% endblock %}
+
+{% block content %}
+
+<div class="conteudo-informativos">
+    <h1>Informativos INN</h1>
+    <h1 class="noticias-h1">Notícias</h1>
+
+    <div class="row" style="max-width: 100%;">
+      {% for item in noticias %}
+        <a href="{% url 'informativos/noticia' item.id %}" class="col-6 row conteudo-thumb">
+          {%if item.imagem_thumb %}
+            <div class="col-6">
+              <img style="width:100%;"class="imagem-thumb" src={{ item.imagem_thumb.url }}>
+            </div>
+          {% endif %}
+          <div class="col-6 texto-thumb">
+              {% if item.titulo %}
+                <h6 class="titulo">{{ item.titulo }}</h6>
+              {% endif %}
+              {% if item.paragrafo %}
+                <p class="paragrafo_thumb paragrafo">{{ item.paragrafo }}</p>
+              {% endif %}
+          </div>
+        </a>
+      {% endfor %}
+    </div>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+<script src="{% static 'informativos/js/js.js' %}"></script>
+{% endblock %}

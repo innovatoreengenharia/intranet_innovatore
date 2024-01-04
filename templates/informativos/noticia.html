@@ -17,31 +17,54 @@
 {% block content %}
 <h1 class="h1-informativos">Informativos INN</h1>
 <div class="conteudo-noticia">
-    <h1>{{ noticia.titulo }}</h1>
-    <img src={{ noticia.imagem_noticia.url }} class="imagem-noticia">
-    <p class="paragrafo-noticia">{{ noticia.paragrafo }}</p>
-</div>
+
+    {% if noticia.titulo %}
+        <h1 class="noticia-titulo">{{ noticia.titulo }}</h1>
+    {% endif %}
+
+    {% if noticia.imagem_noticia %}
+        <img src={{ noticia.imagem_noticia.url }} class="imagem-noticia">
+    {% endif %}
+
+    {% if noticia.paragrafo %}
+        <p class="paragrafo-noticia">{{ noticia.paragrafo }}</p>
+    {% endif %}
+
 
 <!-- Blocos aqui! -->
 {% if blocos %}
     {% for bloco in blocos %}
-        <h1>{{ bloco.titulo_bloco }}</h1>
-        {% if bloco.imagem_bloco %}
-        <img src={{ bloco.imagem_bloco.url }} class="imagem-noticia">
+
+        {% if bloco.titulo_bloco %}
+            <h1 class="noticia-titulo">{{ bloco.titulo_bloco }}</h1>
         {% endif %}
-        <p>{{ bloco.paragrafo_bloco }}</p>
+
+        {% if bloco.imagem_bloco %}
+            <img src={{ bloco.imagem_bloco.url }} class="imagem-noticia">
+        {% endif %}
+
+        {% if bloco.paragrafo_bloco %}
+            <p class="paragrafo-noticia">{{ bloco.paragrafo_bloco }}</p>
+        {% endif %}
+
     {% endfor %}
 {% endif %}
 
+
 {% if noticia.obter_lista_de_tags %}
+    <h3 class="tag">Tag</h3>
     <div>
         {% for tag in noticia.obter_lista_de_tags %}
-            <div class="tag">{{ tag }}</div>
+            <div class="tags">{{ tag }}</div>
         {% endfor %}
     </div>
 {% endif %}
 
+</div>
+
+
 {% if tags_relacionadas %}
+<h1 class="mais-noticias">Ver outras notícias</h1>
 <div class="container">
     <div class="row">
     {% for noticia in tags_relacionadas %}
@@ -51,7 +74,7 @@
             <div class="card-body">
             <h5 class="card-title">{{ noticia.titulo }}</h5>
             <p class="card-text paragrafo-card">{{ noticia.paragrafo }}</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
+            <a href="{% url 'informativos/noticia' noticia.id %}" class="btn btn-primary">Ver notícia</a>
             </div>
         </div>
     </div>
