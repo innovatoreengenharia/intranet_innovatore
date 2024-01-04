@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from usuario.models import Perfil
-from .models import Noticia, Bloco, Comunicado
-from .forms import BlocoForm, ComunicadoForm
+from .models import Noticia, Bloco, Comunicado, Quadro
+from .forms import BlocoForm, ComunicadoForm, QuadroForm
 from django.forms import inlineformset_factory
 from django.urls import reverse
 from django.http import JsonResponse
@@ -179,7 +179,6 @@ def criar_comunicado(request):
         context = {
             "perfil": perfil,
         }
-
         return render(request, "informativos/criar_comunicado.html", context)
 
     elif request.method == "POST":
@@ -241,3 +240,29 @@ def deletar_comunicado(request, id):
     comunicado = Comunicado.objects.get(pk=id)
     comunicado.delete()
     return redirect("informativos")
+
+
+def criar_quadro(request):
+    if not request.user.is_authenticated:
+        return redirect("login")
+    if request.method == "GET":
+        id_usuario = int(request.user.id)
+        perfil = Perfil.objects.get(usuario_id=id_usuario)
+
+        context = {
+            "perfil": perfil,
+        }
+        return render(request, "informativos/criar_quadro.html", context)
+
+    elif request.method == "POST":
+        form = QuadroForm(request.POST, request.FILES)
+
+        if form.is_valid():
+            form.save()
+
+            return redirect(reverse("informativos"))
+
+        else:
+            context = {
+                "form": form,
+            }

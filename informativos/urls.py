@@ -27,4 +27,5 @@ urlpatterns = [
         views.todos_comunicados,
         name="informativos/todos_comunicados",
     ),
+    path("criar_quadro/", views.criar_quadro, name="informativos/criar_quadro"),
 ]

@@ -1,5 +1,5 @@
 from django import forms
-from .models import Noticia, Bloco, Comunicado
+from .models import Noticia, Bloco, Comunicado, Quadro
 
 
 class NoticiaForm(forms.ModelForm):
@@ -45,4 +45,10 @@ class BlocoForm(forms.ModelForm):
 class ComunicadoForm(forms.ModelForm):
     class Meta:
         model = Comunicado
+        fields = ["titulo", "paragrafo"]
+
+
+class QuadroForm(forms.ModelForm):
+    class Meta:
+        model = Quadro
         fields = ["titulo", "paragrafo"]

@@ -102,9 +102,15 @@
 
   
 {% if user.is_staff%}
-  <a href="{% url 'informativos/criar_comunicado' %}">Criar Comunicado</a>
+  <a href="{% url 'informativos/criar_comunicado' %}">Criar Comunicado</a><br>
 {% endif %}
+
 </div>
+
+{% if user.is_staff%}
+  <a href="{% url 'informativos/criar_quadro' %}">Criar Quadro</a>
+{% endif %}
+
 {% endblock %}
 
 {% block scripts %}
