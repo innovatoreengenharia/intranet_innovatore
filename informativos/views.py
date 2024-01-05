@@ -23,6 +23,18 @@ def informativos(request):
         "-publicado_em"
     )
     comunicados = Comunicado.objects.order_by("-publicado_em")[:3]
+    quadros = Quadro.objects.order_by("-publicado_em")[:4]
+
+    if quadros:
+        # Separando o último quadro em uma variável
+        ultimo_quadro = quadros[0]
+
+        # Separando os outros três quadros em outra variável
+        outros_quadros = quadros[1:]
+    else:
+        # Caso não haja nenhum quadro na lista
+        ultimo_quadro = None
+        outros_quadros = []
 
     context = {
         "perfil": perfil,
@@ -30,6 +42,8 @@ def informativos(request):
         "noticias_em_destaque": noticias_em_destaque,
         "noticias": noticias,
         "comunicados": comunicados,
+        "ultimo_quadro": ultimo_quadro,
+        "outros_quadros": outros_quadros,
     }
 
     return render(request, "informativos/informativos.html", context)
@@ -266,3 +280,64 @@ def criar_quadro(request):
             context = {
                 "form": form,
             }
+
+
+def editar_quadro(request, id_quadro):
+    if not request.user.is_authenticated:
+        return redirect("login")
+    if request.method == "GET":
+        quadro = Quadro.objects.get(id=id_quadro)
+        id_usuario = int(request.user.id)
+        perfil = Perfil.objects.get(usuario_id=id_usuario)
+
+        form = QuadroForm(instance=quadro)
+
+        context = {
+            "perfil": perfil,
+            "form": form,
+        }
+        return render(request, "informativos/editar_quadro.html", context)
+
+    elif request.method == "POST":
+        id_usuario = int(request.user.id)
+        perfil = Perfil.objects.get(usuario_id=id_usuario)
+        quadro = Quadro.objects.get(id=id_quadro)
+        form = QuadroForm(request.POST, instance=quadro)
+
+        if form.is_valid():
+            form.save()
+            return redirect("informativos")
+        else:
+            return redirect("informativos")
+
+
+def todos_quadros(request):
+    if not request.user.is_authenticated:
+        return redirect("login")
+    id_usuario = int(request.user.id)
+    perfil = Perfil.objects.get(usuario_id=id_usuario)
+    quadros = Quadro.objects.order_by("-publicado_em")
+    context = {
+        "perfil": perfil,
+        "quadros": quadros,
+    }
+    return render(request, "informativos/todos_quadros.html", context)
+
+
+def deletar_quadro(request, id):
+    quadro = Quadro.objects.get(pk=id)
+    quadro.delete()
+    return redirect("informativos")
+
+
+def quadro(request, id_quadro):
+    id_usuario = int(request.user.id)
+    perfil = Perfil.objects.get(usuario_id=id_usuario)
+    quadro = get_object_or_404(Quadro, pk=id_quadro)
+
+    context = {
+        "perfil": perfil,
+        "quadro": quadro,
+    }
+
+    return render(request, "informativos/quadro.html", context)

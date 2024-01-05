@@ -14,6 +14,15 @@ html{
     min-height: 100%;
     padding: 32px;
 }
+
+.col-4{
+  width: auto;
+}
+
+.col-5{
+  margin:0px;
+}
+
 h1{
   margin-bottom: 32px;
 }
@@ -212,4 +221,70 @@ a:hover{
   letter-spacing: 0em;
   text-align: left;
   color: #14355E;
+}
+
+.conteudo-quadros{
+  max-width: 100%;
+}
+
+.container-quadros{
+  padding: 80px 32px 120px 32px;
+  max-width: 100%;
+}
+
+.nossos-quadros{
+  font-family: 'Open Sans';
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 32px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #464646;
+  margin-bottom: 60px;
+}
+
+.quadro h6{
+  font-family: 'Open Sans';
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #14355E;
+}
+
+.quadro p{
+  font-family: 'Open Sans';
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 24px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #464646;
+
+}
+
+.borda-quadro{
+  width: 100%;
+  border: 1px solid #bbbbbb;
+  border-radius: 12px;
+  margin-right: 24px;
+  margin-bottom: 32px;
+}
+
+.ultimo-quadro{
+  height: 530px;
+  padding: 130px 32px;
+}
+
+.outros-quadros{
+  padding: 50px 32px;
+  height: 250px;
+}
+
+.links-quadros{
+  width: 461px;
+  height: 80px;
+  padding: 24px 21px 24px 34px;
+
 }

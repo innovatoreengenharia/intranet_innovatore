@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block estilo %}
+<link href="{% static 'informativos/css/noticia.css' %}" rel="stylesheet">
+{% endblock %}
+
+
+{% block icones %}
+    <div class="icones">
+        <img class="icone-dash" src="{% static 'informativos/img/icone-informativos.png' %}">
+        <p>Informativos / </p>
+        <img class="icone-menu" src="{% static 'dashboard/img/menu-cinza.png' %}">
+    </div>
+{% endblock %}
+
+{% block content %}
+    <h1 class="h1-informativos">Informativos INN</h1>
+    <div class="conteudo-noticia">
+
+        {% if quadro.titulo %}
+            <h1 class="noticia-titulo">{{ quadro.titulo }}</h1>
+        {% endif %}
+
+        {% if quadro.paragrafo %}
+            <p class="paragrafo-noticia">{{ quadro.paragrafo }}</p>
+        {% endif %}
+
+        {% if user.is_staff%}
+            <a href="{% url 'informativos/editar_quadro' quadro.id %}" class="editar-comunicado">Editar</a>
+            <a href="{% url 'deletar_quadro' quadro.id %}">Excluir</a>
+        {% endif %}
+
+    </div>
+{% endblock %}

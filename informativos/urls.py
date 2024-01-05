@@ -28,4 +28,20 @@ urlpatterns = [
         name="informativos/todos_comunicados",
     ),
     path("criar_quadro/", views.criar_quadro, name="informativos/criar_quadro"),
+    path(
+        "editar_quadro/<int:id_quadro>",
+        views.editar_quadro,
+        name="informativos/editar_quadro",
+    ),
+    path(
+        "todos_quadros/",
+        views.todos_quadros,
+        name="informativos/todos_quadros",
+    ),
+    path(
+        "deletar_quadro/<int:id>",
+        views.deletar_quadro,
+        name="deletar_quadro",
+    ),
+    path("quadro/<int:id_quadro>", views.quadro, name="informativos/quadro"),
 ]

@@ -106,10 +106,61 @@
 {% endif %}
 
 </div>
+<div class="container-quadros row">
 
-{% if user.is_staff%}
-  <a href="{% url 'informativos/criar_quadro' %}">Criar Quadro</a>
-{% endif %}
+  <h1>Quadros</h1>
+
+  <div class="row col-3">
+    <div>
+      <p class="nossos-quadros">Em nossos quadros internos, você encontrará um tesouro de sabedoria sobre autoajuda, aprimoramento profissional e dicas de saúde no trabalho. Venha explorar esses recursos e descubra como você pode alcançar o seu melhor em todos os aspectos.</p>
+
+      {% if ultimo_quadro %}
+      <div class="borda-quadro  ultimo-quadro">
+        <a href="{% url 'informativos/quadro' ultimo_quadro.id %}" class="quadro">
+          <h6>{{ ultimo_quadro.titulo }}</h6>
+          <p class="paragrafo-ultimo-quadro">{{ ultimo_quadro.paragrafo }}</p>
+        </a>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+
+  <div class="row col-5">
+    {% if outros_quadros %}
+      {% for quadro in outros_quadros%}
+      <div class="borda-quadro  outros-quadros">
+        <a href="{% url 'informativos/quadro' quadro.id %}" class="quadro">
+          <h6>{{ quadro.titulo }}</h6>
+          <p class="paragrafo-quadro">{{ quadro.paragrafo }}</p>
+        </a>
+      </div>
+
+      {% endfor %}
+    {% endif %}
+  </div>
+  
+  <div class="row col-4">
+    <h5 class="saude">Saúde e Desenvolvimento Profissional</h5>
+    <div  class="borda-quadro links-quadros ml-3">
+      <a href="#">Promovendo a Saúde e a Produtividade <img src="{% static 'informativos/img/seta-azul.png' %}"></a>
+    </div>
+    <div  class="borda-quadro links-quadros ml-3">
+      <a href="#">Promovendo a Saúde e a Produtividade <img src="{% static 'informativos/img/seta-azul.png' %}"></a>
+    </div>
+    <div  class="borda-quadro links-quadros ml-3">
+      <a href="#">Promovendo a Saúde e a Produtividade <img src="{% static 'informativos/img/seta-azul.png' %}"></a>
+    </div>
+    <div  class="borda-quadro links-quadros ml-3">
+      <a href="#">Promovendo a Saúde e a Produtividade <img src="{% static 'informativos/img/seta-azul.png' %}"></a>
+    </div>
+  </div>
+  
+  <a href="{% url 'informativos/todos_quadros' %}">Todos Quadros</a><br>
+  {% if user.is_staff%}
+    <a href="{% url 'informativos/criar_quadro' %}">Criar Quadro</a>
+  {% endif %}
+
+</div>
 
 {% endblock %}
 

@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block estilo %}
+<link href="{% static 'informativos/css/informativos.css' %}" rel="stylesheet">
+{% endblock %}
+
+
+{% block icones %}
+    <div class="icones">
+        <img class="icone-dash" src="{% static 'informativos/img/icone-informativos.png' %}">
+        <p>Informativos / </p>
+        <img class="icone-menu" src="{% static 'dashboard/img/menu-cinza.png' %}">
+    </div>
+{% endblock %}
+
+{% block content %}
+
+<div class="conteudo-quadros">
+    <h1>Informativos INN</h1>
+    <h1 class="noticias-h1">Quadros</h1>
+    <div class="row">
+        {% if quadros %}
+        {% for quadro in quadros%}
+
+            <a href="{% url 'informativos/quadro' quadro.id %}" class="col-4">
+            <div class="quadro outros-quadros"> 
+                    <h6>{{ quadro.titulo }}</h6>
+                    <p class="paragrafo-quadro">{{ quadro.paragrafo }}</p>
+            </div>
+            </a>
+    
+        {% endfor %}
+        {% endif %}
+    </div>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+<script src="{% static 'informativos/js/js.js' %}"></script>
+{% endblock %}
