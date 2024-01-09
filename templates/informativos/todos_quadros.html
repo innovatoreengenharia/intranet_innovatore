@@ -19,6 +19,12 @@
 <div class="conteudo-quadros">
     <h1>Informativos INN</h1>
     <h1 class="noticias-h1">Quadros</h1>
+    <form action="" style="margin-bottom:150px;">
+        <div><br></div>
+        <img src={% static 'cartao_visitas/img/filtro.png' %} class="float-right filtro" style="margin-bottom:150px;">
+        <button href="" class="float-right botao-pesquisar" type="submit ">Pesquisar</button>
+        <input type="text" name="buscar" class="input-busca float-right" placeholder="Pesquisar Quadro">
+    </form>
     <div class="row">
         {% if quadros %}
         {% for quadro in quadros%}

@@ -22,6 +22,16 @@ html{
 .col-5{
   margin:0px;
 }
+h5{
+  font-family: 'Open Sans';
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 32px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #14355E;
+  margin-bottom: 20px;
+}
 
 h1{
   margin-bottom: 32px;
@@ -65,6 +75,63 @@ h6{
   text-align: left;
 
 }
+
+.input-busca{
+  background-image: url('../img/lupa-input.png');
+  background-repeat: no-repeat;
+  background-position: 32px 15px;
+  margin-right: 24px;
+  width: 411px;
+  height: 64px;
+  padding: 18px 32px 14px 86px;
+  border-radius: 30px;
+  border: 1px solid #e8e8e8;
+  gap: 10px;
+
+}
+
+/* Para navegadores webkit como Safari */
+input[name='buscar']::-webkit-input-placeholder {
+  color: var(--preto-preto-300, #e8e8e8);
+  font-family: 'Open Sans';   
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 24px;
+  letter-spacing: 0em;
+  /* padding-left: 44px; */
+
+}
+
+input:-ms-input-placeholder {
+  color: var(--preto-preto-300, #e8e8e8);
+  font-family: 'Open Sans';   
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 24px;
+  letter-spacing: 0em;
+  text-align: left;
+
+}
+
+.botao-pesquisar{
+  font-family: 'Open Sans';
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  letter-spacing: 0em;
+  text-align: left;
+
+
+  width: 158px;
+  height: 64px;
+  padding: 12px 44px 12px 40px;
+  border-radius: 30px;
+  gap: 10px;
+  background: linear-gradient(#14295E, #2568BB);
+  color:white;
+  margin-right:50px;
+}
+
 .paragrafo{
 font-family: 'Open Sans';
 color: #464646;
@@ -240,7 +307,7 @@ a:hover{
   letter-spacing: 0em;
   text-align: left;
   color: #464646;
-  margin-bottom: 60px;
+  margin-bottom: 80px;
 }
 
 .quadro h6{
@@ -273,7 +340,7 @@ a:hover{
 }
 
 .ultimo-quadro{
-  height: 530px;
+  height: 545px;
   padding: 130px 32px;
 }
 
@@ -286,5 +353,40 @@ a:hover{
   width: 461px;
   height: 80px;
   padding: 24px 21px 24px 34px;
+  color:#14295E;
 
 }
+.links-quadros:hover{
+  background: linear-gradient(90deg, #14295E 0%, #2568BB 100%);
+  color: white;
+}
+ 
+.links-quadros a{
+  padding-top: 20px;
+}
+
+.links-quadros a:hover{
+  color:white;
+}
+
+
+
+.botao{
+  width: 90px;
+  height: 32px;
+  border-radius: 6px;
+  background: linear-gradient(90deg, #14295E 0%, #2568BB 100%);
+  color:white;
+  font-size: 12px;
+}
+
+.botoes-ver-mais{
+  margin-left: 80%;
+  margin-bottom: 30px;
+}
+
+.botao-todos{
+  padding: 15px;
+  margin-left: 32px;
+}
+

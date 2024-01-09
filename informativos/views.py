@@ -175,6 +175,15 @@ def todas_noticias(request):
     id_usuario = int(request.user.id)
     perfil = Perfil.objects.get(usuario_id=id_usuario)
     noticias = Noticia.objects.order_by("-publicado_em")
+
+    buscar_filtro = request.GET.get("buscar")
+    if buscar_filtro:
+        noticias = Noticia.objects.filter(
+            Q(titulo__icontains=buscar_filtro)
+            | Q(paragrafo__icontains=buscar_filtro)
+            | Q(tags__icontains=buscar_filtro)
+        )
+
     context = {
         "perfil": perfil,
         "noticias": noticias,
@@ -243,6 +252,11 @@ def todos_comunicados(request):
     id_usuario = int(request.user.id)
     perfil = Perfil.objects.get(usuario_id=id_usuario)
     comunicados = Comunicado.objects.order_by("-publicado_em")
+    buscar_filtro = request.GET.get("buscar")
+    if buscar_filtro:
+        comunicados = Comunicado.objects.filter(
+            Q(titulo__icontains=buscar_filtro) | Q(paragrafo__icontains=buscar_filtro)
+        )
     context = {
         "perfil": perfil,
         "comunicados": comunicados,
@@ -317,6 +331,11 @@ def todos_quadros(request):
     id_usuario = int(request.user.id)
     perfil = Perfil.objects.get(usuario_id=id_usuario)
     quadros = Quadro.objects.order_by("-publicado_em")
+    buscar_filtro = request.GET.get("buscar")
+    if buscar_filtro:
+        quadros = Quadro.objects.filter(
+            Q(titulo__icontains=buscar_filtro) | Q(paragrafo__icontains=buscar_filtro)
+        )
     context = {
         "perfil": perfil,
         "quadros": quadros,

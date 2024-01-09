@@ -59,7 +59,7 @@
     </div>
 </div>
 
-<a href={% url 'informativos/todas_noticias' %}>Todas Notícias</a><br>
+<a href={% url 'informativos/todas_noticias' %} class="botao botao-todos">Todas Notícias</a><br><br>
 
 {% if user.is_staff%}
   <a href={% url 'informativos/criar_noticia' %}>Criar Notícia</a>
@@ -80,30 +80,28 @@
     </div>
   {% endfor %}
 </div>
-{% for comunicado in comunicados %}
-<div class="modal fade" id="comunicadoModal{{ forloop.counter }}" tabindex="-1" role="dialog" aria-labelledby="comunicadoModalLabel{{ forloop.counter }}" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h6 class="modal-title" id="comunicadoModalLabel">{{ comunicado.titulo }}</h6>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <p class="paragrafo">{{ comunicado.paragrafo }}</p>
+  {% for comunicado in comunicados %}
+  <div class="modal fade" id="comunicadoModal{{ forloop.counter }}" tabindex="-1" role="dialog" aria-labelledby="comunicadoModalLabel{{ forloop.counter }}" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h6 class="modal-title" id="comunicadoModalLabel">{{ comunicado.titulo }}</h6>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p class="paragrafo">{{ comunicado.paragrafo }}</p>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-{% endfor %}
+  {% endfor %}
 
-<a href="{% url 'informativos/todos_comunicados' %}">Todos Comunicados</a><br>
-
-  
-{% if user.is_staff%}
-  <a href="{% url 'informativos/criar_comunicado' %}">Criar Comunicado</a><br>
-{% endif %}
+  <a href="{% url 'informativos/todos_comunicados' %}" class="botao botao-todos">Todos Comunicados</a><br><br>
+  {% if user.is_staff%}
+    <a href="{% url 'informativos/criar_comunicado' %}">Criar Comunicado</a><br>
+  {% endif %}
 
 </div>
 <div class="container-quadros row">
@@ -142,25 +140,36 @@
   <div class="row col-4">
     <h5 class="saude">Saúde e Desenvolvimento Profissional</h5>
     <div  class="borda-quadro links-quadros ml-3">
-      <a href="#">Promovendo a Saúde e a Produtividade <img src="{% static 'informativos/img/seta-azul.png' %}"></a>
+      <a href="#">Promovendo a Saúde e a Produtividade <i class="fas fa-arrow-right seta float-right"></i></a>
     </div>
     <div  class="borda-quadro links-quadros ml-3">
-      <a href="#">Promovendo a Saúde e a Produtividade <img src="{% static 'informativos/img/seta-azul.png' %}"></a>
+      <a href="#">Saúde e Bem-Estar<i class="fas fa-arrow-right seta float-right"></i></a>
     </div>
     <div  class="borda-quadro links-quadros ml-3">
-      <a href="#">Promovendo a Saúde e a Produtividade <img src="{% static 'informativos/img/seta-azul.png' %}"></a>
+      <a href="#">Desenvolvimento Profissional <i class="fas fa-arrow-right seta float-right"></i></a>
     </div>
     <div  class="borda-quadro links-quadros ml-3">
-      <a href="#">Promovendo a Saúde e a Produtividade <img src="{% static 'informativos/img/seta-azul.png' %}"></a>
+      <a href="#">Sucesso Profissional e Saúde no Trabalho <i class="fas fa-arrow-right seta float-right"></i></a>
     </div>
+    <button class="botao botoes-ver-mais">Ver Mais</button>
+
+    <h5 class="saude">Conhecendo os Nossos Projetos</h5>
+    <div  class="borda-quadro links-quadros ml-3">
+      <a href="#">Conheça a obra da Auren<i class="fas fa-arrow-right seta float-right"></i></a>
+    </div>
+    <div  class="borda-quadro links-quadros ml-3">
+      <a href="#">Veja o andamento da obra Ajinomoto <i class="fas fa-arrow-right seta float-right"></i></a>
+    </div>
+    <button class="botao botoes-ver-mais">Ver Mais</button>
   </div>
   
-  <a href="{% url 'informativos/todos_quadros' %}">Todos Quadros</a><br>
-  {% if user.is_staff%}
-    <a href="{% url 'informativos/criar_quadro' %}">Criar Quadro</a>
-  {% endif %}
-
+  
 </div>
+<a href="{% url 'informativos/todos_quadros' %}" class="botao botao-todos">Todos Quadros</a><br><br>
+
+{% if user.is_staff%}
+  <a href="{% url 'informativos/criar_quadro' %}">Criar Quadro</a>
+{% endif %}
 
 {% endblock %}
 
