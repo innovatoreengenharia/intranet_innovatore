@@ -50,6 +50,11 @@
     {% endfor %}
 {% endif %}
 
+{% if user.is_staff%}
+    <a href="{% url 'informativos/editar_noticia' noticia.id %}" class="editar-comunicado">Editar</a>
+    <a href="{% url 'deletar_noticia' noticia.id %}">Excluir</a>
+{% endif %}
+
 
 {% if noticia.obter_lista_de_tags %}
     <h3 class="tag">Tag</h3>

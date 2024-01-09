@@ -4,6 +4,16 @@ from . import views
 urlpatterns = [
     path("", views.informativos, name="informativos"),
     path("noticia/<int:id>", views.noticia, name="informativos/noticia"),
+    path(
+        "editar_noticia/<int:id>",
+        views.editar_noticia,
+        name="informativos/editar_noticia",
+    ),
+    path(
+        "deletar_noticia/<int:id>",
+        views.deletar_noticia,
+        name="deletar_noticia",
+    ),
     path("criar_noticia/", views.criar_noticia, name="informativos/criar_noticia"),
     path("add_noticia/", views.add_noticia, name="informativos/add_noticia"),
     path("todas_noticias/", views.todas_noticias, name="informativos/todas_noticias"),

@@ -196,6 +196,16 @@ def todas_noticias(request):
     return render(request, "informativos/todas_noticias.html", context)
 
 
+def editar_noticia(request, id):
+    pass
+
+
+def deletar_noticia(request, id):
+    noticia = Noticia.objects.get(pk=id)
+    noticia.delete()
+    return redirect("informativos")
+
+
 def criar_comunicado(request):
     if not request.user.is_authenticated:
         return redirect("login")

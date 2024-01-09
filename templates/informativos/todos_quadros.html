@@ -27,16 +27,14 @@
     </form>
     <div class="row">
         {% if quadros %}
-        {% for quadro in quadros%}
-
-            <a href="{% url 'informativos/quadro' quadro.id %}" class="col-4">
-            <div class="quadro outros-quadros"> 
-                    <h6>{{ quadro.titulo }}</h6>
-                    <p class="paragrafo-quadro">{{ quadro.paragrafo }}</p>
-            </div>
-            </a>
-    
-        {% endfor %}
+            {% for quadro in quadros%}
+                <a href="{% url 'informativos/quadro' quadro.id %}" class="col-4">
+                <div class="quadro outros-quadros"> 
+                        <h6>{{ quadro.titulo }}</h6>
+                        <p class="paragrafo-quadro">{{ quadro.paragrafo }}</p>
+                </div>
+                </a>
+            {% endfor %}
         {% endif %}
     </div>
 </div>
