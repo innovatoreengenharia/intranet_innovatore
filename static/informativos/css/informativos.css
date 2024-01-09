@@ -77,7 +77,7 @@ h6{
 }
 
 .input-busca{
-  background-image: url('../img/lupa-input.png');
+  background-image: url('../../cartao_visitas/img/lupa-input.png');
   background-repeat: no-repeat;
   background-position: 32px 15px;
   margin-right: 24px;
@@ -382,7 +382,6 @@ a:hover{
 
 .botoes-ver-mais{
   margin-left: 80%;
-  margin-bottom: 30px;
 }
 
 .botao-todos{
@@ -390,3 +389,32 @@ a:hover{
   margin-left: 32px;
 }
 
+.paginacao{
+  background-color: transparent;
+  margin-top: 100px;
+  padding-bottom: 52px;
+}
+
+.paginas{
+  font-family: 'Open Sans';
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 32px;
+  letter-spacing: 0em;
+  margin-left: 32px;
+  text-align: left;
+  color: #bbbbbb;
+
+}
+.pagina-selecionada{
+  display: inline-block;
+  background: linear-gradient(90deg, #14355F 0%, #1655A3 100%);
+  font-family: 'Open Sans';
+  font-size: 22px;
+  font-weight: 400;
+  width:37px;
+  height: 37px;
+  margin-left: 30px;
+  border-radius: 50%;
+  color:white;
+}

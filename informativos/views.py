@@ -10,6 +10,7 @@ import base64
 from django.core.files.base import ContentFile
 from django.db.models import Q
 import json
+from django.core.paginator import Paginator
 
 
 def informativos(request):
@@ -183,10 +184,14 @@ def todas_noticias(request):
             | Q(paragrafo__icontains=buscar_filtro)
             | Q(tags__icontains=buscar_filtro)
         )
+    documento_paginator = Paginator(noticias, 100)
+    page_num = request.GET.get("page")
+    page = documento_paginator.get_page(page_num)
 
     context = {
         "perfil": perfil,
-        "noticias": noticias,
+        "noticias": page.object_list,
+        "page": page,
     }
     return render(request, "informativos/todas_noticias.html", context)
 
@@ -257,9 +262,15 @@ def todos_comunicados(request):
         comunicados = Comunicado.objects.filter(
             Q(titulo__icontains=buscar_filtro) | Q(paragrafo__icontains=buscar_filtro)
         )
+
+    documento_paginator = Paginator(comunicados, 100)
+    page_num = request.GET.get("page")
+    page = documento_paginator.get_page(page_num)
+
     context = {
         "perfil": perfil,
-        "comunicados": comunicados,
+        "comunicados": page.object_list,
+        "page": page,
     }
     return render(request, "informativos/todos_comunicados.html", context)
 
@@ -336,9 +347,15 @@ def todos_quadros(request):
         quadros = Quadro.objects.filter(
             Q(titulo__icontains=buscar_filtro) | Q(paragrafo__icontains=buscar_filtro)
         )
+
+    documento_paginator = Paginator(quadros, 100)
+    page_num = request.GET.get("page")
+    page = documento_paginator.get_page(page_num)
+
     context = {
         "perfil": perfil,
-        "quadros": quadros,
+        "quadros": page.object_list,
+        "page": page,
     }
     return render(request, "informativos/todos_quadros.html", context)
 

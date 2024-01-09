@@ -49,6 +49,23 @@
     </div>
 </div>
 
+<div class="container-fluid text-center paginacao">
+    {% if page.has_previous %}
+        <a href="{% url 'informativos/todas_noticias' %}?page={{page.previous_page_number}}"><img src={% static 'documentos/img/anterior.png' %}></a>
+    {% endif %}
+    {% for i in page.paginator.page_range %}
+        {% if page.number == i %}
+            <p class="pagina-selecionada"><a>{{ i }}</a></p>
+        {% else %}
+            <a href="?page={{ i }}" class="paginas">{{ i }}</a>
+        {% endif %}
+    {% endfor %}
+
+    {% if page.has_next %}
+    <a href="{% url 'informativos/todas_noticias' %}?page={{page.next_page_number}}" style="margin-left: 32px;"><img src={% static "documentos/img/proximo.png" %}></a>
+    {% endif %}
+</div>
+
 {% endblock %}
 
 {% block scripts %}
