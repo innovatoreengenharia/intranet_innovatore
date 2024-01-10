@@ -32,7 +32,9 @@ class BlocoForm(forms.ModelForm):
         fields = ["imagem_bloco", "titulo_bloco", "paragrafo_bloco"]
 
         widgets = {
-            "imagem_bloco": forms.FileInput(attrs={"class": "form-control"}),
+            "imagem_bloco": forms.FileInput(
+                attrs={"class": "form-control imagem_bloco"}
+            ),
             "titulo_bloco": forms.TextInput(attrs={"class": "form-control"}),
             "paragrafo_bloco": forms.Textarea(
                 attrs={

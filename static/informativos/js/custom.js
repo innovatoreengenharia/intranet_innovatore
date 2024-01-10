@@ -71,8 +71,6 @@ var redimensionar_noticia = $('#preview_noticia').croppie({
 });
 
 
-
-
 // Executar a instrução quando o usuário selcionar uma imagem.
 $('#imagem').on('change', function(){
 
@@ -99,7 +97,25 @@ $('#imagem').on('change', function(){
      reader.readAsDataURL(this.files[0]);
 
 });
-
+var blocos = [];
+    
+// criar uma variavel imagens contendo um objeto com chave e valor, sendo chave o objeto que ela pertence e valor a imagem
+var imagens = {};
+var nomes_de_imagens = {}
+// fazer uma query nos imagem_bloco
+$(".imagem_bloco").on('change', function() {
+    var name = this.name
+    var index = name.replace("bloco_set-", "").replace("-imagem_bloco", "")
+    // criar um evento de on change
+    var reader = new FileReader();
+    reader.onload = function(e){
+        imagem = e.target.result
+        // adicionar a imagem ao dicionario de imagens
+        imagens[index] = imagem
+    }
+    nomes_de_imagens[index] = this.files[0].name
+    reader.readAsDataURL(this.files[0])
+})
 $(".btn-upload-imagem").on("click", async function(){
 
     //Verifica se a imagem é destaque:
@@ -128,19 +144,15 @@ $(".btn-upload-imagem").on("click", async function(){
         type: "canvas",
         size: "original"
     });
-
-    var blocos = []
-    $('.inline-bloco').each(function(index, element){
-        blocos.push(
-            {
-                /* imagem_bloco: $(element).find('[name$=imagem_bloco]').val(), */
-                titulo_bloco: $(element).find('[name$=titulo_bloco]').val(),
-                paragrafo_bloco: $(element).find('[name$=paragrafo_bloco]').val(),
-            },
-        )
+    $('.inline-bloco').each(function(index, element) {
+        blocos.push({
+            imagem_bloco: imagens[index],
+            nome_imagem_bloco: nomes_de_imagens[index],
+            titulo_bloco: $(element).find('[name$=titulo_bloco]').val(),
+            paragrafo_bloco: $(element).find('[name$=paragrafo_bloco]').val(),
+        });
     });
-    console.log(blocos)
-
+    
     $.ajax({
         url:"/informativos/add_noticia/",
         type: "POST",
@@ -170,7 +182,7 @@ $(".btn-upload-imagem").on("click", async function(){
             $("#preview_thumb").val("");
             $("#preview_noticia").val("");
             $("#destaque").prop("checked", false);
-            
+
             alert("Imagens enviadas com sucesso");
             
         }

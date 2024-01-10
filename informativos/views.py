@@ -149,20 +149,28 @@ def add_noticia(request):
 
     noticia.save()
 
-    """ form_bloco_factory = inlineformset_factory(Noticia, Bloco, BlocoForm)
-    form_bloco = form_bloco_factory(request.POST, instance=noticia)
-    form_bloco.save() """
-
     blocos_json = request.POST.get("blocos", None)
     blocos = json.loads(blocos_json)
     for bloco in blocos:
-        titulo_boco = bloco["titulo_bloco"]
+        titulo_bloco = bloco["titulo_bloco"]
         paragrafo_bloco = bloco["paragrafo_bloco"]
-        bloco_save = Bloco(
-            noticia=noticia,
-            titulo_bloco=titulo_boco,
-            paragrafo_bloco=paragrafo_bloco,
-        )
+
+        if bloco.get("imagem_bloco"):
+            imagem_bloco = convert_image(
+                bloco["imagem_bloco"], bloco["nome_imagem_bloco"]
+            )
+            bloco_save = Bloco(
+                noticia=noticia,
+                imagem_bloco=imagem_bloco,
+                titulo_bloco=titulo_bloco,
+                paragrafo_bloco=paragrafo_bloco,
+            )
+        else:
+            bloco_save = Bloco(
+                noticia=noticia,
+                titulo_bloco=titulo_bloco,
+                paragrafo_bloco=paragrafo_bloco,
+            )
         bloco_save.save()
 
     return JsonResponse(
