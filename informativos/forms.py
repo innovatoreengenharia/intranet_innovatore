@@ -6,19 +6,23 @@ class NoticiaForm(forms.ModelForm):
     class Meta:
         model = Noticia
         fields = [
+            "titulo",
             "imagem",
             "imagem_destaque",
             "imagem_thumb",
             "imagem_noticia",
             "paragrafo",
+            "destaque",
+            "tags",
         ]
 
         widgets = {
             "imagem": forms.FileInput(attrs={"class": "form-control"}),
+            "titulo": forms.TextInput(attrs={"class": "form-control"}),
             "imagem_destaque": forms.FileInput(attrs={"class": "form-control"}),
             "imagem_thumb": forms.FileInput(attrs={"class": "form-control"}),
             "imagem_noticia": forms.FileInput(attrs={"class": "form-control"}),
-            "paragrafo": forms.TextInput(
+            "paragrafo": forms.Textarea(
                 attrs={
                     "class": "form-control",
                 }

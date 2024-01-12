@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from usuario.models import Perfil
 from .models import Noticia, Bloco, Comunicado, Quadro
-from .forms import BlocoForm, ComunicadoForm, QuadroForm
+from .forms import BlocoForm, ComunicadoForm, QuadroForm, NoticiaForm
 from django.forms import inlineformset_factory
 from django.urls import reverse
 from django.http import JsonResponse
@@ -204,8 +204,50 @@ def todas_noticias(request):
     return render(request, "informativos/todas_noticias.html", context)
 
 
-def editar_noticia(request, id):
-    pass
+def editar_noticia(request, id_noticia):
+    if not request.user.is_authenticated:
+        return redirect("login")
+    if request.method == "GET":
+        id_usuario = int(request.user.id)
+        perfil = Perfil.objects.get(usuario_id=id_usuario)
+        noticia = Noticia.objects.get(id=id_noticia)
+
+        form = NoticiaForm(instance=noticia)
+
+        form_bloco_factory = inlineformset_factory(
+            Noticia, Bloco, form=BlocoForm, extra=1
+        )
+        form_bloco = form_bloco_factory(instance=noticia)
+
+        context = {
+            "perfil": perfil,
+            "form": form,
+            "form_bloco": form_bloco,
+        }
+        return render(request, "informativos/editar_noticia.html", context)
+
+    elif request.method == "POST":
+        usuario_id = request.user.id
+        noticia = Noticia.objects.get(id=id_noticia)
+
+        form = NoticiaForm(request.POST, request.FILES, instance=noticia)
+
+        form_bloco_factory = inlineformset_factory(Noticia, Bloco, form=BlocoForm)
+        form_bloco = form_bloco_factory(request.POST, request.FILES, instance=noticia)
+
+        if form.is_valid() and form_bloco.is_valid():
+            principal = form.save()
+            form_bloco.instance = principal
+            form_bloco.save()
+            return redirect("informativos")
+        else:
+            context = {
+                "usuario_id": usuario_id,
+                "perfil": perfil,
+                "form": form,
+                "form_bloco": form_bloco,
+            }
+            return render(request, "informativos/editar_noticia.html", context)
 
 
 def deletar_noticia(request, id):

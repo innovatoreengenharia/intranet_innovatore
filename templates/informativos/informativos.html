@@ -59,7 +59,7 @@
     </div>
 </div>
 
-<a href={% url 'informativos/todas_noticias' %} class="botao botao-todos">Todas Notícias</a><br><br>
+<button onclick=window.location.href="{% url 'informativos/todas_noticias' %}" class="botao botao-todos">Todas Notícias</button><br><br>
 
 {% if user.is_staff%}
   <a href={% url 'informativos/criar_noticia' %}>Criar Notícia</a>
@@ -98,7 +98,7 @@
     </div>
   {% endfor %}
 
-  <a href="{% url 'informativos/todos_comunicados' %}" class="botao botao-todos">Todos Comunicados</a><br><br>
+  <button onclick=window.location.href="{% url 'informativos/todos_comunicados' %}" class="botao botao-todos">Todos Comunicados</button><br><br>
   {% if user.is_staff%}
     <a href="{% url 'informativos/criar_comunicado' %}">Criar Comunicado</a><br>
   {% endif %}
@@ -151,7 +151,7 @@
     <div  class="borda-quadro links-quadros ml-3">
       <a href="#">Sucesso Profissional e Saúde no Trabalho <i class="fas fa-arrow-right seta float-right"></i></a>
     </div>
-    <button class="botao botoes-ver-mais">Ver Mais</button>
+    <button class="botoes-ver-mais">Ver Mais</button>
 
     <h5 class="saude">Conhecendo os Nossos Projetos</h5>
     <div  class="borda-quadro links-quadros ml-3">
@@ -160,12 +160,12 @@
     <div  class="borda-quadro links-quadros ml-3">
       <a href="#">Veja o andamento da obra Ajinomoto <i class="fas fa-arrow-right seta float-right"></i></a>
     </div>
-    <button class="botao botoes-ver-mais">Ver Mais</button>
+    <button class="botoes-ver-mais">Ver Mais</button>
   </div>
   
   
 </div>
-<a href="{% url 'informativos/todos_quadros' %}" class="botao botao-todos">Todos Quadros</a><br><br>
+<button onclick=window.location.href="{% url 'informativos/todos_quadros' %}" class="botao botao-todos">Todos Quadros</button><br><br>
 
 {% if user.is_staff%}
   <a href="{% url 'informativos/criar_quadro' %}">Criar Quadro</a>

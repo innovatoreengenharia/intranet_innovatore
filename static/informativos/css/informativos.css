@@ -299,6 +299,10 @@ a:hover{
   max-width: 100%;
 }
 
+.saude{
+  margin-bottom: 25px;
+}
+
 .nossos-quadros{
   font-family: 'Open Sans';
   font-size: 16px;
@@ -340,7 +344,6 @@ a:hover{
 }
 
 .ultimo-quadro{
-  height: 545px;
   padding: 130px 32px;
 }
 
@@ -362,18 +365,18 @@ a:hover{
 }
  
 .links-quadros a{
+  color:#14295E;
   padding-top: 20px;
 }
 
-.links-quadros a:hover{
+.links-quadros:hover a{
   color:white;
 }
 
 
 
 .botao{
-  width: 90px;
-  height: 32px;
+  padding: 10px;
   border-radius: 6px;
   background: linear-gradient(90deg, #14295E 0%, #2568BB 100%);
   color:white;
@@ -382,10 +385,16 @@ a:hover{
 
 .botoes-ver-mais{
   margin-left: 80%;
+  margin-bottom: 25px;
+  width: 100px;
+  padding: 10px;
+  border-radius: 6px;
+  background: linear-gradient(90deg, #14295E 0%, #2568BB 100%);
+  color:white;
+  font-size: 12px;
 }
 
 .botao-todos{
-  padding: 15px;
   margin-left: 32px;
 }
 

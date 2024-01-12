@@ -19,7 +19,7 @@
 <div class="conteudo-quadros">
     <h1>Informativos INN</h1>
     <h1 class="noticias-h1">Quadros</h1>
-    <form action="" style="margin-bottom:150px;">
+    <form action="" style="margin-bottom:150px; margin-right:32px;">
         <div><br></div>
         <img src={% static 'cartao_visitas/img/filtro.png' %} class="float-right filtro" style="margin-bottom:150px;">
         <button href="" class="float-right botao-pesquisar" type="submit ">Pesquisar</button>
@@ -29,9 +29,11 @@
         {% if quadros %}
             {% for quadro in quadros%}
                 <a href="{% url 'informativos/quadro' quadro.id %}" class="col-4">
-                <div class="quadro outros-quadros"> 
-                        <h6>{{ quadro.titulo }}</h6>
-                        <p class="paragrafo-quadro">{{ quadro.paragrafo }}</p>
+                <div class="borda-quadro">
+                    <div class="quadro outros-quadros"> 
+                            <h6>{{ quadro.titulo }}</h6>
+                            <p class="paragrafo-quadro">{{ quadro.paragrafo }}</p>
+                    </div>
                 </div>
                 </a>
             {% endfor %}

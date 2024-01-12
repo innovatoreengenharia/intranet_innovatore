@@ -39,7 +39,9 @@ html{
     letter-spacing: 0em;
     text-align: left;
     color: #464646;
-
+}
+pre{
+    white-space: pre-wrap;
 }
 
 .noticia-titulo{
@@ -82,3 +84,7 @@ html{
 .editar-comunicado{
     margin-right: 15px;
   }
+
+.imagem-bloco{
+    height: 472px;
+}

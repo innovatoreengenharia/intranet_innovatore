@@ -5,7 +5,7 @@ urlpatterns = [
     path("", views.informativos, name="informativos"),
     path("noticia/<int:id>", views.noticia, name="informativos/noticia"),
     path(
-        "editar_noticia/<int:id>",
+        "editar_noticia/<int:id_noticia>",
         views.editar_noticia,
         name="informativos/editar_noticia",
     ),

@@ -27,8 +27,9 @@
     {% endif %}
 
     {% if noticia.paragrafo %}
-        <p class="paragrafo-noticia">{{ noticia.paragrafo }}</p>
+        <pre class="paragrafo-noticia">{{ noticia.paragrafo|safe }}</pre>
     {% endif %}
+
 
 
 <!-- Blocos aqui! -->
@@ -40,11 +41,11 @@
         {% endif %}
 
         {% if bloco.imagem_bloco %}
-            <img src={{ bloco.imagem_bloco.url }} class="imagem-noticia">
+            <img src={{ bloco.imagem_bloco.url }} class="imagem-bloco rounded mx-auto d-block mb-5">
         {% endif %}
 
         {% if bloco.paragrafo_bloco %}
-            <p class="paragrafo-noticia">{{ bloco.paragrafo_bloco }}</p>
+            <pre class="paragrafo-noticia">{{ bloco.paragrafo_bloco|safe }}</pre>
         {% endif %}
 
     {% endfor %}
