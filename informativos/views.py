@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from usuario.models import Perfil
-from .models import Noticia, Bloco, Comunicado, Quadro
-from .forms import BlocoForm, ComunicadoForm, QuadroForm, NoticiaForm
+from .models import Noticia, Bloco, Comunicado, Quadro, Comentario_noticia
+from .forms import BlocoForm, ComunicadoForm, QuadroForm, NoticiaForm, ComentarioForm
 from django.forms import inlineformset_factory
 from django.urls import reverse
 from django.http import JsonResponse
@@ -51,39 +51,58 @@ def informativos(request):
 
 
 def noticia(request, id):
+    if not request.user.is_authenticated:
+        return redirect("login")
     id_usuario = int(request.user.id)
     perfil = Perfil.objects.get(usuario_id=id_usuario)
     noticia = get_object_or_404(Noticia, pk=id)
 
-    blocos = Bloco.objects.filter(noticia_id=noticia.id)
+    if request.method == "GET":
+        blocos = Bloco.objects.filter(noticia_id=noticia.id)
+        comentarios = Comentario_noticia.objects.filter(noticia=noticia)
 
-    # Obtém as tags da notícia atual
-    tags_do_objeto = noticia.obter_lista_de_tags()
+        # Obtém as tags da notícia atual
+        tags_do_objeto = noticia.obter_lista_de_tags()
 
-    # Inicializa a lista de notícias relacionadas
-    tags_relacionadas = []
+        # Inicializa a lista de notícias relacionadas
+        tags_relacionadas = []
 
-    # Se a notícia atual possui tags, busca notícias relacionadas
-    if tags_do_objeto:
-        # Filtra notícias que têm tags em comum com a notícia atual
-        for tag in tags_do_objeto:
-            # Adiciona resultados à lista apenas se ainda não estiverem presentes
-            tags_relacionadas += (
-                Noticia.objects.filter(Q(tags__icontains=tag) | Q(tags__iexact=tag))
-                .exclude(pk=id)
-                .exclude(pk__in=[n.pk for n in tags_relacionadas])
-            )[:3]
+        # Se a notícia atual possui tags, busca notícias relacionadas
+        if tags_do_objeto:
+            # Filtra notícias que têm tags em comum com a notícia atual
+            for tag in tags_do_objeto:
+                # Adiciona resultados à lista apenas se ainda não estiverem presentes
+                tags_relacionadas += (
+                    Noticia.objects.filter(Q(tags__icontains=tag) | Q(tags__iexact=tag))
+                    .exclude(pk=id)
+                    .exclude(pk__in=[n.pk for n in tags_relacionadas])
+                )
+            tags_relacionadas = tags_relacionadas[:3]
 
-    # Prepara o contexto
-    context = {
-        "perfil": perfil,
-        "noticia": noticia,
-        "tags_do_objeto": tags_do_objeto,
-        "tags_relacionadas": tags_relacionadas,
-        "blocos": blocos,
-    }
+        # Prepara o contexto
+        context = {
+            "perfil": perfil,
+            "noticia": noticia,
+            "blocos": blocos,
+            "comentarios": comentarios,
+            "tags_do_objeto": tags_do_objeto,
+            "tags_relacionadas": tags_relacionadas,
+        }
 
-    return render(request, "informativos/noticia.html", context)
+        return render(request, "informativos/noticia.html", context)
+
+    elif request.method == "POST":
+        form = ComentarioForm(request.POST)
+
+        if form.is_valid():
+            form.save()
+
+            return redirect(reverse("informativos/noticia", kwargs={"id": id}))
+
+        else:
+            context = {
+                "form": form,
+            }
 
 
 def criar_noticia(request):
@@ -254,6 +273,27 @@ def deletar_noticia(request, id):
     noticia = Noticia.objects.get(pk=id)
     noticia.delete()
     return redirect("informativos")
+
+
+def editar_comentario(request, id_comentario, id_noticia):
+    if not request.user.is_authenticated:
+        return redirect("login")
+
+    if request.method == "POST":
+        comentario = Comentario_noticia.objects.get(id=id_comentario)
+        form = ComentarioForm(request.POST, instance=comentario)
+
+        if form.is_valid():
+            form.save()
+            return redirect(reverse("informativos/noticia", kwargs={"id": id_noticia}))
+        else:
+            return redirect(reverse("informativos/noticia", kwargs={"id": id_noticia}))
+
+
+def deletar_comentario(request, id_comentario, id_noticia):
+    comentario = Comentario_noticia.objects.get(pk=id_comentario)
+    comentario.delete()
+    return redirect(reverse("informativos/noticia", kwargs={"id": id_noticia}))
 
 
 def criar_comunicado(request):

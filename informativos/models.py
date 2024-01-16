@@ -1,5 +1,6 @@
 from django.db import models
 from datetime import datetime
+from usuario.models import Perfil
 
 
 class Noticia(models.Model):
@@ -29,6 +30,13 @@ class Noticia(models.Model):
 
     def __str__(self):
         return self.titulo
+
+
+class Comentario_noticia(models.Model):
+    user = models.ForeignKey(Perfil, on_delete=models.CASCADE)
+    noticia = models.ForeignKey(Noticia, on_delete=models.CASCADE)
+    texto_comentario = models.TextField()
+    criado_em = models.DateTimeField(auto_now_add=True)
 
 
 class Bloco(models.Model):

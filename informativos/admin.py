@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Noticia, Bloco, Comunicado, Quadro
+from .models import Noticia, Bloco, Comentario_noticia, Comunicado, Quadro
 
 
 class NoticiasAdmin(admin.ModelAdmin):
@@ -11,6 +11,8 @@ class NoticiasAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Noticia, NoticiasAdmin)
+
+admin.site.register(Comentario_noticia)
 
 admin.site.register(Bloco)
 

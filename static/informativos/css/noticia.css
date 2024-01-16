@@ -88,3 +88,124 @@ pre{
 .imagem-bloco{
     height: 472px;
 }
+
+.formulario_editar_comentario{
+    position:fixed;
+    border: 1px solid gray;
+    top:40%;
+    right: 35%;
+    z-index: 1000;
+    display:none;
+    background-color: white;
+    width:700px;
+    border-radius: 24px;
+    padding:24px;
+    margin-bottom: 24px;
+}
+
+.comentarios-p img{
+    margin-top: 12px;
+    margin-right: 12px;
+}
+
+.img-profile{
+    height: 2rem;
+    width: 2rem;
+    margin-bottom: 16px;
+    top: 0px;
+}
+
+.foto-perfil{
+    width: 91px;
+    height: 91px;
+    flex-shrink: 0;
+    border-radius: 20px;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.texto-comentario{
+    position: relative;
+    background-color: #f9f9f9;
+    padding-right:12px;
+    padding-bottom: 8px;
+    border-radius: 12px;
+    margin-bottom:24px;
+}
+
+.texto-comentario-p{
+    margin-left: 48px;
+}
+.texto-comentario .img-comentario{
+    margin-top: 12px;
+    margin-right:12px;
+    width:32px;
+    height:32px;
+    border-radius:50%;
+}
+
+.nome-comentario{
+    display:inline-block;
+}
+
+.texto-comentario .icone-comentarios-p img{
+    margin-top: 12px;
+    margin-left: 48px;
+    margin-right: 12px;
+}
+
+.div-comentario{
+    border-top: 1px solid #E8E8E8;
+    margin-top: 24px;
+    padding-top: 24px;
+}
+
+.div-comentario .img-input-comentario{
+    width:32px;
+    height:32px;
+    border-radius: 50%;
+    margin-top: 12px;
+    margin-right: 12px;
+}
+
+.div-comentario form{
+    display: block;
+}
+
+.link-excluir-comentario{
+    position: absolute;
+    right: 90px;
+    bottom:8px;
+}
+
+.link-editar-comentario{
+    position: absolute;
+    right:24px;
+    bottom:8px;
+}
+
+.container-comentarios{
+    max-height: 220px;
+    overflow: auto;
+    overflow-x: hidden;
+}
+
+
+.botao-comentar{
+    color:white;
+    background: linear-gradient(#14295E, #2568BB);
+    padding: 6px 12px;
+    border-radius: 12px;
+}
+
+.botao{
+    color:white;
+    background: linear-gradient(#14295E, #2568BB);
+    width:160px;
+    height:64px;
+    padding: 12px auto;
+    border-radius: 12px;
+    gap: 10px;
+    margin-right: 12px;
+
+}

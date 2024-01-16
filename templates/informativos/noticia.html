@@ -56,7 +56,6 @@
     <a href="{% url 'deletar_noticia' noticia.id %}">Excluir</a>
 {% endif %}
 
-
 {% if noticia.obter_lista_de_tags %}
     <h3 class="tag">Tag</h3>
     <div>
@@ -66,24 +65,90 @@
     </div>
 {% endif %}
 
+
+<!--                Visualização de Comentários               -->
+<div class="container-comentarios mt-5">
+    <div>
+    {% for comentario in comentarios %}
+
+        <div class="texto-comentario">
+            {% if not comentario.user.foto %}
+                {% if comentario.user.sexo == 'feminino' %}
+                    <img class="img-comentario" src={% static "usuario/img/avatar-f.jpeg" %}>
+                {% else %}
+                    <img class="img-comentario" src={% static "usuario/img/avatar-m.jpeg" %}>
+                {% endif %}
+            {% else %}
+                <img src="{{comentario.user.foto.url}}" class="img-comentario">
+            {% endif %}
+
+            <p class="nome-comentario">{{comentario.user.nome}} {{ comentario.user.sobrenome }}</p>
+            <p class="texto-comentario-p">{{ comentario.texto_comentario }}</p>
+            {% if comentario.user.id == perfil.id %}
+                <a href="{% url 'informativos/deletar_comentario' comentario.id noticia.id %}" class="link-excluir-comentario">Excluir</a>
+                <a style="cursor:pointer" class="link-editar-comentario editar_comentario" data-comentario-id="{{ comentario.id }}">Editar</a>
+            {% endif %}
+        </div>
+
+        <!--EDITAR COMENTÁRIO-->
+        <div class="formulario_editar_comentario" data-comentario-id="{{comentario.id}}">
+            <form method="post" action="{% url 'informativos/editar_comentario' comentario.id noticia.id %}" autocomplete='off'>
+                {% csrf_token %}
+
+                <input type="hidden" name="user" required="" value={{ perfil.id }}>
+                <input type="hidden" name="noticia" required="" value={{ noticia.id }}>
+                <input type="hidden" name="criado_em" value="{{comentario.criado_em}}">
+
+                <label for="texto_comentario">Texto</label>
+                <input type="text" class="form-control texto-comentario" name="texto_comentario" id="texto_comentario" required="" value="{{comentario.texto_comentario}}">
+                <button type="submit" class="botao" name="form_comentario">Editar</button>
+                <button type="button"class="fechar_editar_comentario botao" data-comentario-id="{{comentario.id}}">Cancelar</button>
+            </form>
+        </div>
+
+    {% endfor %}
+    </div>
 </div>
+
+    <form class="div-comentario form-inline" action="{% url 'informativos/noticia' id=noticia.id %}" method="POST" enctype='multipart/form-data'>{% csrf_token %}
+        
+        {% if not perfil.foto %}
+            {% if perfil.sexo == 'feminino' %}
+                <img class="img-input-comentario" src={% static "usuario/img/avatar-f.jpeg" %}>
+            {% else %}
+                <img class="img-input-comentario" src={% static "usuario/img/avatar-m.jpeg" %}>
+            {% endif %}
+        {% else %}
+            <img src="{{perfil.foto.url}}" class="img-input-comentario">
+        {% endif %}
+            <input type="hidden" name="user" value={{perfil.id}}>
+            <input type="hidden" name="noticia" value={{noticia.id}}>
+            <input type="text" class="form-control" placeholder="Escreva o seu comentário" style="width: 83.5%; margin-right: 12px" name="texto_comentario">
+            <button type="submit" class="botao-comentar" id="chat-message-submit-{{post.id}}" name="form_comentario">Comentar</button>
+            <p style="display:none;" id="room-chat-{{post.id}}">{{post.id}}</p><br><br>
+        
+    </form>
+
+</div>
+
+
 
 
 {% if tags_relacionadas %}
 <h1 class="mais-noticias">Ver outras notícias</h1>
 <div class="container">
     <div class="row">
-    {% for noticia in tags_relacionadas %}
-    <div class="col-4">
-        <div class="card">
-            <img class="card-img-top" src={{ noticia.imagem_thumb.url }} alt="Card image cap">
-            <div class="card-body">
-            <h5 class="card-title">{{ noticia.titulo }}</h5>
-            <p class="card-text paragrafo-card">{{ noticia.paragrafo }}</p>
-            <a href="{% url 'informativos/noticia' noticia.id %}" class="btn btn-primary">Ver notícia</a>
+        {% for noticia in tags_relacionadas %}
+        <div class="col-4">
+            <div class="card">
+                <img class="card-img-top" src={{ noticia.imagem_thumb.url }} alt="Card image cap">
+                <div class="card-body">
+                <h5 class="card-title">{{ noticia.titulo }}</h5>
+                <p class="card-text paragrafo-card">{{ noticia.paragrafo }}</p>
+                <a href="{% url 'informativos/noticia' noticia.id %}" class="btn btn-primary">Ver notícia</a>
+                </div>
             </div>
         </div>
-    </div>
     {% endfor %}
     </div>
 </div>
@@ -94,5 +159,18 @@
 
 {% block scripts %}
 <script src="{% static 'informativos/js/js.js' %}"></script>
+
+<script>
+//gerar formulário para editar comentário
+    $(document).on('click', '.editar_comentario', function(){
+        var comentarioID = $(this).data('comentario-id');
+        $(".formulario_editar_comentario[data-comentario-id='" + comentarioID + "']").css("display", "block");
+    });
+    
+    $(document).on('click', '.fechar_editar_comentario', function(){
+        var comentarioID = $(this).data('comentario-id');
+        $(".formulario_editar_comentario[data-comentario-id='" + comentarioID + "']").css("display", "none");
+    });
+</script>
 
 {% endblock %}

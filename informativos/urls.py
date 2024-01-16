@@ -18,6 +18,16 @@ urlpatterns = [
     path("add_noticia/", views.add_noticia, name="informativos/add_noticia"),
     path("todas_noticias/", views.todas_noticias, name="informativos/todas_noticias"),
     path(
+        "editar_comentario/<int:id_comentario>/<int:id_noticia>/",
+        views.editar_comentario,
+        name="informativos/editar_comentario",
+    ),
+    path(
+        "deletar_comentario/<int:id_comentario>/<int:id_noticia>/",
+        views.deletar_comentario,
+        name="informativos/deletar_comentario",
+    ),
+    path(
         "criar_comunicado/",
         views.criar_comunicado,
         name="informativos/criar_comunicado",
