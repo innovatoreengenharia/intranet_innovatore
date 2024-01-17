@@ -58,7 +58,7 @@ h1{
     background-position: center center;
 }
 .senha{
-    min-height: 61em;
+    min-height: 58em;
     background-image: url(../img/cadeado.png);
     background-size: cover;
     background-repeat: no-repeat;
@@ -175,7 +175,7 @@ input{
 
 .tela-redefinir{
     position: relative;
-    top: 20em;
+    top: 15em;
     margin:auto;
     width: 38em;
 }
@@ -216,7 +216,7 @@ input{
 
 .redefinicao{
     position: relative;
-    top: 10em;
+    top: 5em;
     margin:auto;
     width: 38em;
 }

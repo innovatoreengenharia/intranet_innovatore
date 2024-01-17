@@ -43,11 +43,11 @@
                     <span>Dashboard</span></a>
             </li>
             <!-- Favoritos -->
-            <li class="nav-item item-menu">
+            {% comment %} <li class="nav-item item-menu">
                 <a class="nav-link" href="charts.html">
                     <img src={% static "dashboard/img/favoritos.png" %}>
                     <span>Favoritos</span></a>
-            </li>
+            </li> {% endcomment %}
 
             <li class="nav-item item-menu">
                 <a a class="nav-link collapsed" href={% url 'institucional' %}>
@@ -123,7 +123,7 @@
             </li>
 
             <li class="nav-item item-menu">
-                <a class="nav-link" href="">
+                <a class="nav-link" href={% url "informativos" %}>
                     <img src={% static "dashboard/img/avisos.png" %}>
                     <span>Inforativos INN</span></a>
             </li>

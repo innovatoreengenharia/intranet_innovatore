@@ -12,113 +12,172 @@
 
 {% block content %}
 
-        <!-- End of Topbar -->
+    <!-- Begin Page Content -->
+    <div class="container-fluid">
 
-        <!-- Begin Page Content -->
-        <div class="container-fluid">
+        <h1 style="margin:0 0 1em 0em;">Dashboard</h1>
 
-            <h1 style="margin:0 0 1em 0em;">Dashboard</h1>
-
-            <div class="row">
-                <!-- Apresentação -->
-                <div class="col-xl-4 col-md-6 mb-4">
-                    <div class="apresentacao borda">
-                        <h1 style="color: white;">Oi {{perfil.nome}}!</h1>
-                        <p>Estamos desenvolvendo novas experiências para nossos colaboradores, esperamos que goste do novo ambiente interno de comunicação da Innovatore Engenharia. Em breve traremos mais novidades nesta plataforma. Acompanhe as novidades em nosso card de notícias.</p>
-                    </div>
-                </div>
-
-                <!-- Institucional -->
-                <a href="{% url 'institucional' %}" class="col-xl-5 col-md-6 mb-4 text-right a-institucional">
-                    <div class="institucional borda">
-                        <img src="{% static 'dashboard/img/institucional-icone.png' %}">
-                        <h1>Institucional</h1>
-                        <h6>Conheça Nossa História</h6>
-                    </div>
-                </a>
-
-                <!-- Informações de tempo -->
-                <div class="col-xl-3 col-md-6 mb-4">
-                    <div class="tempo borda">
-                        <h1>5°</h1>
-                        <h5>Inverno</h5>
-                        <br><br>
-                        <h5>São Paulo/SP</h5>
-                        <p>Quarta-Feira, 15 de Agosto de 2023</p>
-                    </div>
+        <div class="row">
+            <!-- Apresentação -->
+            <div class="col-xl-4 col-md-6 mb-4">
+                <div class="apresentacao borda">
+                    <h1 style="color: white;">Oi {{perfil.nome}}!</h1>
+                    <p>Estamos desenvolvendo novas experiências para nossos colaboradores, esperamos que goste do novo ambiente interno de comunicação da Innovatore Engenharia. Em breve traremos mais novidades nesta plataforma. Acompanhe as novidades em nosso card de notícias.</p>
                 </div>
             </div>
 
-            <!-- Aniversariantes -->
-            <div class="row justify-content-end">
-                <div class="col-4 mb-4">
-                    <a href={% url 'aniversariantes' %} class="link-aniversariantes">
-                        <div class="aniversariantes borda pb-0">
-                            <img src="{% static 'dashboard/img/aniversariantes-icone.png' %}" class="icones-direita float-end">
-                            <h1 class="mb-0">Aniversariantes</h1>
-                            <br>
-                            <div class="lista-aniversariantes">
-                                {% for user in aniversariantes %}
-                                <p class="m-1">
-                                    {% if not user.foto %}
+            <!-- Institucional -->
+            <a href="{% url 'institucional' %}" class="col-xl-5 col-md-6 mb-4 text-right a-institucional">
+                <div class="institucional borda">
+                    <img src="{% static 'dashboard/img/institucional-icone.png' %}">
+                    <h1>Institucional</h1>
+                    <h6>Conheça Nossa História</h6>
+                </div>
+            </a>
 
-                                        {% if user.sexo == 'feminino'%}
-                                            <img class="img-profile rounded-circle foto-aniversariante" src="{% static 'usuario/img/avatar-f.jpeg' %}">
-                                        {% else %}
-                                            <img class="img-profile rounded-circle foto-aniversariante" src="{% static 'usuario/img/avatar-m.jpeg' %}">
-                                        {% endif %}
+            <!-- Informações de tempo -->
+            <div class="col-xl-3 col-md-6 mb-4">
+                <div class="tempo borda">
+                    <h1>5°</h1>
+                    <h5>Inverno</h5>
+                    <br><br>
+                    <h5>São Paulo/SP</h5>
+                    <p>Quarta-Feira, 15 de Agosto de 2023</p>
+                </div>
+            </div>
+        </div>
 
+        <!-- Aniversariantes -->
+        <div class="row justify-content-end">
+            <div class="col-4 mb-4">
+                <a href={% url 'aniversariantes' %} class="link-aniversariantes">
+                    <div class="aniversariantes borda pb-0">
+                        <img src="{% static 'dashboard/img/aniversariantes-icone.png' %}" class="icones-direita float-end">
+                        <h1 class="mb-0">Aniversariantes</h1>
+                        <br>
+                        <div class="lista-aniversariantes">
+                            {% for user in aniversariantes %}
+                            <p class="m-1">
+                                {% if not user.foto %}
+
+                                    {% if user.sexo == 'feminino'%}
+                                        <img class="img-profile rounded-circle foto-aniversariante" src="{% static 'usuario/img/avatar-f.jpeg' %}">
                                     {% else %}
-                                        <img class="img-profile rounded-circle foto-aniversariante" src="{{ user.foto.url }}"> 
+                                        <img class="img-profile rounded-circle foto-aniversariante" src="{% static 'usuario/img/avatar-m.jpeg' %}">
                                     {% endif %}
-                                    {{ user.nascimento|date:"d/m"}} - Aniversário de {{user.nome }}</p>
-                                {% empty %}
-                                <p> Não Há Aniversariantes Este Mês </p>
-                                {% endfor %}
-                            </div>
+
+                                {% else %}
+                                    <img class="img-profile rounded-circle foto-aniversariante" src="{{ user.foto.url }}"> 
+                                {% endif %}
+                                {{ user.nascimento|date:"d/m"}} - Aniversário de {{user.nome }}</p>
+                            {% empty %}
+                            <p> Não Há Aniversariantes Este Mês </p>
+                            {% endfor %}
                         </div>
-                    </a>
-                    <div class="feed borda mt-4">
-                        <h1>Feed de Notícias</h1>
                     </div>
-                </div>
+                </a>
+                <!-- Social -->
+                <a href={% url 'social' %} class="link-rede-social">
+                    <div class="rede-social borda mt-4">
+                        <img src="{% static 'dashboard/img/icone-social.png' %}" class="icone-social float-end">
+                        <h1 class="titulo-rede">Rede Social</h1>
+                        <div class="conteudo-rede-social">
+                            {% for post in postagens %}
+                                <div class="autor">
+                                    {% if not post.user.foto %}
+                                        {% if post.user.sexo == 'feminino' %}
+                                            <img class="img-profile rounded-circle" src="{% static 'usuario/img/avatar-f.jpeg' %}">
+                                        {% else %}
+                                            <img class="img-profile rounded-circle" src="{% static 'usuario/img/avatar-m.jpeg' %}">
+                                        {% endif %}
+                                    {% else %}
+                                        <img class="img-profile rounded-circle"src="{{ post.user.foto.url }}">
+                                    {% endif %}
+                                    <p class="nome">{{post.user.nome}} {{ post.user.sobrenome }}</p>
+                                    <p class="tempo-postagem">{{ post.criado_em|timesince }} atrás</p>
+                                </div>
+                            
+                                {% if post.texto_postagem %}
+                                    <p class="descricao">{{post.texto_postagem}}</p>
+                                {% endif %}
+                            
+                                {% if post.img %}
+                                    <img src={{post.img.url}} class="rounded mx-auto d-block imagem-postada">
+                                {% endif %}
+                            
+                                <div class="icones-post">
+                                    {% if post.id in user_likes %}
+                                        <p class="likes-p like-preenchido-{{post.id}}" ><img src="{% static 'social/img/like_preenchido.jpeg' %}"><span id="likes-{{post.id}}">{{ post.like_set.all|length }}</span></p>
+                                    {% else %}
+                                        <p class="likes-p like-vazio-{{post.id}}"><img src="{% static 'social/img/like.jpeg' %}"><span id="likes-{{post.id}}">{{ post.like_set.all|length }}</p>
+                                    {% endif %}
+                                    <p class="comentarios-p"><img src={% static 'social/img/comentario.png' %}>{{ post.comentarios_set.all|length }}</p>
+                                </div>
+                            
+                                <!--                Visualização de Comentários               -->
+                                <div class="container-comentarios">
+                                    <div  id="chat-log-{{post.id}}">
+                                    {% with comentario=post.comentarios_set.all.last %}
+                                        <div class="texto-comentario">
+                                            {% if not comentario.user.foto %}
+                                                {% if comentario.user.sexo == 'feminino' %}
+                                                    <img class="img-comentario" src={% static "usuario/img/avatar-f.jpeg" %}>
+                                                {% else %}
+                                                    <img class="img-comentario" src={% static "usuario/img/avatar-m.jpeg" %}>
+                                                {% endif %}
+                                            {% else %}
+                                                <img src="{{comentario.user.foto.url}}" class="img-comentario">
+                                            {% endif %}
+                                
+                                            <p class="nome-comentario">{{comentario.user.nome}} {{ comentario.user.sobrenome }}</p>
+                                            <p class="texto-comentario-p">{{ comentario.texto_comentario }}</p>
+                                        </div>
+                                    {% endwith %}
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </a>
+            </div>
 
-                <!--Informativos-->
-                <div class="col-xl-5 col-md-6 mb-4">
-                    <div class="informativos borda">
-                        <img src="{% static 'dashboard/img/informativos-icone.png' %}" class="icones-direita float-end">
-                        <h1>Informativos</h1>
-                        <h5>Paracel construirá 1° fábrica de celulose do Paraguai em 2024</h5>
-                        <p>Com investimento estimado em US$ 4 bilhões, a Paracel prevê iniciar a construção da primeira fábrica de celulose do Paraguai em 2024. A planta será instalada em Concepción e terá capacidade para produzir 1,8 milhão de toneladas por ano de celulose kraft de eucalipto.</p>
-                        <a class="float-end">Ler Mais</a>
-                    </div>
-                <!--Cursos-->
-                    <a href="{% url 'cursos' %}" class="tag-cursos">
-                        <div class="cursos borda mt-4">
-                            <img src={% static "dashboard/img/cursos-selecionado.png" %} class="float-end">
-                            <p>Invista em você!</p>
-                            <h1>Cursos Gratuitos</h1>
-                            <h4>Acesse Agora<h4>
-                        </div> 
-                    </a>
+            <!--Informativos-->
+            <div class="col-xl-5 col-md-6 mb-4">
+                <div class="informativos borda">
+                    <img src="{% static 'dashboard/img/informativos-icone.png' %}" class="icones-direita float-end">
+                    <h1>Informativos</h1>
+                    <h5>Paracel construirá 1° fábrica de celulose do Paraguai em 2024</h5>
+                    <p>Com investimento estimado em US$ 4 bilhões, a Paracel prevê iniciar a construção da primeira fábrica de celulose do Paraguai em 2024. A planta será instalada em Concepción e terá capacidade para produzir 1,8 milhão de toneladas por ano de celulose kraft de eucalipto.</p>
+                    <a href="{% url 'informativos' %}" class="float-end">Ler Mais</a>
                 </div>
+            <!--Cursos-->
+                <a href="{% url 'cursos' %}" class="tag-cursos">
+                    <div class="cursos borda mt-4">
+                        <img src={% static "dashboard/img/cursos-selecionado.png" %} class="float-end">
+                        <p>Invista em você!</p>
+                        <h1>Cursos Gratuitos</h1>
+                        <h4>Acesse Agora<h4>
+                    </div> 
+                </a>
+            </div>
 
-                <!-- Calendário -->
-                <div class="col-xl-3 col-md-6 mb-4">
-                    <div class="calendario borda">
-                    </div>
+            <!-- Calendário -->
+            <div class="col-xl-3 col-md-6 mb-4">
+                <div class="calendario borda">
                 </div>
-                <!-- Mapa -->
-                <div class="col-xl-8 mb-4">
-                    <div class=" mapa borda">
-                    </div>
+            </div>
+            <!-- Mapa -->
+            <div class="col-xl-8 mb-4">
+                <div class=" mapa borda">
                 </div>
             </div>
         </div>
     </div>
+</div>
 </div>
 <!-- End of Content Wrapper -->
 
 </div>
 
 {% endblock %}
+

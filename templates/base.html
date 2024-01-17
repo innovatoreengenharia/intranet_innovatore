@@ -63,11 +63,11 @@
             </li>
             {% endif %}
             <!-- Favoritos -->
-            <li class="nav-item item-menu">
+            {% comment %} <li class="nav-item item-menu">
                 <a class="nav-link" href="">
                     <img src={% static "dashboard/img/favoritos.png" %}>
                     <span>Favoritos</span></a>
-            </li>
+            </li> {% endcomment %}
             {% if url_name == 'institucional' %}
             <li class="nav-item active item-menu">
                 <a class="nav-link collapsed" href={% url 'institucional' %}>
