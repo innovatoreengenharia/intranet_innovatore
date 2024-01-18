@@ -143,13 +143,15 @@
 
             <!--Informativos-->
             <div class="col-xl-5 col-md-6 mb-4">
-                <div class="informativos borda">
-                    <img src="{% static 'dashboard/img/informativos-icone.png' %}" class="icones-direita float-end">
-                    <h1>Informativos</h1>
-                    <h5>Paracel construirá 1° fábrica de celulose do Paraguai em 2024</h5>
-                    <p>Com investimento estimado em US$ 4 bilhões, a Paracel prevê iniciar a construção da primeira fábrica de celulose do Paraguai em 2024. A planta será instalada em Concepción e terá capacidade para produzir 1,8 milhão de toneladas por ano de celulose kraft de eucalipto.</p>
-                    <a href="{% url 'informativos' %}" class="float-end">Ler Mais</a>
-                </div>
+                <a href={% url 'informativos' %} class="tag-informativos">
+                    <div class="informativos borda">
+                        <img src="{% static 'dashboard/img/informativos-icone.png' %}" class="icones-direita float-end">
+                        <h1>Informativos</h1>
+                        <h5>Paracel construirá 1° fábrica de celulose do Paraguai em 2024</h5>
+                        <p>Com investimento estimado em US$ 4 bilhões, a Paracel prevê iniciar a construção da primeira fábrica de celulose do Paraguai em 2024. A planta será instalada em Concepción e terá capacidade para produzir 1,8 milhão de toneladas por ano de celulose kraft de eucalipto.</p>
+                        <a href="{% url 'informativos' %}" class="float-end">Ler Mais</a>
+                    </div>
+                </a>
             <!--Cursos-->
                 <a href="{% url 'cursos' %}" class="tag-cursos">
                     <div class="cursos borda mt-4">
@@ -163,12 +165,15 @@
 
             <!-- Calendário -->
             <div class="col-xl-3 col-md-6 mb-4">
-                <div class="calendario borda">
-                </div>
+                <a href={% url 'calendario' %}>
+                    <div class="calendario borda">
+                    </div>
+                </a>
             </div>
             <!-- Mapa -->
             <div class="col-xl-8 mb-4">
                 <div class=" mapa borda">
+                    <a href={% url 'mapa' %}>Ver mapa</a>
                 </div>
             </div>
         </div>

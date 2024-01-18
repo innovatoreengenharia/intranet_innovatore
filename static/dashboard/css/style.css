@@ -305,12 +305,13 @@ h1{
 .mapa{
     position: relative;
     /* left: 31.5em; */
-    top: -600px;
+    top: -585px;
     background-image: url("../img/bg-mapa-obras.png");
     background-size: cover;
     height: 565px;
     margin-bottom: -600px;
 }
+
 
 .img-profile{
     height: 2rem;
@@ -451,4 +452,9 @@ h1{
 .link-rede-social:hover{
     text-decoration: none;
     color:#14355E;
+}
+
+.tag-informativos:hover{
+    text-decoration: none;
+    color: white;
 }

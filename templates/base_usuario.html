@@ -53,7 +53,6 @@
                 <a a class="nav-link collapsed" href={% url 'institucional' %}>
                     <img src={% static "dashboard/img/institucional.png" %}>
                     <span>Institucional</span> 
-                    <img class="vetor" src={% static "dashboard/img/vetor.png" %}>
                 </a>
                     
             </li>
@@ -117,7 +116,7 @@
             </li>
 
             <li class="nav-item item-menu">
-                <a class="nav-link" href="">
+                <a class="nav-link" href={% url 'mapa' %}>
                     <img src={% static "dashboard/img/mapa_obras.png" %}>
                     <span>Mapa de Obras</span></a>
             </li>
