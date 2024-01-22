@@ -1,46 +1,44 @@
-{% extends 'base.html' %}
-{% load static %}
-
-{% block estilo %}
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/croppie/2.6.5/croppie.css"/>
-<link href="{% static 'informativos/css/informativos.css' %}" rel="stylesheet">
-{% endblock %}
-
-
-{% block icones %}
-    <div class="icones">
-        <img class="icone-dash" src="{% static 'informativos/img/icone-informativos.png' %}">
-        <p>Informativos / </p>
-        <img class="icone-menu" src="{% static 'dashboard/img/menu-cinza.png' %}">
-    </div>
-{% endblock %}
-
-{% block content %}
-<h1> Editar Notícia </h1>
+{% extends 'base.html' %} {% load static %} {% block estilo %}
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/croppie/2.6.5/croppie.css"
+/>
+<link
+  href="{% static 'informativos/css/informativos.css' %}"
+  rel="stylesheet"
+/>
+{% endblock %} {% block icones %}
+<div class="icones">
+  <img
+    class="icone-dash"
+    src="{% static 'informativos/img/icone-informativos.png' %}"
+  />
+  <p>Informativos /</p>
+  {% comment %}
+  <img class="icone-menu" src="{% static 'dashboard/img/menu-cinza.png' %}" />
+  {% endcomment %}
+</div>
+{% endblock %} {% block content %}
+<h1>Editar Notícia</h1>
 <div class="container">
-    <form method="POST" enctype='multipart/form-data'>{% csrf_token %}
+  <form method="POST" enctype="multipart/form-data">
+    {% csrf_token %} {{ form.as_p }} {{ form_bloco.management_form }} {% for
+    bloco in form_bloco%}
+    <div class="row inline-bloco">{{ bloco.as_p }}</div>
+    {% endfor %}
 
-        {{ form.as_p }}
-
-        {{ form_bloco.management_form }}
-
-        {% for bloco in form_bloco%}
-            <div class="row inline-bloco"> 
-                {{ bloco.as_p }}
-            </div>
-        {% endfor %}
-
-        <button type="submit">Salvar</button>
-    </form>
+    <button type="submit">Salvar</button>
+  </form>
 </div>
 
 <script type="text/javascript">
-    $(function() {
-        $('.inline-bloco').formset({
-            prefix: '{{ form_bloco.prefix }}',
-            addText: '<img src={% static "usuario/img/adicionar.png" %} class="adicionar-bloco">',
-            deleteText: ''
-        });
-    })
+  $(function () {
+    $(".inline-bloco").formset({
+      prefix: "{{ form_bloco.prefix }}",
+      addText:
+        '<img src={% static "usuario/img/adicionar.png" %} class="adicionar-bloco">',
+      deleteText: "",
+    });
+  });
 </script>
 {% endblock %}

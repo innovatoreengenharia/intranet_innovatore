@@ -1,120 +1,113 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital@0;1&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;1,400&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;1,400&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital@0;1&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;1,400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;1,400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap");
 
-
-
-html{
-    background-color: #f9f9f9;
+html {
+  background-color: #f9f9f9;
 }
 
-.conteudo-base{
-    background-color: #f9f9f9;
-    min-height: 100%;
+.conteudo-base {
+  background-color: #f9f9f9;
+  min-height: 100%;
 }
 
+.botao-pesquisar {
+  font-family: "Open Sans";
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  letter-spacing: 0em;
+  text-align: left;
 
-.botao-pesquisar{
-    font-family: 'Open Sans';
-    font-size: 16px;
-    font-weight: 700;
-    line-height: 24px;
-    letter-spacing: 0em;
-    text-align: left;
-
-
-    width: 158px;
-    height: 64px;
-    padding: 12px 44px 12px 40px;
-    border-radius: 30px;
-    gap: 10px;
-    background: linear-gradient(#14295E, #2568BB);
-    color:white;
-    margin-right:50px;
+  width: 158px;
+  height: 64px;
+  padding: 12px 44px 12px 40px;
+  border-radius: 30px;
+  gap: 10px;
+  background: linear-gradient(#14295e, #2568bb);
+  color: white;
+  margin-right: 50px;
 }
 
-.input-busca{
-    background-image: url('../../../static/cartao_visitas/img/lupa-input.png');
-    background-repeat: no-repeat;
-    background-position: 32px 15px;
-    margin-right: 24px;
-    width: 411px;
-    height: 64px;
-    padding: 18px 32px 14px 86px;
-    border-radius: 30px;
-    border: 1px solid #e8e8e8;
-    gap: 10px;
-
+.input-busca {
+  background-image: url("../../../static/cartao_visitas/img/lupa-input.png");
+  background-repeat: no-repeat;
+  background-position: 32px 15px;
+  margin-right: 24px;
+  width: 411px;
+  height: 64px;
+  padding: 18px 32px 14px 86px;
+  border-radius: 30px;
+  border: 1px solid #e8e8e8;
+  gap: 10px;
 }
 /* Para navegadores webkit como Safari */
-input[name='buscar']::-webkit-input-placeholder {
-    color: var(--preto-preto-300, #e8e8e8);
-    font-family: 'Open Sans';   
-    font-size: 22px;
-    font-weight: 600;
-    line-height: 24px;
-    letter-spacing: 0em;
-    /* padding-left: 44px; */
-
+input[name="buscar"]::-webkit-input-placeholder {
+  color: var(--preto-preto-300, #e8e8e8);
+  font-family: "Open Sans";
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 24px;
+  letter-spacing: 0em;
+  /* padding-left: 44px; */
 }
 
 input:-ms-input-placeholder {
-    color: var(--preto-preto-300, #e8e8e8);
-    font-family: 'Open Sans';   
-    font-size: 22px;
-    font-weight: 600;
-    line-height: 24px;
-    letter-spacing: 0em;
-    text-align: left;
-
-  }
-
-th{
-    font-family: Open Sans;
-    font-size: 16px;
-    font-weight: 700;
-    line-height: 24px;
-    letter-spacing: 0em;
-    text-align: left;
-    color:#14355E !important;
-    border:none;
+  color: var(--preto-preto-300, #e8e8e8);
+  font-family: "Open Sans";
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 24px;
+  letter-spacing: 0em;
+  text-align: left;
 }
 
-td{
-    padding: 8px !important;
-    text-align: center;
+th {
+  font-family: Open Sans;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #14355e !important;
+  border: none;
 }
 
-.tabela{
-    background-color: white;
-    margin-right: 32px;
-    margin-left: 10px;
-    border-radius: 12px;
+td {
+  padding: 8px !important;
+  text-align: center;
 }
 
-.tabela .container-fluid .table td{
-    font-family: 'Open Sans';
-    width: 23%;
-    vertical-align: middle;
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 32px;
-    text-align: left;
-    color: #464646;
-    border-top: 1px solid #f4f4f4;
-    border-bottom: 1px solid #f4f4f4;
+.tabela {
+  background-color: white;
+  margin-right: 32px;
+  margin-left: 10px;
+  border-radius: 12px;
 }
 
-.foto-perfil{
-    width: 91px;
-    height: 91px;
-    flex-shrink: 0;
-    border-radius: 20px;
-    background-size: cover;
-    background-repeat: no-repeat;
+.tabela .container-fluid .table td {
+  font-family: "Open Sans";
+  width: 23%;
+  vertical-align: middle;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 32px;
+  text-align: left;
+  color: #464646;
+  border-top: 1px solid #f4f4f4;
+  border-bottom: 1px solid #f4f4f4;
 }
 
-.td-nome-usuario img{
-    margin: 32px 10px 16px 0px;
+.foto-perfil {
+  width: 91px;
+  height: 91px;
+  flex-shrink: 0;
+  border-radius: 20px;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.td-nome-usuario img {
+  margin: 32px 10px 16px 0px;
 }

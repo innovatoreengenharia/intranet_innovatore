@@ -15,7 +15,7 @@
     <div class="icones">
         <img class="icone-dash" src="{% static 'institucional/img/icone-institucional.png' %}">
         <p style="color:white">Documentos / </p>
-        <img class="icone-menu" src="{% static 'dashboard/img/menu.png' %}">
+        {% comment %} <img class="icone-menu" src="{% static 'dashboard/img/menu.png' %}"> {% endcomment %}
     </div>
 
 {% endblock %}
@@ -48,64 +48,64 @@
     <div class="anos p-3">
         <div id="div-2015" class="ano-div mostrar">
             <div class="imagem-anos">
-                <img src="{% static 'institucional/img/marco-0.png' %}">
+                <img src="{% static 'institucional/img/marco-0.png' %}" class="img-anos">
             </div>
             <div class="texto-anos">
                 <p class="p-cinza">2015</p>
-                <h1>Marco Zero</h1>
-                <p class="texto-anos-p">Marco Zero da nossa história, com a fundação da Innovatore que começou em Limeira/SP.</p>
+                <h1>Fundação e Primeiros Passos:</h1>
+                <p class="texto-anos-p">Em 2015, nasce a Innovatore Engenharia em uma garagem na cidade de Limeira/SP. Seu foco inicial era a construção de casas de alto padrão, realizando mais de 40 projetos residenciais. O sucesso e a qualidade dessas construções abriram portas para oportunidades em obras privadas nos segmentos industrial e comercial de alto fluxo. A Innovatore expandiu sua atuação para mais de dez estados do Brasil, levando a uma pausa nas construções residenciais.</p>
             </div>
         </div>
 
         <div id="div-2017" class="ano-div">
             <div class="imagem-anos">
-                <img src="{% static 'institucional/img/marco-0.png' %}">
+                <img src="{% static 'institucional/img/2017.jpeg' %}" class="img-anos">
             </div>
             <div class="texto-anos">
                 <p class="p-cinza">2017</p>
-                <h1>Texto</h1>
-                <p class="texto-anos-p">Marco Zero da nossa história, com a fundação da Innovatore que começou em Limeira/SP.</p>
+                <h1>ISO 9001:</h1>
+                <p class="texto-anos-p">Em 2017, a Innovatore alcança um marco significativo ao conquistar a certificação ISO 9001. Esse reconhecimento internacional atesta o compromisso da empresa com a qualidade em seus processos e serviços, destacando-se no cenário da construção civil.</p>
             </div>
         </div>
 
         <div id="div-2019" class="ano-div">
             <div class="imagem-anos">
-                <img src="{% static 'institucional/img/marco-0.png' %}">
+                <img src="{% static 'institucional/img/2019.jpeg' %}" class="img-anos">
             </div>
             <div class="texto-anos">
                 <p class="p-cinza">2019</p>
-                <h1>2019</h1>
-                <p class="texto-anos-p">Marco Zero da nossa história, com a fundação da Innovatore que começou em Limeira/SP.</p>
+                <h1>Consolidação e Nova Sede:</h1>
+                <p class="texto-anos-p">Dois anos depois, em 2019, a Innovatore consolida sua presença ao estabelecer uma nova sede em São Paulo/SP. Essa mudança representa um passo importante para a empresa, que, neste ponto, já é reconhecida como uma protagonista no setor da construção civil.</p>
             </div>
         </div>
         <div id="div-2021" class="ano-div">
             <div class="imagem-anos">
-                <img src="{% static 'institucional/img/marco-0.png' %}">
+                <img src="{% static 'institucional/img/2021.jpeg' %}" class="img-anos">
             </div>
             <div class="texto-anos">
                 <p class="p-cinza">2021</p>
-                <h1>2021</h1>
-                <p class="texto-anos-p">Marco Zero da nossa história, com a fundação da Innovatore que começou em Limeira/SP.</p>
+                <h1>150 Obras Entregues:*</h1>
+                <p class="texto-anos-p">O ano de 2021 é marcado por um impressionante marco: a Innovatore entrega mais de 150 obras. Esse número expressivo reflete a capacidade da empresa em gerenciar e concluir projetos diversificados, solidificando sua posição no mercado.</p>
             </div>
         </div>
         <div id="div-2022" class="ano-div">
             <div class="imagem-anos">
-                <img src="{% static 'institucional/img/marco-0.png' %}">
+                <img src="{% static 'institucional/img/2022.jpeg' %}" class="img-anos">
             </div>
             <div class="texto-anos">
                 <p class="p-cinza">2022</p>
-                <h1>2022</h1>
-                <p class="texto-anos-p">Marco Zero da nossa história, com a fundação da Innovatore que começou em Limeira/SP.</p>
+                <h1>Certificação DUNS:</h1>
+                <p class="texto-anos-p">Em 2022, a Innovatore expande sua presença internacional ao obter a certificação DUNS. Esse reconhecimento é uma identidade comercial internacional que valida a saúde administrativa e financeira da empresa. Essa certificação proporciona segurança e credibilidade aos clientes e investidores.</p>
             </div>
         </div>
         <div id="div-2023" class="ano-div">
             <div class="imagem-anos">
-                <img src="{% static 'institucional/img/marco-0.png' %}">
+                <img src="{% static 'institucional/img/2023.jpeg' %}" class="img-anos">
             </div>
             <div class="texto-anos">
                 <p class="p-cinza">2023</p>
-                <h1>2023</h1>
-                <p class="texto-anos-p">Marco Zero da nossa história, com a fundação da Innovatore que começou em Limeira/SP.</p>
+                <h1>ISOs 14001 e 45001:*</h1>
+                <p class="texto-anos-p">No presente ano, 2023, a Innovatore atinge um novo patamar ao conquistar as certificações ISO 14001 (Gestão Ambiental) e ISO 45001 (Saúde e Segurança Ocupacional). Essas certificações internacionais evidenciam o compromisso da empresa com práticas sustentáveis e o cuidado com a saúde e segurança de seus colaboradores.</p>
             </div>
         </div>
     </div>
@@ -173,11 +173,11 @@
 
     <!-- Carrossel -->
     <div class="box-carrossel">
+        <h2 class="titulo-item">Valores</h2>
         <div class="carrossel">
             <div class="carrossel-item align-itens-left">
                 <img class="imagem-carrossel mt-5"src="{% static 'institucional/img/seguranca.jpg' %}">
                 <div class="texto-carrossel text-left">
-                    <h2 class="titulo-item">Valores</h2>
                     <h2 class="sub-titulo-item">Segurança</h2>
 
                     <ul class="ul-seguranca">
@@ -202,7 +202,6 @@
             <div class="carrossel-item">
                 <img class="imagem-carrossel mt-5"src="{% static 'institucional/img/produtividade.jpg' %}">
                 <div class="texto-carrossel text-left">
-                    <h2 class="titulo-item">Valores</h2>
                     <h2 class="sub-titulo-item">Proatividade e Inovação</h2>
 
                     <ul class="ul-proatividade">
@@ -230,7 +229,6 @@
             <div class="carrossel-item">
                 <img class="imagem-carrossel mt-5"src="{% static 'institucional/img/comprometimento.jpg' %}">
                 <div class="texto-carrossel text-left">
-                    <h2 class="titulo-item">Valores</h2>
                     <h2 class="sub-titulo-item">Comprometimento</h2>
                     <ul class="ul-comprometimento">
                         <li>Dedicação, responsabilidade e envolvimento da sua função com o restante da empresa.</li>
@@ -254,7 +252,6 @@
             <div class="carrossel-item">
                 <img class="imagem-carrossel mt-5"src="{% static 'institucional/img/etica.jpg' %}">
                 <div class="texto-carrossel text-left">
-                    <h2 class="titulo-item">Valores</h2>
                     <h2 class="sub-titulo-item">Ética e Integridade</h2>
                     <ul class="ul-etica">
                         <li>Praticar ações honestas e transparentes;</li>
@@ -280,7 +277,6 @@
             <div class="carrossel-item">
                 <img class="imagem-carrossel mt-5"src="{% static 'institucional/img/honestidade.jpg' %}">
                 <div class="texto-carrossel text-left">
-                    <h2 class="titulo-item">Valores</h2>
                     <h2 class="sub-titulo-item">Honestidade e Transparência</h2>
 
                     <ul class="ul-honestidade">
@@ -308,7 +304,6 @@
             <div class="carrossel-item">
                 <img class="imagem-carrossel mt-5"src="{% static 'institucional/img/desenvolvimento.jpg' %}">
                 <div class="texto-carrossel text-left">
-                    <h2 class="titulo-item">Valores</h2>
                     <h2 class="sub-titulo-item">Desenvolvimento Contínuo</h2>
 
                     <ul class="ul-desenvolvimento">
@@ -336,7 +331,6 @@
             <div class="carrossel-item">
                 <img class="imagem-carrossel mt-5"src="{% static 'institucional/img/responsabilidade.jpg' %}">
                 <div class="texto-carrossel text-left">
-                    <h2 class="titulo-item">Valores</h2>
                     <h2 class="sub-titulo-item">Responsabilidade Socioambiental</h2>
 
                     <ul class="ul-responsabilidade">
@@ -364,7 +358,6 @@
             <div class="carrossel-item">
                 <img class="imagem-carrossel mt-5"src="{% static 'institucional/img/foco.jpg' %}">
                 <div class="texto-carrossel text-left">
-                    <h2 class="titulo-item">Valores</h2>
                     <h2 class="sub-titulo-item">Foco em Resultados</h2>
 
                     <ul class="ul-foco">
@@ -392,7 +385,6 @@
             <div class="carrossel-item">
                 <img class="imagem-carrossel mt-5"src="{% static 'institucional/img/colaboracao.jpg' %}">
                 <div class="texto-carrossel text-left">
-                    <h2 class="titulo-item">Valores</h2>
                     <h2 class="sub-titulo-item">Colaboração e Trabalho em Equipe</h2>
 
                     <ul class="ul-colaboracao">
@@ -420,7 +412,6 @@
             <div class="carrossel-item">
                 <img class="imagem-carrossel mt-5"src="{% static 'institucional/img/respeito.jpg' %}">
                 <div class="texto-carrossel text-left">
-                    <h2 class="titulo-item">Valores</h2>
                     <h2 class="sub-titulo-item">Respeito e Diversidade</h2>
 
                     <ul class="ul-respeito">
@@ -448,7 +439,6 @@
             <div class="carrossel-item">
                 <img class="imagem-carrossel mt-5"src="{% static 'institucional/img/adaptacao.jpg' %}">
                 <div class="texto-carrossel text-left">
-                    <h2 class="titulo-item">Valores</h2>
                     <h2 class="sub-titulo-item">Adaptação e Flexibilidade</h2>
 
                     <ul class="ul-adaptacao">

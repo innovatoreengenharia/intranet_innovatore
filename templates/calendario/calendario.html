@@ -1,160 +1,152 @@
-{% extends 'base.html' %}
-{% load static %}
-
-{% block estilo %}
-{% comment %} <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.9/index.global.min.js'></script> {% endcomment %}
+{% extends 'base.html' %} {% load static %} {% block estilo %} {% comment %}
+<script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.9/index.global.min.js"></script>
+{% endcomment %}
 <script src="{% static 'calendario/js/index.global.min.js' %}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
-<link href="{% static 'calendario/css/calendario.css' %}" rel="stylesheet">
-{% endblock %}
-
-
-{% block icones %}
-    <div class="icones">
-        <img class="icone-dash" src="{% static 'calendario/img/icone-calendario.png' %}">
-        <p>Calendario / </p>
-        <img class="icone-menu" src="{% static 'dashboard/img/menu-cinza.png' %}">
-    </div>
-{% endblock %}
-
-{% block content %}
+<link href="{% static 'calendario/css/calendario.css' %}" rel="stylesheet" />
+{% endblock %} {% block icones %}
+<div class="icones">
+  <img
+    class="icone-dash"
+    src="{% static 'calendario/img/icone-calendario.png' %}"
+  />
+  <p>Calendario /</p>
+  {% comment %}
+  <img class="icone-menu" src="{% static 'dashboard/img/menu-cinza.png' %}" />
+  {% endcomment %}
+</div>
+{% endblock %} {% block content %}
 <div class="conteudo-calendario">
-    <div id='calendar'></div>
+  <div id="calendar"></div>
 </div>
 
-{% endblock %}
-
-
-{% block scripts %}
+{% endblock %} {% block scripts %}
 
 <script>
 
-    document.addEventListener('DOMContentLoaded', function() {
-      var calendarEl = document.getElementById('calendar');
-      var calendar = new FullCalendar.Calendar(calendarEl, {
+      document.addEventListener('DOMContentLoaded', function() {
+        var calendarEl = document.getElementById('calendar');
+        var calendar = new FullCalendar.Calendar(calendarEl, {
 
-        initialView: 'dayGridMonth',
-        height: 780,
-        locale:'pt-br',
-        timeZone: 'UTC',
-        timeZoneParam: 'timeZone',
-        eventColor: '#f4f4f4',
-        eventBorderColor: "#e8e8e8",
-        displayEventEnd: "true",
-        eventTextColor: "#000000",
-        buttonText:{
-          today:    'hoje',
-          month:    'mês',
-          week:     'semana',
-          day:      'dia',
-          list:     'lista'
-        },
-        headerToolbar: {
-          left: 'title',
-          center: 'dayGridMonth,timeGridWeek,timeGridDay',
-          right: 'prev,next today'
-        },
-        navLinks: true,
-        selectable: true,
-        selectMirror: true,
-        dayMaxEvents: true,
-        editable: true,
-        
-        select: function(info){
-            console.log(info)
-            var title = prompt("Título do Evento")
-            if (title) {
-                var start = info.startStr;
-                var end = info.endStr;
-                var allDay = info.allDay;
-                var user = {{ id_usuario }}
-                $.ajax({
-                    type:"GET",
-                    url:"/calendario/add_event/",
-                    data:{"title":title, "start": start, "end": end, "user": user, "allDay":allDay},
-                    dataType: "json",
-                    success: function (data) {
-                        calendar.refetchEvents()
-                        alert("Evento Adicionado");
-                    },
-                    error: function (data) {
-                        alert("Ocorreu Um Problema !!" + info);
-                    }
-                });
-            }
-            calendar.unselect()
-        },
+          initialView: 'dayGridMonth',
+          height: 780,
+          locale:'pt-br',
+          timeZone: 'UTC',
+          timeZoneParam: 'timeZone',
+          eventColor: '#f4f4f4',
+          eventBorderColor: "#e8e8e8",
+          displayEventEnd: "true",
+          eventTextColor: "#000000",
+          buttonText:{
+            today:    'hoje',
+            month:    'mês',
+            week:     'semana',
+            day:      'dia',
+            list:     'lista'
+          },
+          headerToolbar: {
+            left: 'title',
+            center: 'dayGridMonth,timeGridWeek,timeGridDay',
+            right: 'prev,next today'
+          },
+          navLinks: true,
+          selectable: true,
+          selectMirror: true,
+          dayMaxEvents: true,
+          editable: true,
 
-        eventResize: function (info){
-            var start = info.event.start.toISOString();
-            var end =  info.event.end.toISOString();
-            var title = info.event.title;
-            var id = info.event.id;
-            var user = {{ id_usuario }}
-            $.ajax({
-                type:"GET",
-                url:"/calendario/update/",
-                data:{"title":title, "start": start, "end": end, "id":id, "user":user},
-                dataType: "json",
-                success: function (data) {
-                    calendar.refetchEvents()
-                    alert("Evento Atualizado");
-                },
-                error: function (data) {
-                    alert("Você não pode alterar esse evento !");
-                }
+          select: function(info){
+              console.log(info)
+              var title = prompt("Título do Evento")
+              if (title) {
+                  var start = info.startStr;
+                  var end = info.endStr;
+                  var allDay = info.allDay;
+                  var user = {{ id_usuario }}
+                  $.ajax({
+                      type:"GET",
+                      url:"/calendario/add_event/",
+                      data:{"title":title, "start": start, "end": end, "user": user, "allDay":allDay},
+                      dataType: "json",
+                      success: function (data) {
+                          calendar.refetchEvents()
+                          alert("Evento Adicionado");
+                      },
+                      error: function (data) {
+                          alert("Ocorreu Um Problema !!" + info);
+                      }
+                  });
+              }
+              calendar.unselect()
+          },
 
-            });
-        },
+          eventResize: function (info){
+              var start = info.event.start.toISOString();
+              var end =  info.event.end.toISOString();
+              var title = info.event.title;
+              var id = info.event.id;
+              var user = {{ id_usuario }}
+              $.ajax({
+                  type:"GET",
+                  url:"/calendario/update/",
+                  data:{"title":title, "start": start, "end": end, "id":id, "user":user},
+                  dataType: "json",
+                  success: function (data) {
+                      calendar.refetchEvents()
+                      alert("Evento Atualizado");
+                  },
+                  error: function (data) {
+                      alert("Você não pode alterar esse evento !");
+                  }
 
-        eventDrop: function(info){
-            var start = info.event.start.toISOString();
-            var end =  info.event.end.toISOString();
-            var title = info.event.title;
-            var id = info.event.id;
-            var user = {{ id_usuario }}
-            $.ajax({
-                type:"GET",
-                url:"/calendario/update/",
-                data:{"title":title, "start": start, "end": end, "id":id, "user": user},
-                dataType: "json",
-                success: function (data) {
-                    calendar.refetchEvents()
-                    alert("Evento Atualizado");
-                },
-                error: function (data) {
-                    alert("Você não pode alterar esse evento !");
-                }
+              });
+          },
 
-            });
-        },
+          eventDrop: function(info){
+              var start = info.event.start.toISOString();
+              var end =  info.event.end.toISOString();
+              var title = info.event.title;
+              var id = info.event.id;
+              var user = {{ id_usuario }}
+              $.ajax({
+                  type:"GET",
+                  url:"/calendario/update/",
+                  data:{"title":title, "start": start, "end": end, "id":id, "user": user},
+                  dataType: "json",
+                  success: function (data) {
+                      calendar.refetchEvents()
+                      alert("Evento Atualizado");
+                  },
+                  error: function (data) {
+                      alert("Você não pode alterar esse evento !");
+                  }
 
-        eventClick: function(event){
-            if(confirm("Tem certeza que quer remover o Evento?")){
-                var id = event.event.id;
-                $.ajax({
-                    type: "GET",
-                    url: '/calendario/remove/',
-                    data: {"id": id},
-                    dataType: "json",
-                    success: function (data) {
-                        calendar.refetchEvents()
-                        alert("Evento Removido");
-                    },
-                    error: function (data) {
-                        alert("Você nao pode excluir esse Evento!!");
-                    }
-                });
-            }
-        },
-        events: '/calendario/all_events/',
-    });
+              });
+          },
 
-    calendar.render();
-});
+          eventClick: function(event){
+              if(confirm("Tem certeza que quer remover o Evento?")){
+                  var id = event.event.id;
+                  $.ajax({
+                      type: "GET",
+                      url: '/calendario/remove/',
+                      data: {"id": id},
+                      dataType: "json",
+                      success: function (data) {
+                          calendar.refetchEvents()
+                          alert("Evento Removido");
+                      },
+                      error: function (data) {
+                          alert("Você nao pode excluir esse Evento!!");
+                      }
+                  });
+              }
+          },
+          events: '/calendario/all_events/',
+      });
 
-    
-
-  </script>
+      calendar.render();
+  });
+</script>
 
 {% endblock %}

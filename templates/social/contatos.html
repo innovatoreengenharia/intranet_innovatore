@@ -1,79 +1,78 @@
-{% extends 'base.html' %}
-{% load static %}
-
-{% block estilo %}
-    <link href="{% static 'social/css/contatos.css' %}" rel="stylesheet">
-{% endblock %}
-
-{% block icones %}
-    <div class="icones">
-        <img class="icone-dash" src="{% static 'cartao_visitas/img/icone-visitas.png' %}">
-        <p>Social / </p>
-        <img class="icone-menu" src="{% static 'dashboard/img/menu-cinza.png' %}">
-    </div>
-{% endblock %}
-
-{% block content %}
+{% extends 'base.html' %} {% load static %} {% block estilo %}
+<link href="{% static 'social/css/contatos.css' %}" rel="stylesheet" />
+{% endblock %} {% block icones %}
+<div class="icones">
+  <img
+    class="icone-dash"
+    src="{% static 'cartao_visitas/img/icone-visitas.png' %}"
+  />
+  <p>Social /</p>
+  {% comment %}
+  <img class="icone-menu" src="{% static 'dashboard/img/menu-cinza.png' %}" />
+  {% endcomment %}
+</div>
+{% endblock %} {% block content %}
 
 <h1 class="text-left ml-2 mb-5">Contatos</h1>
 
 <div class="linha-busca container-fluid">
-        <form action="" style="margin-bottom:100px;">
-            <div><br></div>
-            <button href="" class="float-right botao-pesquisar" type="submit ">Pesquisar</button>
-            <input type="text" name="buscar" class="input-busca float-right" placeholder="Pesquisar Contato">
-        </form>
+  <form action="" style="margin-bottom: 100px">
+    <div><br /></div>
+    <button href="" class="float-right botao-pesquisar" type="submit ">
+      Pesquisar
+    </button>
+    <input
+      type="text"
+      name="buscar"
+      class="input-busca float-right"
+      placeholder="Pesquisar Contato"
+    />
+  </form>
 </div>
 
 <div class="tabela pt-4">
-    <div class="container-fluid">
-        <div class="row">
-            <table class="table col-12">
-                <thead>
-                <tr>
-                    <th class="titulo" scope="col">Nome</th>
-                    <th class="titulo" scope="col">Função</th>
-                    <th class="titulo" scope="col">Telefone</th>
-                    <th class="titulo" scope="col">E-mail</th>
-                    <th class="titulo" scope="col">Obra/Sede</th>
-                </tr>
-                </thead>
-                <tbody class="mt-5">
-                    {% for usuario in usuarios  %}
-                        <tr>
-                            <td class="td-nome-usuario">
-                                {% if not usuario.foto %}
+  <div class="container-fluid">
+    <div class="row">
+      <table class="table col-12">
+        <thead>
+          <tr>
+            <th class="titulo" scope="col">Nome</th>
+            <th class="titulo" scope="col">Função</th>
+            <th class="titulo" scope="col">Telefone</th>
+            <th class="titulo" scope="col">E-mail</th>
+            <th class="titulo" scope="col">Obra/Sede</th>
+          </tr>
+        </thead>
+        <tbody class="mt-5">
+          {% for usuario in usuarios %}
+          <tr>
+            <td class="td-nome-usuario">
+              {% if not usuario.foto %} {% if usuario.sexo == 'feminino' %} <img
+              class="foto-perfil" src={% static "usuario/img/avatar-f.jpeg" %}>
+              {% else %} <img class="foto-perfil" src={% static
+              "usuario/img/avatar-m.jpeg" %}> {% endif %} {% else %}
+              <img class="foto-perfil" src="{{" usuario.foto.url }} />
+              {% endif %} {{ usuario.nome }} {{ usuario.sobrenome }}
+            </td>
+            {% if not usuario.cargo %}
+            <td></td>
+            {% else %}
+            <td>{{ usuario.cargo }}</td>
+            {% endif %}
 
-                                    {% if usuario.sexo == 'feminino' %}
-                                        <img class="foto-perfil" src={% static "usuario/img/avatar-f.jpeg" %}>
-                                    {% else %}
-                                        <img class="foto-perfil" src={% static "usuario/img/avatar-m.jpeg" %}>
-                                    {% endif %}
-                                {% else %}
-                                    <img class="foto-perfil" src={{ usuario.foto.url }}>
-                                {% endif %}
-
-                                {{ usuario.nome }} {{ usuario.sobrenome }}
-                            </td>
-                            {% if not usuario.cargo %}
-                                <td></td>
-                            {% else %}
-                                <td>{{ usuario.cargo }}</td>
-                            {% endif %}
-
-                            <td>{{ usuario.contato }}</td>
-                            <td>{{ usuario.email_empresa }}</td>
-                            {% if not usuario.obra_trabalho %}
-                                <td></td>
-                            {% else %}
-                                <td>{{ usuario.obra_trabalho }}</td>
-                            {% endif %}
-                        </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-        </div>
+            <td>{{ usuario.contato }}</td>
+            <td>{{ usuario.email_empresa }}</td>
+            {% if not usuario.obra_trabalho %}
+            <td></td>
+            {% else %}
+            <td>{{ usuario.obra_trabalho }}</td>
+            {% endif %}
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
     </div>
+  </div>
 </div>
 
 {% endblock %}

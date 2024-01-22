@@ -1,73 +1,89 @@
-{% extends 'base.html' %}
-{% load static %}
-
-{% block estilo %}
-<link href="{% static 'informativos/css/informativos.css' %}" rel="stylesheet">
-{% endblock %}
-
-
-{% block icones %}
-    <div class="icones">
-        <img class="icone-dash" src="{% static 'informativos/img/icone-informativos.png' %}">
-        <p>Informativos / </p>
-        <img class="icone-menu" src="{% static 'dashboard/img/menu-cinza.png' %}">
-    </div>
-{% endblock %}
-
-{% block content %}
+{% extends 'base.html' %} {% load static %} {% block estilo %}
+<link
+  href="{% static 'informativos/css/informativos.css' %}"
+  rel="stylesheet"
+/>
+{% endblock %} {% block icones %}
+<div class="icones">
+  <img
+    class="icone-dash"
+    src="{% static 'informativos/img/icone-informativos.png' %}"
+  />
+  <p>Informativos /</p>
+  {% comment %}
+  <img class="icone-menu" src="{% static 'dashboard/img/menu-cinza.png' %}" />
+  {% endcomment %}
+</div>
+{% endblock %} {% block content %}
 
 <div class="conteudo-informativos">
-    <h1>Informativos INN</h1>
+  <h1>Informativos INN</h1>
 
-<form action="" style="margin-bottom:150px;">
-  <div><br></div>
-  <img src={% static 'cartao_visitas/img/filtro.png' %} class="float-right filtro" style="margin-bottom:150px;">
-  <button href="" class="float-right botao-pesquisar" type="submit ">Pesquisar</button>
-  <input type="text" name="buscar" class="input-busca float-right" placeholder="Pesquisar Noticia">
-</form>
+  <form action="" style="margin-bottom: 150px">
+    <div><br /></div>
+    <img src={% static 'cartao_visitas/img/filtro.png' %} class="float-right
+    filtro" style="margin-bottom:150px;">
+    <button href="" class="float-right botao-pesquisar" type="submit ">
+      Pesquisar
+    </button>
+    <input
+      type="text"
+      name="buscar"
+      class="input-busca float-right"
+      placeholder="Pesquisar Noticia"
+    />
+  </form>
 
-    <h1 class="noticias-h1">Notícias</h1>
+  <h1 class="noticias-h1">Notícias</h1>
 
-    <div class="row" style="max-width: 100%;">
-      {% for item in noticias %}
-        <a href="{% url 'informativos/noticia' item.id %}" class="col-6 row conteudo-thumb">
-          {%if item.imagem_thumb %}
-            <div class="col-6">
-              <img style="width:100%;"class="imagem-thumb" src={{ item.imagem_thumb.url }}>
-            </div>
-          {% endif %}
-          <div class="col-6 texto-thumb">
-              {% if item.titulo %}
-                <h6 class="titulo">{{ item.titulo }}</h6>
-              {% endif %}
-              {% if item.paragrafo %}
-                <p class="paragrafo_thumb paragrafo">{{ item.paragrafo }}</p>
-              {% endif %}
-          </div>
-        </a>
-      {% endfor %}
-    </div>
+  <div class="row" style="max-width: 100%">
+    {% for item in noticias %}
+    <a
+      href="{% url 'informativos/noticia' item.id %}"
+      class="col-6 row conteudo-thumb"
+    >
+      {%if item.imagem_thumb %}
+      <div class="col-6">
+        <img
+          style="width: 100%"
+          class="imagem-thumb"
+          src="{{"
+          item.imagem_thumb.url
+          }}
+        />
+      </div>
+      {% endif %}
+      <div class="col-6 texto-thumb">
+        {% if item.titulo %}
+        <h6 class="titulo">{{ item.titulo }}</h6>
+        {% endif %} {% if item.paragrafo %}
+        <p class="paragrafo_thumb paragrafo">{{ item.paragrafo }}</p>
+        {% endif %}
+      </div>
+    </a>
+    {% endfor %}
+  </div>
 </div>
 
 <div class="container-fluid text-center paginacao">
-    {% if page.has_previous %}
-        <a href="{% url 'informativos/todas_noticias' %}?page={{page.previous_page_number}}"><img src={% static 'documentos/img/anterior.png' %}></a>
-    {% endif %}
-    {% for i in page.paginator.page_range %}
-        {% if page.number == i %}
-            <p class="pagina-selecionada"><a>{{ i }}</a></p>
-        {% else %}
-            <a href="?page={{ i }}" class="paginas">{{ i }}</a>
-        {% endif %}
-    {% endfor %}
-
-    {% if page.has_next %}
-    <a href="{% url 'informativos/todas_noticias' %}?page={{page.next_page_number}}" style="margin-left: 32px;"><img src={% static "documentos/img/proximo.png" %}></a>
-    {% endif %}
+  {% if page.has_previous %}
+  <a
+    href="{% url 'informativos/todas_noticias' %}?page={{page.previous_page_number}}"
+    ><img src={% static 'documentos/img/anterior.png' %}></a
+  >
+  {% endif %} {% for i in page.paginator.page_range %} {% if page.number == i %}
+  <p class="pagina-selecionada"><a>{{ i }}</a></p>
+  {% else %}
+  <a href="?page={{ i }}" class="paginas">{{ i }}</a>
+  {% endif %} {% endfor %} {% if page.has_next %}
+  <a
+    href="{% url 'informativos/todas_noticias' %}?page={{page.next_page_number}}"
+    style="margin-left: 32px"
+    ><img src={% static "documentos/img/proximo.png" %}></a
+  >
+  {% endif %}
 </div>
 
-{% endblock %}
-
-{% block scripts %}
+{% endblock %} {% block scripts %}
 <script src="{% static 'informativos/js/js.js' %}"></script>
 {% endblock %}

@@ -1,256 +1,396 @@
-{% extends 'base.html' %}
-{% load static %}
-
-{% block estilo %}
-    <link href="{% static 'cursos/css/cursos.css' %}" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/tiny-slider.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/min/tiny-slider.helper.ie8.js"></script>
-{% endblock %}
-
-
-{% block icones %}
-    <div class="icones">
-        <img class="icone-dash" src="{% static 'cursos/img/icone-cursos.png' %}">
-        <p style="color:white">Documentos / </p>
-        <img class="icone-menu" src="{% static 'dashboard/img/menu.png' %}">
-    </div>
-{% endblock %}
-
-{% block content %}
-<div class=" container-fluid texto-principal">
-    <h3 class="h3-cursos">Cursos</h3>
-    <div class="div-invista container">
-        <h3 class="h3-invista">Invista em Você!</h3>
-        <h1 class="h1-invista">A Innovatore Engenharia Oferece Cursos para o Seu Crescimento Profissional</h1>
-        <button class="botao-invista">Acessar</button>
-    </div>
-</div>  
+{% extends 'base.html' %} {% load static %} {% block estilo %}
+<link href="{% static 'cursos/css/cursos.css' %}" rel="stylesheet" />
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/tiny-slider.css"
+/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/min/tiny-slider.helper.ie8.js"></script>
+{% endblock %} {% block icones %}
+<div class="icones">
+  <img class="icone-dash" src="{% static 'cursos/img/icone-cursos.png' %}" />
+  <p style="color: white">Documentos /</p>
+  {% comment %}
+  <img class="icone-menu" src="{% static 'dashboard/img/menu.png' %}" /> {%
+  endcomment %}
+</div>
+{% endblock %} {% block content %}
+<div class="container-fluid texto-principal">
+  <h3 class="h3-cursos">Cursos</h3>
+  <div class="div-invista container">
+    <h3 class="h3-invista">Invista em Você!</h3>
+    <h1 class="h1-invista">
+      A Innovatore Engenharia Oferece Cursos para o Seu Crescimento Profissional
+    </h1>
+    <button class="botao-invista">Acessar</button>
+  </div>
+</div>
 
 <h1 class="novos-cursos">Veja abaixo os novos cursos adicionados:</h1>
 
 <div class="container-fluid">
-    {% comment %} <button data-controls="prev" tabindex="-1" aria-controls="tns1"class="prev">anterior</button>
-    <button data-controls="next" tabindex="-1" aria-controls="tns1" class="next">proximo</button> {% endcomment %}
-    <div class="carrossel-novos-cursos">
-        {% for curso in cursos%}
-            <div class="col-3">
-                <img class="img-novos-cursos sombra" src={{ curso.imagem.url }}><br>
-                <p class="setor">{{ curso.setor }}</p>
-                <p class="nome">{{ curso.nome }}</p>
-                <p class="horas"><img src={% static 'cursos/img/horas.png' %} class="relogio">{{ curso.horas }} Horas </p>
-            </div>
-        {% endfor %}
+  {% comment %}
+  <button data-controls="prev" tabindex="-1" aria-controls="tns1" class="prev">
+    anterior
+  </button>
+  <button data-controls="next" tabindex="-1" aria-controls="tns1" class="next">
+    proximo
+  </button>
+  {% endcomment %}
+  <div class="carrossel-novos-cursos">
+    {% for curso in cursos%}
+    <div class="col-3">
+      <img class="img-novos-cursos sombra" src="{{" curso.imagem.url }} /><br />
+      <p class="setor">{{ curso.setor }}</p>
+      <p class="nome">{{ curso.nome }}</p>
+      <p class="horas">
+        <img src={% static 'cursos/img/horas.png' %} class="relogio">{{
+        curso.horas }} Horas
+      </p>
     </div>
+    {% endfor %}
+  </div>
 </div>
-<h1 class="titulo-centro">Amplie suas habilidades com nossos cursos de alto impacto!
-    Conheça abaixo os módulos oferecidos:</h1>
+<h1 class="titulo-centro">
+  Amplie suas habilidades com nossos cursos de alto impacto! Conheça abaixo os
+  módulos oferecidos:
+</h1>
 <div class="container-fluid">
-    <div class="row">
-        <a href="" class=" modulo rh sombra">
-            <img src={% static 'cursos/img/mod-icone.png' %}>
-            <p class="modulo-p-1">5 Módulos</p>
-            <p class="modulo-p-2">R.H.</p>
-        </a>
-        
-        <a href="" class="sombra modulo financeiro">
-            <img src={% static 'cursos/img/mod-icone.png' %}>
-            <p class="modulo-p-1">7 Módulos</p>
-            <p class="modulo-p-2">Financeiro</p>
-        </a>
-        <a href="" class="sombra modulo comercial">
-            <img src={% static 'cursos/img/mod-icone.png' %}>
-            <p class="modulo-p-1">14 Módulos</p>
-            <p class="modulo-p-2">Comercial</p>
-        </a>
-        <a href="" class="sombra modulo marketing">
-            <img src={% static 'cursos/img/mod-icone.png' %}>
-            <p class="modulo-p-1">13 Módulos</p>
-            <p class="modulo-p-2">Marketing</p>
-        </a>
-        <a href="" class="sombra modulo podcast">
-            <img src={% static 'cursos/img/mod-icone.png' %}>
-            <p class="modulo-p-1">5 Módulos</p>
-            <p class="modulo-p-2">Podcast</p>
-        </a>
-        <a href="" class="sombra modulo onboarding">
-            <img src={% static 'cursos/img/mod-icone.png' %}>
-            <p class="modulo-p-1">1 Módulo</p>
-            <p class="modulo-p-2">Onboarding</p>
-        </a>
-        <a href="" class="sombra modulo breve">
-            <p class="modulo-p-1">Em Breve</p>
-            <p class="modulo-p-2">Alavanque sua Carreira</p>
-        </a>
+  <div class="row">
+    <a href="" class="modulo rh sombra">
+      <img src={% static 'cursos/img/mod-icone.png' %}>
+      <p class="modulo-p-1">5 Módulos</p>
+      <p class="modulo-p-2">R.H.</p>
+    </a>
 
-    </div>
+    <a href="" class="sombra modulo financeiro">
+      <img src={% static 'cursos/img/mod-icone.png' %}>
+      <p class="modulo-p-1">7 Módulos</p>
+      <p class="modulo-p-2">Financeiro</p>
+    </a>
+    <a href="" class="sombra modulo comercial">
+      <img src={% static 'cursos/img/mod-icone.png' %}>
+      <p class="modulo-p-1">14 Módulos</p>
+      <p class="modulo-p-2">Comercial</p>
+    </a>
+    <a href="" class="sombra modulo marketing">
+      <img src={% static 'cursos/img/mod-icone.png' %}>
+      <p class="modulo-p-1">13 Módulos</p>
+      <p class="modulo-p-2">Marketing</p>
+    </a>
+    <a href="" class="sombra modulo podcast">
+      <img src={% static 'cursos/img/mod-icone.png' %}>
+      <p class="modulo-p-1">5 Módulos</p>
+      <p class="modulo-p-2">Podcast</p>
+    </a>
+    <a href="" class="sombra modulo onboarding">
+      <img src={% static 'cursos/img/mod-icone.png' %}>
+      <p class="modulo-p-1">1 Módulo</p>
+      <p class="modulo-p-2">Onboarding</p>
+    </a>
+    <a href="" class="sombra modulo breve">
+      <p class="modulo-p-1">Em Breve</p>
+      <p class="modulo-p-2">Alavanque sua Carreira</p>
+    </a>
+  </div>
 </div>
 
 <h1 class="titulo-centro">Conheça os instrutores dos nossos cursos</h1>
 
 <div class="container-fluid">
-    <div class="row text-center">
-
-        <div href="" class="instrutor col-3 instrutor-1 sombra">
-            <div class="conteudo-instrutores-1">
-                <p class="instrutor-nome">Marcelo Germano</p>
-                <p class="instrutor-qualificacao">Fundador da empresa EAG</p>
-                <div class="icones">
-                    <a href=""><img src={% static 'cursos/img/insta.png' %}></a>
-                    <a href=""><img src={% static 'cursos/img/face.png' %}></a>
-                    <a href=""><img src={% static 'cursos/img/twiter.png' %}></a>
-                </div>
-            </div>
+  <div class="row text-center">
+    <div href="" class="instrutor col-3 instrutor-1 sombra">
+      <div class="conteudo-instrutores-1">
+        <p class="instrutor-nome">Marcelo Germano</p>
+        <p class="instrutor-qualificacao">Fundador da empresa EAG</p>
+        <div class="icones">
+          <a href=""><img src={% static 'cursos/img/insta.png' %}></a>
+          <a href=""><img src={% static 'cursos/img/face.png' %}></a>
+          <a href=""><img src={% static 'cursos/img/twiter.png' %}></a>
         </div>
-
-        <div href="" class="instrutor col-3 instrutor-2">
-            <div class="conteudo-instrutores-2">
-                <p class="instrutor-nome">Thiago Reis</p>
-                <p class="instrutor-qualificacao">Maior especialista em vendas B2B</p>
-                <div class="icones">
-                    <a href=""><img src={% static 'cursos/img/insta.png' %}></a>
-                    <a href=""><img src={% static 'cursos/img/face.png' %}></a>
-                    <a href=""><img src={% static 'cursos/img/twiter.png' %}></a>
-                </div>
-            </div>
-        </div>
-
-        <div href="" class="instrutor col-3 instrutor-3">
-            <div class="conteudo-instrutores-3">
-                <p class="instrutor-nome">Matheus Bueno</p>
-                <p class="instrutor-qualificacao">Especialista em Vendas</p>
-                <div class="icones">
-                    <a href=""><img src={% static 'cursos/img/insta.png' %}></a>
-                    <a href=""><img src={% static 'cursos/img/face.png' %}></a>
-                    <a href=""><img src={% static 'cursos/img/twiter.png' %}></a>
-                </div>
-            </div>
-        </div>
-
-        <div href="" class="instrutor col-3 instrutor-4">
-            <div class="conteudo-instrutores-4">
-                <p class="instrutor-nome">Evandro Mazuco</p>
-                <p class="instrutor-qualificacao">Founder Codirect</p>
-                <div class="icones">
-                    <a href=""><img src={% static 'cursos/img/insta.png' %}></a>
-                    <a href=""><img src={% static 'cursos/img/face.png' %}></a>
-                    <a href=""><img src={% static 'cursos/img/twiter.png' %}></a>
-                </div>
-            </div>
-        </div>
-
+      </div>
     </div>
+
+    <div href="" class="instrutor col-3 instrutor-2">
+      <div class="conteudo-instrutores-2">
+        <p class="instrutor-nome">Thiago Reis</p>
+        <p class="instrutor-qualificacao">Maior especialista em vendas B2B</p>
+        <div class="icones">
+          <a href=""><img src={% static 'cursos/img/insta.png' %}></a>
+          <a href=""><img src={% static 'cursos/img/face.png' %}></a>
+          <a href=""><img src={% static 'cursos/img/twiter.png' %}></a>
+        </div>
+      </div>
+    </div>
+
+    <div href="" class="instrutor col-3 instrutor-3">
+      <div class="conteudo-instrutores-3">
+        <p class="instrutor-nome">Matheus Bueno</p>
+        <p class="instrutor-qualificacao">Especialista em Vendas</p>
+        <div class="icones">
+          <a href=""><img src={% static 'cursos/img/insta.png' %}></a>
+          <a href=""><img src={% static 'cursos/img/face.png' %}></a>
+          <a href=""><img src={% static 'cursos/img/twiter.png' %}></a>
+        </div>
+      </div>
+    </div>
+
+    <div href="" class="instrutor col-3 instrutor-4">
+      <div class="conteudo-instrutores-4">
+        <p class="instrutor-nome">Evandro Mazuco</p>
+        <p class="instrutor-qualificacao">Founder Codirect</p>
+        <div class="icones">
+          <a href=""><img src={% static 'cursos/img/insta.png' %}></a>
+          <a href=""><img src={% static 'cursos/img/face.png' %}></a>
+          <a href=""><img src={% static 'cursos/img/twiter.png' %}></a>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <h1 class="novos-cursos">FAQ</h1>
 
-<div class="accordion accordion-flush container-fluid sanfona" id="accordionFlushExample">
-
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="questao-1">
-        <button class="accordion-button collapsed faq sombra p-faq" type="button" data-bs-toggle="collapse" data-bs-target="#pergunta-1" aria-expanded="false" aria-controls="flush-pergunta-1">
-            Preciso pagar alguma mesalidade para ter acesso a plataforma?
-        </button>
-      </h2>
-      <div id="pergunta-1" class="accordion-collapse collapse" aria-labelledby="questao-1" data-bs-parent="#accordionFlushExample">
-        <div class="accordion-body respostas">É ótimo saber que você está interessado em nossos cursos! A Innovatore disponibiliza uma plataforma de estudos totalmente gratuita para nossos colaboradores.</div>
+<div
+  class="accordion accordion-flush container-fluid sanfona"
+  id="accordionFlushExample"
+>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="questao-1">
+      <button
+        class="accordion-button collapsed faq sombra p-faq"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#pergunta-1"
+        aria-expanded="false"
+        aria-controls="flush-pergunta-1"
+      >
+        Preciso pagar alguma mesalidade para ter acesso a plataforma?
+      </button>
+    </h2>
+    <div
+      id="pergunta-1"
+      class="accordion-collapse collapse"
+      aria-labelledby="questao-1"
+      data-bs-parent="#accordionFlushExample"
+    >
+      <div class="accordion-body respostas">
+        É ótimo saber que você está interessado em nossos cursos! A Innovatore
+        disponibiliza uma plataforma de estudos totalmente gratuita para nossos
+        colaboradores.
       </div>
     </div>
-
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="questao-2">
-        <button class="accordion-button collapsed faq sombra p-faq" type="button" data-bs-toggle="collapse" data-bs-target="#pergunta-2" aria-expanded="false" aria-controls="flush-pergunta-2">
-            Como solicito o meu login e senha?
-        </button>
-      </h2>
-      <div id="pergunta-2" class="accordion-collapse collapse" aria-labelledby="questao-2" data-bs-parent="#accordionFlushExample">
-        <div class="accordion-body respostas">Para solicitar acesso à nossa plataforma de cursos, basta entrar em contato com nosso Departamento de Recursos Humanos (RH). Eles estarão felizes em ajudá-lo a configurar sua conta e fornecer os detalhes de login necessários.<br><br>
-
-            Lembre-se, investir em seu próprio desenvolvimento é um passo importante em direção a um futuro brilhante. Estamos aqui para apoiá-lo em sua jornada de aprendizado. Entre em contato com o RH e comece a explorar os cursos que temos disponíveis para você!</div>
-      </div>
-    </div>
-
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="questao-3">
-        <button class="accordion-button collapsed faq sombra p-faq" type="button" data-bs-toggle="collapse" data-bs-target="#pergunta-3" aria-expanded="false" aria-controls="flush-pergunta-3">
-            Quando expira a minha assinatura?
-        </button>
-      </h2>
-      <div id="pergunta-3" class="accordion-collapse collapse" aria-labelledby="questao-3" data-bs-parent="#accordionFlushExample">
-        <div class="accordion-body respostas">Na Innovatore Engenharia, acreditamos no poder do aprendizado contínuo e no desenvolvimento pessoal e profissional de nossos colaboradores. É por isso que estamos felizes em oferecer a você nossa plataforma de cursos, com uma vantagem especial: não há prazo de expiração.<br><br>
-
-            Isso mesmo, sua assinatura de cursos não tem um limite de tempo predeterminado. Você pode acessar e aproveitar nossos cursos enquanto for um membro ativo de nossa equipe. Queremos que você tenha a flexibilidade de aprender no seu próprio ritmo, adquirir novas habilidades e conhecimentos, e crescer conosco.<br><br>
-            
-            Nossa prioridade é apoiar seu crescimento profissional e pessoal, e acreditamos que o acesso contínuo a oportunidades de aprendizado é fundamental para isso. Portanto, fique à vontade para explorar nossa ampla gama de cursos e mergulhar no mundo do conhecimento. Sua assinatura de cursos só expirará no caso de você deixar o quadro de funcionários da Innovatore.<br><br>
-            
-            Estamos comprometidos em investir em seu desenvolvimento e acreditamos que a aprendizagem é uma jornada contínua. Aproveite essa vantagem e comece a explorar nossos cursos hoje mesmo!</div>
-      </div>
-    </div>
-
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="questao-4">
-        <button class="accordion-button collapsed faq sombra p-faq" type="button" data-bs-toggle="collapse" data-bs-target="#pergunta-4" aria-expanded="false" aria-controls="flush-pergunta-4">
-            Como faço para recuperar minha senha da plataforma de cursos?
-        </button>
-      </h2>
-      <div id="pergunta-4" class="accordion-collapse collapse" aria-labelledby="questao-4" data-bs-parent="#accordionFlushExample">
-        <div class="accordion-body respostas">Se você esqueceu sua senha, basta clicar na opção "Esqueceu a senha?" na tela de login. Você receberá um e-mail com instruções sobre como redefinir sua senha.</div>
-      </div>
-    </div>
-
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="questao-5">
-        <button class="accordion-button collapsed faq sombra p-faq" type="button" data-bs-toggle="collapse" data-bs-target="#pergunta-5" aria-expanded="false" aria-controls="flush-pergunta-5">
-            Quantos cursos posso fazer ao mesmo tempo?
-        </button>
-      </h2>
-      <div id="pergunta-5" class="accordion-collapse collapse" aria-labelledby="questao-5" data-bs-parent="#accordionFlushExample">
-        <div class="accordion-body respostas">Não há limite para a quantidade de cursos que você pode fazer simultaneamente. Você pode escolher os cursos que são mais relevantes para o seu desenvolvimento.</div>
-      </div>
-    </div>
-
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="questao-6">
-        <button class="accordion-button collapsed faq sombra p-faq" type="button" data-bs-toggle="collapse" data-bs-target="#pergunta-6" aria-expanded="false" aria-controls="flush-pergunta-6">
-            Como acompanho meu progresso nos cursos?
-        </button>
-      </h2>
-      <div id="pergunta-6" class="accordion-collapse collapse" aria-labelledby="questao-6" data-bs-parent="#accordionFlushExample">
-        <div class="accordion-body respostas">A plataforma oferece ferramentas para acompanhar seu progresso, incluindo módulos e lições concluídas, pontuações em testes e certificados obtidos. Você encontrará essas informações em seu painel de controle.</div>
-      </div>
-    </div>
-
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="questao-7">
-        <button class="accordion-button collapsed faq sombra p-faq" type="button" data-bs-toggle="collapse" data-bs-target="#pergunta-7" aria-expanded="false" aria-controls="flush-pergunta-7">
-            Como faço para sugerir novos cursos ou tópicos de interesse?
-        </button>
-      </h2>
-      <div id="pergunta-7" class="accordion-collapse collapse" aria-labelledby="questao-7" data-bs-parent="#accordionFlushExample">
-        <div class="accordion-body respostas">Valorizamos seu feedback! Se você tiver sugestões para novos cursos ou tópicos de interesse, sinta-se à vontade para entrar em contato conosco. Estamos sempre buscando expandir nosso catálogo com base nas necessidades de nossa equipe.</div>
-      </div>
-    </div>
-   
   </div>
 
-{% endblock %}
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="questao-2">
+      <button
+        class="accordion-button collapsed faq sombra p-faq"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#pergunta-2"
+        aria-expanded="false"
+        aria-controls="flush-pergunta-2"
+      >
+        Como solicito o meu login e senha?
+      </button>
+    </h2>
+    <div
+      id="pergunta-2"
+      class="accordion-collapse collapse"
+      aria-labelledby="questao-2"
+      data-bs-parent="#accordionFlushExample"
+    >
+      <div class="accordion-body respostas">
+        Para solicitar acesso à nossa plataforma de cursos, basta entrar em
+        contato com nosso Departamento de Recursos Humanos (RH). Eles estarão
+        felizes em ajudá-lo a configurar sua conta e fornecer os detalhes de
+        login necessários.<br /><br />
 
-{% block scripts %}
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.2/min/tiny-slider.js"></script>
+        Lembre-se, investir em seu próprio desenvolvimento é um passo importante
+        em direção a um futuro brilhante. Estamos aqui para apoiá-lo em sua
+        jornada de aprendizado. Entre em contato com o RH e comece a explorar os
+        cursos que temos disponíveis para você!
+      </div>
+    </div>
+  </div>
 
-    <script type="module">                         // String selector
-        var slider = tns({
-          container: '.carrossel-novos-cursos',
-          items: 4, // Quantidade de itens que são exibidos ao mesmo tempo
-          slideBy: 'page',
-          autoplay: true,
-          mouseDrag: true, // Seta se o carousel pode ser rotacionado com o movimento de clicar e arrastar do mouse
-          autoplayButtonOutput: false, // Seta visibilidade do botão de auto play
-          controls: true, // seta visibilidade das setas de controle   
-          controlsText:["<img class='setas' src={% static 'cursos/img/esquerda.png' %}>", "<img class='setas' src={% static 'cursos/img/direita.png' %}>"],
-          nav: false, // Seta visibilidade da navegação (3 pontinhos)
-          speed: 1000,
-          autoplayTimeout: 10000,
-        });
-    </script>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="questao-3">
+      <button
+        class="accordion-button collapsed faq sombra p-faq"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#pergunta-3"
+        aria-expanded="false"
+        aria-controls="flush-pergunta-3"
+      >
+        Quando expira a minha assinatura?
+      </button>
+    </h2>
+    <div
+      id="pergunta-3"
+      class="accordion-collapse collapse"
+      aria-labelledby="questao-3"
+      data-bs-parent="#accordionFlushExample"
+    >
+      <div class="accordion-body respostas">
+        Na Innovatore Engenharia, acreditamos no poder do aprendizado contínuo e
+        no desenvolvimento pessoal e profissional de nossos colaboradores. É por
+        isso que estamos felizes em oferecer a você nossa plataforma de cursos,
+        com uma vantagem especial: não há prazo de expiração.<br /><br />
+
+        Isso mesmo, sua assinatura de cursos não tem um limite de tempo
+        predeterminado. Você pode acessar e aproveitar nossos cursos enquanto
+        for um membro ativo de nossa equipe. Queremos que você tenha a
+        flexibilidade de aprender no seu próprio ritmo, adquirir novas
+        habilidades e conhecimentos, e crescer conosco.<br /><br />
+
+        Nossa prioridade é apoiar seu crescimento profissional e pessoal, e
+        acreditamos que o acesso contínuo a oportunidades de aprendizado é
+        fundamental para isso. Portanto, fique à vontade para explorar nossa
+        ampla gama de cursos e mergulhar no mundo do conhecimento. Sua
+        assinatura de cursos só expirará no caso de você deixar o quadro de
+        funcionários da Innovatore.<br /><br />
+
+        Estamos comprometidos em investir em seu desenvolvimento e acreditamos
+        que a aprendizagem é uma jornada contínua. Aproveite essa vantagem e
+        comece a explorar nossos cursos hoje mesmo!
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="questao-4">
+      <button
+        class="accordion-button collapsed faq sombra p-faq"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#pergunta-4"
+        aria-expanded="false"
+        aria-controls="flush-pergunta-4"
+      >
+        Como faço para recuperar minha senha da plataforma de cursos?
+      </button>
+    </h2>
+    <div
+      id="pergunta-4"
+      class="accordion-collapse collapse"
+      aria-labelledby="questao-4"
+      data-bs-parent="#accordionFlushExample"
+    >
+      <div class="accordion-body respostas">
+        Se você esqueceu sua senha, basta clicar na opção "Esqueceu a senha?" na
+        tela de login. Você receberá um e-mail com instruções sobre como
+        redefinir sua senha.
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="questao-5">
+      <button
+        class="accordion-button collapsed faq sombra p-faq"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#pergunta-5"
+        aria-expanded="false"
+        aria-controls="flush-pergunta-5"
+      >
+        Quantos cursos posso fazer ao mesmo tempo?
+      </button>
+    </h2>
+    <div
+      id="pergunta-5"
+      class="accordion-collapse collapse"
+      aria-labelledby="questao-5"
+      data-bs-parent="#accordionFlushExample"
+    >
+      <div class="accordion-body respostas">
+        Não há limite para a quantidade de cursos que você pode fazer
+        simultaneamente. Você pode escolher os cursos que são mais relevantes
+        para o seu desenvolvimento.
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="questao-6">
+      <button
+        class="accordion-button collapsed faq sombra p-faq"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#pergunta-6"
+        aria-expanded="false"
+        aria-controls="flush-pergunta-6"
+      >
+        Como acompanho meu progresso nos cursos?
+      </button>
+    </h2>
+    <div
+      id="pergunta-6"
+      class="accordion-collapse collapse"
+      aria-labelledby="questao-6"
+      data-bs-parent="#accordionFlushExample"
+    >
+      <div class="accordion-body respostas">
+        A plataforma oferece ferramentas para acompanhar seu progresso,
+        incluindo módulos e lições concluídas, pontuações em testes e
+        certificados obtidos. Você encontrará essas informações em seu painel de
+        controle.
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="questao-7">
+      <button
+        class="accordion-button collapsed faq sombra p-faq"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#pergunta-7"
+        aria-expanded="false"
+        aria-controls="flush-pergunta-7"
+      >
+        Como faço para sugerir novos cursos ou tópicos de interesse?
+      </button>
+    </h2>
+    <div
+      id="pergunta-7"
+      class="accordion-collapse collapse"
+      aria-labelledby="questao-7"
+      data-bs-parent="#accordionFlushExample"
+    >
+      <div class="accordion-body respostas">
+        Valorizamos seu feedback! Se você tiver sugestões para novos cursos ou
+        tópicos de interesse, sinta-se à vontade para entrar em contato conosco.
+        Estamos sempre buscando expandir nosso catálogo com base nas
+        necessidades de nossa equipe.
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %} {% block scripts %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.2/min/tiny-slider.js"></script>
+
+<script type="module">
+  // String selector
+  var slider = tns({
+    container: ".carrossel-novos-cursos",
+    items: 4, // Quantidade de itens que são exibidos ao mesmo tempo
+    slideBy: "page",
+    autoplay: true,
+    mouseDrag: true, // Seta se o carousel pode ser rotacionado com o movimento de clicar e arrastar do mouse
+    autoplayButtonOutput: false, // Seta visibilidade do botão de auto play
+    controls: true, // seta visibilidade das setas de controle
+    controlsText: [
+      "<img class='setas' src={% static 'cursos/img/esquerda.png' %}>",
+      "<img class='setas' src={% static 'cursos/img/direita.png' %}>",
+    ],
+    nav: false, // Seta visibilidade da navegação (3 pontinhos)
+    speed: 1000,
+    autoplayTimeout: 10000,
+  });
+</script>
 
 {% endblock %}

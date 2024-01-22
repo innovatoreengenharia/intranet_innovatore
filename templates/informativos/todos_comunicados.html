@@ -1,86 +1,114 @@
-{% extends 'base.html' %}
-{% load static %}
-
-{% block estilo %}
-<link href="{% static 'informativos/css/informativos.css' %}" rel="stylesheet">
-{% endblock %}
-
-
-{% block icones %}
-    <div class="icones">
-        <img class="icone-dash" src="{% static 'informativos/img/icone-informativos.png' %}">
-        <p>Informativos / </p>
-        <img class="icone-menu" src="{% static 'dashboard/img/menu-cinza.png' %}">
-    </div>
-{% endblock %}
-
-{% block content %}
-
+{% extends 'base.html' %} {% load static %} {% block estilo %}
+<link
+  href="{% static 'informativos/css/informativos.css' %}"
+  rel="stylesheet"
+/>
+{% endblock %} {% block icones %}
+<div class="icones">
+  <img
+    class="icone-dash"
+    src="{% static 'informativos/img/icone-informativos.png' %}"
+  />
+  <p>Informativos /</p>
+  {% comment %}
+  <img class="icone-menu" src="{% static 'dashboard/img/menu-cinza.png' %}" />
+  {% endcomment %}
+</div>
+{% endblock %} {% block content %}
 
 <h1>Comunicados</h1>
 <div class="container-fluid container-comunicados">
-  <form action="" style="margin-bottom:150px;">
-    <div><br></div>
-    <img src={% static 'cartao_visitas/img/filtro.png' %} class="float-right filtro" style="margin-bottom:150px;">
-    <button href="" class="float-right botao-pesquisar" type="submit ">Pesquisar</button>
-    <input type="text" name="buscar" class="input-busca float-right" placeholder="Pesquisar Comunicado">
-</form>
-    <div class="row">
-        {% for comunicado in comunicados %}
-          <div class="col-lg-4 pl-5 div-comunicados">
-            <h6>{{ comunicado.titulo }}</h6>
-            <p class="paragrafo paragrafo-comunicado">{{ comunicado.paragrafo }}</p>
-            <p data-toggle="modal" data-target="#comunicadoModal{{ forloop.counter }}" class="ler-mais">Ler Mais</p>
-            {% if user.is_staff%}
-              <a href="{% url 'informativos/editar_comunicado' comunicado.id %}" class="editar-comunicado">Editar</a>
-              <a href="{% url 'deletar_comunicado' comunicado.id %}">Excluir</a>
-            {% endif %}
-          </div>
-        {% endfor %}
+  <form action="" style="margin-bottom: 150px">
+    <div><br /></div>
+    <img src={% static 'cartao_visitas/img/filtro.png' %} class="float-right
+    filtro" style="margin-bottom:150px;">
+    <button href="" class="float-right botao-pesquisar" type="submit ">
+      Pesquisar
+    </button>
+    <input
+      type="text"
+      name="buscar"
+      class="input-busca float-right"
+      placeholder="Pesquisar Comunicado"
+    />
+  </form>
+  <div class="row">
+    {% for comunicado in comunicados %}
+    <div class="col-lg-4 pl-5 div-comunicados">
+      <h6>{{ comunicado.titulo }}</h6>
+      <p class="paragrafo paragrafo-comunicado">{{ comunicado.paragrafo }}</p>
+      <p
+        data-toggle="modal"
+        data-target="#comunicadoModal{{ forloop.counter }}"
+        class="ler-mais"
+      >
+        Ler Mais
+      </p>
+      {% if user.is_staff%}
+      <a
+        href="{% url 'informativos/editar_comunicado' comunicado.id %}"
+        class="editar-comunicado"
+        >Editar</a
+      >
+      <a href="{% url 'deletar_comunicado' comunicado.id %}">Excluir</a>
+      {% endif %}
     </div>
+    {% endfor %}
+  </div>
   {% for comunicado in comunicados %}
-  <div class="modal fade" id="comunicadoModal{{ forloop.counter }}" tabindex="-1" role="dialog" aria-labelledby="comunicadoModalLabel{{ forloop.counter }}" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h6 class="modal-title" id="comunicadoModalLabel">{{ comunicado.titulo }}</h6>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <p class="paragrafo">{{ comunicado.paragrafo }}</p>
-          </div>
+  <div
+    class="modal fade"
+    id="comunicadoModal{{ forloop.counter }}"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="comunicadoModalLabel{{ forloop.counter }}"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h6 class="modal-title" id="comunicadoModalLabel">
+            {{ comunicado.titulo }}
+          </h6>
+          <button
+            type="button"
+            class="close"
+            data-dismiss="modal"
+            aria-label="Close"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p class="paragrafo">{{ comunicado.paragrafo }}</p>
         </div>
       </div>
     </div>
-  {% endfor %}
-  
-    
-  {% if user.is_staff%}
-    <a href="{% url 'informativos/criar_comunicado' %}">Criar Comunicado</a>
-  {% endif %}
   </div>
-
-<div class="container-fluid text-center paginacao">
-  {% if page.has_previous %}
-      <a href="{% url 'informativos/todas_noticias' %}?page={{page.previous_page_number}}"><img src={% static 'documentos/img/anterior.png' %}></a>
-  {% endif %}
-  {% for i in page.paginator.page_range %}
-      {% if page.number == i %}
-          <p class="pagina-selecionada"><a>{{ i }}</a></p>
-      {% else %}
-          <a href="?page={{ i }}" class="paginas">{{ i }}</a>
-      {% endif %}
-  {% endfor %}
-
-  {% if page.has_next %}
-  <a href="{% url 'informativos/todas_noticias' %}?page={{page.next_page_number}}" style="margin-left: 32px;"><img src={% static "documentos/img/proximo.png" %}></a>
+  {% endfor %} {% if user.is_staff%}
+  <a href="{% url 'informativos/criar_comunicado' %}">Criar Comunicado</a>
   {% endif %}
 </div>
 
-{% endblock %}
+<div class="container-fluid text-center paginacao">
+  {% if page.has_previous %}
+  <a
+    href="{% url 'informativos/todas_noticias' %}?page={{page.previous_page_number}}"
+    ><img src={% static 'documentos/img/anterior.png' %}></a
+  >
+  {% endif %} {% for i in page.paginator.page_range %} {% if page.number == i %}
+  <p class="pagina-selecionada"><a>{{ i }}</a></p>
+  {% else %}
+  <a href="?page={{ i }}" class="paginas">{{ i }}</a>
+  {% endif %} {% endfor %} {% if page.has_next %}
+  <a
+    href="{% url 'informativos/todas_noticias' %}?page={{page.next_page_number}}"
+    style="margin-left: 32px"
+    ><img src={% static "documentos/img/proximo.png" %}></a
+  >
+  {% endif %}
+</div>
 
-{% block scripts %}
+{% endblock %} {% block scripts %}
 <script src="{% static 'informativos/js/js.js' %}"></script>
 {% endblock %}

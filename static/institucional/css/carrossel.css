@@ -1,157 +1,155 @@
 /* carrossel */
 
-element.style{
-    width:1000%;
+element.style {
+  width: 1000%;
 }
-.box-carrossel{
-    width:100%;
-    padding-right: 32px;
-    overflow: hidden;
-    position:relative;
-    left:-2em;
-}
-
-.carrossel{
-    background-color: #14355E;
-    color:white;
-    margin: auto;
-    margin-bottom: 1em;
-    padding-top:6em;
-    padding-right: 32px;
-    padding-left: 4em;
-    width:100000px;
-    align-items: left;
-    justify-content: left;
+.box-carrossel {
+  width: 100%;
+  padding-right: 32px;
+  overflow: hidden;
+  position: relative;
+  left: -2em;
 }
 
-.carrossel-item{
-    display: inline-block;
-    position: relative;
-    margin-right: 25em;
-    
+.carrossel {
+  background-color: #14355e;
+  color: white;
+  margin: auto;
+  margin-bottom: 1em;
+  padding-top: 6em;
+  padding-right: 32px;
+  padding-left: 4em;
+  width: 100000px;
+  align-items: left;
+  justify-content: left;
 }
 
-.imagem-carrossel{
-    display:inline-block;
-    margin: 4em 0em 1em 0em;
-    margin-bottom: 5em;
-    margin-left: 3em;
-    border-radius: 12px ;
-}
-.texto-carrossel{ 
-    display: inline-block;
-    padding-left: 1em;
-    width: 550px;
-    width: 600px;
-}
-.titulo-item{
-    position:absolute;
-    top:35px; 
-    margin-bottom: 1em;
-    color: white;
-    font-size: 32px;
-    font-family: 'Open Sans';
-    font-weight: 700;
-    line-height: 48px;
-    word-wrap: break-word;
-   
+.carrossel-item {
+  display: inline-block;
+  position: relative;
+  margin-right: 25em;
 }
 
-.sub-titulo-item{
-    position:absolute; 
-    top: 250px;
-    color: white;
-    font-size: 32px;
-    font-family: 'Open Sans';
-    font-weight: 700;
-    line-height: 48px;
-    word-wrap: break-word;
-   
+.imagem-carrossel {
+  display: inline-block;
+  margin: 4em 0em 1em 0em;
+  margin-bottom: 5em;
+  margin-left: 3em;
+  border-radius: 12px;
+}
+.texto-carrossel {
+  display: inline-block;
+  padding-left: 1em;
+  width: 550px;
+  width: 600px;
+}
+.titulo-item {
+  position: absolute;
+  top: 35px;
+  left: 300px;
+  margin-bottom: 1em;
+  color: white;
+  font-size: 32px;
+  font-family: "Open Sans";
+  font-weight: 700;
+  line-height: 48px;
+  word-wrap: break-word;
 }
 
-.texto-carrossel li{
-    margin-left: 16px;
-    color: white;
-    font-size: 22px;
-    font-family: 'Open Sans';
-    font-weight: 400;
-    line-height: 32px;
-    word-wrap: break-word;
+.sub-titulo-item {
+  position: absolute;
+  top: 250px;
+  color: white;
+  font-size: 32px;
+  font-family: "Open Sans";
+  font-weight: 700;
+  line-height: 48px;
+  word-wrap: break-word;
 }
 
-.ul-seguranca{
-    position:relative; 
-    top:3em;
+.texto-carrossel li {
+  margin-left: 16px;
+  color: white;
+  font-size: 22px;
+  font-family: "Open Sans";
+  font-weight: 400;
+  line-height: 32px;
+  word-wrap: break-word;
 }
 
-.ul-proatividade{
-    position:relative; 
-    top:12em;
+.ul-seguranca {
+  position: relative;
+  top: 3em;
 }
 
-.ul-comprometimento{
-    position:relative; 
-    top:4em;
+.ul-proatividade {
+  position: relative;
+  top: 12em;
 }
 
-.ul-etica{
-    position:relative; 
-    top:9em;
+.ul-comprometimento {
+  position: relative;
+  top: 4em;
 }
 
-.ul-honestidade{
-    position:relative; 
-    top:9em;
+.ul-etica {
+  position: relative;
+  top: 9em;
 }
 
-.ul-desenvolvimento{
-    position:relative; 
-    top:12em;
+.ul-honestidade {
+  position: relative;
+  top: 9em;
 }
 
-.ul-responsabilidade{
-    position:relative; 
-    top:12em;
+.ul-desenvolvimento {
+  position: relative;
+  top: 12em;
 }
 
-.ul-foco{
-    position:relative; 
-    top:12em;
+.ul-responsabilidade {
+  position: relative;
+  top: 12em;
 }
 
-.ul-colaboracao{
-    position:relative; 
-    top:12em;
+.ul-foco {
+  position: relative;
+  top: 12em;
 }
 
-.ul-respeito{
-    position:relative; 
-    top:12em;
+.ul-colaboracao {
+  position: relative;
+  top: 12em;
 }
 
-.ul-adaptacao{
-    position:relative; 
-    top:12em;
+.ul-respeito {
+  position: relative;
+  top: 12em;
 }
 
-.texto-carrossel li{
-    list-style-type: disc;
-    color: white;
-    font-size: 22px;
-    font-family: 'Open Sans';
-    font-weight: 400;
-    line-height: 32px;
-    word-wrap: break-word;
+.ul-adaptacao {
+  position: relative;
+  top: 12em;
 }
 
-.pontos{
-    display: inline-block;
-    position:relative;
-    top:13em;
-    margin-bottom: 5em;
+.texto-carrossel li {
+  list-style-type: disc;
+  color: white;
+  font-size: 22px;
+  font-family: "Open Sans";
+  font-weight: 400;
+  line-height: 32px;
+  word-wrap: break-word;
 }
 
-.setas{
-    position: relative;
-    top:-8em;
+.pontos {
+  display: inline-block;
+  position: relative;
+  top: 13em;
+  margin-bottom: 5em;
+}
+
+.setas {
+  position: relative;
+  top: -8em;
 }
