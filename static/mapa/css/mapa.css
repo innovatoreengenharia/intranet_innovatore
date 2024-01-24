@@ -1,42 +1,41 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital@0;1&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;1,400&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;1,400&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital@0;1&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;1,400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;1,400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap");
 
-
-
-html{
-    background-color: #f9f9f9;
+html {
+  background-color: #f9f9f9;
 }
-svg{
+svg {
   width: 45%;
 }
 .norte {
-  fill: #63ab3f;
+  fill: #f9f9f9;
 }
 .nordeste {
-  fill: #f0b541;
+  fill: #f9f9f9;
 }
 .centro-oeste {
-  fill: #ffae70;
+  fill: #f9f9f9;
 }
 .sudeste {
-  fill: #4fa4b8;
+  fill: #f9f9f9;
 }
 .sul {
-  fill: #686f99;
+  fill: #f9f9f9;
 }
 path {
-  fill: #1da1f2;
-  stroke: white;
+  fill: #f9f9f9;
+  stroke: #e8e8e8;
   stroke-width: 1px;
 }
 path:hover {
-  fill: purple;
-  stroke: red;
+  fill: #e8e8e8;
+  stroke: white;
   stroke-width: 3px;
   transition: fill 0.4s;
 }
+
 .tooltip {
   pointer-events: none;
   position: absolute;
@@ -67,4 +66,27 @@ path:hover {
   border-left: 10px solid transparent;
   border-right: 10px solid transparent;
   border-top: 10px solid white;
+}
+
+.nomes {
+  font-size: 10px;
+  font-family: "oswald";
+  font-weight: 300;
+  fill: #14355e;
+}
+
+.nomes-selecionados {
+  font-size: 10px;
+  font-family: "oswald";
+  font-weight: 300;
+  fill: white;
+}
+
+.estados-selecionados {
+  fill: #14355e;
+  cursor: pointer;
+}
+.estados-selecionados:hover {
+  fill: #14355e;
+  cursor: pointer;
 }

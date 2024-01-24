@@ -8,10 +8,10 @@
 {% endblock %} {% block icones %}
 <div class="icones">
   <img class="icone-dash" src="{% static 'cursos/img/icone-cursos.png' %}" />
-  <p style="color: white">Documentos /</p>
+  <p style="color: white">Cursos /</p>
   {% comment %}
-  <img class="icone-menu" src="{% static 'dashboard/img/menu.png' %}" /> {%
-  endcomment %}
+  <img class="icone-menu" src="{% static 'dashboard/img/menu.png' %}" />
+  {% endcomment %}
 </div>
 {% endblock %} {% block content %}
 <div class="container-fluid texto-principal">
@@ -39,7 +39,7 @@
   <div class="carrossel-novos-cursos">
     {% for curso in cursos%}
     <div class="col-3">
-      <img class="img-novos-cursos sombra" src="{{" curso.imagem.url }} /><br />
+      <img class="img-novos-cursos sombra" src="{{ curso.imagem.url }}" /><br />
       <p class="setor">{{ curso.setor }}</p>
       <p class="nome">{{ curso.nome }}</p>
       <p class="horas">

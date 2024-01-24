@@ -104,9 +104,9 @@
             </li>-->
 
             <li class="nav-item item-menu">
-                <a class="nav-link" href={% url 'tarefas' %}>
+                <a class="nav-link" href="">
                     <img src={% static "dashboard/img/painel_tarefas.png" %}>
-                    <span>Painel de Tarefas</span></a>
+                    <span>Tarefas (Em Breve)</span></a>
             </li>
 
             <li class="nav-item item-menu">
@@ -116,9 +116,9 @@
             </li>
 
             <li class="nav-item item-menu">
-                <a class="nav-link" href={% url 'mapa' %}>
+                <a class="nav-link" href="">
                     <img src={% static "dashboard/img/mapa_obras.png" %}>
-                    <span>Mapa de Obras</span></a>
+                    <span>Mapa (Em Breve)</span></a>
             </li>
 
             <li class="nav-item item-menu">
@@ -200,7 +200,7 @@
                 <ul class="navbar-nav ml-auto">
 
                     <!-- Nav Item - Search Dropdown (Visible Only XS) -->
-                    <li class="nav-item dropdown no-arrow d-sm-none">
+                    {% comment %} <li class="nav-item dropdown no-arrow d-sm-none">
                         <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="fas fa-search fa-fw"></i>
@@ -330,7 +330,7 @@
                                         alt="...">
                                     <div class="status-indicator bg-success"></div>
                                 </div>
-                                <div>
+                                <div>                                                                                                                
                                     <div class="text-truncate">Am I a good boy? The reason I ask is because someone
                                         told me that people say this to all dogs, even if they aren't good...</div>
                                     <div class="small text-gray-500">Chicken the Dog · 2w</div>
@@ -339,8 +339,9 @@
                             <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
                         </div>
                     </li>
-
+ 
                     <div class="topbar-divider d-none d-sm-block"></div>
+                {% endcomment %}                                                                                                                                        
 
                     <!-- Nav Item - User Information -->
                     <li class="nav-item dropdown no-arrow">
@@ -369,11 +370,11 @@
                                 <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                 Perfil
                             </a>
-                            <div class="dropdown-divider"></div>
+                            {% comment %} <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="#">
                                 <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
                                 Configuraçãoes
-                            </a>
+                            </a> {% endcomment %}
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="{% url 'logout' %}">
                                 <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
