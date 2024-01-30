@@ -256,19 +256,109 @@
 
 <div class="tooltip"></div>
 
+<div class="content col-6" data-index="1">
+  <div>
+    <div class="obras">
+      <h1>Canadian Solar </h1>
+      <p>{% lorem 1 p random %} <strong class="localizacao">Localização: </strong>Caucaia/CE</p>
+      {% for colaborador in colaboradores_canadian %}
+      <div class="colaboradores mr-5 mt-3 text-center">
+        {% if not colaborador.foto %}
+            {% if colaborador.sexo == 'feminino' %}
+            <img class="img-profile-mapa rounded-circle" src="{% static 'usuario/img/avatar-f.jpeg' %}">
+            {% else %}
+            <img class="img-profile-mapa rounded-circle" src="{% static 'usuario/img/avatar-m.jpeg' %}">
+            {% endif %}
+        {% else %}
+            <img class="img-profile-mapa rounded-circle"src="{{ colaborador.foto.url }}">
+        {% endif %}
+        
+        <br><strong class="text-center  nome-colaborador">{{ colaborador.nome }} {{ colaborador.sobrenome }}</strong>
+        <p class="text-center cargo-colaborador">{{ colaborador.cargo }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div> 
+</div>
 
-<div class="content col-6" data-index="1">conteudo 1</div>
-<div class="content col-6" data-index="2">Conteúdo 2</div>
-<div class="content col-6" data-index="3">Conteúdo 3</div>
+<div class="content col-6" data-index="2">
+  <div>
+    <div class="obras">
+      <h1>Cibra</h1>
+      <p>{% lorem 1 p random %} <strong class="localizacao">Localização: </strong> São Luis/MA</p>
+      {% for colaborador in colaboradores_cibra %}
+      <div class="colaboradores mr-5 mt-3 text-center">
+        {% if not colaborador.foto %}
+            {% if colaborador.sexo == 'feminino' %}
+            <img class="img-profile-mapa rounded-circle" src="{% static 'usuario/img/avatar-f.jpeg' %}">
+            {% else %}
+            <img class="img-profile-mapa rounded-circle" src="{% static 'usuario/img/avatar-m.jpeg' %}">
+            {% endif %}
+        {% else %}
+            <img class="img-profile-mapa rounded-circle"src="{{ colaborador.foto.url }}">
+        {% endif %}
+        
+        <br><strong class="text-center  nome-colaborador">{{ colaborador.nome }} {{ colaborador.sobrenome }}</strong>
+        <p class="text-center cargo-colaborador">{{ colaborador.cargo }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>    
+</div>
+
+<div class="content col-6" data-index="3">
+  <div>
+    <div class="obras">
+      <h1>Nebrás</h1>
+      <p>{% lorem 1 p random %} <strong class="localizacao">Localização: </strong>Salgueiro/PE</p>
+      {% for colaborador in colaboradores_nebras %}
+      <div class="colaboradores mr-5 mt-3 text-center">
+        {% if not colaborador.foto %}
+            {% if colaborador.sexo == 'feminino' %}
+            <img class="img-profile-mapa rounded-circle" src="{% static 'usuario/img/avatar-f.jpeg' %}">
+            {% else %}
+            <img class="img-profile-mapa rounded-circle" src="{% static 'usuario/img/avatar-m.jpeg' %}">
+            {% endif %}
+        {% else %}
+            <img class="img-profile-mapa rounded-circle"src="{{ colaborador.foto.url }}">
+        {% endif %}
+        
+        <br><strong class="text-center  nome-colaborador">{{ colaborador.nome }} {{ colaborador.sobrenome }}</strong>
+        <p class="text-center cargo-colaborador">{{ colaborador.cargo }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div> 
+</div>
 
 <div class="content col-6"data-index="4">
   <div>
-    <img src={% static "mapa/img/dexco.png" %}>
-    <p>A Dexco é uma empresa brasileira, com o capital aberto desde 1951 e ações negociadas em bolsa de valores (B3), sob o ticket DXCO3.
-      É a maior empresa produtora de painéis de madeira industrializada do Brasil, líder de mercado na produção de louças e metais sanitários no hemisfério Sul e uma das líderes do segmento de revestimentos cerâmicos no país.
-      Localização: Botucatu / SP</p>
-      {% for colaborador in colaboradores_dexco %}
-      <div class="colaboradores m-5">
+    <div class="obras">
+      <h1>Ajinomoto</h1>
+      <p>{% lorem 1 p random %} <strong class="localizacao">Localização: </strong> Limeira/SP</p>
+      {% for colaborador in colaboradores_ajinomoto %}
+      <div class="colaboradores mr-5 mt-3 text-center">
+        {% if not colaborador.foto %}
+            {% if colaborador.sexo == 'feminino' %}
+            <img class="img-profile-mapa rounded-circle" src="{% static 'usuario/img/avatar-f.jpeg' %}">
+            {% else %}
+            <img class="img-profile-mapa rounded-circle" src="{% static 'usuario/img/avatar-m.jpeg' %}">
+            {% endif %}
+        {% else %}
+            <img class="img-profile-mapa rounded-circle"src="{{ colaborador.foto.url }}">
+        {% endif %}
+        
+        <br><strong class="text-center  nome-colaborador">{{ colaborador.nome }} {{ colaborador.sobrenome }}</strong>
+        <p class="text-center cargo-colaborador">{{ colaborador.cargo }}</p>
+      </div>
+      {% endfor %}
+    </div>
+
+    <div class="mt-5 obras">
+      <h1>Rousselot</h1>
+      <p>{% lorem 1 p random %} <strong class="localizacao">Localização: </strong> Presidente Epitácio/SP</p>
+      {% for colaborador in colaboradores_rousselot %}
+      <div class="colaboradores mr-5 mt-3  text-center">
         {% if not colaborador.foto%}
             {% if colaborador.sexo == 'feminino' %}
             <img class="img-profile-mapa rounded-circle" src="{% static 'usuario/img/avatar-f.jpeg' %}">
@@ -279,25 +369,89 @@
             <img class="img-profile-mapa rounded-circle"src="{{ colaborador.foto.url }}">
         {% endif %}
         
-        <br><strong>{{ colaborador.nome }} {{ colaborador.sobrenome }}</strong>
-        <p>{{ colaborador.cargo }}</p>
+        <br><strong class="text-center nome-colaborador">{{ colaborador.nome }} {{ colaborador.sobrenome }}</strong>
+        <p class="text-center cargo-colaborador">{{ colaborador.cargo }}</p>
       </div>
-
       {% endfor %}
+    </div>
+
+    <div class="mt-5 obras">
+      <h1>Agropalma </h1>
+      <p>{% lorem 1 p random %} <strong class="localizacao">Localização: </strong> Limeira/SP</p>
+      {% for colaborador in colaboradores_agropalma %}
+      <div class="colaboradores mr-5 mt-3  text-center">
+        {% if not colaborador.foto%}
+            {% if colaborador.sexo == 'feminino' %}
+            <img class="img-profile-mapa rounded-circle" src="{% static 'usuario/img/avatar-f.jpeg' %}">
+            {% else %}
+            <img class="img-profile-mapa rounded-circle" src="{% static 'usuario/img/avatar-m.jpeg' %}">
+            {% endif %}
+        {% else %}
+            <img class="img-profile-mapa rounded-circle"src="{{ colaborador.foto.url }}">
+        {% endif %}
+        
+        <br><strong class="text-center nome-colaborador">{{ colaborador.nome }} {{ colaborador.sobrenome }}</strong>
+        <p class="text-center cargo-colaborador">{{ colaborador.cargo }}</p>
       </div>
+      {% endfor %}
+    </div>
+
+    <div class="mt-5 obras">
+      <h1>Cobb</h1>
+      <p>{% lorem 1 p random %} <strong class="localizacao">Localização: </strong> Guapiaçu/SP</p>
+      {% for colaborador in colaboradores_cobb %}
+      <div class="colaboradores mr-5 mt-3 text-center">
+        {% if not colaborador.foto%}
+            {% if colaborador.sexo == 'feminino' %}
+            <img class="img-profile-mapa rounded-circle" src="{% static 'usuario/img/avatar-f.jpeg' %}">
+            {% else %}
+            <img class="img-profile-mapa rounded-circle" src="{% static 'usuario/img/avatar-m.jpeg' %}">
+            {% endif %}
+        {% else %}
+            <img class="img-profile-mapa rounded-circle"src="{{ colaborador.foto.url }}">
+        {% endif %}
+        
+        <br><strong class="text-center nome-colaborador">{{ colaborador.nome }} {{ colaborador.sobrenome }}</strong>
+        <p class="text-center cargo-colaborador">{{ colaborador.cargo }}</p>
+      </div>
+      {% endfor %}
+    </div>
+
+    <div class="mt-5 obras">
+      <h1>Meapler Bear</h1>
+      <p>{% lorem 1 p random %} <strong class="localizacao">Localização: </strong> Limeira/SP</p>
+      {% for colaborador in colaboradores_meapler %}
+      <div class="colaboradores mr-5 mt-3  text-center">
+        {% if not colaborador.foto%}
+            {% if colaborador.sexo == 'feminino' %}
+            <img class="img-profile-mapa rounded-circle" src="{% static 'usuario/img/avatar-f.jpeg' %}">
+            {% else %}
+            <img class="img-profile-mapa rounded-circle" src="{% static 'usuario/img/avatar-m.jpeg' %}">
+            {% endif %}
+        {% else %}
+            <img class="img-profile-mapa rounded-circle"src="{{ colaborador.foto.url }}">
+        {% endif %}
+        
+        <br><strong class="text-center nome-colaborador">{{ colaborador.nome }} {{ colaborador.sobrenome }}</strong>
+        <p class="text-center cargo-colaborador">{{ colaborador.cargo }}</p>
+      </div>
+      {% endfor %}
+    </div>
+
+  </div>
 </div>
 
 
 {% endblock %} 
 
 {% block scripts %} 
-<script>
-  $(document).ready(function() {
-    $(".estados-selecionados").click(function() {
-      var index = $(this).data("index");
-      $(".content").removeClass("active");
-      $(".content[data-index='" + index + "']").addClass("active");
+  <script>
+    $(document).ready(function() {
+      $(".estados-selecionados").click(function() {
+        var index = $(this).data("index");
+        $(".content").fadeOut(300); // Desaparece lentamente
+        $(".content[data-index='" + index + "']").fadeIn(1000); // Aparece lentamente
+      });
     });
-  });
-</script>
+  </script>
 {% endblock %}

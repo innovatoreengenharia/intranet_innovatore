@@ -9,6 +9,7 @@ html {
 
 svg {
   width: 45%;
+  height: 84vh;
 }
 
 .norte {
@@ -104,16 +105,36 @@ path:hover {
 
 .content {
   display: none;
+  height: 84vh;
+  padding: 64px;
   width: 100%;
   float: right;
+  overflow: auto;
+  overflow-x: hidden;
 }
 
 .active {
   display: block;
 }
 
+.obras p {
+  font-family: 'Open Sans';
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 32px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #464646;
+
+}
+
+.obras .localizacao {
+  color: black;
+}
+
 .colaboradores {
   display: inline-block;
+  justify-content: center;
 }
 
 .img-profile-mapa {
@@ -121,4 +142,21 @@ path:hover {
   width: 4rem;
   margin-bottom: 16px;
   top: 0px;
+}
+
+.obras .nome-colaborador {
+  font-family: 'Open Sans';
+  font-size: 14px;
+  font-weight: 400;
+  text-align: left;
+  color: #000;
+}
+
+.obras .cargo-colaborador {
+  font-family: 'Open Sans';
+  font-size: 10px;
+  font-weight: 400;
+  margin-top: -8px;
+  text-align: left;
+  color: #000;
 }
