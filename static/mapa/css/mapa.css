@@ -6,29 +6,37 @@
 html {
   background-color: #f9f9f9;
 }
+
 svg {
   width: 45%;
 }
+
 .norte {
   fill: #f9f9f9;
 }
+
 .nordeste {
   fill: #f9f9f9;
 }
+
 .centro-oeste {
   fill: #f9f9f9;
 }
+
 .sudeste {
   fill: #f9f9f9;
 }
+
 .sul {
   fill: #f9f9f9;
 }
+
 path {
   fill: #f9f9f9;
   stroke: #e8e8e8;
   stroke-width: 1px;
 }
+
 path:hover {
   fill: #e8e8e8;
   stroke: white;
@@ -52,9 +60,11 @@ path:hover {
   transform: translateX(-50%);
   display: none;
 }
+
 .tooltip.active {
   display: block;
 }
+
 .tooltip:after {
   content: "";
   position: absolute;
@@ -86,7 +96,29 @@ path:hover {
   fill: #14355e;
   cursor: pointer;
 }
+
 .estados-selecionados:hover {
   fill: #14355e;
   cursor: pointer;
+}
+
+.content {
+  display: none;
+  width: 100%;
+  float: right;
+}
+
+.active {
+  display: block;
+}
+
+.colaboradores {
+  display: inline-block;
+}
+
+.img-profile-mapa {
+  height: 4rem;
+  width: 4rem;
+  margin-bottom: 16px;
+  top: 0px;
 }

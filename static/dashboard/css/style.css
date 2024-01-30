@@ -4,23 +4,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap');
 
 
-h1{
+h1 {
     font-family: 'Open Sans';
     font-size: 32px;
     font-weight: 700;
-    color:#14355E;
+    color: #14355E;
 
 }
-.borda{
+
+.borda {
     border-radius: 24px;
     background: var(--preto-branco, #FFF);
     box-shadow: 8px 8px 8px 0px rgba(0, 0, 0, 0.06);
 }
 
 
-.nome-menu{
-    position:relative;
-    top:-0.5em;
+.nome-menu {
+    position: relative;
+    top: -0.5em;
     font-family: 'Open Sans';
     font-size: 14px;
     font-weight: 400;
@@ -31,9 +32,9 @@ h1{
     margin-left: 1.5em;
 }
 
-.nome-menu-branco{
-    position:relative;
-    top:-0.5em;
+.nome-menu-branco {
+    position: relative;
+    top: -0.5em;
     font-family: 'Open Sans';
     font-size: 14px;
     font-weight: 400;
@@ -44,52 +45,55 @@ h1{
     margin-left: 1.5em;
 }
 
-.seta-perfil-branca{
+.seta-perfil-branca {
     margin: 15px 32px 0px 15px;
-  }
-.seta-perfil-cinza{
-    margin: 15px 32px 0px 15px;
-  }
+}
 
-.dropdown-item{
+.seta-perfil-cinza {
+    margin: 15px 32px 0px 15px;
+}
+
+.dropdown-item {
     color: #464646;
 }
 
-.conteudo-base{
-    padding-left:22em ;
+.conteudo-base {
+    padding-left: 22em;
     background-color: transparent;
 }
 
-.navbar-dashboard{
+.navbar-dashboard {
     margin-left: 0.5em;
     background-color: transparent;
 }
-.icones{
+
+.icones {
     position: relative;
-    top:0.5em;
-    width:100%;
+    top: 0.5em;
+    width: 100%;
     background-color: transparent;
 }
 
-.icone-dash{
+.icone-dash {
     position: relative;
-    top:-0.2em;
-    display:inline-block;
+    top: -0.2em;
+    display: inline-block;
     margin-right: 0.5em;
     width: 22px;
     height: 22px;
 }
 
-.icone-menu{
+.icone-menu {
     position: relative;
-    top:-0.1em;
-    display:inline-block;
+    top: -0.1em;
+    display: inline-block;
     margin-right: 0.5em;
     width: 32px;
     height: 32px;
 }
-.icones p{
-    display:inline-block;
+
+.icones p {
+    display: inline-block;
     margin-right: 0.5em;
     font-family: 'Open Sans';
     font-size: 12px;
@@ -99,14 +103,16 @@ h1{
     text-align: left;
     color: #464646;
 }
-.apresentacao{
+
+.apresentacao {
     background-image: url("../img/fundo_escuro.png");
     border: none;
     color: white;
     padding: 1.5em 1.5em 0.5em 1.5em;
-    
+
 }
-.apresentacao p{
+
+.apresentacao p {
     font-family: 'Open Sans';
     font-size: 14px;
     font-weight: 400;
@@ -114,22 +120,26 @@ h1{
     letter-spacing: 0em;
     text-align: left;
 }
-.a-institucional:hover{
+
+.a-institucional:hover {
     text-decoration: none;
 }
-.institucional{
+
+.institucional {
     background-size: cover;
     background-repeat: no-repeat;
     height: 100%;
     padding: 24px;
     background-image: url("../img/bg-institucional.png")
 }
-.institucional img{
+
+.institucional img {
     position: relative;
     left: 1.7em;
     margin-bottom: 3em;
 }
-.institucional h6{
+
+.institucional h6 {
     color: #14355E;
     text-align: right;
     font-family: 'Open Sans';
@@ -138,14 +148,16 @@ h1{
     font-weight: 700;
     line-height: 24px;
 }
-.tempo{
+
+.tempo {
     background-image: url("../img/bg-temp.png");
     background-size: cover;
     background-repeat: no-repeat;
     height: 100%;
     padding: 1em;
 }
-.tempo h1{
+
+.tempo h1 {
     font-family: 'Open Sans';
     font-size: 32px;
     font-weight: 700;
@@ -153,7 +165,7 @@ h1{
     color: white;
 }
 
-.tempo h5{
+.tempo h5 {
     font-family: 'Open Sans';
     font-size: 22px;
     font-weight: 700;
@@ -162,7 +174,8 @@ h1{
     text-align: right;
     color: white;
 }
-.tempo p{
+
+.tempo p {
     font-family: 'Open Sans';
     font-size: 16px;
     font-weight: 700;
@@ -171,20 +184,24 @@ h1{
     text-align: right;
     color: white;
 }
-.link-aniversariantes:hover{
+
+.link-aniversariantes:hover {
     text-decoration: none;
 }
-.aniversariantes{
+
+.aniversariantes {
     /* overflow-y: hidden; */
     width: 100%;
     height: 256px;
     padding: 24px;
     background-image: url("../img/bg-aniversariantes.png")
 }
-::-webkit-scrollbar{
-    display:none;
+
+::-webkit-scrollbar {
+    display: none;
 }
-.aniversariantes p{
+
+.aniversariantes p {
     font-family: 'Open Sans';
     font-size: 16px;
     font-weight: 400;
@@ -194,38 +211,42 @@ h1{
     color: #14355E;
 
 }
-.icones-direita{
+
+.icones-direita {
     margin-right: -1.8em;
 }
 
 
 
-.lista-aniversariantes{
+.lista-aniversariantes {
     background-color: transparent;
     padding-top: 15px;
     margin-top: -15px;
-    height:170px;
+    height: 170px;
     background-size: cover;
     background-repeat: no-repeat;
     overflow: auto;
     overflow-x: hidden;
 }
 
-.foto-aniversariante{
+.foto-aniversariante {
     width: 50px;
     height: 50px;
 }
-.informativos{
+
+.informativos {
     background: linear-gradient(to right, #14355F, #1656A4);
-    color:white;
+    color: white;
     border: none;
     padding: 1.5em 1.5em 0.5em 1.5em;
     height: 260px;
 }
-.informativos h1{
+
+.informativos h1 {
     color: white;
 }
-.informativos h5{
+
+.informativos h5 {
     font-family: 'Open Sans';
     font-size: 16px;
     font-weight: 700;
@@ -233,7 +254,8 @@ h1{
     letter-spacing: 0em;
     text-align: left;
 }
-.informativos p{
+
+.informativos p {
     font-family: 'Open Sans';
     font-size: 12px;
     font-weight: 600;
@@ -241,35 +263,38 @@ h1{
     letter-spacing: 0em;
     text-align: left;
 }
-.informativos a{
-    color:white;
+
+.informativos a {
+    color: white;
 }
 
-.tag-cursos:hover{
+.tag-cursos:hover {
     text-decoration: none;
     color: white;
 }
 
-.cursos{
+.cursos {
     padding: 24px 16px 24px 24px;
     background-size: cover;
     background-repeat: no-repeat;
     height: 15em;
     background-image: url('../img/bg-cursos.png');
 }
-.cursos p{
+
+.cursos p {
     font-family: Open Sans;
     font-size: 12px;
     font-weight: 600;
     line-height: 24px;
     letter-spacing: 0em;
     text-align: left;
-    color:white;
+    color: white;
     margin-top: 8px;
     margin-bottom: 0px;
 
 }
-.cursos h1{
+
+.cursos h1 {
     color: white;
     font-family: 'Open Sans';
     font-size: 32px;
@@ -280,8 +305,8 @@ h1{
     margin-top: 0px;
 }
 
-.cursos h4{
-    color:white;
+.cursos h4 {
+    color: white;
     font-family: 'Open Sans';
     font-size: 22px;
     font-weight: 700;
@@ -292,28 +317,59 @@ h1{
 
 }
 
-.rede-social{
+.rede-social {
     height: 831px;
     padding: 24px;
 }
 
-.calendario{
+.calendario {
     background-image: url("../img/Calendário.png");
     height: 530px;
 }
 
-.mapa{
+.mapa {
     position: relative;
-    /* left: 31.5em; */
     top: -585px;
-    background-image: url("../img/bg-mapa-obras.png");
     background-size: cover;
     height: 565px;
     margin-bottom: -600px;
+    padding: 32px;
+}
+
+.estados-com-obras {
+    position: absolute;
+    bottom: 0px;
 }
 
 
-.img-profile{
+.estados-com-obras h6 {
+    font-family: 'Open Sans';
+    font-size: 16px;
+    padding-left: 16px;
+    font-weight: 700;
+    line-height: 24px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #14355E;
+}
+
+.estados-com-obras ul {
+    padding-left: 16px;
+}
+
+.estados-com-obras li {
+    font-family: 'Open Sans';
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 32px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #14355E;
+
+}
+
+
+.img-profile {
     height: 2rem;
     width: 2rem;
     margin-bottom: 16px;
@@ -321,45 +377,47 @@ h1{
 }
 
 
-.texto-comentario{
+.texto-comentario {
     position: relative;
     background-color: #f9f9f9;
-    padding-right:12px;
+    padding-right: 12px;
     padding-bottom: 8px;
     border-radius: 12px;
-    margin-bottom:12px;
+    margin-bottom: 12px;
 }
 
-.texto-comentario-p{
+.texto-comentario-p {
     margin-left: 48px;
 }
-.texto-comentario .img-comentario{
+
+.texto-comentario .img-comentario {
     margin-top: 12px;
-    margin-right:12px;
-    width:32px;
-    height:32px;
-    border-radius:50%;
+    margin-right: 12px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
 }
 
-.nome-comentario{
-    display:inline-block;
+.nome-comentario {
+    display: inline-block;
 }
-.autor{
+
+.autor {
     margin-top: 40px;
     border-bottom: 1px solid #E8E8E8;
-    position:relative;
+    position: relative;
     margin-bottom: 20px;
 }
 
-.autor .dropdown .mais{
-    position:absolute;
+.autor .dropdown .mais {
+    position: absolute;
     right: 24px;
-    top:-50px;
+    top: -50px;
 }
 
-.nome{
+.nome {
     position: absolute;
-    top:0px;
+    top: 0px;
     left: 70px;
     display: inline-block;
     color: #14355E;
@@ -370,91 +428,92 @@ h1{
     word-wrap: break-word;
 }
 
-.tempo-postagem{
-    position:absolute;
-    top:24px;
-    left:70px;
+.tempo-postagem {
+    position: absolute;
+    top: 24px;
+    left: 70px;
     color: #A4A4A4;
     font-size: 12px;
     font-family: 'Open Sans';
 }
 
-.texto-comentario .icone-comentarios-p img{
+.texto-comentario .icone-comentarios-p img {
     margin-top: 12px;
     margin-left: 48px;
     margin-right: 12px;
 }
 
-.div-comentario{
+.div-comentario {
     border-top: 1px solid #E8E8E8;
     margin-top: 24px;
     padding-top: 24px;
 }
 
-.div-comentario .img-input-comentario{
-    width:32px;
-    height:32px;
+.div-comentario .img-input-comentario {
+    width: 32px;
+    height: 32px;
     border-radius: 50%;
     margin-top: 12px;
     margin-right: 12px;
 }
 
-.div-comentario form{
+.div-comentario form {
     display: block;
 }
 
-.icones-post{
+.icones-post {
     border-bottom: 1px solid #E8E8E8;
     margin-bottom: 40px;
     margin-top: 20px;
     padding-bottom: 12px;
 }
 
-.likes-p{
-    display:inline-block;
+.likes-p {
+    display: inline-block;
     margin-right: 25px;
 }
 
-.likes-p p{
-    display:inline-block;
+.likes-p p {
+    display: inline-block;
     margin-right: 25px;
 }
 
-.comentarios-p{
-    display:inline-block;
+.comentarios-p {
+    display: inline-block;
 }
 
-.likes-p img{
+.likes-p img {
     margin-right: 16px;
 }
 
-.likes-p img{
+.likes-p img {
     margin-top: 12px;
 }
 
-.comentarios-p img{
+.comentarios-p img {
     margin-top: 12px;
     margin-right: 12px;
 }
-.link-ver-mais{
+
+.link-ver-mais {
     position: absolute;
-    top:0px;
+    top: 0px;
 }
 
-.conteudo-rede-social{
+.conteudo-rede-social {
     height: 730px;
-    width:100%;
+    width: 100%;
     padding: 24px;
     overflow: auto;
     overflow-x: hidden;
 }
 
-.link-rede-social:hover{
+.link-rede-social:hover {
     text-decoration: none;
-    color:#14355E;
+    color: #14355E;
 }
 
-.tag-informativos:hover{
+.tag-informativos:hover {
     text-decoration: none;
     color: white;
 }
