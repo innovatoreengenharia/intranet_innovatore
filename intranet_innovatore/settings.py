@@ -93,8 +93,8 @@ DATABASES = {
         "NAME": "intranet_innovatore",
         "USER": "flavio",
         "PASSWORD": "314628",
-        "HOST": "localhost",
-        "PORT": "5432",
+        "HOST": "database",
+        "PORT": "6000",
     }
 }
 

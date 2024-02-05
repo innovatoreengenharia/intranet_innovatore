@@ -12,7 +12,7 @@ def mapa(request):
     # CEARÁ
     colaboradores_canadian = Perfil.objects.filter(obra_trabalho__icontains="canadian")
 
-    # MARANHÃO
+    # MARANHÃO -
     colaboradores_cibra = Perfil.objects.filter(obra_trabalho__icontains="cibra")
 
     # Pernanbuco

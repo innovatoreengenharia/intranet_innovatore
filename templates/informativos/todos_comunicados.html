@@ -17,21 +17,21 @@
 {% endblock %} {% block content %}
 
 <h1>Comunicados</h1>
+<form action="" style="margin-bottom: 150px">
+  <div><br /></div>
+  <img src={% static 'cartao_visitas/img/filtro.png' %} class="float-right
+  filtro" style="margin-bottom:150px; margin-right:32px;">
+  <button href="" class="float-right botao-pesquisar" type="submit ">
+    Pesquisar
+  </button>
+  <input
+    type="text"
+    name="buscar"
+    class="input-busca float-right"
+    placeholder="Pesquisar Comunicado"
+  />
+</form>
 <div class="container-fluid container-comunicados">
-  <form action="" style="margin-bottom: 150px">
-    <div><br /></div>
-    <img src={% static 'cartao_visitas/img/filtro.png' %} class="float-right
-    filtro" style="margin-bottom:150px;">
-    <button href="" class="float-right botao-pesquisar" type="submit ">
-      Pesquisar
-    </button>
-    <input
-      type="text"
-      name="buscar"
-      class="input-busca float-right"
-      placeholder="Pesquisar Comunicado"
-    />
-  </form>
   <div class="row">
     {% for comunicado in comunicados %}
     <div class="col-lg-4 pl-5 div-comunicados">
