@@ -13,7 +13,10 @@ def home(request):
         return redirect("login")
 
     id_usuario = request.user.id
-    perfil = Perfil.objects.get(usuario_id=id_usuario)
+    try:
+        perfil = Perfil.objects.get(usuario_id=id_usuario)
+    except:
+        perfil = None
 
     mes_atual = timezone.now().month
     aniversariantes = Perfil.objects.filter(nascimento__month=mes_atual)
