@@ -1,15 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital@0;1&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;1,400&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;1,400&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap');
-
-
-html, body {
-	width: 100%;
-	height: 100%;
-	margin: 0;
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
 }
-p{
+
+p {
     color: #000;
     font-family: 'Open Sans';
     font-size: 16px;
@@ -17,13 +13,14 @@ p{
     font-weight: 400;
     line-height: 32px;
 }
+
 a:hover {
     text-decoration: none;
- }
+}
 
- .nome-menu{
-    position:relative;
-    top:-0.5em;
+.nome-menu {
+    position: relative;
+    top: -0.5em;
     font-family: 'Open Sans';
     font-size: 14px;
     font-weight: 400;
@@ -34,7 +31,7 @@ a:hover {
     margin-left: 1em;
 }
 
-input{
+input {
     display: flex;
     height: 36px;
     align-items: center;
@@ -60,56 +57,42 @@ textarea[class='form-control']::-webkit-input-placeholder {
     font-size: 0.85em;
 }
 
-  /* Para Internet Explorer */
+/* Para Internet Explorer */
 input:-ms-input-placeholder {
     color: var(--preto-preto-300, #BBBBBB);
     font-family: 'Open Sans';
-  }
-  
+}
 
-.sombra{
+
+.sombra {
     border-radius: 24px;
     background: var(--preto-branco, #FFF);
     box-shadow: 8px 8px 8px 0px rgba(0, 0, 0, 0.06);
 }
-.container-edit{
+
+.container-edit {
     padding: 25px 25px 100px 25px;
     margin-top: -5em;
     margin-bottom: 32px;
 }
 
-.container-edit h3{
+.container-edit h3 {
     color: black;
     font-family: 'Open Sans';
     font-size: 1.375rem;
     font-weight: 700;
     line-height: 2rem;
 }
-.container-edit label{
+
+.container-edit label {
     color: black;
     font-family: 'Open Sans';
     font-size: 0.75rem;
     font-weight: 600;
     line-height: 1.5rem;
 }
-.container-edit input{
-    display: flex;
-    height: 36px;
-    align-items: center;
-    flex-shrink: 0;
-    border-radius: 8px;
-    border: 1px solid var(--preto-preto-100, #E8E8E8);
-    color: black;
-    background: #FFF;
-    box-shadow: 1px 1px 1px 0px rgba(0, 0, 0, 0.06);
-}
-.container-edit select{
-    height: 2.25em; 
-    border: 1px solid var(--preto-preto-100, #E8E8E8);
-    color: black;
-    box-shadow: 1px 1px 1px 0px rgba(0, 0, 0, 0.06);
-}
-.container-edit textarea{
+
+.container-edit input {
     display: flex;
     height: 36px;
     align-items: center;
@@ -121,14 +104,33 @@ input:-ms-input-placeholder {
     box-shadow: 1px 1px 1px 0px rgba(0, 0, 0, 0.06);
 }
 
-.container-cadastro{
+.container-edit select {
+    height: 2.25em;
+    border: 1px solid var(--preto-preto-100, #E8E8E8);
+    color: black;
+    box-shadow: 1px 1px 1px 0px rgba(0, 0, 0, 0.06);
+}
+
+.container-edit textarea {
+    display: flex;
+    height: 36px;
+    align-items: center;
+    flex-shrink: 0;
+    border-radius: 8px;
+    border: 1px solid var(--preto-preto-100, #E8E8E8);
+    color: black;
+    background: #FFF;
+    box-shadow: 1px 1px 1px 0px rgba(0, 0, 0, 0.06);
+}
+
+.container-cadastro {
     position: relative;
     padding: 20px 20px 90px 20px;
     top: -6em;
     border-radius: 24px;
 }
 
-.container-cadastro h3{
+.container-cadastro h3 {
     color: black;
     font-family: 'Open Sans';
     font-size: 1.375rem;
@@ -136,14 +138,16 @@ input:-ms-input-placeholder {
     line-height: 2rem;
     padding-bottom: 50px;
 }
-.container-cadastro label{
+
+.container-cadastro label {
     color: black;
     font-family: 'Open Sans';
     font-size: 0.75rem;
     font-weight: 600;
     line-height: 1.5rem;
 }
-.container-cadastro input{
+
+.container-cadastro input {
     display: flex;
     height: 36px;
     align-items: center;
@@ -154,13 +158,15 @@ input:-ms-input-placeholder {
     background: #FFF;
     box-shadow: 1px 1px 1px 0px rgba(0, 0, 0, 0.06);
 }
-.container-cadastro select{
-    height: 2.25em; 
+
+.container-cadastro select {
+    height: 2.25em;
     border: 1px solid var(--preto-preto-100, #E8E8E8);
     color: var(--preto-preto-300, #BBB);
     box-shadow: 1px 1px 1px 0px rgba(0, 0, 0, 0.06);
 }
-.container-cadastro textarea{
+
+.container-cadastro textarea {
     display: flex;
     height: 36px;
     align-items: center;
@@ -171,27 +177,30 @@ input:-ms-input-placeholder {
     background: #FFF;
     box-shadow: 1px 1px 1px 0px rgba(0, 0, 0, 0.06);
 }
-.add-row{
+
+.add-row {
     position: relative;
     left: 97%
 }
 
-.container-cadastro textarea{
-    height: 4.5rem;
-}
-.container-edit textarea{
+.container-cadastro textarea {
     height: 4.5rem;
 }
 
-.apresentacao{
+.container-edit textarea {
+    height: 4.5rem;
+}
+
+.apresentacao {
     position: relative;
     top: -7.5em;
-    background-color: rgba(255,255,255, 0.90);  
+    background-color: rgba(255, 255, 255, 0.90);
     border-radius: 15px;
     width: 97%;
     height: 139px;
     margin: auto;
 }
+
 /* .apresentacao img{
     width: 115px;
     height: 91px;
@@ -199,7 +208,7 @@ input:-ms-input-placeholder {
     top:1.5em
 } */
 
-.apresentacao h5{
+.apresentacao h5 {
     position: relative;
     max-width: 50%;
     top: 2em;
@@ -211,7 +220,7 @@ input:-ms-input-placeholder {
     line-height: 1.5rem;
 }
 
-.apresentacao p{
+.apresentacao p {
     position: relative;
     max-width: 50%;
     left: 9.5em;
@@ -223,41 +232,42 @@ input:-ms-input-placeholder {
     line-height: 1.5rem;
 }
 
-.perfil{
+.perfil {
     position: relative;
     padding: 25px;
     top: -6em;
     border-radius: 24px;
 }
 
-.perfil h3{
+.perfil h3 {
     font-family: 'Open Sans';
     font-weight: 700;
     font-size: 1.375em;
     color: black;
 }
 
-.perfil h4{
+.perfil h4 {
     font-family: 'Open Sans';
     font-weight: 400;
     font-size: 1.375em;
     color: black;
 }
 
-.perfil h5{
+.perfil h5 {
     font-family: 'Open Sans';
     font-weight: 700;
     font-size: 1em;
     color: black;
 }
 
-.cargo{
+.cargo {
     font-family: 'Open Sans';
     font-weight: 400;
     font-size: 1em;
     color: black;
 }
-.local{
+
+.local {
     position: relative;
     font-family: 'Open Sans';
     font-weight: 400;
@@ -265,7 +275,8 @@ input:-ms-input-placeholder {
     top: -1em;
     color: rgba(164, 164, 164, 1)
 }
-.habilidades{
+
+.habilidades {
     display: inline-flex;
     margin-bottom: 10px;
     margin-right: 10px;
@@ -275,9 +286,10 @@ input:-ms-input-placeholder {
     gap: 10px;
     border-radius: 12px;
     background: linear-gradient(0deg, #00BBF2 0%, #79E0FA 100%);
-    color:white;
+    color: white;
 }
-.hobbies{
+
+.hobbies {
     display: inline-flex;
     margin-bottom: 10px;
     margin-right: 10px;
@@ -287,14 +299,16 @@ input:-ms-input-placeholder {
     gap: 10px;
     border-radius: 12px;
     background: linear-gradient(0deg, #F25C05 0%, #FFB489 100%);
-    color:white;
+    color: white;
 }
-.div-editar{
+
+.div-editar {
     margin-bottom: 1em;
 }
-.baixar{
+
+.baixar {
     display: flex;
-    float:right;
+    float: right;
     margin-right: 25px;
     width: 160px;
     height: 64px;
@@ -306,12 +320,13 @@ input:-ms-input-placeholder {
     border-radius: 12px;
     border: 1px solid var(--preto-preto-100, #E8E8E8);
     background: #FFF;
-    color:rgba(20, 53, 94, 1);
+    color: rgba(20, 53, 94, 1);
     box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.06);
 }
-.baixar-cadastro{
+
+.baixar-cadastro {
     display: flex;
-    float:right;
+    float: right;
     margin-right: 25px;
     width: 160px;
     height: 64px;
@@ -323,23 +338,24 @@ input:-ms-input-placeholder {
     border-radius: 12px;
     border: 1px solid var(--preto-preto-100, #E8E8E8);
     background: #FFF;
-    color:rgba(20, 53, 94, 1);
+    color: rgba(20, 53, 94, 1);
     box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.06);
 }
 
-.baixar:hover{
+.baixar:hover {
     text-decoration: none;
-    color:rgba(20, 53, 94, 1);
+    color: rgba(20, 53, 94, 1);
 }
 
-.baixar-cadastro:hover{
+.baixar-cadastro:hover {
     text-decoration: none;
-    color:rgba(20, 53, 94, 1);
+    color: rgba(20, 53, 94, 1);
 }
-.editar{
+
+.editar {
     display: flex;
     width: 100%;
-    float:right;
+    float: right;
     width: 160px;
     height: 64px;
     padding: 12px 55px;
@@ -349,14 +365,14 @@ input:-ms-input-placeholder {
     flex-shrink: 0;
     border-radius: 12px;
     background: linear-gradient(90deg, #14295E 0%, #2568BB 100%);
-    color:white;
+    color: white;
     box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.06);
 }
 
-.editar-cadastro{
+.editar-cadastro {
     display: flex;
     width: 100%;
-    float:right;
+    float: right;
     width: 160px;
     height: 64px;
     padding: 12px 55px;
@@ -366,11 +382,11 @@ input:-ms-input-placeholder {
     flex-shrink: 0;
     border-radius: 12px;
     background: linear-gradient(90deg, #14295E 0%, #2568BB 100%);
-    color:white;
+    color: white;
     box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.06);
 }
 
-.cadastrar-modal{
+.cadastrar-modal {
     display: flex;
     float: left;
     width: 160px;
@@ -381,7 +397,7 @@ input:-ms-input-placeholder {
     flex-shrink: 0;
     border-radius: 12px;
     background: linear-gradient(90deg, #14295E 0%, #2568BB 100%);
-    color:white;
+    color: white;
     box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.06);
     color: #FFF;
     font-family: Open Sans;
@@ -390,40 +406,44 @@ input:-ms-input-placeholder {
     font-weight: 700;
     line-height: 24px;
 }
-.modal-footer{
-    justify-content:center;
+
+.modal-footer {
+    justify-content: center;
 }
 
-.editar:hover{
+.editar:hover {
     text-decoration: none;
     color: white
 }
 
-.editar-cadastro:hover{
+.editar-cadastro:hover {
     text-decoration: none;
     color: white
 }
 
-.adicionar-habilidade{
+.adicionar-habilidade {
     position: relative;
     right: 5%;
 }
-.icone-config{
+
+.icone-config {
     position: relative;
     max-width: 10%;
     top: -3.8em;
     left: 28%;
 
 }
-.icone-config img{
+
+.icone-config img {
     position: relative;
     left: 90%;
     top: 1.6em;
     width: 2em;
     height: 2em;
 }
-.icone-config p{
-    position:relative;
+
+.icone-config p {
+    position: relative;
     top: -0.45em;
     left: 130%;
     font-family: 'Open Sans';
@@ -434,10 +454,11 @@ input:-ms-input-placeholder {
     text-align: left;
 
 }
-.foto-perfil{
-    position:relative;
+
+.foto-perfil {
+    position: relative;
     top: 1.3em;
-    left:1em;
+    left: 1em;
     width: 91px;
     height: 91px;
     flex-shrink: 0;
@@ -446,12 +467,12 @@ input:-ms-input-placeholder {
     background-repeat: no-repeat;
 }
 
-.modal-content{
+.modal-content {
     padding: 5em;
-    border:none;
+    border: none;
 }
 
-.modal-title{
+.modal-title {
     font-family: 'Open Sans';
     font-size: 32px;
     font-weight: 700;
@@ -461,18 +482,18 @@ input:-ms-input-placeholder {
     margin: auto;
 }
 
-.modal-body{
+.modal-body {
     font-family: 'Open Sans';
     font-size: 22px;
     font-weight: 400;
     line-height: 32px;
     letter-spacing: 0em;
     text-align: center;
-    color:black;
-    border:none;
+    color: black;
+    border: none;
 }
 
-.modla-bory b{
+.modla-bory b {
     font-family: 'Open Sans';
     font-size: 22px;
     font-weight: 700;
@@ -480,5 +501,5 @@ input:-ms-input-placeholder {
     letter-spacing: 0em;
     text-align: center;
     color: black;
-    border:none;
+    border: none;
 }

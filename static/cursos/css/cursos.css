@@ -1,18 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital@0;1&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;1,400&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;1,400&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap');
-
-.texto-principal{
+.texto-principal {
     background-image: url(../img/cursos_topo.jpg);
     margin-left: -20px;
     margin-top: -100px;
     height: 820px;
 }
 
-.h3-cursos{
+.h3-cursos {
     padding-top: 120px;
-    color:white;
+    color: white;
     margin-left: 24px;
     font-family: 'Open Sans';
     font-size: 32px;
@@ -21,11 +16,13 @@
     letter-spacing: 0em;
     text-align: left;
 }
-.div-invista{
+
+.div-invista {
     padding-top: 130px;
     margin-left: 115px;
 }
-.h1-invista{
+
+.h1-invista {
     font-family: 'Open Sans';
     color: white;
     font-size: 48px;
@@ -35,7 +32,7 @@
     text-align: left;
 }
 
-.h3-invista{
+.h3-invista {
     font-family: 'Open Sans';
     color: white;
     font-size: 32px;
@@ -45,10 +42,10 @@
     text-align: left;
 }
 
-.botao-invista{
+.botao-invista {
     color: white;
     margin-top: 40px;
-    border:none;
+    border: none;
     width: 172px;
     height: 64px;
     padding: 12px 55px 12px 55px;
@@ -57,7 +54,7 @@
     background: linear-gradient(#14295E, #2568BB);
 }
 
-.novos-cursos{
+.novos-cursos {
     font-family: 'Open Sans';
     margin: 55px 0px 40px 32px;
     font-size: 32px;
@@ -65,22 +62,23 @@
     line-height: 48px;
     letter-spacing: 0em;
     text-align: left;
-    color:#464646;
+    color: #464646;
 
 }
 
-.img-novos-cursos{
+.img-novos-cursos {
     width: 365px;
     height: 340px;
     border-radius: 12px;
 }
+
 .tns-horizontal.tns-subpixel>.tns-item {
     /* vertical-align: bottom !important; */
     /* border-radius: 12px; */
     margin-top: 25px;
 }
 
-.setor{
+.setor {
     font-family: 'Open Sans';
     margin-bottom: 10px;
     font-size: 16px;
@@ -90,7 +88,8 @@
     text-align: left;
     color: #14355E;
 }
-.nome{
+
+.nome {
     font-family: Open Sans;
     font-size: 22px;
     font-weight: 700;
@@ -99,7 +98,8 @@
     text-align: left;
     color: #464646;
 }
-.horas{
+
+.horas {
     font-family: 'Open Sans';
     font-size: 16px;
     font-weight: 700;
@@ -108,25 +108,27 @@
     text-align: left;
     color: #464646;
 }
-.relogio{
+
+.relogio {
     margin-top: 10px;
     margin-right: 12px;
 }
 
-.sombra{
+.sombra {
     border-radius: 12px;
     box-shadow: 8px 8px 8px 0px rgba(0, 0, 0, 0.06);
 }
 
-.setas{
-    background-color: transparent;
-}
-.tns-controls button{
-    border:none;
+.setas {
     background-color: transparent;
 }
 
-.faq{
+.tns-controls button {
+    border: none;
+    background-color: transparent;
+}
+
+.faq {
     width: 100%;
     height: 80px;
     padding: 24px 27px 24px 27px;
@@ -136,7 +138,7 @@
     margin-bottom: 16px;
 }
 
-.p-faq{
+.p-faq {
     font-family: 'Open Sans';
     font-size: 22px;
     font-weight: 700;
@@ -146,34 +148,35 @@
     color: #464646;
 }
 
-.seta-faq{
-    float:right;
+.seta-faq {
+    float: right;
     margin-right: 36px;
     margin-top: 12px;
 }
 
-.titulo-centro{
+.titulo-centro {
     font-family: 'Open Sans';
     font-size: 32px;
     font-weight: 700;
     line-height: 48px;
     letter-spacing: 0em;
     text-align: center;
-    color:#464646;
+    color: #464646;
     margin: 36px auto 63px auto;
     width: 1071px;
 }
 
-.modulo{
+.modulo {
     padding: 32px 0px 0px 32px;
     margin-bottom: 32px;
 }
-.modulo img{
+
+.modulo img {
     margin-top: 10px;
     margin-right: 5px;
 }
 
-.modulo-p-1{
+.modulo-p-1 {
     display: inline-block;
     font-family: 'Open Sans';
     font-size: 22px;
@@ -181,133 +184,133 @@
     line-height: 32px;
     letter-spacing: 0em;
     text-align: center;
-    color:white;
+    color: white;
 }
 
-.modulo-p-2{
+.modulo-p-2 {
     margin-top: 220px;
     font-family: 'Open Sans';
     font-size: 22px;
     font-weight: 700;
     line-height: 32px;
     letter-spacing: 0em;
-    color:white;
+    color: white;
 }
 
-.rh{
+.rh {
     background-image: url('../img/mod-rh.png');
     background-size: cover;
     background-repeat: no-repeat;
     width: 364px;
-    margin-right:24px;
+    margin-right: 24px;
     margin-right: 24px;
     height: 361px;
 }
 
-.financeiro{
+.financeiro {
     background-image: url('../img/mod-financeiro.png');
     background-size: contain;
     background-repeat: no-repeat;
     width: 364px;
-    margin-right:24px;
+    margin-right: 24px;
     height: 361px
 }
 
-.comercial{
+.comercial {
     background-image: url('../img/mod-comercial.png');
     background-size: contain;
     background-repeat: no-repeat;
     width: 364px;
-    margin-right:24px;
+    margin-right: 24px;
     height: 361px
 }
 
-.marketing{
+.marketing {
     background-image: url('../img/mod-marketing.png');
     background-size: contain;
     background-repeat: no-repeat;
     width: 364px;
-    margin-right:0px;
+    margin-right: 0px;
     height: 361px
 }
 
-.podcast{
+.podcast {
     background-image: url('../img/mod-podcast.png');
     background-size: contain;
     background-repeat: no-repeat;
     width: 364px;
-    margin-right:24px;
+    margin-right: 24px;
     height: 361px
 }
 
-.onboarding{
+.onboarding {
     background-image: url('../img/mod-onboarding.png');
     background-size: contain;
     background-repeat: no-repeat;
     width: 364px;
-    margin-right:24px;
+    margin-right: 24px;
     height: 361px
 }
 
-.breve{
+.breve {
     background-image: url('../img/mod-breve.png');
     background-size: contain;
     background-repeat: no-repeat;
     width: 364px;
-    margin-right:0px;
+    margin-right: 0px;
     height: 361px
 }
 
-.instrutor{
-    position:relative;
+.instrutor {
+    position: relative;
     width: 365px;
     height: 512px;
     border-radius: 12px;
 }
 
-.conteudo-instrutores-1{
+.conteudo-instrutores-1 {
     position: absolute;
     bottom: 47px;
     left: 45px;
 }
 
-.conteudo-instrutores-2{
+.conteudo-instrutores-2 {
     position: absolute;
     bottom: 47px;
     left: 55px;
     width: 250px;
 }
 
-.conteudo-instrutores-3{
+.conteudo-instrutores-3 {
     position: absolute;
     bottom: 47px;
     left: 65px;
 }
 
-.conteudo-instrutores-4{
+.conteudo-instrutores-4 {
     position: absolute;
     bottom: 47px;
     left: 90px;
 }
 
-.icones{
+.icones {
     margin-top: 32px;
 }
 
-.icones a{
-    margin: 0px 16px; 
+.icones a {
+    margin: 0px 16px;
 }
 
-.instrutor-nome{
+.instrutor-nome {
     font-family: 'Open Sans';
     font-size: 22px;
     font-weight: 700;
     line-height: 32px;
     letter-spacing: 0em;
-    color:white;
+    color: white;
 }
 
-.instrutor-qualificacao{
+.instrutor-qualificacao {
     font-family: 'Open Sans';
     font-size: 22px;
     font-weight: 400;
@@ -316,55 +319,57 @@
     color: white;
 }
 
-.instrutor-1{
+.instrutor-1 {
     background-image: url('../img/instrutor-1.png');
     background-size: contain;
     background-repeat: no-repeat;
 
 }
 
-.instrutor-2{
+.instrutor-2 {
     background-image: url('../img/instrutor-2.png');
     background-size: contain;
     background-repeat: no-repeat;
 }
 
-.instrutor-3{
+.instrutor-3 {
     background-image: url('../img/instrutor-3.png');
     background-size: contain;
     background-repeat: no-repeat;
 }
 
-.instrutor-4{
+.instrutor-4 {
     background-image: url('../img/instrutor-4.png');
     background-size: contain;
     background-repeat: no-repeat;
     margin-right: 0px;
 }
 
-.accordion-item .respostas{
+.accordion-item .respostas {
     font-family: 'Open Sans';
     font-size: 22px;
     font-weight: 400;
     line-height: 32px;
     letter-spacing: 0em;
     text-align: left;
-    color:#A4A4A4;
+    color: #A4A4A4;
 }
 
 
-.sanfona{
+.sanfona {
     margin-bottom: 100px;
 }
 
-.accordion-item{
-    border:none;
+.accordion-item {
+    border: none;
 }
 
-.accordion-button, .accordion-flush .accordion-item .accordion-button.collapsed {
-    border-radius:12px;
+.accordion-button,
+.accordion-flush .accordion-item .accordion-button.collapsed {
+    border-radius: 12px;
 }
 
-.accordion-flush .accordion-item .accordion-button, .accordion-flush .accordion-item .accordion-button.collapsed {
+.accordion-flush .accordion-item .accordion-button,
+.accordion-flush .accordion-item .accordion-button.collapsed {
     border-radius: 12px;
 }

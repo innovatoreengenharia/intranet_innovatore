@@ -1,6 +1,11 @@
-{% extends 'base.html' %} {% load static %} {% block estilo %}
+{% extends 'base.html' %} 
+{% load static %} 
+
+{% block estilo %}
 <link href="{% static 'social/css/contatos.css' %}" rel="stylesheet" />
-{% endblock %} {% block icones %}
+{% endblock %} 
+
+{% block icones %}
 <div class="icones">
   <img
     class="icone-dash"
@@ -11,7 +16,9 @@
   <img class="icone-menu" src="{% static 'dashboard/img/menu-cinza.png' %}" />
   {% endcomment %}
 </div>
-{% endblock %} {% block content %}
+{% endblock %} 
+
+{% block content %}
 
 <h1 class="text-left ml-2 mb-5">Contatos</h1>
 

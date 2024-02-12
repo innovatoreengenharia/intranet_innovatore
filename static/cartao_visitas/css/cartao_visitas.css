@@ -1,25 +1,20 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital@0;1&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;1,400&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;1,400&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap');
-
-html{
+html {
     background-color: #f9f9f9;
 }
 
-.conteudo-base{
+.conteudo-base {
     background-color: #f9f9f9;
     min-height: 100%;
     padding-right: 32px;
 }
 
-.linha-busca{
+.linha-busca {
     padding-left: 12px;
     margin-bottom: 75px;
     margin-top: 87px;
 }
 
-.botao-pesquisar{
+.botao-pesquisar {
     font-family: 'Open Sans';
     font-size: 16px;
     font-weight: 700;
@@ -34,11 +29,11 @@ html{
     border-radius: 30px;
     gap: 10px;
     background: linear-gradient(#14295E, #2568BB);
-    color:white;
-    margin-right:50px;
+    color: white;
+    margin-right: 50px;
 }
 
-.input-busca{
+.input-busca {
     background-image: url('../img/lupa-input.png');
     background-repeat: no-repeat;
     background-position: 32px 15px;
@@ -51,10 +46,11 @@ html{
     gap: 10px;
 
 }
+
 /* Para navegadores webkit como Safari */
 input[name='buscar']::-webkit-input-placeholder {
     color: var(--preto-preto-300, #e8e8e8);
-    font-family: 'Open Sans';   
+    font-family: 'Open Sans';
     font-size: 22px;
     font-weight: 600;
     line-height: 24px;
@@ -65,16 +61,16 @@ input[name='buscar']::-webkit-input-placeholder {
 
 input:-ms-input-placeholder {
     color: var(--preto-preto-300, #e8e8e8);
-    font-family: 'Open Sans';   
+    font-family: 'Open Sans';
     font-size: 22px;
     font-weight: 600;
     line-height: 24px;
     letter-spacing: 0em;
     text-align: left;
 
-  }
+}
 
-h1{
+h1 {
     font-family: 'Open Sans';
     font-size: 32px;
     font-weight: 700;
@@ -84,7 +80,8 @@ h1{
     color: #14355E;
     margin-bottom: 37px;
 }
-.titulo{
+
+.titulo {
     color: #14355E !important;
     font-size: 16px;
     font-family: 'Open Sans';
@@ -92,31 +89,35 @@ h1{
     line-height: 24px;
     word-wrap: break-word;
 }
-td{
+
+td {
     padding: 32px 0px 32px 12px !important;
     text-align: center;
 }
 
-.gerenciador{
+.gerenciador {
     margin-bottom: -50px;
     height: 100%;
 }
-.gerenciador h1{
+
+.gerenciador h1 {
     padding-top: 24px;
 }
 
-.upload{
+.upload {
     position: relative;
-    top:-70px;
+    top: -70px;
     left: 95%;
 }
-.tabela{
+
+.tabela {
     background-color: white;
     margin-right: 32px;
     margin-left: 10px;
     border-radius: 12px;
 }
-.tabela .container-fluid .table td{
+
+.tabela .container-fluid .table td {
     font-family: 'Open Sans';
     font-size: 16px;
     font-weight: 400;
@@ -127,7 +128,8 @@ td{
     border-top: 1px solid #f4f4f4;
     border-bottom: 1px solid #f4f4f4;
 }
-.tabela .container-fluid .table th{
+
+.tabela .container-fluid .table th {
     font-family: 'Open Sans';
     font-size: 16px;
     font-weight: 700;
@@ -140,16 +142,18 @@ td{
     padding-top: 12px;
     padding-bottom: 12px;
 }
-.filtro{
-    position:relative;
-    top:-2px;
+
+.filtro {
+    position: relative;
+    top: -2px;
     margin-right: 2px;
 }
-.link-download{
-    margin-left:16px;
+
+.link-download {
+    margin-left: 16px;
 }
 
-.botao{
+.botao {
     font-family: 'Open Sans';
     font-size: 16px;
     font-weight: 700;
@@ -162,7 +166,7 @@ td{
 
     display: flex;
     width: 100%;
-    float:right;
+    float: right;
     width: 160px;
     height: 64px;
     padding: 12px 55px;
@@ -172,16 +176,16 @@ td{
     flex-shrink: 0;
     border-radius: 12px;
     background: linear-gradient(90deg, #14295E 0%, #2568BB 100%);
-    color:white;
+    color: white;
     box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.06);
 }
 
-.botao:hover{
+.botao:hover {
     text-decoration: none;
     color: white;
 }
 
-.botao-branco{
+.botao-branco {
     font-family: 'Open Sans';
     font-size: 16px;
     font-weight: 700;
@@ -193,7 +197,7 @@ td{
     cursor: pointer;
 
     display: flex;
-    float:right;
+    float: right;
     margin-right: 25px;
     width: 160px;
     height: 64px;
@@ -205,18 +209,17 @@ td{
     border-radius: 12px;
     border: 1px solid var(--preto-preto-100, #E8E8E8);
     background: #FFF;
-    color:rgba(20, 53, 94, 1);
+    color: rgba(20, 53, 94, 1);
     box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.06)
-
 }
 
-.paginacao{
+.paginacao {
     background-color: transparent;
     margin-top: 100px;
     padding-bottom: 52px;
 }
 
-.paginas{
+.paginas {
     font-family: 'Open Sans';
     font-size: 22px;
     font-weight: 400;
@@ -227,15 +230,16 @@ td{
     color: #bbbbbb;
 
 }
-.pagina-selecionada{
+
+.pagina-selecionada {
     display: inline-block;
     background: linear-gradient(90deg, #14355F 0%, #1655A3 100%);
     font-family: 'Open Sans';
     font-size: 22px;
     font-weight: 400;
-    width:37px;
+    width: 37px;
     height: 37px;
     margin-left: 30px;
     border-radius: 50%;
-    color:white;
+    color: white;
 }

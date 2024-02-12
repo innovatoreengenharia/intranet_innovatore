@@ -4,7 +4,9 @@
 <script src="{% static 'calendario/js/index.global.min.js' %}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
 <link href="{% static 'calendario/css/calendario.css' %}" rel="stylesheet" />
-{% endblock %} {% block icones %}
+{% endblock %} 
+
+{% block icones %}
 <div class="icones">
   <img
     class="icone-dash"
@@ -15,13 +17,15 @@
   <img class="icone-menu" src="{% static 'dashboard/img/menu-cinza.png' %}" />
   {% endcomment %}
 </div>
-{% endblock %} {% block content %}
-<div class="conteudo-calendario">
-  <div id="calendar"></div>
-</div>
+{% endblock %} 
 
-{% endblock %} {% block scripts %}
+{% block content %}
+    <div class="conteudo-calendario">
+        <div id="calendar"></div>
+    </div>
+{% endblock %} 
 
+{% block scripts %}
 <script>
 
       document.addEventListener('DOMContentLoaded', function() {

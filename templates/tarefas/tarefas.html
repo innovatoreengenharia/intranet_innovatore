@@ -1,6 +1,11 @@
-{% extends 'base.html' %} {%load static%} {% block estilo %}
+{% extends 'base.html' %} 
+{%load static%} 
+
+{% block estilo %}
 <link href="{% static 'tarefas/css/tarefas.css' %}" rel="stylesheet" />
-{% endblock %} {% block icones %}
+{% endblock %} 
+
+{% block icones %}
 <div class="icones">
   <img class="icone-dash" src="{% static 'tarefas/img/tarefas-topo.png' %}" />
   <p>Painel de Tarefas /</p>
@@ -8,14 +13,49 @@
   <img class="icone-menu" src="{% static 'dashboard/img/menu-cinza.png' %}" />
   {% endcomment %}
 </div>
-{% endblock %} {% block content%}
+{% endblock %} 
+
+{% block content%}
 <h1>Painel de Tarefas</h1>
 <div class="container">
-  <h1 style="color: red">Em Breve</h1>
-  <div class="row">
-    <div class="col-4"></div>
-    <div class="col-4"></div>
-    <div class="col-4"></div>
+
+  <div class="board">
+
+    <div class="boards">
+      <h3>Pendências</h3>
+      <div class="dropzone">
+        <div class="card-kanban" draggable="true">
+          <div class="status"></div>
+          <div class="content-card">Do videos</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="boards">
+      <h3>Em Andamento</h3>
+      <div class="dropzone">
+        <div class="card-kanban" draggable="true">
+          <div class="status"></div>
+          <div class="content-card">Fórum</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="boards">
+      <h3>Concluído</h3>
+      <div class="dropzone">
+        <div class="card-kanban" draggable="true">
+          <div class="status"></div>
+          <div class="content-card">Next level</div>
+        </div>
+      </div>
+    </div>
+
   </div>
+
 </div>
+{% endblock %}
+
+{% block scripts %} 
+<script src="{% static 'tarefas/js/tarefas.js' %}"></script>
 {% endblock %}
