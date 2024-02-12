@@ -47,11 +47,14 @@
           {% for usuario in usuarios %}
           <tr>
             <td class="td-nome-usuario">
-              {% if not usuario.foto %} {% if usuario.sexo == 'feminino' %} <img
-              class="foto-perfil" src={% static "usuario/img/avatar-f.jpeg" %}>
-              {% else %} <img class="foto-perfil" src={% static
-              "usuario/img/avatar-m.jpeg" %}> {% endif %} {% else %}
-              <img class="foto-perfil" src="{{" usuario.foto.url }} />
+              {% if not usuario.foto %} 
+                {% if usuario.sexo == 'feminino' %} 
+                  <img class="foto-perfil" src={% static "usuario/img/avatar-f.jpeg" %}>
+                {% else %} 
+                  <img class="foto-perfil" src={% static "usuario/img/avatar-m.jpeg" %}> 
+                {% endif %} 
+              {% else %}
+                <img class="foto-perfil" src="{{ usuario.foto.url }}" />
               {% endif %} {{ usuario.nome }} {{ usuario.sobrenome }}
             </td>
             {% if not usuario.cargo %}

@@ -1,63 +1,65 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital@0;1&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;1,400&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;1,400&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap');
 
 /* Parte Geral */
-body{
-    margin:0;
+body {
+    margin: 0;
 }
-.row{
+
+.row {
     max-width: 100%;
 }
 
-h1{
+h1 {
     font-size: 2em;
     font-family: 'Open Sans', sans-serif;
     font-weight: 600;
     text-align: center;
     margin-bottom: 1em;
 }
-.conexao{
-    margin:auto;
+
+.conexao {
+    margin: auto;
     position: relative;
     top: 50em;
 }
 
-.conexao-h1{
+.conexao-h1 {
     font-family: 'Open Sans', sans-serif;
     font-weight: 400;
     margin-bottom: 10px;
 }
 
-.conexao-p{
+.conexao-p {
     font-family: 'Open Sans', sans-serif;
     font-size: 14px;
-    font-weight:300;
+    font-weight: 300;
     max-width: 522px;
-    margin:auto;
+    margin: auto;
 }
 
-.col-6{
+.col-6 {
     border-width: 0;
-    margin:0;
-    padding:0;
+    margin: 0;
+    padding: 0;
 }
 
-.img-aut{
-    margin:0;
+.img-aut {
+    margin: 0;
     width: 100%;
 }
 
-.direita{
+.direita {
     min-height: 100vh;
     background-image: url(../img/img-auth.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
 }
-.senha{
+
+.senha {
     min-height: 58em;
     background-image: url(../img/cadeado.png);
     background-size: cover;
@@ -65,31 +67,33 @@ h1{
     background-position: center center;
 }
 
-.form-registration{
+.form-registration {
     background-color: #fbfbfb;
 }
-label{
+
+label {
     font-family: 'Open Sans', sans-serif;
-    font-weight:400;
+    font-weight: 400;
     font-size: 1em;
-    margin:0 0 1em 0;
+    margin: 0 0 1em 0;
     color: black;
 }
-input{
+
+input {
     margin: 0 0 1em 0;
     height: 4em;
 }
 
-.botao{
+.botao {
     color: white;
-    background:linear-gradient(to right, #14355E, #2568BB);
+    background: linear-gradient(to right, #14355E, #2568BB);
     width: 100%;
     height: 4em;
     border-radius: 8px;
     margin-top: 3em;
 }
 
-.botao-2{
+.botao-2 {
     color: #727272;
     border: 0.5px solid #dbdbdb;
     background-color: white;
@@ -101,48 +105,51 @@ input{
 
 /* Tela de login */
 
-.logo-login{
+.logo-login {
     position: relative;
     top: 3em;
-    margin:auto;
+    margin: auto;
     width: 38em;
     text-align: center;
 }
 
-.logo{
+.logo {
     margin: auto;
     width: 15.5em;
 }
 
-.login{
+.login {
     position: relative;
     top: 86px;
-    margin:auto;
+    margin: auto;
     width: 38em;
 }
-.login-p{
+
+.login-p {
     font-family: 'Open Sans', sans-serif;
-    font-weight:400;
+    font-weight: 400;
     font-size: 20px;
     text-align: center;
     color: #727272;
 }
-.login-p-senha{
+
+.login-p-senha {
     font-family: 'Open Sans';
     font-size: 16px;
     font-weight: 400;
     line-height: 32px;
     letter-spacing: 0em;
     text-align: left;
-    color:rgba(164, 164, 164, 1);
+    color: rgba(164, 164, 164, 1);
 
 }
 
 
-.redefinir-p{
+.redefinir-p {
     text-align: end;
 }
-.redefinir{
+
+.redefinir {
     font-family: 'Open Sans', sans-serif;
     font-weight: 400;
     font-size: 0.875em;
@@ -150,98 +157,103 @@ input{
     text-decoration: none;
 }
 
-.p-14{
+.p-14 {
     margin-top: 5em;
     text-align: center;
     font-family: 'Open Sans', sans-serif;
-    font-weight:400;
-    font-size: 0.875em;
-}
-.b-14{
-    font-family: 'Open Sans', sans-serif;
-    font-weight:700;
+    font-weight: 400;
     font-size: 0.875em;
 }
 
-.erro-login{
+.b-14 {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+    font-size: 0.875em;
+}
+
+.erro-login {
     color: #ff4848;
     font-size: 0.875em;
     font-family: 'Open Sans', sans-serif;
-    font-weight:400;
+    font-weight: 400;
     position: relative;
-    top:  -2.7em;
+    top: -2.7em;
 }
+
 /* Redefinir Senha */
 
-.tela-redefinir{
+.tela-redefinir {
     position: relative;
     top: 15em;
-    margin:auto;
+    margin: auto;
     width: 38em;
 }
 
-.logo-redefinir{
+.logo-redefinir {
     position: relative;
     top: 3em;
-    margin:auto;
+    margin: auto;
     width: 38em;
     text-align: center;
 }
 
 /* Tela E-mail enviado com sucesso */
 
-.email-enviado{
+.email-enviado {
     position: relative;
     top: 27em;
     margin: 0 auto !important;
     float: none !important;
 }
 
-.email-sucesso{
+.email-sucesso {
     position: relative;
     top: 40em;
-    margin:auto;
+    margin: auto;
     width: 38em;
     text-align: center;
 }
 
-.enviado-p{
+.enviado-p {
     font-family: 'Open Sans', sans-serif;
-    font-weight:400;
+    font-weight: 400;
     font-size: 2em;
     text-align: center;
 }
 
 /* Redefinição de senha*/
 
-.redefinicao{
+.redefinicao {
     position: relative;
     top: 5em;
-    margin:auto;
+    margin: auto;
     width: 38em;
 }
-.requisitos{
+
+.requisitos {
     margin-top: 5em;
 }
-.nova-senha{
+
+.nova-senha {
     margin-top: 2em;
 }
-.logo-redefinicao{
+
+.logo-redefinicao {
     position: relative;
     top: 6em;
-    margin:auto;
+    margin: auto;
     width: 38em;
     text-align: center;
 }
 
 /* Página 404 */
 
-.pag-404{
+.pag-404 {
     position: relative;
     margin: 3em auto;
 }
 
-.botao-voltar{
+.botao-voltar {
     width: 38.625em;
     color: white;
     background-color: #14355e;
@@ -252,17 +264,17 @@ input{
 
 /* login adiministração */
 
-.login-admin{
+.login-admin {
     position: relative;
     top: 13em;
-    margin:auto;
+    margin: auto;
     width: 38em;
 }
 
-.logo-adm{
+.logo-adm {
     position: relative;
-    top: 17em;
-    margin:auto;
+    top: 10em;
+    margin: auto;
     width: 38em;
     text-align: center;
 }

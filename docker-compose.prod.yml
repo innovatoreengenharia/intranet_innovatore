@@ -9,6 +9,12 @@ volumes:
     driver: local
     name: intranet_redis
 
+  static_volume:
+    name: arquivos_estaticos
+
+  media_volume:
+    name: arquivos_de_media
+
 
 services:
   backend:
@@ -19,16 +25,37 @@ services:
           service_name: backend
     image: backend
     container_name: backend
+    volumes:
+      - static_volume:/usr/src/app/intranet_innovatore/static
+      - media_volume:/usr/src/app/intranet_innovatore/media
     # entrypoint: /entrypoint.sh
     command: gunicorn intranet_innovatore.wsgi:application --bind 0.0.0.0:8001
     depends_on:
       - database
       - redis
+      - daphne
     expose:
       - 8001
     networks:
       - intranet-network
 
+  daphne:
+    build:
+      # platform: linux/x86_64
+      context: .
+      args:
+        service_name: daphne
+    command: daphne -b 0.0.0.0 -p 8070 intranet_innovatore.asgi:application
+    environment:
+      - DJANGO_SETTINGS_MODULE=intranet_innovatore.settings
+    expose: 
+      - 8070
+    networks:
+      - intranet-network
+    depends_on:
+      - database
+      - redis
+    
   database:
     # set "database" as app's DB_HOST.
     image: postgres:13
@@ -68,7 +95,8 @@ services:
     ports:
       - 1337:80
     volumes:
-      - static_volume:/home/app/intranet_innovatore/statics
+      - static_volume:/usr/src/app/intranet_innovatore/static
+      - media_volume:/usr/src/app/intranet_innovatore/media
     depends_on:
       - backend
     networks:

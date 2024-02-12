@@ -15,9 +15,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-tkahy*n1l1_6&kt94yfcb0tl6b6r)x(x-uag5rb_3=1mwj5$u("
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ["127.0.0.1", "localhost"]
+ALLOWED_HOSTS = ["127.0.0.1", "localhost",]
+
+CSRF_TRUSTED_ORIGINS = ['http://localhost:1337','https://*.127.0.0.1']
 
 LOGIN_REDIRECT_URL = "/"
 LOGOUT_REDIRECT_URL = "login"
@@ -46,6 +48,7 @@ INSTALLED_APPS = [
     "social",
     "calendario",
     "informativos",
+    "mapa",
 ]
 
 MIDDLEWARE = [
@@ -86,19 +89,21 @@ TEMPLATES = [
         "NAME": BASE_DIR / "db.sqlite3",
     }
 } """
+# AMBIENTE DE PRODUÇÃO
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.postgresql",
+#         "NAME": "intranet_innovatore",
+#         "USER": "flavio",
+#         "PASSWORD": "314628",
+#         "HOST": "database",
+#         "PORT": "6000",
+#     }
+# }
 
+
+# AMBIENTE DE DESENVOLVIMENTO
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": "intranet_innovatore",
-        "USER": "flavio",
-        "PASSWORD": "314628",
-        "HOST": "database",
-        "PORT": "6000",
-    }
-}
-
-""" DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
         "NAME": "intranet_innovatore",
@@ -107,7 +112,7 @@ DATABASES = {
         "HOST": "localhost",
         "PORT": "5432",
     }
-} """
+}
 
 
 # Password validation
@@ -146,17 +151,21 @@ USE_TZ = True
 
 STATIC_URL = "/static/"
 
-# STATIC_ROOT = os.path.join(BASE_DIR, "intranet_innovatore/static")
-STATIC_ROOT = BASE_DIR / "static"
+STATIC_ROOT = os.path.join(BASE_DIR, "intranet_innovatore/static")
+# STATIC_ROOT = BASE_DIR / "static"
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
 
+# AMBIENTE DE PRODUÇÃO
+# MEDIA_ROOT = os.path.join(BASE_DIR, "intranet_innovatore/media")
 
+# AMBIENTE DE DESENVOLVIMENTO
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
-MEEDIA_URL = "/media/"
+
+MEDIA_URL = "/media/"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
@@ -181,14 +190,27 @@ WSGI_APPLICATION = "intranet_innovatore.wsgi.application"
 # CHANNELS
 ASGI_APPLICATION = "intranet_innovatore.asgi.application"
 
+# AMBIENTE DE PRODUÇÃO
+# CHANNEL_LAYERS = {
+#     "default": {
+#         "BACKEND": "channels_redis.core.RedisChannelLayer",
+#         "CONFIG": {
+#             "hosts": [("redis", 6380)],
+#         },
+#     },
+# }
+
+# AMBIENTE DE DESENVOLVIMENTO
 CHANNEL_LAYERS = {
     "default": {
         "BACKEND": "channels_redis.core.RedisChannelLayer",
         "CONFIG": {
-            "hosts": [("redis", 6380)],
+            "hosts": [("localhost", 6379)],
         },
     },
 }
+
+
 SESSION_SAVE_EVERY_REQUEST = True
 
 
