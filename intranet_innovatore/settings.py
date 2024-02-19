@@ -15,11 +15,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-tkahy*n1l1_6&kt94yfcb0tl6b6r)x(x-uag5rb_3=1mwj5$u("
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ["127.0.0.1", "localhost",]
+ALLOWED_HOSTS = ["127.0.0.1", "localhost", "srv479192.hstgr.cloud"]
 
-CSRF_TRUSTED_ORIGINS = ['http://localhost:1337','https://*.127.0.0.1']
+CSRF_TRUSTED_ORIGINS = ['http://localhost:1337','https://*.127.0.0.1', 'srv479192.hstgr.cloud']
 
 LOGIN_REDIRECT_URL = "/"
 LOGOUT_REDIRECT_URL = "login"
