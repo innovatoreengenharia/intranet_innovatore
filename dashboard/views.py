@@ -43,5 +43,4 @@ def home(request):
         "postagens": postagens,
         "user_likes": user_likes,
     }
-    print(perfil)
     return render(request, "dashboard/home.html", context)

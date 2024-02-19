@@ -6,3 +6,165 @@ html {
     background-color: #f9f9f9;
     min-height: 100%;
 }
+
+.first-line {
+    display: flex;
+    justify-content: space-between;
+    width: 95%;
+    margin-left: 1.5%;
+}
+
+.button-minhas-tarefas {
+    border: none;
+    margin-right: 12px;
+    width: 168px;
+    height: 41px;
+    padding: 4px, 27px, 5px, 27px;
+    border-radius: 12px;
+    background-color: white;
+    font-family: 'Open Sans';
+    font-size: 16px;
+    font-weight: 400;
+    color: #14295E;
+}
+
+.hidden {
+    display: none;
+}
+
+.button-tarefas-compartilhadas {
+    border: none;
+    margin-right: 12px;
+    width: 244px;
+    height: 41px;
+    padding: 4px, 27px, 5px, 27px;
+    border-radius: 12px;
+    background-color: white;
+    font-family: 'Open Sans';
+    font-size: 16px;
+    font-weight: 400;
+    color: #14295E;
+}
+
+.botao {
+    width: 80px;
+    height: 40px;
+    border-radius: 12px;
+    background: linear-gradient(#14295E, #2568BB);
+    color: white;
+    font-size: 24px;
+}
+
+.boards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin-top: 50px;
+}
+
+.board {
+    background-color: #00000006;
+    width: 292px;
+    border-radius: 12px;
+    margin: 0 24px 0 0;
+    padding: 32px 16px;
+}
+
+.title-card {
+    display: flex;
+    justify-content: space-between;
+}
+
+.board h3 {
+    padding: 10px 0 36px 0;
+    margin: 0%;
+    font-family: 'Open Sans';
+    font-size: 16px;
+    font-weight: 700;
+    text-align: left;
+    color: #464646;
+}
+
+.add-tarefa {
+    width: 64px;
+    height: 32px;
+    border-radius: 8px;
+    border: none;
+    background-color: white;
+
+}
+
+.dropzone {
+    background-color: transparent;
+    min-width: 100%;
+    min-height: 100%;
+}
+
+.card-kanban {
+    margin: 25px 0;
+    border-radius: 6px;
+    background-color: white;
+    padding: 8px;
+}
+
+.card-kanban img {
+    width: 100%;
+    padding: 20px 8px;
+    margin: 0%;
+}
+
+.status {
+    padding: 6px;
+    margin-bottom: 16px;
+    margin-left: 12px;
+    border-radius: 8px;
+    color: white;
+    font-family: Open 'Sans';
+    font-size: 10px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.status.erros {
+    background: linear-gradient(#FFA53A, #FF7040);
+    width: 55px;
+}
+
+.status.atualizacao {
+    background: linear-gradient(#13C4EA, #1A79DB);
+    width: 84px;
+}
+
+.status.revisao {
+    background: linear-gradient(#2BD0C3, #2ECD8F);
+    width: 75px;
+}
+
+.content-card {
+    font-family: 'Open Sans';
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0em;
+    text-align: left;
+    padding: 0% 8px 24px 8px;
+
+}
+
+.highlight {
+    background-color: #00000006;
+}
+
+.card-kanban,
+.dropzone {
+    transition: .4s;
+}
+
+.is-dragging {
+    cursor: move;
+    opacity: 0.3;
+}
+
+.over {
+    background-color: #c8bbbb33;
+}

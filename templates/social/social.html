@@ -24,7 +24,7 @@
     <form method="post" action="{% url 'social' %}" autocomplete='off' enctype='multipart/form-data'>
         {% csrf_token %}
 
-            <input type="hidden" name="user " required="" value={{ perfil.id }}>
+            <input type="hidden" name="user" required="" value={{ perfil.id }}>
 
             <label for="imagem">Imagem</label>
             <input type="file" name="img" accept="image/*" id="imagem" class="form-control imagem-postagem">
@@ -62,7 +62,7 @@
 
 
 {% for post in postagens %}
-<div class="posts sombra">
+<div class="posts sombra open-chat-button" data-post-id={{ post.id }}>
     <div class="autor">
         {% if not post.user.foto %}
             {% if post.user.sexo == 'feminino' %}
@@ -192,12 +192,21 @@
             <input type="text" class="form-control" id="chat-message-input-{{post.id}}"placeholder="Escreva o seu comentário" style="width: 83.5%; margin-right: 12px" name="texto_comentario">
             <button type="submit" class="botao-comentar" id="chat-message-submit-{{post.id}}" name="form_comentario">Comentar</button>
             <p style="display:none;" id="room-chat-{{post.id}}">{{post.id}}</p><br><br>
+            
             <script>
-                // Inicialize a função para cada post dentro do loop
-                initializeChat('#chat-log-{{post.id}}', '#chat-message-input-{{post.id}}', '#chat-message-submit-{{post.id}}', '#room-chat-{{post.id}}',{{perfil.id}}, {{post.id}});
+                document.querySelectorAll('.open-chat-button').forEach(function(document) {
 
-                {% comment %} salvar_comentario({{perfil.id}}, {{post.id}}, '#chat-message-submit-{{post.id}}', '#chat-message-input-{{post.id}}') {% endcomment %}
-                
+                    document.addEventListener("click", function() {
+                        if (!document.hasAttribute('data-click-listener')) {
+                            // Obtenha o ID do objeto clicado
+                            var postId = this.getAttribute('data-post-id');
+                            initializeChat('#chat-log-'+ postId, '#chat-message-input-'+ postId, '#chat-message-submit-'+ postId, '#room-chat-'+ postId,{{perfil.id}}, {{post.id}});
+                            
+                            document.setAttribute('data-click-listener', 'true');
+                        }
+                    });
+                    
+                });
             </script>
     </div>
 </div>

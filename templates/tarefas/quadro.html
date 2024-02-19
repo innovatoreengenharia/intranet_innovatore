@@ -9,9 +9,6 @@
 <div class="icones">
   <img class="icone-dash" src="{% static 'tarefas/img/tarefas-topo.png' %}" />
   <p>Painel de Tarefas /</p>
-  {% comment %}
-  <img class="icone-menu" src="{% static 'dashboard/img/menu-cinza.png' %}" />
-  {% endcomment %}
 </div>
 {% endblock %} 
 
@@ -19,7 +16,6 @@
 <div class="first-line">
   <h1>Painel de Tarefas</h1>
   <div>
-    {% comment %} <button class="button-minhas-tarefas sombra" id="criar_quadro"> Criar Quadro </button> {% endcomment %}
     <button type="button" class="button-minhas-tarefas sombra" data-toggle="modal" data-target="#modalCriarQuadro">
       Criar Quadro
     </button>
@@ -34,18 +30,71 @@
   </div>
 </div>
 
-{% comment %} <form method="post" action="{% url 'tarefas' %}" class="hidden form_criar_quadro">
-  <br><br>
-  {% csrf_token %}
-  <label for="titulo">Título do Quadro:</label>
-  <input type="text" id="titulo" name="titulo" class=" form-control col-6" required="">
-  <input type="hidden" name="usuario" required="" value={{perfil.id}}>
-  <br><br>
-  <button id="cancelar_quadro">Cancelar</button>
-  <button type="submit" name="criar_quadro">Criar Quadro</button>
-</form> {% endcomment %}
+<div class="first-line"style="margin-top:10vh;">
+  <h1>{{ quadro.titulo }}</h1>
+  <button type="button" class="button-minhas-tarefas sombra" data-toggle="modal" data-target="#modalAlterarTituloQuadro">
+    Alterar Título
+  </button>
+
+  <!-- MODAL ALTERAR TÍTULO DO QUADRO -->
+  
+  <div class="modal fade" id="modalAlterarTituloQuadro" tabindex="-1" role="dialog" aria-labelledby="modalAlterarTituloQuadroLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalAlterarTituloQuadroLabel">Alterar Título</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form method="post" action="{% url 'alterar_titulo_quadro' quadro.id %}">
+            {% csrf_token %}
+            <label for="novo_titulo">Novo Título do Quadro:</label>
+            <input type="text" id="novo_titulo" name="novo_titulo" value="{{ quadro.titulo }}" required>
+            <br><br>
+            <button type="submit">Alterar Título</button>
+        </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <h2>Participantes</h2>
+    <ul>
+      {% for usuario in quadro.usuario.all %}
+          <li>
+            {% if not usuario.foto%}
+                {% if usuario.sexo == 'feminino' %}
+                <img class="img-profile rounded-circle" src="{% static 'usuario/img/avatar-f.jpeg' %}">
+                {% else %}
+                <img class="img-profile rounded-circle" src="{% static 'usuario/img/avatar-m.jpeg' %}">
+                {% endif %}
+            {% else %}
+                <img class="img-profile rounded-circle"src="{{ usuario.foto.url }}">
+            {% endif %}
+            {{ usuario.nome }} {{ usuario.sobrenome }} 
+            <a href={% url 'remover_participante' quadro.id usuario.id%} style="display:inline-block"> - </a></li>
+      {% endfor %}
+    </ul>
+  
+    <form method="post" action="{% url 'adicionar_participante' quadro.id %}" class="add_participante">
+      {% csrf_token %}
+      <label for="select-user">Selecione um Participante</label>
+      <select name="usuario" id="select-user" required>
+        <option></option>
+        {% for usuario in usuarios %}
+        <option value={{usuario.id}}>{{usuario.nome}} {{usuario.sobrenome}}</option>
+        {% endfor %}
+      </select>
+      <button>Adicionar Usuário </button>
+    </form>
+  </div>
+</div>
 
 
+<!-- MODAL CRIAR QUADRO -->
 <div class="modal fade" id="modalCriarQuadro" tabindex="-1" role="dialog" aria-labelledby="modalCriarQuadroLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -136,10 +185,9 @@
         </div>
       </div>
     </div>
-
   </div>
-
 </div>
+
 {% endblock %}
 
 {% block scripts %} 
