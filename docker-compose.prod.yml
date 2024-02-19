@@ -28,7 +28,7 @@ services:
     volumes:
       - static_volume:/usr/src/app/intranet_innovatore/static
       - media_volume:/usr/src/app/intranet_innovatore/media
-    # entrypoint: /entrypoint.sh
+    entrypoint: /usr/src/app/entrypoint.sh
     command: gunicorn intranet_innovatore.wsgi:application --bind 0.0.0.0:8001
     depends_on:
       - database

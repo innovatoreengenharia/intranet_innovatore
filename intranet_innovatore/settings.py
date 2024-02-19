@@ -27,6 +27,13 @@ LOGOUT_REDIRECT_URL = "login"
 EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
 EMAIL_FILE_PATH = BASE_DIR / "emails"
 
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_HOST = 'smtp.gmail.com'
+# EMAIL_USE_TLS = True
+# EMAIL_PORT = 587
+# EMAIL_HOST_USER =
+# EMAIL_HOST_PASSWORD =
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -90,29 +97,29 @@ TEMPLATES = [
     }
 } """
 # AMBIENTE DE PRODUÇÃO
-# DATABASES = {
-#     "default": {
-#         "ENGINE": "django.db.backends.postgresql",
-#         "NAME": "intranet_innovatore",
-#         "USER": "flavio",
-#         "PASSWORD": "314628",
-#         "HOST": "database",
-#         "PORT": "6000",
-#     }
-# }
-
-
-# AMBIENTE DE DESENVOLVIMENTO
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
         "NAME": "intranet_innovatore",
         "USER": "flavio",
         "PASSWORD": "314628",
-        "HOST": "localhost",
-        "PORT": "5432",
+        "HOST": "database",
+        "PORT": "6000",
     }
 }
+
+
+# AMBIENTE DE DESENVOLVIMENTO
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.postgresql",
+#         "NAME": "intranet_innovatore",
+#         "USER": "flavio",
+#         "PASSWORD": "314628",
+#         "HOST": "localhost",
+#         "PORT": "5432",
+#     }
+# }
 
 
 # Password validation
@@ -159,10 +166,10 @@ STATICFILES_DIRS = [
 ]
 
 # AMBIENTE DE PRODUÇÃO
-# MEDIA_ROOT = os.path.join(BASE_DIR, "intranet_innovatore/media")
+MEDIA_ROOT = os.path.join(BASE_DIR, "intranet_innovatore/media")
 
 # AMBIENTE DE DESENVOLVIMENTO
-MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+# MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 
 MEDIA_URL = "/media/"
@@ -191,24 +198,24 @@ WSGI_APPLICATION = "intranet_innovatore.wsgi.application"
 ASGI_APPLICATION = "intranet_innovatore.asgi.application"
 
 # AMBIENTE DE PRODUÇÃO
-# CHANNEL_LAYERS = {
-#     "default": {
-#         "BACKEND": "channels_redis.core.RedisChannelLayer",
-#         "CONFIG": {
-#             "hosts": [("redis", 6380)],
-#         },
-#     },
-# }
-
-# AMBIENTE DE DESENVOLVIMENTO
 CHANNEL_LAYERS = {
     "default": {
         "BACKEND": "channels_redis.core.RedisChannelLayer",
         "CONFIG": {
-            "hosts": [("localhost", 6379)],
+            "hosts": [("redis", 6380)],
         },
     },
 }
+
+# AMBIENTE DE DESENVOLVIMENTO
+# CHANNEL_LAYERS = {
+#     "default": {
+#         "BACKEND": "channels_redis.core.RedisChannelLayer",
+#         "CONFIG": {
+#             "hosts": [("localhost", 6379)],
+#         },
+#     },
+# }
 
 
 SESSION_SAVE_EVERY_REQUEST = True
