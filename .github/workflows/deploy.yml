@@ -15,6 +15,9 @@ jobs:
         with: 
             host: ${{ secrets.IP }} 
             user: ${{ secrets.USER }} 
-            key: ${{ secrets.CHAVE_PRIVADA }} 
-      - name: atualizar_codigo
-        run: cd ~/intranet_innovatore && docker compose -f docker-compose.prod.yml down && git pull && docker compose -f docker-compose.prod.yml up -d --build 
+            key: ${{ secrets.CHAVE_PRIVADA }}
+            command: |
+              cd /root/intranet_innovatore
+              docker compose -f docker-compose.prod.yml down
+              git pull
+              docker compose -f docker-compose.prod.yml up -d --build 
