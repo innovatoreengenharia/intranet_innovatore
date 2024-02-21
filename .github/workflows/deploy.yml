@@ -1,0 +1,20 @@
+
+
+name: Deploy 
+on: 
+  push: 
+    branches: 
+        - main 
+            
+jobs: 
+  deploy-to-vps: 
+    runs-on: ubuntu-latest 
+    steps: 
+      - name: Deploy to vps 
+        uses: fifsky/ssh-action@master 
+        with: 
+            host: ${{ secrets.IP }} 
+            user: ${{ secrets.USER }} 
+            key: ${{ secrets.CHAVE_PRIVADA }} 
+      - name: atualizar_codigo
+        run: cd intranet_innovatore && docker compose -f docker-compose.prod.yml down && git pull && docker compose -f docker-compose.prod.yml up -d --build 
