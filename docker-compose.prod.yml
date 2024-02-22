@@ -30,6 +30,7 @@ services:
       - media_volume:/usr/src/app/intranet_innovatore/media
     environment:
       - SECRET_KEY=${SECRET_KEY}
+      - MEDIA_ROOT=${MEDIA_ROOT}
       - DB_NAME=${DB_NAME}
       - DB_USER=${DB_USER}
       - DB_PASSWORD=${DB_PASSWORD}
@@ -58,6 +59,7 @@ services:
     environment:
       - DJANGO_SETTINGS_MODULE=intranet_innovatore.settings
       - SECRET_KEY=${SECRET_KEY}
+      - MEDIA_ROOT=${MEDIA_ROOT}
       - DB_NAME=${DB_NAME}
       - DB_USER=${DB_USER}
       - DB_PASSWORD=${DB_PASSWORD}
