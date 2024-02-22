@@ -50,6 +50,7 @@ services:
     command: daphne -b 0.0.0.0 -p 8070 intranet_innovatore.asgi:application
     environment:
       - DJANGO_SETTINGS_MODULE=intranet_innovatore.settings
+      - SECRET_KEY=${SECRET_KEY}
     expose: 
       - 8070
     networks:
