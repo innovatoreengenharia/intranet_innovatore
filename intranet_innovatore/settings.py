@@ -1,7 +1,7 @@
 # manipulação de estáticos debug false
 import mimetypes
 from pathlib import Path, os
-from os import getenv
+from decouple import config
 
 mimetypes.add_type("text/css", ".css", True)
 
@@ -13,10 +13,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = getenv('SECRET_KEY')
+SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["127.0.0.1", "localhost", "srv479192.hstgr.cloud"]
 
@@ -91,36 +91,16 @@ TEMPLATES = [
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-""" DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
-    }
-} """
-# AMBIENTE DE PRODUÇÃO
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": getenv('DB_NAME'),
-        "USER": getenv('DB_USER'),
-        "PASSWORD": getenv('DB_PASSWORD'),
-        "HOST": getenv('DB_HOST'),
-        "PORT": getenv('DB_PORT'),
+        "NAME": config('DB_NAME'),
+        "USER": config('DB_USER'),
+        "PASSWORD": config('DB_PASSWORD'),
+        "HOST": config('DB_HOST'),
+        "PORT": config('DB_PORT'),
     }
 }
-
-
-# AMBIENTE DE DESENVOLVIMENTO
-# DATABASES = {
-#     "default": {
-#         "ENGINE": "django.db.backends.postgresql",
-#         "NAME": "intranet_innovatore",
-#         "USER": "flavio",
-#         "PASSWORD": "314628",
-#         "HOST": "localhost",
-#         "PORT": "5432",
-#     }
-# }
 
 
 # Password validation
@@ -166,11 +146,7 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
 
-# AMBIENTE DE PRODUÇÃO
-MEDIA_ROOT = os.path.join(BASE_DIR, "intranet_innovatore/media")
-
-# AMBIENTE DE DESENVOLVIMENTO
-# MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+MEDIA_ROOT = os.path.join(BASE_DIR, config("MEDIA_ROOT"))
 
 
 MEDIA_URL = "/media/"
@@ -203,20 +179,10 @@ CHANNEL_LAYERS = {
     "default": {
         "BACKEND": "channels_redis.core.RedisChannelLayer",
         "CONFIG": {
-            "hosts": [( getenv('CL_NAME'), getenv('CL_PORT'))],
+            "hosts": [( config('CL_NAME'), config('CL_PORT'))],
         },
     },
 }
-
-# AMBIENTE DE DESENVOLVIMENTO
-# CHANNEL_LAYERS = {
-#     "default": {
-#         "BACKEND": "channels_redis.core.RedisChannelLayer",
-#         "CONFIG": {
-#             "hosts": [("localhost", 6379)],
-#         },
-#     },
-# }
 
 
 SESSION_SAVE_EVERY_REQUEST = True
