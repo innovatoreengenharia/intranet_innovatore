@@ -101,11 +101,11 @@ TEMPLATES = [
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": "intranet_innovatore",
-        "USER": "flavio",
-        "PASSWORD": "314628",
-        "HOST": "database",
-        "PORT": "6000",
+        "NAME": getenv('DB_NAME'),
+        "USER": getenv('DB_USER'),
+        "PASSWORD": getenv('DB_PASSWORD'),
+        "HOST": getenv('DB_HOST'),
+        "PORT": getenv('DB_PORT'),
     }
 }
 
@@ -203,7 +203,7 @@ CHANNEL_LAYERS = {
     "default": {
         "BACKEND": "channels_redis.core.RedisChannelLayer",
         "CONFIG": {
-            "hosts": [("redis", 6380)],
+            "hosts": [( getenv('CL_NAME'), getenv('CL_PORT'))],
         },
     },
 }

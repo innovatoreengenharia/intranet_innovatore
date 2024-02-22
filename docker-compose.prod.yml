@@ -30,6 +30,13 @@ services:
       - media_volume:/usr/src/app/intranet_innovatore/media
     environment:
       - SECRET_KEY=${SECRET_KEY}
+      - DB_NAME=${DB_NAME}
+      - DB_USER=${DB_USER}
+      - DB_PASSWORD=${DB_PASSWORD}
+      - DB_HOST=${DB_HOST}
+      - DB_PORT=${DB_PORT}
+      - CL_NAME=${CL_NAME}
+      - CL_PORT=${CL_PORT}
     entrypoint: /usr/src/app/entrypoint.sh
     command: gunicorn intranet_innovatore.wsgi:application --bind 0.0.0.0:8001
     depends_on:
@@ -51,6 +58,13 @@ services:
     environment:
       - DJANGO_SETTINGS_MODULE=intranet_innovatore.settings
       - SECRET_KEY=${SECRET_KEY}
+      - DB_NAME=${DB_NAME}
+      - DB_USER=${DB_USER}
+      - DB_PASSWORD=${DB_PASSWORD}
+      - DB_HOST=${DB_HOST}
+      - DB_PORT=${DB_PORT}
+      - CL_NAME=${CL_NAME}
+      - CL_PORT=${CL_PORT}
     expose: 
       - 8070
     networks:
