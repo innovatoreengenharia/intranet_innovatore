@@ -3,7 +3,7 @@
 
 {% block estilo %}
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/croppie/2.6.5/croppie.css"/>
-  <linkhref="{% static 'informativos/css/informativos.css' %}"rel="stylesheet"/>
+  <link href="{% static 'informativos/css/informativos.css' %}"rel="stylesheet"/>
 {% endblock %} 
 
 {% block icones %}
@@ -23,14 +23,16 @@
     {% csrf_token %} 
     {{ form.as_p }} 
     {{ form_bloco.management_form }} 
-    {% for bloco in form_bloco%}
+    {% for bloco in form_bloco %}
       <div class="row inline-bloco">{{ bloco.as_p }}</div>
     {% endfor %}
 
-    <button type="submit">Salvar</button>
+    <button type="submit" class="botao">Salvar</button>
   </form>
 </div>
+{% endblock %}
 
+{% block scripts %}
 <script type="text/javascript">
   $(function () {
     $(".inline-bloco").formset({
