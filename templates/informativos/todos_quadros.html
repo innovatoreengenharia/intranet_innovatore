@@ -1,71 +1,70 @@
-{% extends 'base.html' %} {% load static %} {% block estilo %}
-<link
-  href="{% static 'informativos/css/informativos.css' %}"
-  rel="stylesheet"
-/>
-{% endblock %} {% block icones %}
+{% extends 'base.html' %} 
+{% load static %} 
+
+{% block estilo %}
+<link href="{% static 'informativos/css/informativos.css' %}" rel="stylesheet"/>
+{% endblock %} 
+
+{% block icones %}
 <div class="icones">
-  <img
-    class="icone-dash"
-    src="{% static 'informativos/img/icone-informativos.png' %}"
-  />
+  <img class="icone-dash" src="{% static 'informativos/img/icone-informativos.png' %}"/>
   <p>Informativos /</p>
   {% comment %}
   <img class="icone-menu" src="{% static 'dashboard/img/menu-cinza.png' %}" />
   {% endcomment %}
 </div>
-{% endblock %} {% block content %}
+{% endblock %} 
+
+{% block content %}
 
 <div class="conteudo-quadros">
   <h1>Informativos INN</h1>
   <h1 class="noticias-h1">Quadros</h1>
   <form action="" style="margin-bottom: 150px; margin-right: 32px">
     <div><br /></div>
-    <img src={% static 'cartao_visitas/img/filtro.png' %} class="float-right
-    filtro" style="margin-bottom:150px;">
-    <button href="" class="float-right botao-pesquisar" type="submit ">
-      Pesquisar
-    </button>
-    <input
-      type="text"
-      name="buscar"
-      class="input-busca float-right"
-      placeholder="Pesquisar Quadro"
-    />
+    <img src="{% static 'cartao_visitas/img/filtro.png' %}" class="float-right filtro" style="margin-bottom:150px;">
+    <button href="" class="float-right botao-pesquisar" type="submit">Pesquisar</button>
+    <input type="text" name="buscar" class="input-busca float-right" placeholder="Pesquisar Quadro"/>
   </form>
+
   <div class="row">
-    {% if quadros %} {% for quadro in quadros%}
-    <a href="{% url 'informativos/quadro' quadro.id %}" class="col-4">
-      <div class="borda-quadro">
-        <div class="quadro outros-quadros">
-          <h6>{{ quadro.titulo }}</h6>
-          <p class="paragrafo-quadro">{{ quadro.paragrafo }}</p>
-        </div>
-      </div>
-    </a>
-    {% endfor %} {% endif %}
+    {% if quadros %} 
+      {% for quadro in quadros%}
+        <a href="{% url 'informativos/quadro' quadro.id %}" class="col-4">
+          <div class="borda-quadro">
+            <div class="quadro outros-quadros">
+              <h6>{{ quadro.titulo }}</h6>
+              <p class="paragrafo-quadro">{{ quadro.paragrafo }}</p>
+            </div>
+          </div>
+        </a>
+      {% endfor %} 
+    {% endif %}
   </div>
 </div>
 
 <div class="container-fluid text-center paginacao">
   {% if page.has_previous %}
-  <a
-    href="{% url 'informativos/todas_noticias' %}?page={{page.previous_page_number}}"
-    ><img src={% static 'documentos/img/anterior.png' %}></a
-  >
-  {% endif %} {% for i in page.paginator.page_range %} {% if page.number == i %}
-  <p class="pagina-selecionada"><a>{{ i }}</a></p>
-  {% else %}
-  <a href="?page={{ i }}" class="paginas">{{ i }}</a>
-  {% endif %} {% endfor %} {% if page.has_next %}
-  <a
-    href="{% url 'informativos/todas_noticias' %}?page={{page.next_page_number}}"
-    style="margin-left: 32px"
-    ><img src={% static "documentos/img/proximo.png" %}></a
-  >
+    <a href="{% url 'informativos/todas_noticias' %}?page={{page.previous_page_number}}">
+      <img src={% static 'documentos/img/anterior.png' %}>
+    </a>
+  {% endif %} 
+  
+  {% for i in page.paginator.page_range %} 
+    {% if page.number == i %}
+      <p class="pagina-selecionada"><a>{{ i }}</a></p>
+    {% else %}
+      <a href="?page={{ i }}" class="paginas">{{ i }}</a>
+    {% endif %} 
+  {% endfor %} 
+  
+  {% if page.has_next %}
+  <a href="{% url 'informativos/todas_noticias' %}?page={{page.next_page_number}}" style="margin-left: 32px">
+    <img src={% static "documentos/img/proximo.png" %}>
+    </a>
   {% endif %}
 </div>
 
 {% endblock %} {% block scripts %}
-<script src="{% static 'informativos/js/js.js' %}"></script>
+  <script src="{% static 'informativos/js/js.js' %}"></script>
 {% endblock %}
