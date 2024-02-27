@@ -61,19 +61,21 @@
                         <br>
                         <div class="lista-aniversariantes">
                             {% for user in aniversariantes %}
-                            <p class="m-1">
+                            <div class="m-1">
                                 {% if not user.foto %}
 
                                     {% if user.sexo == 'feminino'%}
-                                        <img class="img-profile rounded-circle foto-aniversariante" src="{% static 'usuario/img/avatar-f.jpeg' %}">
+                                        <img class="img-aniversariantes rounded-circle foto-aniversariante" src="{% static 'usuario/img/avatar-f.jpeg' %}">
                                     {% else %}
-                                        <img class="img-profile rounded-circle foto-aniversariante" src="{% static 'usuario/img/avatar-m.jpeg' %}">
+                                        <img class="img-aniversariantes rounded-circle foto-aniversariante" src="{% static 'usuario/img/avatar-m.jpeg' %}">
                                     {% endif %}
 
                                 {% else %}
-                                    <img class="img-profile rounded-circle foto-aniversariante" src="{{ user.foto.url }}"> 
+                                    <img class="img-aniversariantes rounded-circle foto-aniversariante" src="{{ user.foto.url }}"> 
                                 {% endif %}
-                                {{ user.nascimento|date:"d/m"}} - Aniversário de {{user.nome }}</p>
+                                   
+                                <p>{{ user.nascimento|date:"d/m"}} - Aniversário de {{user.nome }}</p>
+                            </div>
                             {% empty %}
                             <p> Não Há Aniversariantes Este Mês </p>
                             {% endfor %}

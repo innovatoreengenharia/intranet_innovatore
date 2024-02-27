@@ -218,7 +218,7 @@ h1 {
     display: none;
 }
 
-.aniversariantes p {
+.aniversariantes div {
     font-family: 'Open Sans';
     font-size: 16px;
     font-weight: 400;
@@ -227,6 +227,17 @@ h1 {
     text-align: left;
     color: #14355E;
 
+}
+
+.aniversariantes div p {
+    display: inline-block;
+    margin-left: 15px;
+    margin-bottom: 25px;
+}
+
+.img-aniversariantes {
+    width: 50px;
+    height: 50px;
 }
 
 .icones-direita {
@@ -240,8 +251,8 @@ h1 {
 .lista-aniversariantes {
     background-color: transparent;
     padding-top: 15px;
-    margin-top: -15px;
-    height: 170px;
+    margin-top: -25px;
+    height: 200px;
     background-size: cover;
     background-repeat: no-repeat;
     overflow: auto;
