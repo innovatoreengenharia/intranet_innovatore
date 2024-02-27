@@ -5,8 +5,7 @@ from django.core.paginator import Paginator
 from django.db.models import Q
 import pandas as pd
 
-def importar_dados_do_excel():
-    caminho_arquivo ="/usr/src/app/cartao_visitas/cartoes.xlsx"
+def importar_dados_do_excel(caminho_arquivo):
     # Ler o arquivo Excel
     dados_excel = pd.read_excel(caminho_arquivo)
 
