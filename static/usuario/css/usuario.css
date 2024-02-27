@@ -87,14 +87,15 @@ input:-ms-input-placeholder {
 .container-edit label {
     color: black;
     font-family: 'Open Sans';
-    font-size: 0.75rem;
+    font-size: 0.875rem;
     font-weight: 600;
     line-height: 1.5rem;
 }
 
 .container-edit input {
     display: flex;
-    height: 36px;
+    height: 48px;
+    font-size: 1rem;
     align-items: center;
     flex-shrink: 0;
     border-radius: 8px;
@@ -114,6 +115,7 @@ input:-ms-input-placeholder {
 .container-edit textarea {
     display: flex;
     height: 36px;
+    font-size: 16px;
     align-items: center;
     flex-shrink: 0;
     border-radius: 8px;
@@ -142,14 +144,15 @@ input:-ms-input-placeholder {
 .container-cadastro label {
     color: black;
     font-family: 'Open Sans';
-    font-size: 0.75rem;
+    font-size: 14px;
     font-weight: 600;
     line-height: 1.5rem;
 }
 
 .container-cadastro input {
     display: flex;
-    height: 36px;
+    height: 48px;
+    font-size: 16px;
     align-items: center;
     flex-shrink: 0;
     border-radius: 8px;

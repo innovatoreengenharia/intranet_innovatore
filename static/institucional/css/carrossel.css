@@ -3,6 +3,7 @@
 element.style {
   width: 1000%;
 }
+
 .box-carrossel {
   width: 100%;
   padding-right: 32px;
@@ -15,7 +16,7 @@ element.style {
   background-color: #14355e;
   color: white;
   margin: auto;
-  margin-bottom: 1em;
+  margin-bottom: -3em;
   padding-top: 6em;
   padding-right: 32px;
   padding-left: 4em;
@@ -37,16 +38,18 @@ element.style {
   margin-left: 3em;
   border-radius: 12px;
 }
+
 .texto-carrossel {
   display: inline-block;
   padding-left: 1em;
   width: 550px;
   width: 600px;
 }
+
 .titulo-item {
   position: absolute;
-  top: 35px;
-  left: 300px;
+  top: 70px;
+  left: 115px;
   margin-bottom: 1em;
   color: white;
   font-size: 32px;

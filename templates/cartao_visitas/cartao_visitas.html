@@ -52,12 +52,41 @@
                     <tbody>
                         {% for cartao in page.object_list %}
                             <tr>
-                                <td>{{ cartao.nome }}</td>
-                                <td>{{ cartao.empresa }}</td>
-                                <td>{{ cartao.email }}</td>
-                                <td>{{ cartao.telefone_fixo }}</td>
-                                <td>{{ cartao.telefone_celular }}</td>
-                                <td>{{ cartao.site }}</td>
+                                {% if cartao.nome == "nan" %}
+                                    <td></td>
+                                {% else %}
+                                    <td>{{ cartao.nome }}</td>
+                                {% endif %}
+
+                                {% if cartao.empresa == "nan" %}
+                                    <td></td>
+                                {% else %}
+                                    <td>{{ cartao.empresa }}</td>
+                                {% endif %}
+
+                                {% if cartao.email == "nan" %}
+                                    <td></td>
+                                {% else %}
+                                    <td>{{ cartao.email }}</td>
+                                {% endif %}
+                                
+                                {% if cartao.telefone_fixo == "nan" %}
+                                    <td></td>
+                                {% else %}
+                                    <td>{{ cartao.telefone_fixo }}</td>
+                                {% endif %}
+
+                                {% if cartao.telefone_celular == "nan" %}
+                                    <td></td>
+                                {% else %}
+                                    <td>{{ cartao.telefone_celular }}</td>
+                                {% endif %}
+
+                                {% if cartao.site == "nan"%}
+                                    <td></td>
+                                {% else %}
+                                    <td>{{ cartao.site }}</td>
+                                {% endif %}
                             </tr>
                         {% endfor %}
                     </tbody>

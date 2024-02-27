@@ -12533,7 +12533,7 @@ body.sidebar-toggled footer.sticky-footer {
 }
 
 .divisor-menu {
-  margin-top: -1em;
+  margin: -1em auto 1em auto;
   width: 16.688em;
   height: 1px;
   border: 0px;
