@@ -1,0 +1,82 @@
+/* Estilos para o cabeçalho do calendário */
+
+a :hover {
+    text-decoration: none;
+}
+
+.fc-header-toolbar {
+    background-color: transparent;
+    height: 80px;
+    padding-left: 20px;
+    color: #fff;
+}
+
+
+/* Estilos para os dias do mês */
+.fc-day {
+    background: transparent;
+    text-align: center;
+}
+
+.fc-day a {
+    color: white;
+}
+
+.fc-header-toolbar.fc-toolbar {
+    border-radius: 12px;
+}
+
+.fc-view-harness.fc-view-harness-active {
+    margin-top: -40px;
+    margin-bottom: 20px;
+}
+
+.fc-toolbar-title {
+    font-family: 'Open Sans';
+    font-weight: 700;
+}
+
+.fc-scrollgrid.fc-scrollgrid-liquid {
+    border: none;
+}
+
+.fc-day.fc-daygrid-day {
+    border: none;
+}
+
+.fc-col-header-cell.fc-day {
+    border: none;
+}
+
+.fc-daygrid-day-number {
+    margin: auto;
+}
+
+.fc-view-harness.fc-view-harness-active {
+    border: #14355E;
+}
+
+.fc-theme-standard td {
+    border: none;
+}
+
+.fc .fc-col-header-cell-cushion {
+    margin-bottom: 15px;
+    margin-top: 15px;
+}
+
+.fc-theme-standard td,
+.fc-theme-standard th {
+    border: none;
+}
+
+.fc .fc-toolbar-title {
+    font-size: 32px;
+    margin: auto;
+}
+
+.container-calendario {
+    background-color: #14355E;
+    border-radius: 24px;
+    height: 500px;
+}

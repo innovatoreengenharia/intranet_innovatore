@@ -353,7 +353,7 @@ h1 {
 }
 
 .calendario {
-    background-image: url("../img/Calendário.png");
+    background: linear-gradient(to right, #14355E, #1657A7);
     height: 530px;
 }
 
