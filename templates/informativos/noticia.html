@@ -107,6 +107,8 @@
     </div>
   </div>
 
+  <h2>Poste o seu comentário</h2>
+
   <form class="div-comentario form-inline" action="{% url 'informativos/noticia' id=noticia.id %}" method="POST" enctype="multipart/form-data">
     {% csrf_token %} 
     {% if not perfil.foto %} 

@@ -5,14 +5,27 @@
 
 
 
-html{
+html {
     background-color: white;
 }
-.h1-informativos{
+
+.h1-informativos {
     margin-left: 25px;
 }
 
-.conteudo-noticia{
+h2 {
+    font-family: 'Open Sans';
+    color: #14295E;
+    margin-top: 32px;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 48px;
+    letter-spacing: 0em;
+    text-align: center;
+
+}
+
+.conteudo-noticia {
     background-color: white;
     min-height: 100%;
     padding-right: 32px;
@@ -21,17 +34,17 @@ html{
     margin-top: 137px;
 }
 
-.conteudo-noticia h1{
+.conteudo-noticia h1 {
     margin-bottom: 43px;
 }
 
-.imagem-noticia{
+.imagem-noticia {
     width: 100%;
     margin: 0 auto;
     margin-bottom: 33px;
 }
 
-.paragrafo-noticia{
+.paragrafo-noticia {
     font-family: 'Open Sans';
     font-size: 22px;
     font-weight: 400;
@@ -40,15 +53,16 @@ html{
     text-align: left;
     color: #464646;
 }
-pre{
+
+pre {
     white-space: pre-wrap;
 }
 
-.noticia-titulo{
+.noticia-titulo {
     margin: 40px 0px;
 }
 
-.tag{
+.tag {
     font-family: 'Open Sans';
     font-size: 22px;
     font-weight: 700;
@@ -60,9 +74,9 @@ pre{
     margin-top: 160px;
 }
 
-.tags{
-    width:fit-content;
-    display:inline-block;
+.tags {
+    width: fit-content;
+    display: inline-block;
     margin: 32px 0px 120px 24px;
     padding: 0px 12px 0px 12px;
     border-radius: 10px;
@@ -76,46 +90,46 @@ pre{
 
 }
 
-.mais-noticias{
+.mais-noticias {
     text-align: center;
     margin-bottom: 44px;
 }
 
-.editar-comunicado{
+.editar-comunicado {
     margin-right: 15px;
-  }
+}
 
-.imagem-bloco{
+.imagem-bloco {
     height: 472px;
 }
 
-.formulario_editar_comentario{
-    position:fixed;
+.formulario_editar_comentario {
+    position: fixed;
     border: 1px solid gray;
-    top:40%;
+    top: 40%;
     right: 35%;
     z-index: 1000;
-    display:none;
+    display: none;
     background-color: white;
-    width:700px;
+    width: 700px;
     border-radius: 24px;
-    padding:24px;
+    padding: 24px;
     margin-bottom: 24px;
 }
 
-.comentarios-p img{
+.comentarios-p img {
     margin-top: 12px;
     margin-right: 12px;
 }
 
-.img-profile{
+.img-profile {
     height: 2rem;
     width: 2rem;
     margin-bottom: 16px;
     top: 0px;
 }
 
-.foto-perfil{
+.foto-perfil {
     width: 91px;
     height: 91px;
     flex-shrink: 0;
@@ -124,85 +138,88 @@ pre{
     background-repeat: no-repeat;
 }
 
-.texto-comentario{
+.texto-comentario {
     position: relative;
     background-color: #f9f9f9;
-    padding-right:12px;
+    padding-right: 12px;
     padding-bottom: 8px;
     border-radius: 12px;
-    margin-bottom:24px;
+    margin-bottom: 24px;
 }
 
-.texto-comentario-p{
+.texto-comentario-p {
     margin-left: 48px;
 }
-.texto-comentario .img-comentario{
+
+.texto-comentario .img-comentario {
     margin-top: 12px;
-    margin-right:12px;
-    width:32px;
-    height:32px;
-    border-radius:50%;
+    margin-right: 12px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
 }
 
-.nome-comentario{
-    display:inline-block;
+.nome-comentario {
+    display: inline-block;
 }
 
-.texto-comentario .icone-comentarios-p img{
+.texto-comentario .icone-comentarios-p img {
     margin-top: 12px;
     margin-left: 48px;
     margin-right: 12px;
 }
 
-.div-comentario{
+.div-comentario {
     border-top: 1px solid #E8E8E8;
     margin-top: 24px;
     padding-top: 24px;
+    padding-bottom: 50px;
+    margin-bottom: 50px;
 }
 
-.div-comentario .img-input-comentario{
-    width:32px;
-    height:32px;
+.div-comentario .img-input-comentario {
+    width: 32px;
+    height: 32px;
     border-radius: 50%;
     margin-top: 12px;
     margin-right: 12px;
 }
 
-.div-comentario form{
+.div-comentario form {
     display: block;
 }
 
-.link-excluir-comentario{
+.link-excluir-comentario {
     position: absolute;
     right: 90px;
-    bottom:8px;
+    bottom: 8px;
 }
 
-.link-editar-comentario{
+.link-editar-comentario {
     position: absolute;
-    right:24px;
-    bottom:8px;
+    right: 24px;
+    bottom: 8px;
 }
 
-.container-comentarios{
+.container-comentarios {
     max-height: 220px;
     overflow: auto;
     overflow-x: hidden;
 }
 
 
-.botao-comentar{
-    color:white;
+.botao-comentar {
+    color: white;
     background: linear-gradient(#14295E, #2568BB);
     padding: 6px 12px;
     border-radius: 12px;
 }
 
-.botao{
-    color:white;
+.botao {
+    color: white;
     background: linear-gradient(#14295E, #2568BB);
-    width:160px;
-    height:64px;
+    width: 160px;
+    height: 64px;
     padding: 12px auto;
     border-radius: 12px;
     gap: 10px;
