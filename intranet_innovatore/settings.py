@@ -13,7 +13,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
+
+
+#AMBIENTE DE PRODUÇÃO
 SECRET_KEY = config('SECRET_KEY')
+
+#AMBIENTE DE DESENVOLVIMENTO
+# SECRET_KEY = "c5e32ef300a74e41dcba85859301140807ab8016a2a9cee008b59cf63809e6b4"
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -91,6 +97,8 @@ TEMPLATES = [
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+
+# AMBIENTE DE PRODUÇÃO
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
@@ -101,6 +109,19 @@ DATABASES = {
         "PORT": config('DB_PORT'),
     }
 }
+
+# AMBIENTE DE DESENVOLVIMENTO
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.postgresql",
+#         "NAME": "intranet_innovatore",
+#         "USER": "flavio",
+#         "PASSWORD": "314628",
+#         "HOST": "localhost",
+#         "PORT": 5432,
+#     }
+# }
+
 
 
 # Password validation
@@ -146,7 +167,11 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
 
+# AMBIENTE DE PRODUÇÃO
 MEDIA_ROOT = os.path.join(BASE_DIR, config("MEDIA_ROOT"))
+
+# AMBIENTE DE DESENVOLVIMENTO
+# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
 MEDIA_URL = "/media/"
@@ -183,6 +208,16 @@ CHANNEL_LAYERS = {
         },
     },
 }
+
+# AMBIENTE DE DESENVOLVIMENTO
+# CHANNEL_LAYERS = {
+#     "default": {
+#         "BACKEND": "channels_redis.core.RedisChannelLayer",
+#         "CONFIG": {
+#             "hosts": [("localhost", 6379)],
+#         },
+#     },
+# }
 
 
 SESSION_SAVE_EVERY_REQUEST = True
