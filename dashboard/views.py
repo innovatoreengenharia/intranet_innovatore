@@ -9,7 +9,7 @@ from social.forms import PostForm, ComentarioForm
 
 # Clima Tempo
 
-import requests
+# import requests
 
 # def get_weather_data():
 #     api_key = '5184c8f1 '
