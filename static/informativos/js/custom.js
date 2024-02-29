@@ -171,7 +171,7 @@ $(".btn-upload-imagem").on("click", async function(){
             "destaque_checkbox": destaque_checkbox,
             "blocos": JSON.stringify(blocos),
         },
-        success:function(){
+        success:function(response){
 
 
             $("#titulo").val("");
@@ -184,7 +184,7 @@ $(".btn-upload-imagem").on("click", async function(){
             $("#destaque").prop("checked", false);
 
             alert("Imagens enviadas com sucesso");
-            
+            window.location.href = response.redirect_url;            
         }
     }); 
 });

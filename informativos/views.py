@@ -191,10 +191,9 @@ def add_noticia(request):
                 paragrafo_bloco=paragrafo_bloco,
             )
         bloco_save.save()
-
-    return JsonResponse(
-        data={},
-    )
+        redirect_url = reverse('informativos')
+        data = {'success': True, 'redirect_url': redirect_url}
+    return JsonResponse(data)
 
 
 def todas_noticias(request):
