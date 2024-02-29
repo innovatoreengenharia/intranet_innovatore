@@ -9,24 +9,24 @@ from social.forms import PostForm, ComentarioForm
 
 # Clima Tempo
 
-# import requests
+import requests
 
-# def get_weather_data():
-#     api_key = '5184c8f1 '
-#     # url = f'https://api.hgbrasil.com/weather?key={api_key}' 
+def get_weather_data():
+    api_key = '5184c8f1 '
+    # url = f'https://api.hgbrasil.com/weather?key={api_key}' 
 
-#     url = f"https://api.hgbrasil.com/weather?key={api_key}&user_ip=remote"
+    url = f"https://api.hgbrasil.com/weather?key={api_key}&user_ip=remote"
 
-#     response = requests.get(url)
-#     if response.status_code == 200:
-#         data = response.json()
-#         cidade =data['results']['city']
-#         temp =f"{data['results']['temp']}º"
-#         print("TENTATIVA DE CIDADE", cidade, temp)
-#         return data, cidade, temp
-#     else:
-#         print("DEU RUIM!!!!!!!!!!!!!!!!")
-#         return None
+    response = requests.get(url)
+    if response.status_code == 200:
+        data = response.json()
+        cidade =data['results']['city']
+        temp =f"{data['results']['temp']}º"
+        print("TENTATIVA DE CIDADE", cidade, temp)
+        return data, cidade, temp
+    else:
+        print("DEU RUIM!!!!!!!!!!!!!!!!")
+        return None
 
 
 
@@ -34,7 +34,7 @@ def home(request):
     if not request.user.is_authenticated:
         return redirect("login")
         
-    # data, cidade, temp = get_weather_data()
+    data, cidade, temp = get_weather_data()
     id_usuario = request.user.id
     try:
         perfil = Perfil.objects.get(usuario_id=id_usuario)
@@ -65,7 +65,7 @@ def home(request):
         "usuarios": usuarios,
         "postagens": postagens,
         "user_likes": user_likes,
-        # "cidade": cidade,
-        # "temp": temp,
+        "cidade": cidade,
+        "temp": temp,
     }
     return render(request, "dashboard/home.html", context)
