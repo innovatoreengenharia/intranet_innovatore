@@ -26,7 +26,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ["127.0.0.1", "localhost", "srv479192.hstgr.cloud","intranet.innovatore.eng.br"]
 
-CSRF_TRUSTED_ORIGINS = ['http://localhost:1337','https://*.127.0.0.1', 'http://srv479192.hstgr.cloud:1337', 'http://intranet.innovatore.eng.br']
+CSRF_TRUSTED_ORIGINS = ['http://localhost:1337','https://*.127.0.0.1', 'http://srv479192.hstgr.cloud:1337', 'http://intranet.innovatore.eng.br:1337']
 
 LOGIN_REDIRECT_URL = "/"
 LOGOUT_REDIRECT_URL = "login"
