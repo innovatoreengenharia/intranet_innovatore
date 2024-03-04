@@ -6,26 +6,34 @@ from random import shuffle
 from django.db.models import Prefetch
 from social.models import Post, Comentarios, Like
 from social.forms import PostForm, ComentarioForm
+import requests
+
+# ip
+def get_ip(request):
+    x_forwarded_for = request.META.get('HTTP_REMOTE_ADDR')
+    if x_forwarded_for:
+        ip = x_forwarded_for.split(',')[0]
+    else:
+        ip = request.META.get('REMOTE_ADDR')
+    return ip
 
 # Clima Tempo
 
 import requests
 
-def get_weather_data():
-    api_key = '5184c8f1 '
-    # url = f'https://api.hgbrasil.com/weather?key={api_key}' 
+def get_weather_data(request):
+    api_key = '5184c8f1 ' 
+    ip_user = get_ip(request)
 
-    url = f"https://api.hgbrasil.com/weather?key={api_key}&user_ip=remote"
+    url = f"https://api.hgbrasil.com/weather?key={api_key}&user_ip={ip_user}"
 
     response = requests.get(url)
     if response.status_code == 200:
         data = response.json()
         cidade =data['results']['city']
-        temp =f"{data['results']['temp']}º"
-        print("TENTATIVA DE CIDADE", cidade, temp)
-        return data, cidade, temp
+        temp = data['results']['temp']
+        return data, cidade, temp, ip_user
     else:
-        print("DEU RUIM!!!!!!!!!!!!!!!!")
         return None
 
 
@@ -34,7 +42,7 @@ def home(request):
     if not request.user.is_authenticated:
         return redirect("login")
         
-    data, cidade, temp = get_weather_data()
+    data, cidade, temp, ip_user = get_weather_data(request)
     id_usuario = request.user.id
     try:
         perfil = Perfil.objects.get(usuario_id=id_usuario)

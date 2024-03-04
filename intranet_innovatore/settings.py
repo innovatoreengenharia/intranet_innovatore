@@ -66,6 +66,10 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+
+    # ip_usuario
+    'xff.middleware.XForwardedForMiddleware',
+
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
@@ -74,6 +78,17 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
+
+# ip_usuario
+MIDDLEWARE_CLASSES = [
+    'xff.middleware.XForwardedForMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.common.CommonMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+]
+
+
+XFF_TRUSTED_PROXY_DEPTH = 2
 
 ROOT_URLCONF = "intranet_innovatore.urls"
 
