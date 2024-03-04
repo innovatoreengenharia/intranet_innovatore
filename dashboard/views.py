@@ -8,31 +8,18 @@ from social.models import Post, Comentarios, Like
 from social.forms import PostForm, ComentarioForm
 import requests
 
-# ip
-def get_ip(request):
-    x_forwarded_for = request.META.get('HTTP_REMOTE_ADDR')
-    if x_forwarded_for:
-        ip = x_forwarded_for.split(',')[0]
-    else:
-        ip = request.META.get('REMOTE_ADDR')
-    return ip
+def get_weather_data(city_name, state):
+    api_key = '5184c8f1' 
+    # ip_user = get_ip(request)
 
-# Clima Tempo
-
-import requests
-
-def get_weather_data(request):
-    api_key = '5184c8f1 ' 
-    ip_user = get_ip(request)
-
-    url = f"https://api.hgbrasil.com/weather?key={api_key}&user_ip={ip_user}"
+    url = f"https://api.hgbrasil.com/weather?key={api_key}&city_name={city_name},{state}"
 
     response = requests.get(url)
     if response.status_code == 200:
         data = response.json()
         cidade =data['results']['city']
         temp = data['results']['temp']
-        return data, cidade, temp, ip_user
+        return data, cidade, temp
     else:
         return None
 
@@ -42,7 +29,6 @@ def home(request):
     if not request.user.is_authenticated:
         return redirect("login")
         
-    data, cidade, temp, ip_user = get_weather_data(request)
     id_usuario = request.user.id
     try:
         perfil = Perfil.objects.get(usuario_id=id_usuario)
@@ -63,6 +49,18 @@ def home(request):
         Prefetch("like_set", queryset=Like.objects.all()),
     )
     user_likes = [item.post.id for item in Like.objects.filter(user_id=id_usuario)]
+
+    if perfil.cidade_trabalho:
+        city_name = perfil.cidade_trabalho
+    else:
+        city_name = "Limeira" 
+
+    if perfil.estado_trabalho:
+        state = perfil.estado_trabalho
+    else:
+        state = "SP"
+
+    data, cidade, temp = get_weather_data(city_name, state)
 
     if not perfil:
         return redirect("cadastro")
