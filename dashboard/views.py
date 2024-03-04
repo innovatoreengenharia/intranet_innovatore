@@ -10,7 +10,6 @@ import requests
 
 def get_weather_data(city_name, state):
     api_key = '5184c8f1' 
-    # ip_user = get_ip(request)
 
     url = f"https://api.hgbrasil.com/weather?key={api_key}&city_name={city_name},{state}"
 
