@@ -12,7 +12,7 @@ def get_weather_data(city_name, state):
     api_key = '5184c8f1' 
 
     url = f"https://api.hgbrasil.com/weather?key={api_key}&city_name={city_name},{state}"
-
+    
     response = requests.get(url)
     if response.status_code == 200:
         data = response.json()
@@ -20,7 +20,10 @@ def get_weather_data(city_name, state):
         temp = data['results']['temp']
         return data, cidade, temp
     else:
-        return None
+        data = ""
+        cidade = "Limeira"
+        temp = '25'
+        return data, cidade, temp
 
 
 
