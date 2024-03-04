@@ -57,7 +57,7 @@ def home(request):
     if perfil.estado_trabalho:
         state = perfil.estado_trabalho
     else:
-        state = "SP"
+        state = ""
 
     data, cidade, temp = get_weather_data(city_name, state)
 
