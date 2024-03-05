@@ -33,10 +33,11 @@ ALLOWED_HOSTS = [
 ]
 
 CSRF_TRUSTED_ORIGINS = [
-    "http://localhost:1337",
-    "https://*.127.0.0.1",
-    "http://srv479192.hstgr.cloud:1337",
-    "http://intranet.innovatore.eng.br:1337",
+    "http://localhost",
+    "https://srv479192.hstgr.cloud",
+    "http://srv479192.hstgr.cloud",
+    "https://intranet.innovatore.eng.br",
+    "http://intranet.innovatore.eng.br",
 ]
 
 LOGIN_REDIRECT_URL = "/"
