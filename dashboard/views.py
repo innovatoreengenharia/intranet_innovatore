@@ -6,8 +6,24 @@ from random import shuffle
 from django.db.models import Prefetch
 from social.models import Post, Comentarios, Like
 from social.forms import PostForm, ComentarioForm
+import datetime
 import requests
 
+#ESTAÇÕES DO ANO
+
+def estacao_do_ano(data):
+    if (data.month == 3 and data.day >= 20) or (data.month == 4) or (data.month == 5) or (data.month == 6 and data.day < 21):
+        return "Outono"
+    elif (data.month == 6 and data.day >= 21) or (data.month == 7) or (data.month == 8) or (data.month == 9 and data.day < 23):
+        return "Inverno"
+    elif (data.month == 9 and data.day >= 23) or (data.month == 10) or (data.month == 11) or (data.month == 12 and data.day < 21):
+        return "Primavera"
+    elif (data.month == 12 and data.day >= 21) or (data.month == 1) or (data.month == 2) or (data.month == 3 and data.day < 20):
+        return "Verão"
+    else:
+        return "Erro: Data fora do intervalo de datas das estações do ano."
+
+# API HG Brasil
 def get_weather_data(city_name, state):
     api_key = '5184c8f1' 
 
@@ -22,7 +38,7 @@ def get_weather_data(city_name, state):
     else:
         data = ""
         cidade = "Limeira"
-        temp = '25'
+        temp = '--'
         return data, cidade, temp
 
 
@@ -36,6 +52,9 @@ def home(request):
         perfil = Perfil.objects.get(usuario_id=id_usuario)
     except:
         perfil = None
+
+    if not perfil:
+        return redirect("cadastro")
 
     mes_atual = timezone.now().month
     aniversariantes = Perfil.objects.filter(nascimento__month=mes_atual)
@@ -64,8 +83,10 @@ def home(request):
 
     data, cidade, temp = get_weather_data(city_name, state)
 
-    if not perfil:
-        return redirect("cadastro")
+    #ESTAÇOES DO ANO
+
+    data_atual = datetime.date.today()
+    estacao = estacao_do_ano(data_atual)
 
     context = {
         "perfil": perfil,
@@ -75,5 +96,6 @@ def home(request):
         "user_likes": user_likes,
         "cidade": cidade,
         "temp": temp,
+        "estacao": estacao,
     }
     return render(request, "dashboard/home.html", context)
