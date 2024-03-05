@@ -133,7 +133,6 @@ services:
 
   certbot:
     image: certbot/certbot:latest
-    command: certonly --webroot --webroot-path=/var/www/certbot --email flavio.nunes@innovatore.eng.br --agree-tos --no-eff-email -d srv479192.hstgr.cloud
     volumes:
       - certbot_conf:/etc/letsencrypt/:rw
       - certbot_www:/var/www/certbot/:rw
