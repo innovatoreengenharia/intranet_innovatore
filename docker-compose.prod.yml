@@ -15,6 +15,11 @@ volumes:
   media_volume:
     name: arquivos_de_media
 
+  certbot_conf:
+    name: configuracao_certbot
+
+  certbot_www:
+    name: certbot_www
 
 services:
   backend:
@@ -28,7 +33,7 @@ services:
     volumes:
       - static_volume:/usr/src/app/intranet_innovatore/static
       - media_volume:/usr/src/app/intranet_innovatore/media
-      - /var/certbot/conf:/etc/letsencrypt/:ro
+      - certbot_conf:/etc/letsencrypt/:ro
     environment:
       - SECRET_KEY=${SECRET_KEY}
       - MEDIA_ROOT=${MEDIA_ROOT}
@@ -118,6 +123,8 @@ services:
     volumes:
       - static_volume:/usr/src/app/intranet_innovatore/static
       - media_volume:/usr/src/app/intranet_innovatore/media
+      - ./nginx/conf.d/:/etc/nginx/conf.d/
+
     depends_on:
       - backend
     networks:
@@ -126,8 +133,8 @@ services:
   certbot:
     image: certbot/certbot:latest
     volumes:
-      - /var/certbot/conf:/etc/letsencrypt/:rw
-      - /var/certbot/www/:/var/www/certbot/:rw
+      - certbot_conf:/etc/letsencrypt/:rw
+      - certbot_www:/var/www/certbot/:rw
     depends_on:
       - nginx
 
