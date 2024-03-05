@@ -28,6 +28,7 @@ services:
     volumes:
       - static_volume:/usr/src/app/intranet_innovatore/static
       - media_volume:/usr/src/app/intranet_innovatore/media
+      - /var/certbot/conf:/etc/letsencrypt/:ro
     environment:
       - SECRET_KEY=${SECRET_KEY}
       - MEDIA_ROOT=${MEDIA_ROOT}
@@ -39,7 +40,7 @@ services:
       - CL_NAME=${CL_NAME}
       - CL_PORT=${CL_PORT}
     entrypoint: /usr/src/app/entrypoint.sh
-    command: gunicorn intranet_innovatore.wsgi:application --bind 0.0.0.0:8001
+    command: gunicorn --config gunicorn_config.py intranet_innovatore.wsgi:application --bind 0.0.0.0:8001
     depends_on:
       - database
       - redis
@@ -112,7 +113,8 @@ services:
   nginx:
     build: ./nginx
     ports:
-      - 1337:80
+      - 80:80
+      - 443:443
     volumes:
       - static_volume:/usr/src/app/intranet_innovatore/static
       - media_volume:/usr/src/app/intranet_innovatore/media
@@ -120,6 +122,14 @@ services:
       - backend
     networks:
       - intranet-network
+
+  certbot:
+    image: certbot/certbot:latest
+    volumes:
+      - /var/certbot/conf:/etc/letsencrypt/:rw
+      - /var/certbot/www/:/var/www/certbot/:rw
+    depends_on:
+      - nginx
 
 networks:
   intranet-network:
