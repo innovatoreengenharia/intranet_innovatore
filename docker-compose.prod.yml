@@ -124,7 +124,8 @@ services:
       - static_volume:/usr/src/app/intranet_innovatore/static
       - media_volume:/usr/src/app/intranet_innovatore/media
       - ./nginx/conf.d/:/etc/nginx/conf.d/
-
+      - certbot_conf:/etc/letsencrypt/:rw
+      - certbot_www:/var/www/certbot/:rw
     depends_on:
       - backend
     networks:
