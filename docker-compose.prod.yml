@@ -45,7 +45,7 @@ services:
       - CL_NAME=${CL_NAME}
       - CL_PORT=${CL_PORT}
     entrypoint: /usr/src/app/entrypoint.sh
-    command: gunicorn --config gunicorn_config.py intranet_innovatore.wsgi:application --bind 0.0.0.0:8001
+    command: gunicorn --config gunicorn_config.py intranet_innovatore.wsgi:application
     depends_on:
       - database
       - redis
