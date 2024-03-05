@@ -1,6 +1,7 @@
 # manipulação de estáticos debug false
 import mimetypes
 from pathlib import Path, os
+
 from decouple import config
 
 mimetypes.add_type("text/css", ".css", True)
@@ -15,18 +16,28 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 
 
-#AMBIENTE DE PRODUÇÃO
-SECRET_KEY = config('SECRET_KEY')
+# AMBIENTE DE PRODUÇÃO
+SECRET_KEY = config("SECRET_KEY")
 
-#AMBIENTE DE DESENVOLVIMENTO
+# AMBIENTE DE DESENVOLVIMENTO
 # SECRET_KEY = "c5e32ef300a74e41dcba85859301140807ab8016a2a9cee008b59cf63809e6b4"
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ["127.0.0.1", "localhost", "srv479192.hstgr.cloud","intranet.innovatore.eng.br"]
+ALLOWED_HOSTS = [
+    "127.0.0.1",
+    "localhost",
+    "srv479192.hstgr.cloud",
+    "intranet.innovatore.eng.br",
+]
 
-CSRF_TRUSTED_ORIGINS = ['http://localhost:1337','https://*.127.0.0.1', 'http://srv479192.hstgr.cloud:1337', 'http://intranet.innovatore.eng.br:1337']
+CSRF_TRUSTED_ORIGINS = [
+    "http://localhost:1337",
+    "https://*.127.0.0.1",
+    "http://srv479192.hstgr.cloud:1337",
+    "http://intranet.innovatore.eng.br:1337",
+]
 
 LOGIN_REDIRECT_URL = "/"
 LOGOUT_REDIRECT_URL = "login"
@@ -102,11 +113,11 @@ TEMPLATES = [
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": config('DB_NAME'),
-        "USER": config('DB_USER'),
-        "PASSWORD": config('DB_PASSWORD'),
-        "HOST": config('DB_HOST'),
-        "PORT": config('DB_PORT'),
+        "NAME": config("DB_NAME"),
+        "USER": config("DB_USER"),
+        "PASSWORD": config("DB_PASSWORD"),
+        "HOST": config("DB_HOST"),
+        "PORT": config("DB_PORT"),
     }
 }
 
@@ -121,7 +132,6 @@ DATABASES = {
 #         "PORT": 5432,
 #     }
 # }
-
 
 
 # Password validation
@@ -204,7 +214,7 @@ CHANNEL_LAYERS = {
     "default": {
         "BACKEND": "channels_redis.core.RedisChannelLayer",
         "CONFIG": {
-            "hosts": [( config('CL_NAME'), config('CL_PORT'))],
+            "hosts": [(config("CL_NAME"), config("CL_PORT"))],
         },
     },
 }
