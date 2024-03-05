@@ -34,6 +34,7 @@ services:
       - static_volume:/usr/src/app/intranet_innovatore/static
       - media_volume:/usr/src/app/intranet_innovatore/media
       - certbot_conf:/etc/letsencrypt/:ro
+      - certbot_www:/var/www/certbot/:rw
     environment:
       - SECRET_KEY=${SECRET_KEY}
       - MEDIA_ROOT=${MEDIA_ROOT}
