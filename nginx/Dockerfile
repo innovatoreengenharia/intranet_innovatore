@@ -1,7 +1,7 @@
 FROM nginx:1.25
 
-RUN rm /etc/nginx/conf.d/default.conf
-COPY nginx.conf /etc/nginx/conf.d
+# RUN rm /etc/nginx/conf.d/default.conf
+# COPY nginx.conf /etc/nginx/conf.d
 
 ENV HOME=/usr/src/app
 RUN mkdir -p $HOME
