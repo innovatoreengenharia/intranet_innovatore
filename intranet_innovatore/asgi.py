@@ -15,7 +15,7 @@ from social.routing import websocket_urlpatterns
 
 application = ProtocolTypeRouter(
     {
-        "https": django_asgi_app,
+        "http": django_asgi_app,
         "websocket": AllowedHostsOriginValidator(
             AuthMiddlewareStack(URLRouter(websocket_urlpatterns))
         ),
