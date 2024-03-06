@@ -62,7 +62,7 @@ services:
       context: .
       args:
         service_name: daphne
-    command: daphne -e ssl:443:privateKey=/etc/letsencrypt/live/intranet.innovatore.eng.br/privkey.pem:certKey=/etc/letsencrypt/live/intranet.innovatore.eng.br/fullchain.pem intranet_innovatore.asgi:application --port 8070 --bind 0.0.0.0 -v
+    command: daphne -e ssl:443:privateKey=/etc/letsencrypt/live/intranet.innovatore.eng.br/privkey.pem:certKey=/etc/letsencrypt/live/intranet.innovatore.eng.br/fullchain.pem intranet_innovatore.asgi:application --port 8070 --bind 0.0.0.0
 
     environment:
       - DJANGO_SETTINGS_MODULE=intranet_innovatore.settings
