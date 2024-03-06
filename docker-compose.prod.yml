@@ -24,10 +24,10 @@ volumes:
 services:
   backend:
     build:
-        # platform: linux/x86_64
-        context: .
-        args:
-          service_name: backend
+      # platform: linux/x86_64
+      context: .
+      args:
+        service_name: backend
     image: backend
     container_name: backend
     volumes:
@@ -74,14 +74,18 @@ services:
       - DB_PORT=${DB_PORT}
       - CL_NAME=${CL_NAME}
       - CL_PORT=${CL_PORT}
-    expose: 
+
+    volumes:
+      - certbot_conf:/etc/letsencrypt/:ro
+      - certbot_www:/var/www/certbot/:rw
+    expose:
       - 8070
     networks:
       - intranet-network
     depends_on:
       - database
       - redis
-    
+
   database:
     # set "database" as app's DB_HOST.
     image: postgres:13
@@ -104,18 +108,18 @@ services:
       - intranet_data:/var/lib/postgresql/data
     networks:
       - intranet-network
-    
+
   redis:
     image: redis:6.2-alpine
     restart: always
     ports:
       - '6380:6380'
     command: redis-server --port 6380
-    volumes: 
+    volumes:
       - cache:/data
     networks:
       - intranet-network
-  
+
   nginx:
     build: ./nginx
     ports:

@@ -17,7 +17,7 @@ function getUserPhoto(user) {
 function initializeChat(chatLogSelector, chatInputSelector, chatSubmitSelector, roomChatSelector, perfil_id, post_id) {
     const roomName = $(roomChatSelector).html();
     const chatSocket = new WebSocket(
-        'ws://'
+        (window.location.protocol == 'https:' ? 'wss://' : 'ws://')
         + window.location.host
         + '/ws/chat/'
         + roomName
@@ -53,7 +53,7 @@ function initializeChat(chatLogSelector, chatInputSelector, chatSubmitSelector, 
                 }
             }
             // incrementa número de likes
-            let likes_atual = parseInt(document.querySelector(`#likes-${post_id}`).innerHTML); 
+            let likes_atual = parseInt(document.querySelector(`#likes-${post_id}`).innerHTML);
             if (data?.like?.acao == 'curtir') {
                 document.querySelector(`#likes-${post_id}`).innerHTML = likes_atual + 1
             }
