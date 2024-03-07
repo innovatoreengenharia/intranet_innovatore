@@ -57,7 +57,7 @@ def render_model(request, modelo, url, nome):
     page = documento_paginator.get_page(page_num)
     lista = []
     for i in page:
-        sz = Path(f"media/{i.doc.nome}").stat().st_size
+        sz = Path(f"media/{i.doc.name}").stat().st_size
         lista.append(sz)
     lista_completa = zip(page, lista)
 
