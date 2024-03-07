@@ -1,5 +1,6 @@
-from django.db import models
 from datetime import datetime
+
+from django.db import models
 
 OPC_DOC = [
     ("PDF", "pdf"),
@@ -17,7 +18,9 @@ class Comercial(models.Model):
     nome = models.CharField(max_length=50, null=False, blank=False)
     modificado = models.DateTimeField(default=datetime.now, blank=False)
     tipo = models.CharField(max_length=150, choices=OPC_DOC, default="PDF")
-    doc = models.FileField(upload_to="comercial/", blank=False, null=False)
+    doc = models.FileField(
+        upload_to="media/comercial/", blank=False, null=False
+    )
 
     def __str__(self):
         return self.nome
@@ -43,7 +46,9 @@ class DepartamentoPessoal(models.Model):
     nome = models.CharField(max_length=50, null=False, blank=False)
     modificado = models.DateTimeField(default=datetime.now, blank=False)
     tipo = models.CharField(max_length=150, choices=OPC_DOC, default="PDF")
-    doc = models.FileField(upload_to="departamento_pessoal/", blank=False, null=False)
+    doc = models.FileField(
+        upload_to="departamento_pessoal/", blank=False, null=False
+    )
 
     def __str__(self):
         return self.nome
@@ -199,7 +204,9 @@ class SegurancaDoTrabalho(models.Model):
     nome = models.CharField(max_length=50, null=False, blank=False)
     modificado = models.DateTimeField(default=datetime.now, blank=False)
     tipo = models.CharField(max_length=150, choices=OPC_DOC, default="PDF")
-    doc = models.FileField(upload_to="seguranca_trabalho/", blank=False, null=False)
+    doc = models.FileField(
+        upload_to="seguranca_trabalho/", blank=False, null=False
+    )
 
     def __str__(self):
         return self.nome
