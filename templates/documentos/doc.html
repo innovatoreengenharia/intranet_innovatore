@@ -53,7 +53,10 @@
               <td>{{ i|filesizeformat }}</td>
               <td>{{ doc.tipo }}</td>
               <td class="text-right">
-                <a href="{{ doc.doc.url }}" class="link"><img src="{% static "documentos/img/link.png" %}"></a>
+                
+                <!--Ambiente de desenvolvimento-->
+                {% comment %} <a href="{{ doc.doc.url }}" class="link"><img src="{% static "documentos/img/link.png" %}"></a> {% endcomment %}
+                <a href="https://intranet.innovatore{{ doc.doc.url }}" class="link"><img src="{% static "documentos/img/link.png" %}"></a>
                 <a href="{{ doc.doc.url }}" class="link-download" download><img src="{% static "documentos/img/download.png" %}"></a>
               </td>
 
