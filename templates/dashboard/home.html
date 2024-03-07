@@ -49,7 +49,19 @@
 
             <!-- Informações de tempo -->
             <div class="col-xl-3 col-md-6 mb-4">
-                <div class="tempo borda">
+                {% if estacao == "Primavera" %}
+                    <div class="tempo borda primavera">
+                {% endif %}
+                {% if estacao == "Verão" %}
+                    <div class="tempo borda verao">
+                {% endif %}
+                {% if estacao == "Outono" %}
+                    <div class="tempo borda outono">
+                {% endif %}
+                {% if estacao == "Inverno" %}
+                    <div class="tempo borda inverno">
+                {% endif %}
+                    
                     <h1>{{temp}}°</h1>
                     <h5>{{estacao}}</h5>
                     <br><br>

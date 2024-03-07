@@ -167,11 +167,26 @@ h1 {
 }
 
 .tempo {
-    background-image: url("../img/bg-temp.png");
     background-size: cover;
     background-repeat: no-repeat;
     height: 100%;
     padding: 1em;
+}
+
+.primavera {
+    background-image: url("../img/primavera.png");
+}
+
+.verao {
+    background-image: url("../img/verao.png");
+}
+
+.outono {
+    background-image: url("../img/outono.png");
+}
+
+.inverno {
+    background-image: url("../img/inverno.png");
 }
 
 .tempo h1 {
