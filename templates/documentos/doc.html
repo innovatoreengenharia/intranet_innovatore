@@ -44,13 +44,13 @@
             <th class="titulo" scope="col"> </th>
           </tr>
         </thead>
-        {% if lista_completa %}
+        {% if page %}
         <tbody>
-          {% for doc, i in lista_completa %}
+          {% for doc in page %}
             <tr>
               <td><img src="{% static 'documentos/img/img-doc.png' %}">{{ doc.nome }}</td>
               <td>{{ doc.modificado|date:"d/m/y" }}</td>
-              <td>{{ i|filesizeformat }}</td>
+              {% comment %} <td>{{ i|filesizeformat }}</td> {% endcomment %}
               <td>{{ doc.tipo }}</td>
               <td class="text-right">
                 <a href="{{ doc.doc.url }}" class="link"><img src="{% static "documentos/img/link.png" %}"></a>

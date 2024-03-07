@@ -173,8 +173,8 @@
                     <div class="informativos borda">
                         <img src="{% static 'dashboard/img/informativos-icone.png' %}" class="icones-direita float-end">
                         <h1>Informativos</h1>
-                        <h5>Paracel construirá 1° fábrica de celulose do Paraguai em 2024</h5>
-                        <p>Com investimento estimado em US$ 4 bilhões, a Paracel prevê iniciar a construção da primeira fábrica de celulose do Paraguai em 2024. A planta será instalada em Concepción e terá capacidade para produzir 1,8 milhão de toneladas por ano de celulose kraft de eucalipto.</p>
+                        <h5>{{ noticia.titulo }}</h5>
+                        <p class="paragrafo-noticia">{{ noticia.paragrafo }}</p>
                         <a href="{% url 'informativos' %}" class="float-end">Ler Mais</a>
                     </div>
                 </a>
@@ -470,6 +470,29 @@
         calendar.render(); 
 
       });
+</script>
+
+<!-- Limitar caracteres -->
+<script>
+    function limitar_caracteres(classe, quantidade){
+        var paragrafo_completo = document.getElementsByClassName(classe);
+    
+        // Itera sobre a coleção de parágrafos
+        for (var i = 0; i < paragrafo_completo.length; i++) {
+            var paragrafo = paragrafo_completo[i];
+    
+            // Verifica se o elemento existe antes de acessar suas propriedades
+            if (paragrafo) {
+                var limite = quantidade; // Substitua pelo número desejado de caracteres
+    
+                // Verifica se o comprimento do conteúdo do parágrafo é maior que o limite
+                if (paragrafo.innerHTML.length > limite) {
+                    paragrafo.innerHTML = paragrafo.innerHTML.substring(0, limite) + "...";
+                }
+            }
+        }
+    }
+    limitar_caracteres("paragrafo-noticia", 350)
 </script>
 
 {%endblock%}
