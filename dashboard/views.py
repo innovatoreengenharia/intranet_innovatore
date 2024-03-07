@@ -7,6 +7,7 @@ from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse
 from django.utils import timezone
 
+from informativos.models import Noticia
 from social.forms import ComentarioForm, PostForm
 from social.models import Comentarios, Like, Post
 from usuario.models import Perfil
@@ -58,11 +59,14 @@ def get_weather_data(city_name, state):
         data = response.json()
         cidade = data["results"]["city"]
         temp = data["results"]["temp"]
-        return data, cidade, temp
+        condition_slug = f"{data['results']['condition_slug']}.svg"
+        return data, cidade, temp, condition_slug
     else:
         data = ""
         cidade = "Limeira"
         temp = "--"
+        condition_slug = "clear_day.svg"
+
         return data, cidade, temp
 
 
@@ -109,17 +113,21 @@ def home(request):
     else:
         state = ""
 
-    _, cidade, temp = get_weather_data(city_name, state)
+    _, cidade, temp, _ = get_weather_data(city_name, state)
 
     # ESTAÇOES DO ANO
 
     data_atual = datetime.date.today()
     estacao = estacao_do_ano(data_atual)
 
+    # informativos
+    noticia = Noticia.objects.last()
+
     context = {
         "perfil": perfil,
         "aniversariantes": aniversariantes_list,
         "usuarios": usuarios,
+        "noticia": noticia,
         "postagens": postagens,
         "user_likes": user_likes,
         "cidade": cidade,
