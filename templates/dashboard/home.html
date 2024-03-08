@@ -68,7 +68,41 @@
                     </div>
                     <h5>{{estacao}}</h5>
                     <br><br>
-                    <h5>{{cidade}}</h5>
+                    <h5 class="link-cidade">{{cidade}}</h5>
+
+                    <form action= "" class="form-buscar hidden">
+                        <input type="text" name="buscar_cidade" class="buscar_cidade form-control">
+                        <select class="form-select buscar_estado" aria-label="Default select example" name="buscar_estado">
+                            <option selected>AC</option>
+                            <option>AL</option>
+                            <option>AP</option>
+                            <option>AM</option>
+                            <option>BA</option>
+                            <option>CE</option>
+                            <option>ES</option>
+                            <option>GO</option>
+                            <option>MA</option>
+                            <option>MT</option>
+                            <option>MS</option>
+                            <option>MG</option>
+                            <option>PA</option>
+                            <option>PB</option>
+                            <option>PR</option>
+                            <option>PE</option>
+                            <option>PI</option>
+                            <option>RJ</option>
+                            <option>RN</option>
+                            <option>RS</option>
+                            <option>RO</option>
+                            <option>RR</option>
+                            <option>SC</option>
+                            <option>SP</option>
+                            <option>SE</option>
+                            <option>TO</option>
+                          </select>
+                        <button class="botao-buscar" type="submit">Buscar </button>
+                    </form>
+
                     <p>Quarta-Feira, 15 de Agosto de 2023</p>
                 </div>
             </div>
@@ -496,6 +530,13 @@
         }
     }
     limitar_caracteres("paragrafo-noticia", 350)
+</script>
+<script>
+    $(".link-cidade").on("click", function(){
+        $(".form-buscar").removeClass("hidden")
+        $(".form-buscar").addClass("show")
+        $(".link-cidade").addClass("hidden")
+    })
 </script>
 
 {%endblock%}

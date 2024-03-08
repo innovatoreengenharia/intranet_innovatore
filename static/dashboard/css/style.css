@@ -217,6 +217,40 @@ h1 {
     color: white;
 }
 
+.link-cidade {
+    cursor: pointer;
+}
+
+.hidden {
+    display: none;
+}
+
+.show {
+    display: flex;
+    justify-content: right;
+}
+
+.buscar_cidade {
+    width: 150px;
+    margin-right: 10px;
+    height: 40px;
+    font-size: 20px;
+    color: black;
+}
+
+.buscar_estado {
+    width: 80px;
+    margin-right: 10px;
+    height: 40px;
+}
+
+.botao-buscar {
+    padding: 8px;
+    border-radius: 10px;
+    color: white;
+    background: linear-gradient(#14295E, #2568BB);
+}
+
 .temperatura {
     display: flex;
     justify-content: right;
