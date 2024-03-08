@@ -48,7 +48,28 @@
         <tbody>
           {% for doc, i in lista_completa %}
             <tr>
-              <td><img src="{% static 'documentos/img/img-doc.png' %}">{{ doc.nome }}</td>
+
+              <td>
+                {% if doc.tipo == "PDF" %}
+                  <img src="{% static 'documentos/img/pdf.png' %}"class="imagem-doc">
+                {% elif doc.tipo == "PPT" %}
+                  <img src="{% static 'documentos/img/ppt.png' %}"class="imagem-doc">
+                {% elif doc.tipo == "TXT" %}
+                  <img src="{% static 'documentos/img/txt.png' %}"class="imagem-doc">
+                {% elif doc.tipo == "XLS" %}
+                  <img src="{% static 'documentos/img/xls.png' %}"class="imagem-doc">
+                {% elif doc.tipo == "DOC" %}
+                  <img src="{% static 'documentos/img/docx.png' %}"class="imagem-doc">
+                {% elif doc.tipo == "XLS" %}
+                  <img src="{% static 'documentos/img/xls.png' %}"class="imagem-doc">
+                {% else %}
+                  <img src="{% static 'documentos/img/img-doc.png' %}">
+                {% endif %}
+
+                
+                {{ doc.nome }}
+              </td>
+
               <td>{{ doc.modificado|date:"d/m/y" }}</td>
               <td>{{ i|filesizeformat }}</td>
               <td>{{ doc.tipo }}</td>
@@ -56,7 +77,10 @@
                 
                 <!--Ambiente de desenvolvimento-->
                 {% comment %} <a href="{{ doc.doc.url }}" class="link"><img src="{% static "documentos/img/link.png" %}"></a> {% endcomment %}
+
+                <!--Ambinete de produção-->
                 <a href="https://intranet.innovatore.eng.br{{ doc.doc.url }}" class="link"><img src="{% static "documentos/img/link.png" %}"></a>
+
                 <a href="{{ doc.doc.url }}" class="link-download" download><img src="{% static "documentos/img/download.png" %}"></a>
               </td>
 
