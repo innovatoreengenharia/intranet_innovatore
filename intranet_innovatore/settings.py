@@ -23,7 +23,7 @@ SECRET_KEY = config("SECRET_KEY")
 # SECRET_KEY = "c5e32ef300a74e41dcba85859301140807ab8016a2a9cee008b59cf63809e6b4"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [
     "127.0.0.1",
