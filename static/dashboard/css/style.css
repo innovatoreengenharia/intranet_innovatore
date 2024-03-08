@@ -217,6 +217,15 @@ h1 {
     color: white;
 }
 
+.temperatura {
+    display: flex;
+    justify-content: right;
+}
+
+.temperatura img {
+    width: 50px;
+}
+
 .link-aniversariantes:hover {
     text-decoration: none;
 }
