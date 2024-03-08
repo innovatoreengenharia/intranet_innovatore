@@ -50,7 +50,7 @@ def render_model(request, modelo, url, nome):
     buscar_filtro = request.GET.get("buscar")
 
     if buscar_filtro:
-        docs_modelo = modelo.objects.filter(nome__contains=buscar_filtro)
+        docs_modelo = modelo.objects.filter(nome__icontains=buscar_filtro)
 
     documento_paginator = Paginator(docs_modelo, 15)
     page_num = request.GET.get("page")
