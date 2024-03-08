@@ -59,15 +59,18 @@ def get_weather_data(city_name, state):
         data = response.json()
         cidade = data["results"]["city"]
         temp = data["results"]["temp"]
-        condition_slug = f"{data['results']['condition_slug']}.svg"
+        condition_slug = (
+            f"dashboard/img/{data['results']['condition_slug']}.svg"
+        )
+        print(f"Condição=== {condition_slug}")
         return data, cidade, temp, condition_slug
     else:
         data = ""
         cidade = "Limeira"
         temp = "--"
-        condition_slug = "clear_day.svg"
+        condition_slug = "dashboard/img/clear_day.svg"
 
-        return data, cidade, temp
+        return data, cidade, temp, condition_slug
 
 
 def home(request):
@@ -113,7 +116,15 @@ def home(request):
     else:
         state = ""
 
-    _, cidade, temp, _ = get_weather_data(city_name, state)
+    # buscar Cidade
+    buscar_cidade = request.GET.get("buscar_cidade")
+    buscar_estado = request.GET.get("buscar_estado")
+
+    if buscar_cidade and buscar_estado:
+        city_name = buscar_cidade
+        state = buscar_estado
+
+    _, cidade, temp, condition_slug = get_weather_data(city_name, state)
 
     # ESTAÇOES DO ANO
 
@@ -133,5 +144,6 @@ def home(request):
         "cidade": cidade,
         "temp": temp,
         "estacao": estacao,
+        "condicao": condition_slug,
     }
     return render(request, "dashboard/home.html", context)
