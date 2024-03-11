@@ -1,10 +1,10 @@
-from django.shortcuts import render, redirect
-from usuario.models import Perfil
-from django.http import JsonResponse
-from calendario.models import Events
-from datetime import datetime, date, timedelta
+from datetime import date, datetime, timedelta
 
-TIME_ZONE = "UTC"
+from django.http import JsonResponse
+from django.shortcuts import redirect, render
+
+from calendario.models import Events
+from usuario.models import Perfil
 
 
 def calendario(request):
