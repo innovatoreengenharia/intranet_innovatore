@@ -33,7 +33,6 @@ def all_events(request):
     publicos = Events.objects.filter(public=True)
     data_atual = date.today()
     ano_atual = data_atual.year
-    ano_seguinte = ano_atual + 1
 
     out = []
 
