@@ -27,7 +27,7 @@
     <button class="button-tarefas-compartilhadas sombra dropdown-toggle"type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Tarefas Compartilhadas </button>
     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
       {% for quadro in quadros_usuario %}
-      <a class="dropdown-item" href={% url "quadro" quadro.id %}>{{quadro.titulo}}</a>
+      <a class="dropdown-item" href={% url "tarefas/quadro" quadro.id %}>{{quadro.titulo}}</a>
       {% endfor %}
     </div>
     <button class="botao"> + </button>

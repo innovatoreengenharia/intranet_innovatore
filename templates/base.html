@@ -145,13 +145,20 @@
             </li> -->
 
             <!-- Tarefas  -->
-
-            <li class="nav-item item-menu">
-                <a class="nav-link collapsed" href="">
-                    <img src={% static 'dashboard/img/painel_tarefas.png' %}>
-                    <span>Tarefas (Em Breve)</span> 
-                </a>
-            </li>
+            {% if 'tarefas' in url_name %}
+                <li class="nav-item item-menu">
+                    <a class="nav-link" href={% url 'tarefas' %}>
+                        <img src={% static "dashboard/img/tarefas-selecionado.png" %}>
+                        <span>Tarefas</span></a>
+                </li>
+            {% else %}
+                <li class="nav-item item-menu">
+                    <a class="nav-link collapsed" href="">
+                        <img src={% static 'dashboard/img/painel_tarefas.png' %}>
+                        <span>Tarefas (Em Breve)</span> 
+                    </a>
+                </li>
+            {% endif %}
 
             {% comment %} {% if 'tarefas' in url_name %}
                 <li class="nav-item active item-menu">

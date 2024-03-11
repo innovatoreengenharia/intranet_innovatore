@@ -23,7 +23,7 @@
     <button class="button-tarefas-compartilhadas sombra dropdown-toggle"type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Tarefas Compartilhadas </button>
     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
       {% for quadro in quadros_usuario %}
-      <a class="dropdown-item" href={% url "quadro" quadro.id %}>{{quadro.titulo}}</a>
+      <a class="dropdown-item" href={% url "tarefas/quadro" quadro.id %}>{{quadro.titulo}}</a>
       {% endfor %}
     </div>
     <button class="botao"> + </button>
@@ -48,7 +48,7 @@
           </button>
         </div>
         <div class="modal-body">
-          <form method="post" action="{% url 'alterar_titulo_quadro' quadro.id %}">
+          <form method="post" action="{% url 'tarefas/alterar_titulo_quadro' quadro.id %}">
             {% csrf_token %}
             <label for="novo_titulo">Novo Título do Quadro:</label>
             <input type="text" id="novo_titulo" name="novo_titulo" value="{{ quadro.titulo }}" required>
@@ -75,11 +75,11 @@
                 <img class="img-profile rounded-circle"src="{{ usuario.foto.url }}">
             {% endif %}
             {{ usuario.nome }} {{ usuario.sobrenome }} 
-            <a href={% url 'remover_participante' quadro.id usuario.id%} style="display:inline-block"> - </a></li>
+            <a href={% url 'tarefas/remover_participante' quadro.id usuario.id%} style="display:inline-block"> - </a></li>
       {% endfor %}
     </ul>
   
-    <form method="post" action="{% url 'adicionar_participante' quadro.id %}" class="add_participante">
+    <form method="post" action="{% url 'tarefas/adicionar_participante' quadro.id %}" class="add_participante">
       {% csrf_token %}
       <label for="select-user">Selecione um Participante</label>
       <select name="usuario" id="select-user" required>
@@ -128,7 +128,7 @@
       <div class="title-card">
         <div class="titulo-tarefa">
           <h3>Pendências</h3>
-          {% comment %} <img src="{% static 'social/img/mais.png' %}"> {% endcomment %}
+          <img src="{% static 'social/img/mais.png' %}">
         </div>
         <button class="add-tarefa sombra">+</button>
       </div>
@@ -141,7 +141,10 @@
       </div>
     </div>
 
-    <div class="board">
+    <!-- Adicionar Coluna -->
+    
+
+    {% comment %} <div class="board">
       <div class="title-card">
         <div class="titulo-tarefa">
           <h3>Em Andamento</h3>
@@ -169,7 +172,7 @@
         </div>
 
       </div>
-    </div>
+    </div> 
 
     <div class="board">
       <div class="title-card">
@@ -184,7 +187,7 @@
           <div class="content-card">Next level</div>
         </div>
       </div>
-    </div>
+    </div>{% endcomment %}
   </div>
 </div>
 
