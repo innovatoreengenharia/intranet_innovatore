@@ -33,6 +33,17 @@ h1 {
     margin-bottom: 37px;
 }
 
+.titulo-doc h1 {
+    display: inline-block;
+}
+
+.titulo-doc img {
+    cursor: pointer;
+    margin-top: -10px;
+    margin-left: 10px;
+    display: inline-block;
+}
+
 .titulo {
     color: #14355E !important;
     font-size: 16px;
@@ -41,6 +52,7 @@ h1 {
     line-height: 24px;
     word-wrap: break-word;
 }
+
 
 td {
     padding: 32px 0px 32px 12px !important;

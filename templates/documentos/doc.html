@@ -24,7 +24,10 @@
 {% endblock %}
 
 {% block content%}
-<h1 class="text-left ml-2 mb-2">Documentos / {{ nome }}</h1>
+<div class="titulo-doc">
+  <img  id="voltar" src="{% static 'documentos/img/left.png' %}">
+  <h1 class="text-left ml-2 mb-2">Documentos / {{ nome }}</h1>
+</div>
 <div class="tabela">
   <div class="gerenciador">
     <h1>Gernciador de Arquivos</h1>
@@ -90,13 +93,7 @@
         {% endif %}
       </table>
     </div>
-    <div class="row">
-      <div class="col-md-12">
-        {% comment %} <a href="{% url 'documentos' %}" class="botao">Voltar</a> {% endcomment %}
-        <a  class="botao" id="voltar">Voltar</a>
-      </div>
-    </div> 
-</div>
+  </div>
 </div>
 
 <div class="container-fluid text-center paginacao">
