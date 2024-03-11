@@ -6,6 +6,8 @@ from django.shortcuts import redirect, render
 from calendario.models import Events
 from usuario.models import Perfil
 
+TIME_ZONE = "UTC"
+
 
 def calendario(request):
     if not request.user.is_authenticated:
