@@ -89,7 +89,7 @@
                 <label for="id_complemento">Complemento</label>
                 <input type="text" name="complemento" class="form-control" id="id_complemento"value='{{form.complemento.value}}'>
             </div>
-            {% if not perfil.cpf %}
+            {% comment %} {% if not perfil.cpf %}
             <div class="form-group col-2">
                 <label for="id_cpf">CPF</label>
                 <input type="text" name="cpf" maxlength="14" id="id_cpf" class="form-control" placeholder="Digite o número do seu CPF">
@@ -99,9 +99,9 @@
                 <label for="id_cpf">CPF</label>
                 <input type="text" name="cpf" class="form-control" id="id_cpf"value='{{form.cpf.value}}'>
             </div>
-            {% endif %}
+            {% endif %} {% endcomment %}
 
-            {% if not perfil.rg %}
+            {% comment %} {% if not perfil.rg %}
             <div class="form-group col-2">
                 <label for="id_rg">RG</label>
                 <input type="text" name="rg" maxlength="25" id="id_rg" class="form-control" placeholder="Digite o número do seu RG">
@@ -111,7 +111,7 @@
                 <label for="id_rg">RG</label>
                 <input type="text" name="rg" class="form-control" id="id_rg"value='{{form.rg.value}}'>
             </div>
-            {% endif %}
+            {% endif %} {% endcomment %}
         </div>
 
         <br>
@@ -219,6 +219,7 @@
             </div>
             {% endif %}
         </div>
+        </br>
 
         <h3> Experiência Profissional </h3>
 
