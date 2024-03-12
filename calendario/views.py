@@ -1,7 +1,6 @@
-import json
 from datetime import date, datetime, timedelta
 
-from django.http import HttpResponse, JsonResponse
+from django.http import JsonResponse
 from django.shortcuts import redirect, render
 
 from calendario.models import Events
@@ -38,82 +37,54 @@ def all_events(request):
     out = []
 
     for publico in publicos:
-        id = publico.id
-        title = publico.name
-        start = publico.start.strftime("%Y-%m-%d %H:%M")
-        end = publico.end.strftime("%Y-%m-%d %H:%M")
-        allDay = publico.allDay
-
-        json_entry = {
-            "id": id,
-            "title": title,
-            "start": start,
-            "end": end,
-            "allDay": allDay,
-        }
-        out.append(json_entry)
+        out.append(
+            {
+                "title": publico.name,
+                "start": publico.start.strftime("%Y-%m-%d %H:%M"),
+                "end": publico.end.strftime("%Y-%m-%d %H:%M"),
+                "allDay": publico.allDay,
+            }
+        )
 
     for aniversario in aniversarios:
         data_aniversario = aniversario.nascimento
         if data_aniversario is not None:
-            id = aniversario.id
-            title = (
-                f"Aniversariante {aniversario.nome} {aniversario.sobrenome}"
+            out.append(
+                {
+                    "title": f"Aniversariante {aniversario.nome} {aniversario.sobrenome}",
+                    "start": f"{ano_atual}-{aniversario.nascimento.month:02d}-{aniversario.nascimento.day:02d}",
+                    "allDay": True,
+                }
             )
-            start = f"{ano_atual}-{aniversario.nascimento.month:02d}-{aniversario.nascimento.day:02d}"
-            allDay = True
-
-            json_entry = {
-                "id": id,
-                "title": title,
-                "start": start,
-                "allDay": allDay,
-            }
-        out.append(json_entry)
 
     for aniversario in aniversarios:
         # Adiciona 1 ao ano atual para marcar o aniversário no próximo ano
         ano_aniversario = ano_atual + 1
-
         data_aniversario = aniversario.nascimento
         if data_aniversario is not None:
-
-            id = aniversario.id
-            title = (
-                f"Aniversariante {aniversario.nome} {aniversario.sobrenome}"
+            out.append(
+                {
+                    "title": f"Aniversariante {aniversario.nome} {aniversario.sobrenome}",
+                    "start": f"{ano_aniversario}-{aniversario.nascimento.month:02d}-{aniversario.nascimento.day:02d}",
+                    "allDay": True,
+                }
             )
-            start = f"{ano_aniversario}-{aniversario.nascimento.month:02d}-{aniversario.nascimento.day:02d}"
-            allDay = True
-
-            json_entry = {
-                "id": id,
-                "title": title,
-                "start": start,
-                "allDay": allDay,
-            }
-            out.append(json_entry)
 
     for event in all_events:
         start = event.start - timedelta(hours=3)
         end = event.end - timedelta(hours=3)
-        title = event.name
-        user = event.user_id
-        id = event.id
-        start = start.strftime("%Y-%m-%d %H:%M")
-        end = end.strftime("%Y-%m-%d %H:%M")
-        allDay = event.allDay
+        out.append(
+            {
+                "title": event.name,
+                "user": event.user_id,
+                "id": event.id,
+                "start": start.strftime("%Y-%m-%d %H:%M"),
+                "end": end.strftime("%Y-%m-%d %H:%M"),
+                "allDay": event.allDay,
+            }
+        )
 
-        json_entry = {
-            "id": id,
-            "title": title,
-            "start": start,
-            "end": end,
-            "allDay": allDay,
-            "user": user,
-        }
-        out.append(json_entry)
-
-    return HttpResponse(json.dumps(out), content_type="application/json")
+    return JsonResponse(out, safe=False)
 
 
 def add_event(request):
