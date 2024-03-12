@@ -55,9 +55,7 @@ def all_events(request):
 
     for aniversario in aniversarios:
         data_aniversario = aniversario.nascimento
-
-        if data_aniversario.month and data_aniversario.day:
-
+        if data_aniversario is not None:
             id = aniversario.id
             title = (
                 f"Aniversariante {aniversario.nome} {aniversario.sobrenome}"
@@ -77,18 +75,23 @@ def all_events(request):
         # Adiciona 1 ao ano atual para marcar o aniversário no próximo ano
         ano_aniversario = ano_atual + 1
 
-        id = aniversario.id
-        title = f"Aniversariante {aniversario.nome} {aniversario.sobrenome}"
-        start = f"{ano_aniversario}-{aniversario.nascimento.month:02d}-{aniversario.nascimento.day:02d}"
-        allDay = True
+        data_aniversario = aniversario.nascimento
+        if data_aniversario is not None:
 
-        json_entry = {
-            "id": id,
-            "title": title,
-            "start": start,
-            "allDay": allDay,
-        }
-        out.append(json_entry)
+            id = aniversario.id
+            title = (
+                f"Aniversariante {aniversario.nome} {aniversario.sobrenome}"
+            )
+            start = f"{ano_aniversario}-{aniversario.nascimento.month:02d}-{aniversario.nascimento.day:02d}"
+            allDay = True
+
+            json_entry = {
+                "id": id,
+                "title": title,
+                "start": start,
+                "allDay": allDay,
+            }
+            out.append(json_entry)
 
     for event in all_events:
         start = event.start - timedelta(hours=3)
