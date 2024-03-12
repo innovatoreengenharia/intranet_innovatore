@@ -85,8 +85,8 @@ def all_events(request):
         out.append(json_entry)
 
     for event in all_events:
-        # start = event.start - timedelta(hours=3)
-        # end = event.end - timedelta(hours=3)
+        start = event.start - timedelta(hours=3)
+        end = event.end - timedelta(hours=3)
         title = event.name
         user = event.user_id
         id = event.id
