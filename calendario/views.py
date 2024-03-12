@@ -37,14 +37,15 @@ def all_events(request):
     out = []
 
     for publico in publicos:
-        out.append(
-            {
-                "title": publico.name,
-                "start": publico.start.strftime("%Y-%m-%d %H:%M"),
-                "end": publico.end.strftime("%Y-%m-%d %H:%M"),
-                "allDay": publico.allDay,
-            }
-        )
+        if publico.user.id != id_usuario:
+            out.append(
+                {
+                    "title": publico.name,
+                    "start": publico.start.strftime("%Y-%m-%d %H:%M"),
+                    "end": publico.end.strftime("%Y-%m-%d %H:%M"),
+                    "allDay": publico.allDay,
+                }
+            )
 
     for aniversario in aniversarios:
         data_aniversario = aniversario.nascimento
