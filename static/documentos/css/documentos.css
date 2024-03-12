@@ -3,7 +3,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;1,400&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap');
 
-.h1-doc{
+.h1-doc {
     color: #14355E;
     font-size: 32px;
     font-family: 'Open Sans';
@@ -13,7 +13,7 @@
     text-align: left;
 }
 
-h1{
+h1 {
     font-family: 'Open Sans';
     font-size: 32px;
     font-weight: 700;
@@ -25,7 +25,7 @@ h1{
     margin-right: 51px;
 }
 
-h2{
+h2 {
     font-family: 'Open Sans';
     font-size: 32px;
     font-weight: 700;
@@ -37,134 +37,161 @@ h2{
     margin-right: 51px;
 }
 
-.cartao{
+.cartao {
     width: 485px;
     height: 180px;
     border-radius: 24px;
     margin: 12px 12px;
 }
-a:hover{
+
+a:hover {
     text-decoration: none;
     cursor: pointer;
 }
 
-.comercial{
+.comercial {
     background-size: cover;
     background-repeat: no-repeat;
     padding: 24px 0px 24px 0px;
     background-image: url("../img/comercial.jpg")
 }
-.controladoria{
+
+.controladoria {
     background-size: cover;
     background-repeat: no-repeat;
     padding: 24px 0px 24px 0px;
     background-image: url("../img/controladoria.png")
 }
-.dp{
+
+.dp {
     background-size: cover;
     background-repeat: no-repeat;
     padding: 24px 0px 24px 0px;
     background-image: url("../img/dp.png")
 }
-.engenharia{
+
+.engenharia {
     background-size: cover;
     background-repeat: no-repeat;
     padding: 24px 0px 24px 0px;
     background-image: url("../img/engenharia.png")
 }
-.financeiro{
+
+.financeiro {
     background-size: cover;
     background-repeat: no-repeat;
     padding: 24px 0px 24px 0px;
     background-image: url("../img/financeiro.png")
 }
-.fiscal{
+
+.fiscal {
     background-size: cover;
     background-repeat: no-repeat;
     padding: 24px 0px 24px 0px;
     background-image: url("../img/fiscal.png")
 }
-.juridico{
+
+.juridico {
     background-size: cover;
     background-repeat: no-repeat;
     padding: 24px 0px 24px 0px;
     background-image: url("../img/juridico.png")
 }
-.logistica{
+
+.logistica {
     background-size: cover;
     background-repeat: no-repeat;
     padding: 24px 0px 24px 0px;
     background-image: url("../img/logistica.png")
 }
-.marketing{
+
+.marketing {
     background-size: cover;
     background-repeat: no-repeat;
     padding: 24px 0px 24px 0px;
     background-image: url("../img/marketing.png")
 }
-.meio-ambiente{
+
+.meio-ambiente {
     background-size: cover;
     background-repeat: no-repeat;
     padding: 24px 0px 24px 0px;
     background-image: url("../img/meio-ambiente.png")
 }
-.orcamentos{
+
+.orcamentos {
     background-size: cover;
     background-repeat: no-repeat;
     padding: 24px 0px 24px 0px;
     background-image: url("../img/orcamentos.png")
 }
-.controladoria{
+
+.controladoria {
     background-size: cover;
     background-repeat: no-repeat;
     padding: 24px 0px 24px 0px;
     background-image: url("../img/controladoria.png")
 }
-.pmo{
+
+.pmo {
     background-size: cover;
     background-repeat: no-repeat;
     padding: 24px 0px 24px 0px;
     background-image: url("../img/pmo.png")
 }
-.qualidade{
+
+.qualidade {
     background-size: cover;
     background-repeat: no-repeat;
     padding: 24px 0px 24px 0px;
     background-image: url("../img/qualidade.png")
 }
-.rh{
+
+.rh {
     background-size: cover;
     background-repeat: no-repeat;
     padding: 24px 0px 24px 0px;
     background-image: url("../img/rh.png")
 }
-.seguranca{
+
+.seguranca {
     background-size: cover;
     background-repeat: no-repeat;
     padding: 24px 0px 24px 0px;
     background-image: url("../img/seguranca.png")
 }
-.sistemas{
+
+.sistemas {
     background-size: cover;
     background-repeat: no-repeat;
     padding: 24px 0px 24px 0px;
     background-image: url("../img/sistemas.png")
 }
-.suprimentos{
+
+.suprimentos {
     background-size: cover;
     background-repeat: no-repeat;
     padding: 24px 0px 24px 0px;
     background-image: url("../img/suprimentos.png")
 }
-.ti{
+
+.ti {
     background-size: cover;
     background-repeat: no-repeat;
     padding: 24px 0px 24px 0px;
     background-image: url("../img/ti.png")
 }
-.vendas{
+
+.vendas {
     background-size: cover;
     background-repeat: no-repeat;
     padding: 24px 0px 24px 0px;
     background-image: url("../img/vendas.png")
+}
+
+.documentos-gerais {
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 24px 0px 24px 0px;
+    background-image: url("../img/documentos-gerais.jpeg")
 }

@@ -11,6 +11,7 @@ from .models import (
     Comercial,
     Controladoria,
     DepartamentoPessoal,
+    DocumentosGerais,
     Engenharia,
     Financeiro,
     Fiscal,
@@ -58,9 +59,9 @@ def render_model(request, modelo, url, nome):
     lista = []
     for i in page:
         # Ambiente de desenvolvimento
-        # sz = Path(f"media/{i.doc.name}").stat().st_size
+        sz = Path(f"media/{i.doc.name}").stat().st_size
         # Ambinte de produção
-        sz = Path(f"intranet_innovatore/media/{i.doc.name}").stat().st_size
+        # sz = Path(f"intranet_innovatore/media/{i.doc.name}").stat().st_size
         lista.append(sz)
     lista_completa = zip(page, lista)
 
@@ -250,4 +251,17 @@ def vendas(request):
         request,
         "documentos/doc.html",
         render_model(request, Vendas, "documentos/vendas", "Vendas"),
+    )
+
+
+def documentos_gerais(request):
+    return render(
+        request,
+        "documentos/doc.html",
+        render_model(
+            request,
+            DocumentosGerais,
+            "documentos/documentos_gerais",
+            "Documentos Gerais",
+        ),
     )
