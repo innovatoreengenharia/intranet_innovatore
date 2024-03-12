@@ -26,11 +26,11 @@
 {% block content%}
 <div class="titulo-doc">
   <img  id="voltar" src="{% static 'documentos/img/left.png' %}">
-  <h1 class="text-left ml-2 mb-2">Documentos / {{ nome }}</h1>
+  <h1 class="text-left ml-2 mb-2">{{ nome }}</h1>
 </div>
 <div class="tabela">
   <div class="gerenciador">
-    <h1>Gernciador de Arquivos</h1>
+    <h1>Gerenciador de Arquivos</h1>
     {% if user.is_authenticated and user.is_staff %}
       <a href="{% url 'admin:index' %}"><img class="upload" src="{% static 'documentos/img/upload.png' %}"></a>
     {% endif %}
