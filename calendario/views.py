@@ -54,7 +54,10 @@ def all_events(request):
         out.append(json_entry)
 
     for aniversario in aniversarios:
-        if aniversario:
+        data_aniversario = aniversario.nascimento
+
+        if data_aniversario.month and data_aniversario.day:
+
             id = aniversario.id
             title = (
                 f"Aniversariante {aniversario.nome} {aniversario.sobrenome}"
