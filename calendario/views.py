@@ -54,17 +54,20 @@ def all_events(request):
         out.append(json_entry)
 
     for aniversario in aniversarios:
-        id = aniversario.id
-        title = f"Aniversariante {aniversario.nome} {aniversario.sobrenome}"
-        start = f"{ano_atual}-{aniversario.nascimento.month:02d}-{aniversario.nascimento.day:02d}"
-        allDay = True
+        if aniversario:
+            id = aniversario.id
+            title = (
+                f"Aniversariante {aniversario.nome} {aniversario.sobrenome}"
+            )
+            start = f"{ano_atual}-{aniversario.nascimento.month:02d}-{aniversario.nascimento.day:02d}"
+            allDay = True
 
-        json_entry = {
-            "id": id,
-            "title": title,
-            "start": start,
-            "allDay": allDay,
-        }
+            json_entry = {
+                "id": id,
+                "title": title,
+                "start": start,
+                "allDay": allDay,
+            }
         out.append(json_entry)
 
     for aniversario in aniversarios:
