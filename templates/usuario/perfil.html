@@ -29,7 +29,7 @@
     {% if not perfil.texto_experiencia%}
         <p></p>
     {%else %}
-        <p>{{ perfil.texto_experiencia }}</p>
+        <pre>{{ perfil.texto_experiencia|safe }}</pre>
         <br>
     {% endif %}
 
@@ -52,7 +52,7 @@
                 </p>
             </div>
             <div class="col-9">
-                <p>{{ ex.descricao_trabalho }}</p>
+                <pre>{{ ex.descricao_trabalho|safe }}</pre>
             </div>
         </div>
     {% comment %} <a href="{% url 'deletar_experiencia' ex.id %}">remover experiência</a><br><br> {% endcomment %}
@@ -82,7 +82,7 @@
             </p>
         </div>
         <div class="col-9">
-            <p>{{ fc.descricao_curso }}</p>
+            <pre>{{ fc.descricao_curso|safe }}</pre>
         </div>
         {% comment %} <a href="{% url 'deletar_curso' fc.id %}">remover curso</a><br><br> {% endcomment %}
         {% endfor %}
