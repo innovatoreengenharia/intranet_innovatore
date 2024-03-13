@@ -20,7 +20,7 @@
     {% if user.is_authenticated and user.is_staff %}
         <form action="">
             <a href="{% url 'admin:index' %}"><img class="mt-3"src={% static 'cartao_visitas/img/adicionar.png' %}></a>
-            <img src={% static 'cartao_visitas/img/filtro.png' %} class="float-right filtro">
+            {% comment %} <img src={% static 'cartao_visitas/img/filtro.png' %} class="float-right filtro"> {% endcomment %}
             <button href="" class="float-right botao-pesquisar" type="submit ">Pesquisar</button>
             <input type="text" name="buscar" class="input-busca float-right" placeholder="Pesquisar Contato">
         </form>
