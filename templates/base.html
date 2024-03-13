@@ -146,7 +146,7 @@
 
             <!-- Tarefas  -->
             {% if 'tarefas' in url_name %}
-                <li class="nav-item item-menu">
+                <li class="nav-item active item-menu">
                     <a class="nav-link" href={% url 'tarefas' %}>
                         <img src={% static "dashboard/img/tarefas-selecionado.png" %}>
                         <span>Tarefas</span></a>
@@ -177,7 +177,7 @@
             {% endif %} {% endcomment %}
 
             {% if 'calendario' in url_name %}
-                <li class="nav-item item-menu">
+                <li class="nav-item active item-menu">
                     <a class="nav-link" href={% url 'calendario' %}>
                         <img src={% static "dashboard/img/calendario-selecionado.png" %}>
                         <span>Calendário</span></a>
@@ -193,7 +193,7 @@
 
             <!-- Mapa de Obras -->
             {% if 'mapa' in url_name %}
-                <li class="nav-item item-menu">
+                <li class="nav-item active item-menu">
                     <a class="nav-link" href={% url 'mapa' %}>
                         <img src={% static "dashboard/img/mapa-selecionado.png" %}>
                         <span>Mapa das Obras</span></a>
@@ -223,7 +223,7 @@
 
             {% if 'informativos' in url_name %}
 
-            <li class="nav-item item-menu">
+            <li class="nav-item active item-menu">
                 <a class="nav-link" href={% url 'informativos' %}>
                     <img src={% static "dashboard/img/informativos-selecionado.png" %}>
                     <span>Informativos INN</span></a>
