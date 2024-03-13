@@ -24,7 +24,7 @@
   {% endif %} 
   
   {% if quadro.paragrafo %}
-  <p class="paragrafo-noticia">{{ quadro.paragrafo }}</p>
+  <pre class="paragrafo-noticia">{{ quadro.paragrafo|safe }}</pre>
   {% endif %} 
   
   {% if user.is_staff%}
