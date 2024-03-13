@@ -192,13 +192,19 @@
             {% endif %}
 
             <!-- Mapa de Obras -->
-
-            <li class="nav-item item-menu">
-                <a class="nav-link" href={% url 'mapa'%}>
-                    <img src={% static "dashboard/img/mapa_obras.png" %}>
-                    <span>Mapa das Obras</span></a>
-            </li>
-
+            {% if 'mapa' in url_name %}
+                <li class="nav-item item-menu">
+                    <a class="nav-link" href={% url 'mapa' %}>
+                        <img src={% static "dashboard/img/mapa-selecionado.png" %}>
+                        <span>Mapa das Obras</span></a>
+                </li>
+            {% else %}
+                <li class="nav-item item-menu">
+                    <a class="nav-link" href={% url 'mapa'%}>
+                        <img src={% static "dashboard/img/mapa_obras.png" %}>
+                        <span>Mapa das Obras</span></a>
+                </li>
+            {% endif%}
 
             {% comment %} {% if 'mapa' in url_name %}
                 <li class="nav-item item-menu">
