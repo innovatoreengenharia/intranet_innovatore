@@ -5,6 +5,7 @@ from .views import (
     alterar_titulo_quadro,
     quadro,
     remover_participante,
+    remover_quadro,
     tarefas,
 )
 
@@ -15,6 +16,11 @@ urlpatterns = [
         "alterar_titulo_quadro<int:id_quadro>",
         alterar_titulo_quadro,
         name="tarefas/alterar_titulo_quadro",
+    ),
+    path(
+        "remover_quadro<int:id_quadro>",
+        remover_quadro,
+        name="tarefas/remover_quadro",
     ),
     path(
         "adicionar_participante/<int:id_quadro>",
