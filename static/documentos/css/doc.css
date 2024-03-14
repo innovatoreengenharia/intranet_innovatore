@@ -107,7 +107,12 @@ td {
     margin-right: 2px;
 }
 
+.th-imagens {
+    width: 50px;
+}
+
 .imagem-doc {
+    margin-top: 10px;
     width: 25px;
 }
 
