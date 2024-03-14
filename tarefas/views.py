@@ -22,19 +22,15 @@ def tarefas(request):
 
     elif request.method == "POST" and "criar_quadro" in request.POST:
         form = QuadroForm(request.POST)
-        context = {
-            "form": form,
-        }
+        context["form"] = form
+
         if form.is_valid():
             form.save()
             id_quadro = form.instance.id
             return redirect("tarefas/quadro", id_quadro)
-        else:
-            form = QuadroForm()
-        return redirect("tarefas")
-    else:
-        form = QuadroForm()
-        return render(request, "tarefas", {"form": form})
+
+    form = QuadroForm()
+    return render(request, "tarefas/tarefas.html", context)
 
 
 def quadro(request, id_quadro):
