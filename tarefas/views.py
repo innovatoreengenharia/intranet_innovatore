@@ -32,6 +32,9 @@ def tarefas(request):
         else:
             form = QuadroForm()
         return redirect("tarefas")
+    else:
+        form = QuadroForm()
+        return render(request, "tarefas", {"form": form})
 
 
 def quadro(request, id_quadro):
