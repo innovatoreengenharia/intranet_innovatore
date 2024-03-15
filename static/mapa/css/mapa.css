@@ -112,7 +112,15 @@ path:hover {
   display: block;
 }
 
-.obras p {
+.obras {
+  margin-bottom: 100px;
+}
+
+.logos-obras {
+  width: 150px;
+}
+
+.obras pre {
   font-family: 'Open Sans';
   font-size: 14px;
   font-weight: 400;
@@ -120,6 +128,7 @@ path:hover {
   letter-spacing: 0em;
   text-align: left;
   color: #464646;
+  white-space: pre-wrap;
 
 }
 
