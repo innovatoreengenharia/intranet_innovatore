@@ -1,6 +1,6 @@
 from django.shortcuts import redirect, render
 
-from tarefas.forms import QuadroForm
+from tarefas.forms import ColunaForm, QuadroForm
 from tarefas.models import Colunas, Quadros, Tarefas
 from usuario.models import Perfil
 
@@ -42,14 +42,29 @@ def quadro(request, id_quadro):
     usuarios = Perfil.objects.all()
     #  Quadros que cada usuario possui
     quadros_usuario = Quadros.objects.filter(usuario=perfil)
+    colunas = Colunas.objects.filter(quadro=quadro)
     context = {
         "perfil": perfil,
         "quadro": quadro,
         "usuarios": usuarios,
         "quadros_usuario": quadros_usuario,
+        "colunas": colunas,
     }
     if request.method == "GET":
         return render(request, "tarefas/quadro.html", context)
+
+    elif request.method == "POST" and "add_usuario" in request.POST:
+        form = QuadroForm(request.POST)
+        context = {
+            "form": form,
+        }
+        if form.is_valid():
+            form.save()
+            id_quadro = form.instance.id
+            return redirect("tarefas/quadro", id_quadro)
+        else:
+            form = QuadroForm()
+        return redirect("tarefas")
 
     elif request.method == "POST" and "criar_quadro" in request.POST:
         form = QuadroForm(request.POST)
@@ -64,14 +79,13 @@ def quadro(request, id_quadro):
             form = QuadroForm()
         return redirect("tarefas")
 
-    elif request.method == "POST" and "add_usuario" in request.POST:
-        form = QuadroForm(request.POST)
+    elif request.method == "POST" and "criar_coluna" in request.POST:
+        form = ColunaForm(request.POST)
         context = {
             "form": form,
         }
         if form.is_valid():
             form.save()
-            id_quadro = form.instance.id
             return redirect("tarefas/quadro", id_quadro)
         else:
             form = QuadroForm()
@@ -117,9 +131,7 @@ def alterar_titulo_quadro(request, id_quadro):
         quadro.titulo = novo_titulo
         quadro.save()
 
-        return redirect(
-            "quadro", id_quadro
-        )  # Redirecionar para uma página de sucesso após alterar o título do quadro
+        return redirect("quadro", id_quadro)
 
     return redirect("tarefas/quadro", id_quadro)
 

@@ -56,7 +56,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <form method="post" action="{% url 'tarefas' %}" class="form_criar_quadro">
+        <form method="post" id="form_criar_quadro" class="form_criar_quadro">
           <br><br>
           {% csrf_token %}
           <label for="titulo">Título do Quadro:</label>
@@ -64,7 +64,7 @@
           <input type="hidden" name="usuario" required="" value={{perfil.id}}>
           <br><br>
           <button id="cancelar_quadro">Cancelar</button>
-          <button type="submit" name="criar_quadro">Criar Quadro</button>
+          <button type="submit" id="botao_criar_quadro" name="criar_quadro">Criar Quadro</button>
         </form>
       </div>
     </div>
@@ -151,6 +151,20 @@
   });
   $("#cancelar_quadro").click(function(){
     $(".form_criar_quadro").addClass("hidden")
+  });
+</script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+      document.addEventListener('keypress', function (e) {
+          if (e.key === 'Enter') {
+              // Verifica qual formulário está ativo
+              if (document.activeElement.form.id === 'form_criar_quadro') {
+                e.preventDefault();
+                document.getElementById('botao_criar_quadro').click();
+              } 
+          }
+      });
   });
 </script>
 

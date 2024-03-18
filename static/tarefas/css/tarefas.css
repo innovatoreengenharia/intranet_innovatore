@@ -55,6 +55,19 @@ html {
     font-size: 24px;
 }
 
+.botao-remover-quadro {
+    border-radius: 12px;
+    padding: 10px;
+    background: linear-gradient(#14295E, #2568BB);
+    color: white;
+    font-size: 24px;
+}
+
+.botao-remover-quadro:hover {
+    color: white;
+    text-decoration: none;
+}
+
 .boards {
     display: flex;
     flex-wrap: wrap;
@@ -66,7 +79,7 @@ html {
     background-color: #00000006;
     width: 292px;
     border-radius: 12px;
-    margin: 0 24px 0 0;
+    margin: 0 24px 24px 0;
     padding: 32px 16px;
 }
 
@@ -167,4 +180,8 @@ html {
 
 .over {
     background-color: #c8bbbb33;
+}
+
+.colunas {
+    margin-bottom: 32px;
 }

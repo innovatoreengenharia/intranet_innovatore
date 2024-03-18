@@ -26,7 +26,6 @@
       <a class="dropdown-item" href={% url "tarefas/quadro" quadro.id %}>{{quadro.titulo}}</a>
       {% endfor %}
     </div>
-    <button class="botao"> + </button>
   </div>
 </div>
 
@@ -105,7 +104,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <form method="post" action="{% url 'tarefas' %}" class="form_criar_quadro">
+        <form method="post" id="form_criar_quadro" class="form_criar_quadro">
           <br><br>
           {% csrf_token %}
           <label for="titulo">Título do Quadro:</label>
@@ -113,86 +112,115 @@
           <input type="hidden" name="usuario" required="" value={{perfil.id}}>
           <br><br>
           <button id="cancelar_quadro">Cancelar</button>
-          <button type="submit" name="criar_quadro">Criar Quadro</button>
+          <button type="submit" id="botao_criar_quadro" name="criar_quadro">Criar Quadro</button>
         </form>
       </div>
     </div>
   </div>
 </div>
 
-<div class="container-fluid">
+<div class="container-fluid colunas">
+<!-- Visualizar Colunas -->
+  {% if colunas %}
+    <div class="boards">
+      {% for coluna in colunas %}
+          <div class="board">
+            <div class="title-card">
+              <div class="titulo-tarefa">
+                <h3>{{coluna.titulo}}</h3>
+<!-- visualizar Tarefas-->
+                <img src="{% static 'social/img/mais.png' %}">
+              </div>
+              <button class="add-tarefa sombra">+</button>
+            </div>
+            <div class="dropzone">
+              <div class="card-kanban" draggable="true">
+                <img src="{% static 'tarefas/img/card-1.png' %}">
+                <p class="status erros">ERROS</p>
+                <div class="content-card">Design do site: novos cartões para seção do blog e detalhe do perfil</div>
+              </div>
+            </div>
+          </div>
+    {% endfor %}
+    <button type="button" class="botao botao-criar-coluna" data-toggle="modal" data-target="#modalCriarColuna">+</button>
 
-  <div class="boards">
+    </div>
+  {% endif %}
 
-    <div class="board">
-      <div class="title-card">
-        <div class="titulo-tarefa">
-          <h3>Pendências</h3>
-          <img src="{% static 'social/img/mais.png' %}">
-        </div>
-        <button class="add-tarefa sombra">+</button>
-      </div>
-      <div class="dropzone">
-        <div class="card-kanban" draggable="true">
-          <img src="{% static 'tarefas/img/card-1.png' %}">
-          <p class="status erros">ERROS</p>
-          <div class="content-card">Design do site: novos cartões para seção do blog e detalhe do perfil</div>
+
+    <!-- MODAL ADICIONAR COLUNA -->
+    <div class="modal fade" id="modalCriarColuna" tabindex="-1" role="dialog" aria-labelledby="modalCriarColunaLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalCriarColunaLabel">Criar Nova Coluna</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form method="post" id="form_criar_coluna" class="form_criar_coluna">
+              <br><br>
+              {% csrf_token %}
+              <label for="titulo">Título da Coluna:</label>
+              <input type="text" id="titulo" name="titulo" class=" form-control" required="">
+              <input type="hidden" name="quadro" required="" value={{quadro.id}}>
+              <br><br>
+              <button id="cancelar_coluna">Cancelar</button>
+              <button type="submit" id="botao_criar_coluna" name="criar_coluna">Criar Coluna</button>
+            </form>
+          </div>
         </div>
       </div>
     </div>
-
-    <!-- Adicionar Coluna -->
     
 
-    {% comment %} <div class="board">
-      <div class="title-card">
-        <div class="titulo-tarefa">
-          <h3>Em Andamento</h3>
-        </div>
-        <button class="add-tarefa sombra">+</button>
+  {% comment %} <div class="board">
+    <div class="title-card">
+      <div class="titulo-tarefa">
+        <h3>Em Andamento</h3>
+      </div>
+      <button class="add-tarefa sombra">+</button>
+    </div>
+
+    <div class="dropzone">
+      <div class="card-kanban" draggable="true">
+        <p class="status erros">ERROS</p>
+        <div class="content-card">Corrigir erro do Firefox</div>
+      </div>
+
+      <div class="card-kanban" draggable="true">
+        <p class="status atualizacao">Atualização</p>
+        <div class="content-card">Panel argônio Pro</div>
       </div>
 
       <div class="dropzone">
         <div class="card-kanban" draggable="true">
-          <p class="status erros">ERROS</p>
-          <div class="content-card">Corrigir erro do Firefox</div>
-        </div>
-
-        <div class="card-kanban" draggable="true">
-          <p class="status atualizacao">Atualização</p>
-          <div class="content-card">Panel argônio Pro</div>
-        </div>
-
-        <div class="dropzone">
-          <div class="card-kanban" draggable="true">
-            <img src="{% static 'tarefas/img/card-2.png' %}">
-            <p class="status atualizacao">Atualizacao</p>
-            <div class="content-card">Design do site: novos cartões para seção do blog e detalhe do perfil</div>
-          </div>
-        </div>
-
-      </div>
-    </div> 
-
-    <div class="board">
-      <div class="title-card">
-        <div class="titulo-tarefa">
-          <h3>Concluído</h3>
-        </div>
-        <button class="add-tarefa sombra">+</button>
-      </div>
-      <div class="dropzone">
-        <div class="card-kanban" draggable="true">
-          <div class="status revisao">Em revisão</div>
-          <div class="content-card">Next level</div>
+          <img src="{% static 'tarefas/img/card-2.png' %}">
+          <p class="status atualizacao">Atualizacao</p>
+          <div class="content-card">Design do site: novos cartões para seção do blog e detalhe do perfil</div>
         </div>
       </div>
-    </div>{% endcomment %}
-  </div>
+
+    </div>
+  </div> 
+
+  <div class="board">
+    <div class="title-card">
+      <div class="titulo-tarefa">
+        <h3>Concluído</h3>
+      </div>
+      <button class="add-tarefa sombra">+</button>
+    </div>  
+    <div class="dropzone">
+      <div class="card-kanban" draggable="true">
+        <div class="status revisao">Em revisão</div>
+        <div class="content-card">Next level</div>
+      </div>
+    </div>
+  </div>{% endcomment %}
 </div>
-
-<a class="btn btn-primary" href="{% url "tarefas/remover_quadro" quadro.id  %}">Remover Quadro</a class="btn btn-primary">
-
+<a class="botao-remover-quadro" href="{% url "tarefas/remover_quadro" quadro.id  %}">Remover Quadro</a>
 {% endblock %}
 
 {% block scripts %} 
@@ -204,6 +232,24 @@
   });
   $("#cancelar_quadro").click(function(){
     $(".form_criar_quadro").addClass("hidden")
+  });
+</script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+      document.addEventListener('keypress', function (e) {
+          if (e.key === 'Enter') {
+              // Verifica qual formulário está ativo
+              if (document.activeElement.form.id === 'form_criar_quadro') {
+                e.preventDefault();
+                document.getElementById('botao_criar_quadro').click();
+              }
+              else if (document.activeElement.form.id === 'form_criar_coluna') {
+                e.preventDefault();
+                document.getElementById('botao_criar_coluna').click();
+              } 
+          }
+      });
   });
 </script>
 
