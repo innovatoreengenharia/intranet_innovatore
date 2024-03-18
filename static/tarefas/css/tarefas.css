@@ -185,3 +185,7 @@ html {
 .colunas {
     margin-bottom: 32px;
 }
+
+.show {
+    justify-content: left !important;
+}

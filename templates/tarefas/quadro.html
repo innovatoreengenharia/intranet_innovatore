@@ -128,11 +128,42 @@
             <div class="title-card">
               <div class="titulo-tarefa">
                 <h3>{{coluna.titulo}}</h3>
-<!-- visualizar Tarefas-->
-                <img src="{% static 'social/img/mais.png' %}">
+                
+                <div class="dropdown">
+                    <img src="{% static 'social/img/mais.png' %}" class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                      <a class="dropdown-item alterar_titulo_coluna"data-toggle="modal" data-target="#modalAlterarTituloColuna{{ coluna.id }}" style="cursor: pointer;">Editar</a>
+                      <a class="dropdown-item" href={% url 'tarefas/remover_coluna' quadro.id coluna.id %} onclick="return confirm('Tem certeza que deseja remover esta Coluna?')">Excluir</a>
+                    </div>
+                </div>
               </div>
               <button class="add-tarefa sombra">+</button>
             </div>
+
+            <!-- MODAL ALTERAR TITULO DA COLUNA-->
+              <div class="modal fade" id="modalAlterarTituloColuna{{ coluna.id }}" tabindex="-1" role="dialog" aria-labelledby="modalAlterarTituloColunaLabel{{ coluna.id }}" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="modalAlterarTituloColunaLabel{{ coluna.id }}">Alterar Título</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <form method="post" action="{% url 'tarefas/alterar_titulo_coluna' quadro.id coluna.id %}">
+                        {% csrf_token %}
+                        <label for="novo_titulo">Novo Título da Coluna:</label>
+                        <input type="text" id="novo_titulo" name="novo_titulo" value="{{ coluna.titulo }}" required>
+                        <br><br>
+                        <button type="submit">Alterar Título</button>
+                    </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+<!-- visualizar Tarefas-->
             <div class="dropzone">
               <div class="card-kanban" draggable="true">
                 <img src="{% static 'tarefas/img/card-1.png' %}">
@@ -219,7 +250,7 @@
     </div>
   </div>{% endcomment %}
 </div>
-<a class="botao-remover-quadro" href="{% url "tarefas/remover_quadro" quadro.id  %}">Remover Quadro</a>
+<a class="botao-remover-quadro" href="{% url "tarefas/remover_quadro" quadro.id  %}" onclick="return confirm('Tem certeza que deseja excluir esse Quadro?')">Remover Quadro</a>
 {% endblock %}
 
 {% block scripts %} 

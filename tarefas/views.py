@@ -131,7 +131,7 @@ def alterar_titulo_quadro(request, id_quadro):
         quadro.titulo = novo_titulo
         quadro.save()
 
-        return redirect("quadro", id_quadro)
+        return redirect("tarefas/quadro", id_quadro)
 
     return redirect("tarefas/quadro", id_quadro)
 
@@ -141,3 +141,22 @@ def remover_quadro(request, id_quadro):
     quadro.delete()
 
     return redirect("tarefas")
+
+
+def alterar_titulo_coluna(request, id_quadro, id_coluna):
+    coluna = Colunas.objects.get(id=id_coluna)
+
+    if request.method == "POST":
+        novo_titulo = request.POST.get("novo_titulo")
+        coluna.titulo = novo_titulo
+        coluna.save()
+        return redirect("tarefas/quadro", id_quadro)
+
+    return redirect("tarefas/quadro", id_quadro)
+
+
+def remover_coluna(request, id_quadro, id_coluna):
+    coluna = Colunas.objects.get(id=id_coluna)
+    coluna.delete()
+
+    return redirect("tarefas/quadro", id_quadro)
