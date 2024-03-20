@@ -35,7 +35,7 @@
     Alterar Título
   </button>
 
-  <!-- MODAL ALTERAR TÍTULO DO QUADRO -->
+<!-- MODAL ALTERAR TÍTULO DO QUADRO -->
   
   <div class="modal fade" id="modalAlterarTituloQuadro" tabindex="-1" role="dialog" aria-labelledby="modalAlterarTituloQuadroLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -120,27 +120,28 @@
 </div>
 
 <div class="container-fluid colunas">
+
 <!-- Visualizar Colunas -->
   {% if colunas %}
     <div class="boards">
-      {% for coluna in colunas %}
+      {% for coluna , tarefas in tarefas_por_coluna.items %}
           <div class="board">
             <div class="title-card">
               <div class="titulo-tarefa">
-                <h3>{{coluna.titulo}}</h3>
-                
-                <div class="dropdown">
-                    <img src="{% static 'social/img/mais.png' %}" class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                      <a class="dropdown-item alterar_titulo_coluna"data-toggle="modal" data-target="#modalAlterarTituloColuna{{ coluna.id }}" style="cursor: pointer;">Editar</a>
-                      <a class="dropdown-item" href={% url 'tarefas/remover_coluna' quadro.id coluna.id %} onclick="return confirm('Tem certeza que deseja remover esta Coluna?')">Excluir</a>
-                    </div>
-                </div>
+                <h3 class="titulo-coluna">{{coluna.titulo}}</h3>
               </div>
-              <button class="add-tarefa sombra">+</button>
+              <div class="dropdown">
+                  <img src="{% static 'social/img/mais.png' %}" class="dropdown-toggle img-coluna" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item alterar_titulo_coluna"data-toggle="modal" data-target="#modalAlterarTituloColuna{{ coluna.id }}" style="cursor: pointer;">Editar</a>
+                    <a class="dropdown-item" href={% url 'tarefas/remover_coluna' quadro.id coluna.id %} onclick="return confirm('Tem certeza que deseja remover esta Coluna?')">Excluir</a>
+                  </div>
+              </div>
+              <button type="button" class="add-tarefa sombra botao-criar-tarefa" data-toggle="modal" data-target="#modalCriarTarefa{{ coluna.id }}">+</button>
+
             </div>
 
-            <!-- MODAL ALTERAR TITULO DA COLUNA-->
+<!-- MODAL ALTERAR TITULO DA COLUNA-->
               <div class="modal fade" id="modalAlterarTituloColuna{{ coluna.id }}" tabindex="-1" role="dialog" aria-labelledby="modalAlterarTituloColunaLabel{{ coluna.id }}" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                   <div class="modal-content">
@@ -163,22 +164,52 @@
                 </div>
               </div>
 
-<!-- visualizar Tarefas-->
-            <div class="dropzone">
-              <div class="card-kanban" draggable="true">
-                <img src="{% static 'tarefas/img/card-1.png' %}">
-                <p class="status erros">ERROS</p>
-                <div class="content-card">Design do site: novos cartões para seção do blog e detalhe do perfil</div>
+<!-- MODAL ADICIONAR TAREFA -->
+              <div class="modal fade" id="modalCriarTarefa{{ coluna.id }}" tabindex="-1" role="dialog" aria-labelledby="modalCriarTarefaLabel{{ coluna.id }}" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="modalCriarTarefaLabel{{ coluna.id }}">Criar Nova Tarefa</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <form method="post" id="form_criar_tarefa" class="form_criar_tarefa">
+                        <br><br>
+                        {% csrf_token %}
+                        <label for="titulo">Título da Tarefa:</label>
+                        <input type="text" id="titulo" name="titulo" class=" form-control" required="">
+                        <input type="hidden" name="coluna" required="" value={{coluna.id}}>
+                        <br><br>
+                        <button id="cancelar_tarefa">Cancelar</button>
+                        <button type="submit" id="botao_criar_tarefa" name="criar_tarefa">Criar Tarefa</button>
+                      </form>
+                    </div>
+                  </div>
+                </div>
               </div>
-            </div>
+
+<!-- visualizar Tarefas-->
+              
+                <div class="dropzone">
+                  {% for tarefa in tarefas %}
+                    <div class="card-kanban" draggable="true">
+                      {% comment %} <img src="{% static 'tarefas/img/card-1.png' %}"> {% endcomment %}
+                      <p class="status erros">ERROS</p>
+                      <div class="content-card">{{ tarefa.titulo }}</div>
+                    </div>
+                  {% endfor %} 
+                </div>
           </div>
+
     {% endfor %}
   {% endif %}
       <button type="button" class="botao botao-criar-coluna" data-toggle="modal" data-target="#modalCriarColuna">+</button>
     </div>
 
 
-    <!-- MODAL ADICIONAR COLUNA -->
+<!-- MODAL ADICIONAR COLUNA -->
     <div class="modal fade" id="modalCriarColuna" tabindex="-1" role="dialog" aria-labelledby="modalCriarColunaLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -277,10 +308,36 @@
               else if (document.activeElement.form.id === 'form_criar_coluna') {
                 e.preventDefault();
                 document.getElementById('botao_criar_coluna').click();
+              }
+              else if (document.activeElement.form.id === 'form_criar_tarefa') {
+                e.preventDefault();
+                document.getElementById('botao_criar_tarefa').click();
               } 
           }
       });
   });
+</script>
+
+<script>
+  function limitar_caracteres(classe, quantidade){
+      var paragrafo_completo = document.getElementsByClassName(classe);
+  
+      // Itera sobre a coleção de parágrafos
+      for (var i = 0; i < paragrafo_completo.length; i++) {
+          var paragrafo = paragrafo_completo[i];
+  
+          // Verifica se o elemento existe antes de acessar suas propriedades
+          if (paragrafo) {
+              var limite = quantidade; // Substitua pelo número desejado de caracteres
+  
+              // Verifica se o comprimento do conteúdo do parágrafo é maior que o limite
+              if (paragrafo.innerHTML.length > limite) {
+                  paragrafo.innerHTML = paragrafo.innerHTML.substring(0, limite) + "...";
+              }
+          }
+      }
+  }
+  limitar_caracteres("titulo-coluna", 12)
 </script>
 
 {% endblock %}

@@ -70,6 +70,7 @@ html {
 
 .boards {
     display: flex;
+    width: 10000px;
     flex-wrap: wrap;
     justify-content: flex-start;
     margin-top: 50px;
@@ -186,6 +187,7 @@ html {
     margin-bottom: 32px;
 }
 
-.show {
-    justify-content: left !important;
+.dropdown .img-coluna {
+    margin-top: 12px;
+    margin-right: 50px;
 }

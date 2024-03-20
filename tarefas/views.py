@@ -1,6 +1,6 @@
 from django.shortcuts import redirect, render
 
-from tarefas.forms import ColunaForm, QuadroForm
+from tarefas.forms import ColunaForm, QuadroForm, TarefaForm
 from tarefas.models import Colunas, Quadros, Tarefas
 from usuario.models import Perfil
 
@@ -42,13 +42,23 @@ def quadro(request, id_quadro):
     usuarios = Perfil.objects.all()
     #  Quadros que cada usuario possui
     quadros_usuario = Quadros.objects.filter(usuario=perfil)
+
     colunas = Colunas.objects.filter(quadro=quadro)
+
+    tarefas_por_coluna = {}
+    for coluna in colunas:
+        tarefas = Tarefas.objects.filter(coluna=coluna)
+        tarefas_por_coluna[coluna] = tarefas
+        # print(f"Tarefas para {coluna}: {tarefas}")
+
     context = {
         "perfil": perfil,
         "quadro": quadro,
         "usuarios": usuarios,
         "quadros_usuario": quadros_usuario,
         "colunas": colunas,
+        "tarefas": tarefas,
+        "tarefas_por_coluna": tarefas_por_coluna,
     }
     if request.method == "GET":
         return render(request, "tarefas/quadro.html", context)
@@ -81,6 +91,18 @@ def quadro(request, id_quadro):
 
     elif request.method == "POST" and "criar_coluna" in request.POST:
         form = ColunaForm(request.POST)
+        context = {
+            "form": form,
+        }
+        if form.is_valid():
+            form.save()
+            return redirect("tarefas/quadro", id_quadro)
+        else:
+            form = QuadroForm()
+        return redirect("tarefas")
+
+    elif request.method == "POST" and "criar_tarefa" in request.POST:
+        form = TarefaForm(request.POST)
         context = {
             "form": form,
         }
