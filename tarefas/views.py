@@ -57,7 +57,6 @@ def quadro(request, id_quadro):
         "usuarios": usuarios,
         "quadros_usuario": quadros_usuario,
         "colunas": colunas,
-        "tarefas": tarefas,
         "tarefas_por_coluna": tarefas_por_coluna,
     }
     if request.method == "GET":
