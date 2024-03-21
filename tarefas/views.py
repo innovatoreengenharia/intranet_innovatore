@@ -177,8 +177,27 @@ def alterar_titulo_coluna(request, id_quadro, id_coluna):
     return redirect("tarefas/quadro", id_quadro)
 
 
+def alterar_tarefa(request, id_quadro, id_tarefa):
+    tarefa = Tarefas.objects.get(id=id_tarefa)
+
+    if request.method == "POST":
+        novo_titulo = request.POST.get("novo_titulo")
+        tarefa.titulo = novo_titulo
+        tarefa.save()
+        return redirect("tarefas/quadro", id_quadro)
+
+    return redirect("tarefas/quadro", id_quadro)
+
+
 def remover_coluna(request, id_quadro, id_coluna):
     coluna = Colunas.objects.get(id=id_coluna)
     coluna.delete()
+
+    return redirect("tarefas/quadro", id_quadro)
+
+
+def remover_tarefa(request, id_quadro, id_tarefa):
+    tarefa = Tarefas.objects.get(id=id_tarefa)
+    tarefa.delete()
 
     return redirect("tarefas/quadro", id_quadro)

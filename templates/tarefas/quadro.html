@@ -193,11 +193,35 @@
 <!-- visualizar Tarefas-->
               
                 <div class="dropzone">
-                  {% for tarefa in tarefas %}
-                    <div class="card-kanban" draggable="true">
+                  {% for tarefa in tarefas %}  
+
+                    <div class="card-kanban" draggable="true" onclick="openModal('modalAlterarTarefa{{ tarefa.id }}')">
                       {% comment %} <img src="{% static 'tarefas/img/card-1.png' %}"> {% endcomment %}
                       <p class="status erros">ERROS</p>
                       <div class="content-card">{{ tarefa.titulo }}</div>
+                    </div>
+<!-- MODAL ALTERAR TAREFA-->
+                    <div class="modal fade" id="modalAlterarTarefa{{ tarefa.id }}" tabindex="-1" role="dialog" aria-labelledby="modalAlterarTarefa{{ tarefa.id }}" aria-hidden="true">
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="modalAlterarTarefa{{ tarefa.id }}">Alterar Tarefa</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                          <div class="modal-body">
+                            <form method="post" action="{% url 'tarefas/alterar_tarefa' quadro.id tarefa.id %}">
+                              {% csrf_token %}
+                              <label for="novo_titulo">Título da Tarefa:</label>
+                              <input type="text" id="novo_titulo" name="novo_titulo" value="{{ tarefa.titulo }}" required>
+                              <br><br>
+                              <button type="submit">Alterar Tarefa</button>
+                            </form>
+                            <button type="text" onclick="remover_tarefa({{ quadro.id }},{{ tarefa.id }})">Deletar Tarefa</button>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   {% endfor %} 
                 </div>
@@ -338,6 +362,21 @@
       }
   }
   limitar_caracteres("titulo-coluna", 12)
+</script>
+
+<script>
+  function remover_tarefa(quadroId, taskId) {
+      if (confirm('Tem certeza que deseja deletar essa tarefa?')) {
+          // Redireciona para a URL de exclusão com o ID da tarefa
+          window.location.href = `/tarefas/remover_tarefa/${quadroId}/${taskId}`;
+      }
+  }
+</script>
+<script>
+  function openModal(modalId) {
+      // Abre o modal correspondente ao modalId
+      $('#' + modalId).modal('show');
+  }
 </script>
 
 {% endblock %}

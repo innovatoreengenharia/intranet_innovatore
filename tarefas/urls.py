@@ -2,12 +2,14 @@ from django.urls import path
 
 from .views import (
     adicionar_participante,
+    alterar_tarefa,
     alterar_titulo_coluna,
     alterar_titulo_quadro,
     quadro,
     remover_coluna,
     remover_participante,
     remover_quadro,
+    remover_tarefa,
     tarefas,
 )
 
@@ -40,8 +42,18 @@ urlpatterns = [
         name="tarefas/alterar_titulo_coluna",
     ),
     path(
+        "alterar_tarefa/<int:id_quadro>/<int:id_tarefa>",
+        alterar_tarefa,
+        name="tarefas/alterar_tarefa",
+    ),
+    path(
         "remover_coluna/<int:id_quadro>/<int:id_coluna>",
         remover_coluna,
         name="tarefas/remover_coluna",
+    ),
+    path(
+        "remover_tarefa/<int:id_quadro>/<int:id_tarefa>",
+        remover_tarefa,
+        name="tarefas/remover_tarefa",
     ),
 ]
