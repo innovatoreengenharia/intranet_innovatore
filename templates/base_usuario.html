@@ -139,7 +139,7 @@
             <li class="nav-item item-menu">
                 <a class="nav-link" href={% url "social" %}>
                     <img src={% static "dashboard/img/social.png" %}>
-                    <span>Social</span></a>
+                    <span>Rede Social</span></a>
             </li>
 
             <li class="nav-item item-menu">
@@ -155,13 +155,13 @@
             </li>
             
             <!-- Divider -->
-            <hr class="sidebar-divider"style="margin-top:3em">
+            {% comment %} <hr class="sidebar-divider"style="margin-top:3em">
 
             <li class="nav-item item-menu"style="margin-top:-0.7em">
                 <a class="nav-link" href="">
                     <img src={% static "dashboard/img/settings-cinza.png" %}>
                     <span class=' configuracao'>Configurações</span></a>
-            </li> 
+            </li>  {% endcomment %}
         </ul>
         <!-- End of Sidebar -->
     </div>

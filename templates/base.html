@@ -257,14 +257,14 @@
                 <li class="nav-item active item-menu">
                     <a class="nav-link" href={% url 'social' %}>
                         <img src={% static "dashboard/img/social-selecionado.png" %}>
-                        <span>Social</span>
+                        <span>Rede Social</span>
                     </a>
                 </li>
             {% else %}
                 <li class="nav-item item-menu">
                     <a class="nav-link" href={% url 'social' %}>
                         <img src={% static "dashboard/img/social.png" %}>
-                        <span>Social</span>
+                        <span>Rede Social</span>
                     </a>
                 </li>
             {% endif %}
@@ -301,13 +301,13 @@
             {% endif %}
 
             <!-- Divider -->
-            <hr class="divisor">
+            {% comment %} <hr class="divisor">
 
             <li class="nav-item item-menu"style="margin-top:-0.7em">
                 <a class="nav-link" href="">
                     <img src={% static "dashboard/img/settings-cinza.png" %}>
                     <span class=' configuracao'>Configurações</span></a>
-            </li> 
+            </li>  {% endcomment %}
 
 
         </ul>
