@@ -506,7 +506,7 @@ h1 {
 .nome {
     position: absolute;
     top: 0px;
-    left: 70px;
+    left: 50px;
     display: inline-block;
     color: #14355E;
     font-size: 16px;
@@ -519,7 +519,7 @@ h1 {
 .tempo-postagem {
     position: absolute;
     top: 24px;
-    left: 70px;
+    left: 50px;
     color: #A4A4A4;
     font-size: 12px;
     font-family: 'Open Sans';
