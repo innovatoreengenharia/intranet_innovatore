@@ -2,6 +2,10 @@ html {
   background-color: #f9f9f9;
 }
 
+.container-mapa {
+  margin-left: 24px;
+}
+
 svg {
   width: 45%;
   height: 84vh;

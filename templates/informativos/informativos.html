@@ -62,10 +62,10 @@
 <button onclick=window.location.href="{% url 'informativos/todas_noticias' %}" class="botao botao-todos">Todas Notícias</button><br><br>
 
 {% if user.is_staff%}
-  <a href={% url 'informativos/criar_noticia' %}>Criar Notícia</a>
+  <a href={% url 'informativos/criar_noticia' %} style="margin-left:32px;">Criar Notícia</a>
 {% endif %}
 
-<div class="container-fluid container-comunicados">
+<div class="container-comunicados">
   <h1>Comunicados</h1>
   <div class="row">
   {% for comunicado in comunicados %}
@@ -100,7 +100,7 @@
 
   <button onclick=window.location.href="{% url 'informativos/todos_comunicados' %}" class="botao botao-todos">Todos Comunicados</button><br><br>
   {% if user.is_staff%}
-    <a href="{% url 'informativos/criar_comunicado' %}">Criar Comunicado</a><br>
+    <a href="{% url 'informativos/criar_comunicado' %}" style="margin-left:32px;">Criar Comunicado</a><br>
   {% endif %}
 
 </div>

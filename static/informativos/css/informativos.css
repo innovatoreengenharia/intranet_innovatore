@@ -141,7 +141,7 @@ a:hover {
 }
 
 .conteudo-thumb {
-  padding: 0px 0px 32px 32px;
+  padding: 0px 0px 32px 12px;
 }
 
 .imagem-thumb {
@@ -154,7 +154,7 @@ a:hover {
 }
 
 .noticias-h1 {
-  margin-left: 20px;
+  margin-left: 0px;
 }
 
 /* carrossel */
@@ -198,10 +198,10 @@ a:hover {
 .prev-button,
 .next-button {
   position: absolute;
-  top: 50%;
+  top: 43%;
   transform: translateY(-50%);
   background-color: transparent;
-  color: gray;
+  color: #ffffff;
   border: none;
   padding: 10px;
   cursor: pointer;
@@ -257,10 +257,11 @@ a:hover {
 .container-comunicados {
   background-color: #F4F4F4;
   padding: 64px;
-  margin-top: 64px;
+  margin: 64px 32px 32px 32px;
+  margin-bottom: 32px;
+
   min-height: 100%;
   padding-left: 0px !important;
-  margin-bottom: 32px;
 }
 
 .container-comunicados h1 {
