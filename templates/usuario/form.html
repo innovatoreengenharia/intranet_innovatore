@@ -31,13 +31,13 @@
     <form method="post" action="{% url 'cadastro' %}" autocomplete='off' enctype='multipart/form-data'>
         {% csrf_token %}
         <div class='row'>
-            <div class="col-3">
-                <label for="id_foto">Foto</label>
-                <input type="file" name="foto" accept="image/*" id="id_foto">
+            <div class="col-4">
+                <label for="id_foto">Foto (500px X 500px)</label>
+                <input type="file" class="form-control form-control-lg form-file" name="foto" accept="image/*" id="id_foto">
             </div>
-            <div class="col-3">
+            <div class="col-4">
                 <label for="id_fundo">Background</label>
-                <input type="file" name="fundo" accept="image/*" id="id_fundo">
+                <input type="file" class="form-control form-control-lg form-file" name="fundo" accept="image/*" id="id_fundo">
             </div>
             <input type="hidden" name="usuario" required="" id="id_usuario" value={{usuario_id}} class="col-4">
         </div>

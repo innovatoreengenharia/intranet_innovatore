@@ -11,13 +11,13 @@
         {% csrf_token %}
         
         <div class='row'>
-            <div class="col-3">
-                <label for="id_foto">Foto</label>
-                <input type="file" name="foto" accept="image/*" id="id_foto" class="form-control"value='{{form.foto.value}}'>
+            <div class="col-4">
+                <label for="id_foto">Foto (500px X 500px)</label>
+                <input type="file" name="foto" accept="image/*" id="id_foto" class="form-control form-control-lg form-file" value='{{form.foto.value}}'>
             </div>
-            <div class="col-3">
+            <div class="col-4">
                 <label for="id_fundo">Background</label>
-                <input type="file" name="fundo" accept="image/*" id="id_fundo" class="form-control"value='{{form.fundo.value}}'>
+                <input type="file" name="fundo" accept="image/*" id="id_fundo" class="form-control form-control-lg form-file" value='{{form.fundo.value}}'>
             </div>
             <input type="hidden" name="usuario" required="" id="id_usuario" value={{usuario_id}} class="col-4">
         </div>
@@ -456,7 +456,7 @@
             {% if not fc.descricao_curso.value %}
             <div class="form-group col-12">
                 <label for="{{ fc.descricao_curso.id_for_label }}" >Descrição</label>
-                <textarea type="text" name="{{fc.descricao_curso.html_name}}" placeholder="Escreva sobre seus anos de experiência, setor ou competências."  class="form-control" id="{{fc.descricao_curso.id}}"></textarea>
+                <textarea type="text" name="{{fc.descricao_curso.html_name}}" placeholder="Escreva sobre seus anos de experiência, setor ou competências."  class="form-control text-area" id="{{fc.descricao_curso.id}}"></textarea>
             </div>
             {% else %}
             <div class="form-group col-12">

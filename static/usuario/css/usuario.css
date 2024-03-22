@@ -172,6 +172,14 @@ input:-ms-input-placeholder {
     box-shadow: 1px 1px 1px 0px rgba(0, 0, 0, 0.06);
 }
 
+.container-cadastro .form-file {
+    height: auto;
+}
+
+.container-edit .form-file {
+    height: auto;
+}
+
 .container-cadastro select {
     height: 2.25em;
     border: 1px solid var(--preto-preto-100, #E8E8E8);
@@ -201,7 +209,7 @@ input:-ms-input-placeholder {
 }
 
 .container-edit textarea {
-    height: 4.5rem;
+    height: 9rem;
 }
 
 .apresentacao {
