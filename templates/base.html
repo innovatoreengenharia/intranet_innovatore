@@ -271,14 +271,14 @@
 
             {% if 'cursos/' in url_name %}
                 <li class="nav-item active item-menu">
-                    <a class="nav-link" href={% url 'cursos' %}>
+                    <a class="nav-link" href={% url 'cursos/' %}>
                         <img src={% static "dashboard/img/cursos-selecionado.png" %}>
                         <span>Cursos</span>
                     </a>
                 </li>
             {% else %}
                 <li class="nav-item item-menu">
-                    <a class="nav-link" href={% url 'cursos' %}>
+                    <a class="nav-link" href={% url 'cursos/' %}>
                         <img src={% static "dashboard/img/cursos.png" %}>
                         <span>Cursos</span>
                     </a>
