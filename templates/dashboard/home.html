@@ -181,6 +181,7 @@
                                 <div class="container-comentarios">
                                     <div  id="chat-log-{{post.id}}">
                                     {% with comentario=post.comentarios_set.all.last %}
+                                        {% if comentario %}
                                         <div class="texto-comentario">
                                             {% if not comentario.user.foto %}
                                                 {% if comentario.user.sexo == 'feminino' %}
@@ -195,6 +196,7 @@
                                             <p class="nome-comentario">{{comentario.user.nome}} {{ comentario.user.sobrenome }}</p>
                                             <p class="texto-comentario-p">{{ comentario.texto_comentario }}</p>
                                         </div>
+                                        {% endif %}
                                     {% endwith %}
                                     </div>
                                 </div>
