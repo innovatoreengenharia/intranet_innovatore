@@ -164,6 +164,7 @@ html {
     text-align: left;
     color: #464646;
     margin-bottom: 24px;
+    white-space: pre-wrap;
 }
 
 .icones-post {

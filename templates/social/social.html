@@ -8,7 +8,7 @@
 {% block icones %}
     <div class="icones">
         <img class="icone-dash" src="{% static 'cartao_visitas/img/icone-visitas.png' %}">
-        <p>Social / </p>
+        <p>Rede Social / </p>
         {% comment %} <img class="icone-menu" src="{% static 'dashboard/img/menu-cinza.png' %}"> {% endcomment %}
     </div>
 {% endblock %}
@@ -16,7 +16,7 @@
 {% block content %}
 
 <div class="container-fluid primeira-linha">
-    <h1 class="text-left ml-2 mb-2">Social</h1>
+    <h1 class="text-left ml-2 mb-2">Rede Social</h1>
     <button class="adicionar">+</button>
 </div>
 
@@ -30,7 +30,7 @@
             <input type="file" name="img" accept="image/*" id="imagem" class="form-control imagem-postagem">
 
             <label for="texto_postagem">Texto</label>
-            <input type="text" class="form-control texto-postagem" name="texto_postagem" placeholder="Digite o Texto da Postagem" id="texto_postagem" required="">
+            <textarea type="text" class="form-control texto-postagem" name="texto_postagem" placeholder="Digite o Texto da Postagem" id="texto_postagem" required=""></textarea>
             <button type="submit" class="botao" name="form_post">Postar</button>
         <button class="fechar botao">Cancelar</button>
     </form>
@@ -97,7 +97,7 @@
                     <input type="file" name="img" accept="image/*" id="imagem" class="form-control imagem-postagem" value={{post.img}}>
         
                     <label for="texto_postagem">Texto</label>
-                    <input type="text" class="form-control texto-postagem" name="texto_postagem" id="texto_postagem" required="" value="{{post.texto_postagem}}">
+                    <textarea type="text" class="form-control texto-postagem" name="texto_postagem" id="texto_postagem" required="">{{post.texto_postagem}}</textarea>
                     <button type="submit" class="botao" name="form_post">Editar</button>
                     <button type="button"class="fechar_editar_postagem botao" data-post-id="{{post.id}}">Cancelar</button>
                 </form>
@@ -106,7 +106,7 @@
     </div>
 
     {% if post.texto_postagem %}
-        <p class="descricao">{{post.texto_postagem}}</p>
+        <pre class="descricao">{{post.texto_postagem|safe}}</pre>
     {% endif %}
 
     {% if post.img %}

@@ -596,6 +596,17 @@ h1 {
     overflow-x: hidden;
 }
 
+.descricao {
+    color: #464646;
+    white-space: pre-wrap;
+    font-family: 'Open Sans';
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: left;
+
+}
+
 .link-rede-social:hover {
     text-decoration: none;
     color: #14355E;

@@ -28,7 +28,7 @@
     <h5>Resumo</h5>
     {% if not perfil.texto_experiencia%}
         <p></p>
-    {%else %}
+    {% else %}
         <pre>{{ perfil.texto_experiencia|safe }}</pre>
         <br>
     {% endif %}
@@ -38,7 +38,7 @@
     {%if not perfil.cargo %}
         <p></p>
     {% else %}
-        <p>{{ perfil.cargo }}, {{ hoje|timeuntil:perfil.data_mudanca }}<br>
+        <p>{{ perfil.cargo }}, {{ hoje|timeuntil:perfil.data_inicio }}<br>
         {{ perfil.obra_trabalho }}, {{ perfil.cidade_trabalho }}, {{perfil.estado_trabalho }}</p>
     {% endif %}
 

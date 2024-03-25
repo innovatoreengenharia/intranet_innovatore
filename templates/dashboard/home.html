@@ -33,7 +33,7 @@
             <!-- Apresentação -->
             <div class="col-xl-4 col-md-6 mb-4">
                 <div class="apresentacao borda">
-                    <h1 style="color: white;">Oi {{perfil.nome}}!</h1>
+                    <h1 style="color: white;">Oi, {{perfil.nome}}!</h1>
                     <p>Estamos desenvolvendo novas experiências para nossos colaboradores, esperamos que goste do novo ambiente interno de comunicação da Innovatore Engenharia. Em breve traremos mais novidades nesta plataforma. Acompanhe as novidades em nosso card de notícias.</p>
                 </div>
             </div>
@@ -161,7 +161,7 @@
                                 </div>
                             
                                 {% if post.texto_postagem %}
-                                    <p class="descricao">{{post.texto_postagem}}</p>
+                                    <pre class="descricao">{{post.texto_postagem|safe}}</pre>
                                 {% endif %}
                             
                                 {% if post.img %}

@@ -119,7 +119,7 @@
         <br>
 
         <div class="row">
-            {% if not perfil.cargo_inicial%}
+            {% comment %} {% if not perfil.cargo_inicial%}
             <div class="form-group col-3">
                 <label for="id_cargo_inicial">Cargo Inicial</label>
                 <input type="text" name="cargo_inicial" id="id_cargo_inicial"  class="form-control" placeholder="Digite a cargo que você iniciou na empresa">
@@ -129,16 +129,16 @@
                 <label for="id_cargo_inicial">Cargo Inicial</label>
                 <input type="text" name="cargo_inicial" class="form-control" id="id_cargo_inicial"value='{{form.cargo_inicial.value}}'>
             </div>
-            {% endif %}
+            {% endif %} {% endcomment %}
 
             {% if not perfil.cargo %}
             <div class="form-group col-3">
-                <label for="id_cargo">Cargo</label>
+                <label for="id_cargo">Cargo Atual</label>
                 <input type="text" name="cargo" id="id_cargo" class="form-control" placeholder="Digite a sua função atual">
             </div>
             {% else %}
             <div class="form-group col-3">
-                <label for="id_cargo">Cargo</label>
+                <label for="id_cargo">Cargo Atual</label>
                 <input type="text" name="cargo" class="form-control"id="id_cargo"value='{{form.cargo.value}}'>
             </div>
             {% endif %}
@@ -184,10 +184,10 @@
                 <input type="date" name="data_inicio" value="{{ form.data_inicio.value|date:'Y-m-d' }}" class="form-control"id="form.data_inicio.id_for_label">
             </div>
 
-            <div class="form-group col-2">
+            {% comment %} <div class="form-group col-2">
                 <label for="{{ form.data_mudanca.id_for_label }}" >Data da mudança de Cargo</label>
                 <input type="date" name="data_mudanca" value="{{form.data_mudanca.value|date:'Y-m-d'}}" class="form-control" id="form.data_mudanca.id_for_label">
-            </div>
+            </div> {% endcomment %}
 
 
             <div class="form-group col-3">

@@ -116,7 +116,7 @@ input:-ms-input-placeholder {
 }
 
 .container-edit select {
-    height: 2.25em;
+    height: 48px;
     border: 1px solid var(--preto-preto-100, #E8E8E8);
     color: black;
     box-shadow: 1px 1px 1px 0px rgba(0, 0, 0, 0.06);
