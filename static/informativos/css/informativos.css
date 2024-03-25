@@ -257,7 +257,7 @@ a:hover {
 .container-comunicados {
   background-color: #F4F4F4;
   padding: 64px;
-  margin: 64px 32px 32px 32px;
+  margin: 64px 32px 32px 0px;
   margin-bottom: 32px;
 
   min-height: 100%;
