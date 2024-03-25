@@ -64,18 +64,29 @@
                 <img class="foto-perfil" src="{{ usuario.foto.url }}" />
               {% endif %} {{ usuario.nome }} {{ usuario.sobrenome }}
             </td>
+
             {% if not usuario.cargo %}
-            <td></td>
+              <td></td>
             {% else %}
-            <td>{{ usuario.cargo }}</td>
+              <td>{{ usuario.cargo }}</td>
             {% endif %}
 
-            <td>{{ usuario.contato }}</td>
-            <td>{{ usuario.email_empresa }}</td>
-            {% if not usuario.obra_trabalho %}
-            <td></td>
+            {% if not usuario.contato %}
+              <td></td>
             {% else %}
-            <td>{{ usuario.obra_trabalho }}</td>
+              <td>{{ usuario.contato }}</td>
+            {% endif %}
+
+            {% if not usuario.email %}
+              <td></td>
+            {% else %}
+              <td>{{ usuario.email_empresa }}</td>
+            {% endif %}
+
+            {% if not usuario.obra_trabalho %}
+              <td></td>
+            {% else %}
+              <td>{{ usuario.obra_trabalho }}</td>
             {% endif %}
           </tr>
           {% endfor %}
