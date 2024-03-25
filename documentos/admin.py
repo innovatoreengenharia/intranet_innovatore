@@ -4,7 +4,7 @@ from .models import (
     PMO,
     TI,
     Comercial,
-    Controladoria,
+    Controladoria,  # Vendas,
     DepartamentoPessoal,
     DocumentosGerais,
     Engenharia,
@@ -20,7 +20,6 @@ from .models import (
     SegurancaDoTrabalho,
     Sistemas,
     Suprimentos,
-    Vendas,
 )
 
 
@@ -384,24 +383,24 @@ class ListandoTI(admin.ModelAdmin):
 admin.site.register(TI, ListandoTI)
 
 
-class ListandoVendas(admin.ModelAdmin):
-    list_display = ("codigo", "nome", "doc", "modificado", "tipo")
-    list_display_links = (
-        "codigo",
-        "nome",
-    )
-    search_fields = (
-        "codigo",
-        "nome",
-    )
-    list_filter = (
-        "codigo",
-        "nome",
-    )
-    list_per_page = 10
+# class ListandoVendas(admin.ModelAdmin):
+#     list_display = ("codigo", "nome", "doc", "modificado", "tipo")
+#     list_display_links = (
+#         "codigo",
+#         "nome",
+#     )
+#     search_fields = (
+#         "codigo",
+#         "nome",
+#     )
+#     list_filter = (
+#         "codigo",
+#         "nome",
+#     )
+#     list_per_page = 10
 
 
-admin.site.register(Vendas, ListandoVendas)
+# admin.site.register(Vendas, ListandoVendas)
 
 
 class ListandoDocumentosGerais(admin.ModelAdmin):

@@ -10,7 +10,7 @@ from .models import (
     PMO,
     TI,
     Comercial,
-    Controladoria,
+    Controladoria,  # Vendas,
     DepartamentoPessoal,
     DocumentosGerais,
     Engenharia,
@@ -26,7 +26,6 @@ from .models import (
     SegurancaDoTrabalho,
     Sistemas,
     Suprimentos,
-    Vendas,
 )
 
 
