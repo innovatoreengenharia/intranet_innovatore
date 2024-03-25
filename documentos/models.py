@@ -15,8 +15,8 @@ class Comercial(models.Model):
     class Meta:
         verbose_name_plural = "Comercial"
 
-    codigo = models.CharField(max_length=50, default="")
-    nome = models.CharField(max_length=50, null=False, blank=False)
+    codigo = models.CharField(max_length=150, default="")
+    nome = models.CharField(max_length=150, null=False, blank=False)
     modificado = models.DateTimeField(default=datetime.now, blank=False)
     tipo = models.CharField(max_length=150, choices=OPC_DOC, default="PDF")
     doc = models.FileField(upload_to="comercial/", blank=False, null=False)
@@ -29,8 +29,8 @@ class Controladoria(models.Model):
     class Meta:
         verbose_name_plural = "Controladoria"
 
-    codigo = models.CharField(max_length=50, default="")
-    nome = models.CharField(max_length=50, null=False, blank=False)
+    codigo = models.CharField(max_length=150, default="")
+    nome = models.CharField(max_length=150, null=False, blank=False)
     modificado = models.DateTimeField(default=datetime.now, blank=False)
     tipo = models.CharField(max_length=150, choices=OPC_DOC, default="PDF")
     doc = models.FileField(upload_to="controladoria/", blank=False, null=False)
@@ -43,8 +43,8 @@ class DepartamentoPessoal(models.Model):
     class Meta:
         verbose_name_plural = "Departamento Pessoal"
 
-    codigo = models.CharField(max_length=50, default="")
-    nome = models.CharField(max_length=50, null=False, blank=False)
+    codigo = models.CharField(max_length=150, default="")
+    nome = models.CharField(max_length=150, null=False, blank=False)
     modificado = models.DateTimeField(default=datetime.now, blank=False)
     tipo = models.CharField(max_length=150, choices=OPC_DOC, default="PDF")
     doc = models.FileField(
@@ -59,8 +59,8 @@ class Engenharia(models.Model):
     class Meta:
         verbose_name_plural = "Engenharia"
 
-    codigo = models.CharField(max_length=50, default="")
-    nome = models.CharField(max_length=50, null=False, blank=False)
+    codigo = models.CharField(max_length=150, default="")
+    nome = models.CharField(max_length=150, null=False, blank=False)
     modificado = models.DateTimeField(default=datetime.now, blank=False)
     tipo = models.CharField(max_length=150, choices=OPC_DOC, default="PDF")
     doc = models.FileField(upload_to="engenharia/", blank=False, null=False)
@@ -73,8 +73,8 @@ class Financeiro(models.Model):
     class Meta:
         verbose_name_plural = "Financeiro"
 
-    codigo = models.CharField(max_length=50, default="")
-    nome = models.CharField(max_length=50, null=False, blank=False)
+    codigo = models.CharField(max_length=150, default="")
+    nome = models.CharField(max_length=150, null=False, blank=False)
     modificado = models.DateTimeField(default=datetime.now, blank=False)
     tipo = models.CharField(max_length=150, choices=OPC_DOC, default="PDF")
     doc = models.FileField(upload_to="financeiro/", blank=False, null=False)
@@ -87,8 +87,8 @@ class Fiscal(models.Model):
     class Meta:
         verbose_name_plural = "Fiscal"
 
-    codigo = models.CharField(max_length=50, default="")
-    nome = models.CharField(max_length=50, null=False, blank=False)
+    codigo = models.CharField(max_length=150, default="")
+    nome = models.CharField(max_length=150, null=False, blank=False)
     modificado = models.DateTimeField(default=datetime.now, blank=False)
     tipo = models.CharField(max_length=150, choices=OPC_DOC, default="PDF")
     doc = models.FileField(upload_to="fiscal/", blank=False, null=False)
@@ -101,8 +101,8 @@ class Juridico(models.Model):
     class Meta:
         verbose_name_plural = "Jurídico"
 
-    codigo = models.CharField(max_length=50, default="")
-    nome = models.CharField(max_length=50, null=False, blank=False)
+    codigo = models.CharField(max_length=150, default="")
+    nome = models.CharField(max_length=150, null=False, blank=False)
     modificado = models.DateTimeField(default=datetime.now, blank=False)
     tipo = models.CharField(max_length=150, choices=OPC_DOC, default="PDF")
     doc = models.FileField(upload_to="juridico/", blank=False, null=False)
@@ -115,8 +115,8 @@ class Logistica(models.Model):
     class Meta:
         verbose_name_plural = "Logística"
 
-    codigo = models.CharField(max_length=50, default="")
-    nome = models.CharField(max_length=50, null=False, blank=False)
+    codigo = models.CharField(max_length=150, default="")
+    nome = models.CharField(max_length=150, null=False, blank=False)
     modificado = models.DateTimeField(default=datetime.now, blank=False)
     tipo = models.CharField(max_length=150, choices=OPC_DOC, default="PDF")
     doc = models.FileField(upload_to="logistica/", blank=False, null=False)
@@ -129,8 +129,8 @@ class Marketing(models.Model):
     class Meta:
         verbose_name_plural = "Marketing"
 
-    codigo = models.CharField(max_length=50, default="")
-    nome = models.CharField(max_length=50, null=False, blank=False)
+    codigo = models.CharField(max_length=150, default="")
+    nome = models.CharField(max_length=150, null=False, blank=False)
     modificado = models.DateTimeField(default=datetime.now, blank=False)
     tipo = models.CharField(max_length=150, choices=OPC_DOC, default="PDF")
     doc = models.FileField(upload_to="marketing/", blank=False, null=False)
@@ -143,8 +143,8 @@ class MeioAmbiente(models.Model):
     class Meta:
         verbose_name_plural = "Meio Ambiente"
 
-    codigo = models.CharField(max_length=50, default="")
-    nome = models.CharField(max_length=50, null=False, blank=False)
+    codigo = models.CharField(max_length=150, default="")
+    nome = models.CharField(max_length=150, null=False, blank=False)
     modificado = models.DateTimeField(default=datetime.now, blank=False)
     tipo = models.CharField(max_length=150, choices=OPC_DOC, default="PDF")
     doc = models.FileField(upload_to="meio_ambiente/", blank=False, null=False)
@@ -157,8 +157,8 @@ class Orcamentos(models.Model):
     class Meta:
         verbose_name_plural = "Orçamentos"
 
-    codigo = models.CharField(max_length=50, default="")
-    nome = models.CharField(max_length=50, null=False, blank=False)
+    codigo = models.CharField(max_length=150, default="")
+    nome = models.CharField(max_length=150, null=False, blank=False)
     modificado = models.DateTimeField(default=datetime.now, blank=False)
     tipo = models.CharField(max_length=150, choices=OPC_DOC, default="PDF")
     doc = models.FileField(upload_to="orcamentos/", blank=False, null=False)
@@ -171,8 +171,8 @@ class PMO(models.Model):
     class Meta:
         verbose_name_plural = "P.M.O."
 
-    codigo = models.CharField(max_length=50, default="")
-    nome = models.CharField(max_length=50, null=False, blank=False)
+    codigo = models.CharField(max_length=150, default="")
+    nome = models.CharField(max_length=150, null=False, blank=False)
     modificado = models.DateTimeField(default=datetime.now, blank=False)
     tipo = models.CharField(max_length=150, choices=OPC_DOC, default="PDF")
     doc = models.FileField(upload_to="pmo/", blank=False, null=False)
@@ -185,8 +185,8 @@ class Qualidade(models.Model):
     class Meta:
         verbose_name_plural = "Qualidade"
 
-    codigo = models.CharField(max_length=50, default="")
-    nome = models.CharField(max_length=50, null=False, blank=False)
+    codigo = models.CharField(max_length=150, default="")
+    nome = models.CharField(max_length=150, null=False, blank=False)
     modificado = models.DateTimeField(default=datetime.now, blank=False)
     tipo = models.CharField(max_length=150, choices=OPC_DOC, default="PDF")
     doc = models.FileField(upload_to="qualidade/", blank=False, null=False)
@@ -199,8 +199,8 @@ class RecursosHumanos(models.Model):
     class Meta:
         verbose_name_plural = "Recursos Humanos"
 
-    codigo = models.CharField(max_length=50, default="")
-    nome = models.CharField(max_length=50, null=False, blank=False)
+    codigo = models.CharField(max_length=150, default="")
+    nome = models.CharField(max_length=150, null=False, blank=False)
     modificado = models.DateTimeField(default=datetime.now, blank=False)
     tipo = models.CharField(max_length=150, choices=OPC_DOC, default="PDF")
     doc = models.FileField(upload_to="rh/", blank=False, null=False)
@@ -213,8 +213,8 @@ class SegurancaDoTrabalho(models.Model):
     class Meta:
         verbose_name_plural = "Segurança do Trabalho"
 
-    codigo = models.CharField(max_length=50, default="")
-    nome = models.CharField(max_length=50, null=False, blank=False)
+    codigo = models.CharField(max_length=150, default="")
+    nome = models.CharField(max_length=150, null=False, blank=False)
     modificado = models.DateTimeField(default=datetime.now, blank=False)
     tipo = models.CharField(max_length=150, choices=OPC_DOC, default="PDF")
     doc = models.FileField(
@@ -229,8 +229,8 @@ class Sistemas(models.Model):
     class Meta:
         verbose_name_plural = "Sistemas"
 
-    codigo = models.CharField(max_length=50, default="")
-    nome = models.CharField(max_length=50, null=False, blank=False)
+    codigo = models.CharField(max_length=150, default="")
+    nome = models.CharField(max_length=150, null=False, blank=False)
     modificado = models.DateTimeField(default=datetime.now, blank=False)
     tipo = models.CharField(max_length=150, choices=OPC_DOC, default="PDF")
     doc = models.FileField(upload_to="sistemas/", blank=False, null=False)
@@ -243,8 +243,8 @@ class Suprimentos(models.Model):
     class Meta:
         verbose_name_plural = "Suprimentos"
 
-    codigo = models.CharField(max_length=50, default="")
-    nome = models.CharField(max_length=50, null=False, blank=False)
+    codigo = models.CharField(max_length=150, default="")
+    nome = models.CharField(max_length=150, null=False, blank=False)
     modificado = models.DateTimeField(default=datetime.now, blank=False)
     tipo = models.CharField(max_length=150, choices=OPC_DOC, default="PDF")
     doc = models.FileField(upload_to="suprimentos/", blank=False, null=False)
@@ -257,8 +257,8 @@ class TI(models.Model):
     class Meta:
         verbose_name_plural = "T.I."
 
-    codigo = models.CharField(max_length=50, default="")
-    nome = models.CharField(max_length=50, null=False, blank=False)
+    codigo = models.CharField(max_length=150, default="")
+    nome = models.CharField(max_length=150, null=False, blank=False)
     modificado = models.DateTimeField(default=datetime.now, blank=False)
     tipo = models.CharField(max_length=150, choices=OPC_DOC, default="PDF")
     doc = models.FileField(upload_to="ti/", blank=False, null=False)
@@ -271,8 +271,8 @@ class Vendas(models.Model):
     class Meta:
         verbose_name_plural = "Vendas"
 
-    codigo = models.CharField(max_length=50, default="")
-    nome = models.CharField(max_length=50, null=False, blank=False)
+    codigo = models.CharField(max_length=150, default="")
+    nome = models.CharField(max_length=150, null=False, blank=False)
     modificado = models.DateTimeField(default=datetime.now, blank=False)
     tipo = models.CharField(max_length=150, choices=OPC_DOC, default="PDF")
     doc = models.FileField(upload_to="vendas/", blank=False, null=False)
@@ -285,8 +285,8 @@ class DocumentosGerais(models.Model):
     class Meta:
         verbose_name_plural = "Documentos Gerais"
 
-    codigo = models.CharField(max_length=50, default="")
-    nome = models.CharField(max_length=50, null=False, blank=False)
+    codigo = models.CharField(max_length=150, default="")
+    nome = models.CharField(max_length=150, null=False, blank=False)
     modificado = models.DateTimeField(default=datetime.now, blank=False)
     tipo = models.CharField(max_length=150, choices=OPC_DOC, default="PDF")
     doc = models.FileField(
