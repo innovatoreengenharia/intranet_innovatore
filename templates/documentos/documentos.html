@@ -58,7 +58,7 @@
             <h1>Qualidade</h1>
         </a>
         <a href="{% url 'documentos/recursos_humanos' %}" class=" cartao rh">
-            <h2>R.H.</h2>
+            <h2>Gestão de Pessoas</h2>
         </a>
         <a href="{% url 'documentos/seguranca_do_trabalho' %}" class=" cartao seguranca">
             <h1>Segurança do Trabalho</h1>
@@ -72,9 +72,9 @@
         <a href="{% url 'documentos/ti' %}" class=" cartao ti">
             <h1>T.I.</h1>
         </a>
-        <a href="{% url 'documentos/vendas' %}" class=" cartao vendas">
+        {% comment %} <a href="{% url 'documentos/vendas' %}" class=" cartao vendas">
             <h2>Vendas</h2>
-        </a>
+        </a> {% endcomment %}
         <a href="{% url 'documentos/documentos_gerais' %}" class=" cartao documentos-gerais">
             <h1>Documentos Gerais</h1>
         </a>

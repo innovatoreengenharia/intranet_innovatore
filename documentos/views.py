@@ -206,7 +206,7 @@ def recursos_humanos(request):
             request,
             RecursosHumanos,
             "documentos/recursos_humanos",
-            "Recursos Humanos",
+            "Gestão de Pessoas",
         ),
     )
 
@@ -250,12 +250,12 @@ def ti(request):
     )
 
 
-def vendas(request):
-    return render(
-        request,
-        "documentos/doc.html",
-        render_model(request, Vendas, "documentos/vendas", "Vendas"),
-    )
+# def vendas(request):
+#     return render(
+#         request,
+#         "documentos/doc.html",
+#         render_model(request, Vendas, "documentos/vendas", "Vendas"),
+#     )
 
 
 def documentos_gerais(request):

@@ -3,7 +3,7 @@ from django.urls import path
 from .views import (
     comercial,
     controladoria,
-    departamento_pessoal,
+    departamento_pessoal,  # vendas,
     documentos,
     documentos_gerais,
     engenharia,
@@ -21,7 +21,6 @@ from .views import (
     sistemas,
     suprimentos,
     ti,
-    vendas,
 )
 
 urlpatterns = [
@@ -56,7 +55,7 @@ urlpatterns = [
     path("sistemas/", sistemas, name="documentos/sistemas"),
     path("suprimentos/", suprimentos, name="documentos/suprimentos"),
     path("ti/", ti, name="documentos/ti"),
-    path("vendas/", vendas, name="documentos/vendas"),
+    # path("vendas/", vendas, name="documentos/vendas"),
     path(
         "documentos_gerais/",
         documentos_gerais,
