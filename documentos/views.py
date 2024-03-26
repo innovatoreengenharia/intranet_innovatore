@@ -62,9 +62,9 @@ def render_model(request, modelo, url, nome):
     lista = []
     for i in page:
         # Ambiente de desenvolvimento
-        sz = Path(f"media/{i.doc.name}").stat().st_size
+        # sz = Path(f"media/{i.doc.name}").stat().st_size
         # Ambinte de produção
-        # sz = Path(f"intranet_innovatore/media/{i.doc.name}").stat().st_size
+        sz = Path(f"intranet_innovatore/media/{i.doc.name}").stat().st_size
         lista.append(sz)
     lista_completa = zip(page, lista)
 
