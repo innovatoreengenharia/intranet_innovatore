@@ -10,8 +10,8 @@ from .models import (
     PMO,
     TI,
     Comercial,
-    Controladoria,  # Vendas,
-    DepartamentoPessoal,
+    Controladoria,
+    Diretoria,
     DocumentosGerais,
     Engenharia,
     Financeiro,
@@ -62,9 +62,9 @@ def render_model(request, modelo, url, nome):
     lista = []
     for i in page:
         # Ambiente de desenvolvimento
-        # sz = Path(f"media/{i.doc.name}").stat().st_size
+        sz = Path(f"media/{i.doc.name}").stat().st_size
         # Ambinte de produção
-        sz = Path(f"intranet_innovatore/media/{i.doc.name}").stat().st_size
+        # sz = Path(f"intranet_innovatore/media/{i.doc.name}").stat().st_size
         lista.append(sz)
     lista_completa = zip(page, lista)
 
@@ -96,16 +96,11 @@ def controladoria(request):
     )
 
 
-def departamento_pessoal(request):
+def diretoria(request):
     return render(
         request,
         "documentos/doc.html",
-        render_model(
-            request,
-            DepartamentoPessoal,
-            "documentos/departamento_pessoal",
-            "Departamento Pessoal",
-        ),
+        render_model(request, Diretoria, "documentos/diretoria", "Diretoria"),
     )
 
 

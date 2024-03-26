@@ -4,8 +4,8 @@ from .models import (
     PMO,
     TI,
     Comercial,
-    Controladoria,  # Vendas,
-    DepartamentoPessoal,
+    Controladoria,
+    Diretoria,
     DocumentosGerais,
     Engenharia,
     Financeiro,
@@ -43,6 +43,26 @@ class ListandoComercial(admin.ModelAdmin):
 admin.site.register(Comercial, ListandoComercial)
 
 
+class ListandoDiretoria(admin.ModelAdmin):
+    list_display = ("codigo", "nome", "doc", "modificado", "tipo")
+    list_display_links = (
+        "codigo",
+        "nome",
+    )
+    search_fields = (
+        "codigo",
+        "nome",
+    )
+    list_filter = (
+        "codigo",
+        "nome",
+    )
+    list_per_page = 10
+
+
+admin.site.register(Diretoria, ListandoDiretoria)
+
+
 class ListandoControladoria(admin.ModelAdmin):
     list_display = ("codigo", "nome", "doc", "modificado", "tipo")
     list_display_links = (
@@ -61,26 +81,6 @@ class ListandoControladoria(admin.ModelAdmin):
 
 
 admin.site.register(Controladoria, ListandoControladoria)
-
-
-class ListandoDepartamentoPessoal(admin.ModelAdmin):
-    list_display = ("codigo", "nome", "doc", "modificado", "tipo")
-    list_display_links = (
-        "codigo",
-        "nome",
-    )
-    search_fields = (
-        "codigo",
-        "nome",
-    )
-    list_filter = (
-        "codigo",
-        "nome",
-    )
-    list_per_page = 10
-
-
-admin.site.register(DepartamentoPessoal, ListandoDepartamentoPessoal)
 
 
 class ListandoEngenharia(admin.ModelAdmin):
@@ -381,26 +381,6 @@ class ListandoTI(admin.ModelAdmin):
 
 
 admin.site.register(TI, ListandoTI)
-
-
-# class ListandoVendas(admin.ModelAdmin):
-#     list_display = ("codigo", "nome", "doc", "modificado", "tipo")
-#     list_display_links = (
-#         "codigo",
-#         "nome",
-#     )
-#     search_fields = (
-#         "codigo",
-#         "nome",
-#     )
-#     list_filter = (
-#         "codigo",
-#         "nome",
-#     )
-#     list_per_page = 10
-
-
-# admin.site.register(Vendas, ListandoVendas)
 
 
 class ListandoDocumentosGerais(admin.ModelAdmin):

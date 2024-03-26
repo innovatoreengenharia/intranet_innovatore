@@ -39,17 +39,15 @@ class Controladoria(models.Model):
         return self.nome
 
 
-class DepartamentoPessoal(models.Model):
+class Diretoria(models.Model):
     class Meta:
-        verbose_name_plural = "Departamento Pessoal"
+        verbose_name_plural = "Diretoria"
 
     codigo = models.CharField(max_length=150, default="")
     nome = models.CharField(max_length=150, null=False, blank=False)
     modificado = models.DateTimeField(default=datetime.now, blank=False)
     tipo = models.CharField(max_length=150, choices=OPC_DOC, default="PDF")
-    doc = models.FileField(
-        upload_to="departamento_pessoal/", blank=False, null=False
-    )
+    doc = models.FileField(upload_to="diretoria/", blank=False, null=False)
 
     def __str__(self):
         return self.nome
@@ -265,20 +263,6 @@ class TI(models.Model):
 
     def __str__(self):
         return self.nome
-
-
-# class Vendas(models.Model):
-#     class Meta:
-#         verbose_name_plural = "Vendas"
-
-#     codigo = models.CharField(max_length=150, default="")
-#     nome = models.CharField(max_length=150, null=False, blank=False)
-#     modificado = models.DateTimeField(default=datetime.now, blank=False)
-#     tipo = models.CharField(max_length=150, choices=OPC_DOC, default="PDF")
-#     doc = models.FileField(upload_to="vendas/", blank=False, null=False)
-
-#     def __str__(self):
-#         return self.nome
 
 
 class DocumentosGerais(models.Model):

@@ -64,11 +64,11 @@ a:hover {
     background-image: url("../img/controladoria.png")
 }
 
-.dp {
+.diretoria {
     background-size: cover;
     background-repeat: no-repeat;
     padding: 24px 0px 24px 0px;
-    background-image: url("../img/dp.png")
+    background-image: url("../img/diretoria.png")
 }
 
 .engenharia {
