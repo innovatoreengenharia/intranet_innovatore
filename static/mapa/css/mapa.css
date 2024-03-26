@@ -168,3 +168,9 @@ path:hover {
   text-align: left;
   color: #000;
 }
+
+.container-colaboradores {
+  max-height: 270px;
+  overflow: auto;
+  overflow-x: hidden;
+}
