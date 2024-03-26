@@ -12,4 +12,3 @@ bin/
 .vscode-test-web/
 .pyc
 media/
-documentos/migrations/
