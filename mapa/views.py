@@ -13,30 +13,39 @@ def mapa(request):
     # MARANHÃO -
     colaboradores_cibra = Perfil.objects.filter(
         obra_trabalho__icontains="cibra"
-    )
+    ).order_by("?")
     # SÃO PAULO
     colaboradores_zortea = Perfil.objects.filter(
         obra_trabalho__icontains="zortea"
-    )
+    ).order_by("?")
 
     colaboradores_ajinomoto = Perfil.objects.filter(
         obra_trabalho__icontains="ajinomoto"
-    )
+    ).order_by("?")
+
     colaboradores_rousselot = Perfil.objects.filter(
         obra_trabalho__icontains="rousselot"
-    )
+    ).order_by("?")
+
     colaboradores_agropalma = Perfil.objects.filter(
         obra_trabalho__icontains="agropalma"
-    )
-    colaboradores_cobb = Perfil.objects.filter(obra_trabalho__icontains="cobb")
+    ).order_by("?")
+
+    colaboradores_cobb = Perfil.objects.filter(
+        obra_trabalho__icontains="cobb"
+    ).order_by("?")
 
     colaboradores_meapler = Perfil.objects.filter(
         obra_trabalho__icontains="meapler"
-    )
+    ).order_by("?")
 
-    colaboradores_gps = Perfil.objects.filter(obra_trabalho__icontains="gps")
+    colaboradores_gps = Perfil.objects.filter(
+        obra_trabalho__icontains="gps"
+    ).order_by("?")
 
-    colaboradores_sede = Perfil.objects.filter(obra_trabalho__icontains="sede")
+    colaboradores_sede = Perfil.objects.filter(
+        obra_trabalho__icontains="sede"
+    ).order_by("?")
 
     # colaboradores_grand = Perfil.objects.filter(
     #     obra_trabalho__icontains="grand"
