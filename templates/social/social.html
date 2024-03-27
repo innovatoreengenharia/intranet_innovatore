@@ -50,7 +50,7 @@
                 {% else %}
                     <img class="foto-perfil" src={{ usuario.foto.url }}>
                 {% endif %}
-                    <p class="nome-contatos">{{ usuario.nome }} {{ usuario.sobrenome }}</p>
+                    <p class="nome-contatos">{{ usuario.nome }} {{ usuario.sobrenome|truncatewords:2 }}</p>
                     {% if usuario.cargo %}
                         <p class="cargo">{{ usuario.cargo }}</p>
                     {% endif %}
