@@ -12,5 +12,6 @@ bin/
 .vscode-test-web/
 .pyc
 media/
-*/migrations/*.py
+**/migrations/*.py
+!**/migrations/__init__.py
 */migrations/*.pyc
